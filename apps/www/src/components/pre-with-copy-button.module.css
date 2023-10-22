@@ -1,0 +1,8 @@
+.Container .CopyButton {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+[data-rehype-pretty-code-fragment]:hover .CopyButton {
+  opacity: 1;
+}

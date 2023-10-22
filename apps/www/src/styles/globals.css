@@ -1,0 +1,73 @@
+@import "@radix-ui/themes/styles.css";
+@import "theme-config.css";
+@import "pre.css";
+
+:root {
+  --header-max-width: 1400px;
+  --header-height: 48px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 48px;
+  }
+}
+
+:root,
+.light:not(.system) {
+  --theme-toggle-light-icon-display: block;
+  --theme-toggle-dark-icon-display: none;
+  --theme-toggle-system-icon-display: none;
+}
+.dark:not(.system) {
+  --theme-toggle-light-icon-display: none;
+  --theme-toggle-dark-icon-display: block;
+  --theme-toggle-system-icon-display: none;
+}
+.system {
+  --theme-toggle-light-icon-display: none;
+  --theme-toggle-dark-icon-display: none;
+  --theme-toggle-system-icon-display: block;
+}
+
+:root,
+.light {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--gray-12);
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -------------------------------------------------------------------- */
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+}

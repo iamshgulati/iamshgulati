@@ -1,0 +1,43 @@
+import React from "react";
+import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
+import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
+import { IconButton } from "@radix-ui/themes";
+import copy from "copy-to-clipboard";
+
+interface CopyCodeButtonProps {
+  code?: string;
+}
+
+export const CopyCodeButton = ({
+  code = "",
+  ...props
+}: PropsWithoutRefOrColor<"button"> &
+  CopyCodeButtonProps): React.JSX.Element => {
+  const [hasCopied, setHasCopied] = React.useState(false);
+
+  React.useEffect(() => {
+    if (hasCopied) setTimeout(() => setHasCopied(false), 1500);
+  }, [hasCopied]);
+
+  return (
+    <IconButton
+      aria-label="Copy code to clipboard"
+      onClick={() => {
+        copy(code);
+        setHasCopied(true);
+      }}
+      {...props}
+      mt="3"
+      mr="3"
+      color="gray"
+      variant="soft"
+      style={{
+        position: "absolute",
+        top: "0",
+        right: "0",
+      }}
+    >
+      {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
+    </IconButton>
+  );
+};

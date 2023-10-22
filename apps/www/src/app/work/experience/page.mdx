@@ -1,0 +1,69 @@
+---
+title: Work Experience
+description: All about my professional work experience.
+---
+
+import * as Components from "./components";
+
+import { MDXPageLayout } from "~/components/mdx-layout";
+
+export default function MDXPage({ children }) {
+  return <MDXPageLayout metadata={metadata}>{children}</MDXPageLayout>;
+}
+
+## Education Break
+
+<Components.EducationBreakDescription />
+
+### Certifications
+
+- AWS Certified Solutions Architect Associate
+- AWS Certified Cloud Practitioner
+
+### Saskatchewan Polytechnic, Canada
+
+{/* <Components.SaskpolyMeta /> */}
+
+- Pursuing _Cloud Computing & Blockchain_ postgraduate certificate program.
+- Dean's Honour List recepient.
+
+## Deloitte Consulting USI, India
+
+<Components.DeloitteUSIDescription />
+
+### Senior Technology Consultant
+
+{/* <Components.DeloitteUSISeniorConsultantMeta /> */}
+
+- Lead a team of six junior developers to enhance the reliability and accuracy of a usage reporting application by 30%.
+- Streamlined the development processes by enforcing best practices to improve code quality and reliability of the system.
+- Reduced the risk of security incidents by designing a framework to access sensitive application data from a vault.
+
+### Technology Consultant
+
+{/* <Components.DeloitteUSIConsultantMeta /> */}
+
+- Developed the client's support portal which is a one stop shop for all the support related needs for business users.
+- Increased code reusability and system reliability by developing a common foundation for all microservice modules.
+- Improved the performance of mission-critical features by 25% by optimizing application code and database queries.
+
+### Technology Analyst
+
+{/* <Components.DeloitteUSIAnalystMeta /> */}
+
+- Developed the client's HR Portal with more than 15 independent modules with a diverse set of HR related features.
+- Reduced the operational costs of the portal by 20% by re-writing the legacy Coldfusion application using Spring Boot.
+- Improved the efficiency and security of the modules by up to 80% by re-architecting backend services for the cloud.
+
+## CGI Inc., India
+
+<Components.CGIDescription />
+
+### Associate Software Engineer
+
+{/* <Components.CGIAnalystMeta /> */}
+
+- Developed a framework to manage the state of system services which reduced the maintenance downtime by 95%.
+- Migrated SOAP web services in legacy applications to REST endpoints in modern Spring Boot-based microservices.
+
+<Components.DownloadResumeButton />

@@ -1,0 +1,184 @@
+.HeaderRoot {
+  height: var(--header-height);
+}
+
+.HeaderInner {
+  position: relative;
+  height: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 1px transparent;
+}
+
+.HeaderContainer {
+  position: relative;
+  max-width: var(--header-max-width);
+  height: inherit;
+  margin: auto;
+}
+
+.HeaderRoot:is(.sticky) .HeaderInner {
+  position: fixed;
+}
+
+.HeaderRoot:is(.sticky) .HeaderInner {
+  transition:
+    background-color 180ms,
+    box-shadow 180ms;
+}
+
+.HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
+  transition-duration: 30ms, 120ms;
+}
+
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
+  background-color: var(--color-page-background);
+  box-shadow: 0 1px var(--gray-a4);
+}
+
+/* 
+.HeaderRoot:not(.ghost[data-scroll-state="at-top"])
+  > .HeaderInner
+  > .HeaderInnerBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  --extended-by: 6.25rem;
+  bottom: calc(-1 * var(--extended-by));
+  --cutoff: calc(100% - var(--extended-by));
+  mask-image: linear-gradient(
+    to bottom,
+    black 0,
+    black var(--cutoff),
+    transparent var(--cutoff)
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0,
+    black var(--cutoff),
+    transparent var(--cutoff)
+  );
+  --blur: 20px;
+  --saturate: 1.8;
+  backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+}
+*/
+
+.HeaderProductLink {
+  cursor: pointer;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  font-size: var(--font-size-2);
+  line-height: 16px;
+  letter-spacing: var(--letter-spacing-2);
+  position: relative;
+  color: var(--gray-a11);
+  outline: 0;
+}
+
+.HeaderProductLink[data-state="active"] {
+  padding-left: var(--space-1);
+  padding-right: var(--space-1);
+}
+
+/* Downscale on small devices */
+@media (max-width: 369px) {
+  .HeaderProductLink {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 520px) {
+  .HeaderProductLink {
+    padding-left: var(--space-1);
+    padding-right: var(--space-1);
+  }
+}
+
+@media (hover: hover) {
+  .HeaderProductLink:hover {
+    color: var(--gray-12);
+  }
+}
+
+.HeaderProductLink:focus-visible {
+  color: var(--gray-12);
+}
+
+.HeaderProductLink[data-state="active"] {
+  color: var(--color-page-background);
+}
+
+.HeaderProductLinkInner,
+.HeaderProductLinkInnerHidden {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-1);
+  padding-left: var(--space-1);
+  padding-right: var(--space-1);
+  border-radius: var(--radius-2);
+}
+
+.HeaderProductLink[data-state="active"] .HeaderProductLinkInner,
+.HeaderProductLink[data-state="active"] .HeaderProductLinkInnerHidden {
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+@media (min-width: 370px) {
+  .HeaderProductLinkInner,
+  .HeaderProductLinkInnerHidden {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+
+.HeaderProductLinkInner {
+  position: absolute;
+  letter-spacing: 0.01em;
+}
+
+.HeaderProductLinkInnerHidden {
+  visibility: hidden;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+
+@media (hover: hover) {
+  .HeaderProductLink:hover .HeaderProductLinkInner {
+    background-color: var(--gray-a3);
+  }
+}
+
+.HeaderProductLink:focus-visible .HeaderProductLinkInner {
+  box-shadow: 0 0 0 2px var(--accent-a8);
+}
+
+@media (hover: hover) {
+  .HeaderProductLink:focus-visible:where(:hover) .HeaderProductLinkInner {
+    background-color: var(--accent-a3);
+  }
+}
+
+.HeaderProductLink[data-state="active"] .HeaderProductLinkInner {
+  font-weight: bold;
+  letter-spacing: -0.01em;
+  background-color: var(--gray-12);
+}
+
+.HeaderProductLink[data-state="active"]::before {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
