@@ -31,6 +31,10 @@
     box-shadow 180ms;
 }
 
+/*
+ * Faster transition when the header gains background
+ * and slower when it loses it.
+ */
 .HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
   transition-duration: 30ms, 120ms;
 }
@@ -84,7 +88,7 @@
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
   box-shadow: 0 1px var(--gray-a4);
 }
-.HeaderRoot:not(.ghost[data-scroll-state="at-top"])
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"])
   > .HeaderInner
   > .HeaderInnerBackdrop {
   background-color: var(--color-panel-translucent);
