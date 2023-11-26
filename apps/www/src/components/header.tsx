@@ -50,7 +50,7 @@ export function Header({
       )}
     >
       <nav className={styles.HeaderInner}>
-        {/* <div className={styles.HeaderInnerBackdrop} /> */}
+        <div className={styles.HeaderInnerBackdrop} />
         <Box className={styles.HeaderContainer}>
           <Flex
             display={{ initial: "flex", xs: "none" }}
