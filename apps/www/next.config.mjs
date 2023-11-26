@@ -1,6 +1,7 @@
 /** Importing env files here to validate on build */
 import "./src/env.mjs";
 
+import path from "path";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
 import rehypePrettyCode from "rehype-pretty-code";

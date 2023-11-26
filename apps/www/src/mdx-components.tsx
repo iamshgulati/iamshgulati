@@ -71,8 +71,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         className={cn(className, styles.H2)}
         style={{
           scrollMarginTop: "var(--space-9)",
-          // paddingBottom: "var(--space-2)",
-          // borderBottom: "1px solid var(--gray-6)",
         }}
         data-heading
       >
@@ -106,13 +104,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     p: ({ className, ...props }): React.JSX.Element => (
-      <Text
-        as="p"
-        mb="3"
-        size="3"
-        {...props}
-        className={cn(className, styles.P)}
-      />
+      <Text as="p" mb="3" size="3" {...props} className={className} />
     ),
     a: ({ href = "", className, ...props }): React.JSX.Element => {
       if (href.startsWith("http")) {
@@ -126,11 +118,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
               className={className}
             />
             <ArrowTopRightIcon
-              style={{ marginLeft: "var(--space-2)", color: "var(--gray-9)" }}
+              style={{
+                marginLeft: "var(--space-1)",
+                color: "var(--gray-9)",
+              }}
             />
           </React.Fragment>
         );
       }
+
       return (
         <NextLink href={href} passHref legacyBehavior>
           <Link {...props} className={className} />
@@ -147,13 +143,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     ul: ({ className, ...props }): React.JSX.Element => (
-      <Flex asChild direction="column" gap="1" mb="3" pl="4">
-        <ul {...props} className={cn(className, styles.List)} />
+      <Flex asChild direction="column" gap="1" mb="3">
+        <ul {...props} className={cn(className, styles.UnorderedList)} />
       </Flex>
     ),
     ol: ({ className, ...props }): React.JSX.Element => (
-      <Box asChild mb="3" pl="4">
-        <ol {...props} className={className} />
+      <Box asChild mb="3">
+        <ol {...props} className={cn(className, styles.OrderedList)} />
       </Box>
     ),
     li: ({ className, ...props }): React.JSX.Element => (
@@ -179,11 +175,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </Box>
     ),
     blockquote: ({ className, ...props }): React.JSX.Element => (
-      <Blockquote {...props} className={className} />
+      <Blockquote
+        {...props}
+        my="6"
+        className={cn(className, styles.Blockquote)}
+      />
     ),
     pre: ({ ...props }): React.JSX.Element => <PreWithCopyButton {...props} />,
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
-      // if it's a codeblock (``` block in markdown), it wll have a className from rehype-pretty-code
       const isInlineCode = !className;
       return isInlineCode ? (
         <Code className={className} {...props} />
