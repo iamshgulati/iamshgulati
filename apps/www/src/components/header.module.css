@@ -12,8 +12,9 @@
 
 /* INNER STYLES START ========================================================================== */
 
-/*
- * HeaderInner with transparency, blur, and saturation filters.
+/* 
+ * HeaderInner, HeaderInnerBackdrop with extended backdrop filters.
+ * Background color =  var(--color-page-background) / 0.8
  */
 
 .HeaderInner {
@@ -44,12 +45,39 @@
 }
 
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-page-background);
   box-shadow: 0 1px var(--gray-a4);
+}
 
-  /* If browser supports relative color, then change nackground color alpha value and apply backdrop filters. */
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"])
+  > .HeaderInner
+  > .HeaderInnerBackdrop {
+  background-color: var(--color-page-background);
+
+  /* If browser supports relative color, then change background color alpha value and apply backdrop filters. */
   @supports (color: rgb(from white r g b)) {
     background-color: rgb(from var(--color-page-background) r g b / 0.8);
+
+    /* Extended backdrop filters */
+    --extended-by: 6.25rem;
+    --cutoff: calc(100% - var(--extended-by));
+    position: absolute;
+    top: 0;
+    bottom: calc(-1 * var(--extended-by));
+    left: 0;
+    right: 0;
+    z-index: -1;
+    mask-image: linear-gradient(
+      to bottom,
+      black 0,
+      black var(--cutoff),
+      transparent var(--cutoff)
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 0,
+      black var(--cutoff),
+      transparent var(--cutoff)
+    );
     --blur: 20px;
     --saturate: 1.8;
     backdrop-filter: blur(var(--blur)) saturate(var(--saturate));

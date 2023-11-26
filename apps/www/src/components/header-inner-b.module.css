@@ -1,5 +1,5 @@
 /*
- * HeaderInner with transparency, blur, and saturation filters.
+ * HeaderInner with simple backdrop filters.
  * Background color =  var(--color-page-background) / 0.8
  */
 
@@ -37,6 +37,8 @@
   /* If browser supports relative color, then change nackground color alpha value and apply backdrop filters. */
   @supports (color: rgb(from white r g b)) {
     background-color: rgb(from var(--color-page-background) r g b / 0.8);
+    
+    /* Simple backdrop filters */
     --blur: 20px;
     --saturate: 1.8;
     backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
