@@ -69,23 +69,27 @@
   box-shadow: 0 1px var(--gray-a4);
 } */
 
-/* 2. Header with transparency, blur, and saturation */
+/* 2. Header with transparency, blur, and saturation filters */
 
-/* .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
   background-color: var(--color-panel-translucent);
   @supports (color: rgb(from white r g b)) {
     background-color: rgb(from var(--color-page-background) r g b / 0.8);
   }
   box-shadow: 0 1px var(--gray-a4);
+
   --blur: 20px;
   --saturate: 1.8;
   backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
   -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-} */
+}
 
-/* 3. Header with backdrop, transparency, blur, and saturation */
+/* 
+ * 3. Header with transparency, blur, and saturation filters
+ * in an extended background class.
+ */
 
-.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
+/* .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
   box-shadow: 0 1px var(--gray-a4);
 }
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"])
@@ -95,12 +99,14 @@
   @supports (color: rgb(from white r g b)) {
     background-color: rgb(from var(--color-page-background) r g b / 0.8);
   }
-  position: absolute;
-  inset: 0;
-  z-index: -1;
   --extended-by: 6.25rem;
-  bottom: calc(-1 * var(--extended-by));
   --cutoff: calc(100% - var(--extended-by));
+  position: absolute;
+  top: 0;
+  bottom: calc(-1 * var(--extended-by));
+  left: 0;
+  right: 0;
+  z-index: -1;
   mask-image: linear-gradient(
     to bottom,
     black 0,
@@ -117,7 +123,7 @@
   --saturate: 1.8;
   backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
   -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-}
+} */
 
 .HeaderProductLink {
   cursor: pointer;
