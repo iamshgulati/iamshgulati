@@ -19,10 +19,7 @@ export const updateThemeClasses = function () {
   }
 };
 
-/**
- * themeColor.light and themeColor.dark should be in sync
- * with var(--color-background) or var(--color-page-background)
- */
+/* themeColor.light and themeColor.dark must remain in sync with var(--color-background) */
 /*
 export const updateMetaColor = function () {
   try {

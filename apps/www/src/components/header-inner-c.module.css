@@ -1,15 +1,13 @@
 /* 
- * HeaderInner, HeaderInnerBackdrop with extended backdrop filters.
- * Background color =  var(--color-page-background) / 0.8
+ * HeaderInner, HeaderInnerBackdrop with simple backdrop filters and extended linear-gradient mask image.
+ * Background color =  var(--color-background) / 0.8
  */
 
  .HeaderInner {
   position: relative;
-  height: inherit;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 2;
+  inset: 0;
+  height: inherit;
   user-select: none;
   -webkit-user-select: none;
   box-shadow: 0 1px transparent;
@@ -19,14 +17,18 @@
   position: fixed;
 }
 
-.HeaderRoot:is(.sticky) .HeaderInner {
+.HeaderRoot:is(.sticky) .HeaderInner,
+.HeaderRoot:is(.sticky) .HeaderInner .HeaderInnerBackdrop {
   transition:
     background-color 180ms,
     box-shadow 180ms;
 }
 
 /* Faster transition when the header gains background and slower when it loses it. */
-.HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
+.HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner,
+.HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"])
+  .HeaderInner
+  .HeaderInnerBackdrop {
   transition-duration: 30ms, 120ms;
 }
 
@@ -37,36 +39,36 @@
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"])
   > .HeaderInner
   > .HeaderInnerBackdrop {
-  background-color: var(--color-page-background);
+  background-color: var(--color-background);
 
   /* If browser supports relative color, then change background color alpha value and apply backdrop filters. */
   @supports (color: rgb(from white r g b)) {
-    background-color: rgb(from var(--color-page-background) r g b / 0.8);
+    background-color: rgb(from var(--color-background) r g b / 0.8);
 
-    /* Extended backdrop filters */
-    --extended-by: 6.25rem;
-    --cutoff: calc(100% - var(--extended-by));
-    position: absolute;
-    top: 0;
-    bottom: calc(-1 * var(--extended-by));
-    left: 0;
-    right: 0;
-    z-index: -1;
-    mask-image: linear-gradient(
-      to bottom,
-      black 0,
-      black var(--cutoff),
-      transparent var(--cutoff)
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      black 0,
-      black var(--cutoff),
-      transparent var(--cutoff)
-    );
+    /* Simple backdrop filters */
     --blur: 20px;
     --saturate: 1.8;
     backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
     -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
   }
+
+  /* Extended linear-gradient mask image */
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  --extended-by: 6.25rem;
+  bottom: calc(-1 * var(--extended-by));
+  --cutoff: calc(100% - var(--extended-by));
+  mask-image: linear-gradient(
+    to bottom,
+    black 0,
+    black var(--cutoff),
+    transparent var(--cutoff)
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0,
+    black var(--cutoff),
+    transparent var(--cutoff)
+  );
 }

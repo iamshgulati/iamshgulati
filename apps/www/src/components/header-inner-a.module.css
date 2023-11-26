@@ -1,6 +1,6 @@
 /*
  * HeaderInner with no transparency.
- * Background color =  var(--color-page-background)
+ * Background color =  var(--color-background)
  */
 
 .HeaderInner {
@@ -31,6 +31,6 @@
 }
 
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-page-background);
+  background-color: var(--color-background);
   box-shadow: 0 1px var(--gray-a4);
 }

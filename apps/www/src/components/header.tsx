@@ -38,7 +38,7 @@ export function Header({
   sticky = false,
   ghost = false,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
-  const { scrollState } = useOnScroll(5, ghost);
+  const { scrollState } = useOnScroll(0, ghost);
 
   return (
     <Box

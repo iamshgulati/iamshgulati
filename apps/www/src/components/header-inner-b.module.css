@@ -1,15 +1,13 @@
 /*
  * HeaderInner with simple backdrop filters.
- * Background color =  var(--color-page-background) / 0.8
+ * Background color =  var(--color-background) / 0.8
  */
 
 .HeaderInner {
   position: relative;
-  height: inherit;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 2;
+  inset: 0;
+  height: inherit;
   user-select: none;
   -webkit-user-select: none;
   box-shadow: 0 1px transparent;
@@ -31,13 +29,13 @@
 }
 
 .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-page-background);
+  background-color: var(--color-background);
   box-shadow: 0 1px var(--gray-a4);
 
   /* If browser supports relative color, then change nackground color alpha value and apply backdrop filters. */
   @supports (color: rgb(from white r g b)) {
-    background-color: rgb(from var(--color-page-background) r g b / 0.8);
-    
+    background-color: rgb(from var(--color-background) r g b / 0.8);
+
     /* Simple backdrop filters */
     --blur: 20px;
     --saturate: 1.8;
