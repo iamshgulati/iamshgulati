@@ -5,13 +5,14 @@
 :root {
   --header-max-width: 1400px;
   --header-height: 52px;
+  /* --header-height: 48px; */
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   :root {
     --header-height: 52px;
   }
-}
+} */
 
 :root,
 .light:not(.system) {
