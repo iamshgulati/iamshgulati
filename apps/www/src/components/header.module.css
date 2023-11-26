@@ -1,6 +1,20 @@
+/*
+ * Any change to .HeaderInner -> background-color prop
+ * must also be updated in
+ * NextThemesProvider.tsx -> themeColor object
+ * --color-page-background = color(display-p3 0.067 0.067 0.074)
+ * --color-panel-translucent = color(display-p3 0.1059 0.1137 0.1176 / 0.7)
+ */
+
 .HeaderRoot {
   height: var(--header-height);
 }
+
+/* INNER STYLES START ========================================================================== */
+
+/*
+ * HeaderInner with transparency, blur, and saturation filters.
+ */
 
 .HeaderInner {
   position: relative;
@@ -14,13 +28,6 @@
   box-shadow: 0 1px transparent;
 }
 
-.HeaderContainer {
-  position: relative;
-  max-width: var(--header-max-width);
-  height: inherit;
-  margin: auto;
-}
-
 .HeaderRoot:is(.sticky) .HeaderInner {
   position: fixed;
 }
@@ -31,99 +38,33 @@
     box-shadow 180ms;
 }
 
-/*
- * Faster transition when the header gains background
- * and slower when it loses it.
- */
+/* Faster transition when the header gains background and slower when it loses it. */
 .HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
   transition-duration: 30ms, 120ms;
 }
 
-/* .HeaderInner Background Color Variants
- * 1. Background matching page color with no transparency.
- * background-color: var(--color-page-background);
- *
- * 2. Background matching translucent panel color.
- * background-color: var(--color-panel-translucent);
- *
- * 3. Background matching page color with transparency
- * and a fallback color if relative color is not supported.
- * background-color: var(--color-panel-translucent);
- * @supports (color: rgb(from white r g b)) {
- *   background-color: rgb(from var(--color-page-background) r g b / 0.8);
- * }
- */
-
-/*
- * Any change to .HeaderInner -> background-color prop
- * must also be updated in
- * NextThemesProvider.tsx -> themeColor object
- * --color-page-background = color(display-p3 0.067 0.067 0.074)
- * --color-panel-translucent = color(display-p3 0.1059 0.1137 0.1176 / 0.7)
- */
-
-/* 1. Header with no transparency */
-
-/* .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
   background-color: var(--color-page-background);
   box-shadow: 0 1px var(--gray-a4);
-} */
 
-/* 2. Header with transparency, blur, and saturation filters */
-
-.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-panel-translucent);
+  /* If browser supports relative color, then change nackground color alpha value and apply backdrop filters. */
   @supports (color: rgb(from white r g b)) {
     background-color: rgb(from var(--color-page-background) r g b / 0.8);
+    --blur: 20px;
+    --saturate: 1.8;
+    backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
   }
-  box-shadow: 0 1px var(--gray-a4);
-
-  --blur: 20px;
-  --saturate: 1.8;
-  backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-  -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
 }
 
-/* 
- * 3. Header with transparency, blur, and saturation filters
- * in an extended background class.
- */
+/* INNER STYLES END ========================================================================== */
 
-/* .HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  box-shadow: 0 1px var(--gray-a4);
+.HeaderContainer {
+  position: relative;
+  max-width: var(--header-max-width);
+  height: inherit;
+  margin: auto;
 }
-.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"])
-  > .HeaderInner
-  > .HeaderInnerBackdrop {
-  background-color: var(--color-panel-translucent);
-  @supports (color: rgb(from white r g b)) {
-    background-color: rgb(from var(--color-page-background) r g b / 0.8);
-  }
-  --extended-by: 6.25rem;
-  --cutoff: calc(100% - var(--extended-by));
-  position: absolute;
-  top: 0;
-  bottom: calc(-1 * var(--extended-by));
-  left: 0;
-  right: 0;
-  z-index: -1;
-  mask-image: linear-gradient(
-    to bottom,
-    black 0,
-    black var(--cutoff),
-    transparent var(--cutoff)
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0,
-    black var(--cutoff),
-    transparent var(--cutoff)
-  );
-  --blur: 20px;
-  --saturate: 1.8;
-  backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-  -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-} */
 
 .HeaderProductLink {
   cursor: pointer;

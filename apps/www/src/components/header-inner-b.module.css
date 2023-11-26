@@ -1,0 +1,44 @@
+/*
+ * HeaderInner with transparency, blur, and saturation filters.
+ */
+
+.HeaderInner {
+  position: relative;
+  height: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 1px transparent;
+}
+
+.HeaderRoot:is(.sticky) .HeaderInner {
+  position: fixed;
+}
+
+.HeaderRoot:is(.sticky) .HeaderInner {
+  transition:
+    background-color 180ms,
+    box-shadow 180ms;
+}
+
+/* Faster transition when the header gains background and slower when it loses it. */
+.HeaderRoot:is(.sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
+  transition-duration: 30ms, 120ms;
+}
+
+.HeaderRoot:is(.sticky):not(.ghost[data-scroll-state="at-top"]) > .HeaderInner {
+  background-color: var(--color-page-background);
+  box-shadow: 0 1px var(--gray-a4);
+
+  /* If browser supports relative color, then change nackground color alpha value and apply backdrop filters. */
+  @supports (color: rgb(from white r g b)) {
+    background-color: rgb(from var(--color-page-background) r g b / 0.8);
+    --blur: 20px;
+    --saturate: 1.8;
+    backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+  }
+}
