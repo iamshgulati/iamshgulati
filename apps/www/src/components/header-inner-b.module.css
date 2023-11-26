@@ -1,5 +1,6 @@
 /*
  * HeaderInner with transparency, blur, and saturation filters.
+ * Background color =  var(--color-page-background) / 0.8
  */
 
 .HeaderInner {
