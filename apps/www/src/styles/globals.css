@@ -1,6 +1,6 @@
 @import "@radix-ui/themes/styles.css";
 @import "theme-config.css";
-@import "pre.css";
+@import "rehype-pretty-code.css";
 
 :root {
   --header-max-width: 1400px;
