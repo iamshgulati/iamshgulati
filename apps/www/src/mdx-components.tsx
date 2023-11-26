@@ -182,35 +182,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Blockquote {...props} className={className} />
     ),
     pre: ({ ...props }): React.JSX.Element => <PreWithCopyButton {...props} />,
-    code: ({
-      line = "",
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLElement> & {
-      line?: string;
-    }): React.JSX.Element => {
+    code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
+      // if it's a codeblock (``` block in markdown), it wll have a className from rehype-pretty-code
       const isInlineCode = !className;
       return isInlineCode ? (
-        <Code {...props} className={className} />
+        <Code className={className} {...props} />
       ) : (
-        <code
-          {...props}
-          className={className}
-          data-invert-line-highlight={line !== undefined}
-        />
+        <code className={className} {...props} />
       );
     },
-    table: ({ ...props }) => (
-      <Box my="5" asChild>
-        <Table.Root variant="surface" {...props} />
-      </Box>
-    ),
-    tr: ({ ...props }) => <Table.Row {...props} />,
+    table: ({ ...props }) => <Table.Root variant="surface" my="5" {...props} />,
     thead: ({ ...props }) => <Table.Header {...props} />,
-    th: ({ ...props }) => <Table.ColumnHeaderCell {...props} />,
     tbody: ({ ...props }) => <Table.Body {...props} />,
-    /* tb is not a valid tag, it is to be relaced with first-child of every tr in a tbody */
-    tb: ({ ...props }) => <Table.RowHeaderCell {...props} />,
+    th: ({ ...props }) => <Table.ColumnHeaderCell {...props} />,
+    trh: ({ ...props }) => <Table.RowHeaderCell {...props} />,
+    tr: ({ ...props }) => <Table.Row {...props} />,
     td: ({ ...props }) => <Table.Cell {...props} />,
   };
 }

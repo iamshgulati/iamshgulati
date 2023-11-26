@@ -3,8 +3,8 @@
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
 
-.HiddenScroll::-webkit-scrollbar {
-  display: none;
+  & ::-webkit-scrollbar {
+    display: none;
+  }
 }

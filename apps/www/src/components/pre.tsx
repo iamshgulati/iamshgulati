@@ -6,7 +6,6 @@ import { Box } from "@radix-ui/themes";
 
 // import { createContext } from "@radix-ui/react-context";
 import { cn } from "~/lib/utils";
-import { HiddenScroll } from "./hidden-scroll";
 import styles from "./pre.module.css";
 
 // export const [SyntaxSchemeProvider, useSyntaxSchemeContext] = createContext<{
@@ -32,7 +31,7 @@ export const Pre = React.forwardRef<HTMLPreElement, PreProps>(function Pre(
           className,
         )}
       >
-        <HiddenScroll>{children}</HiddenScroll>
+        {children}
       </pre>
     </Box>
   );
