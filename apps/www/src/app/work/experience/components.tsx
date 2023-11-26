@@ -84,27 +84,39 @@ export const CGIAnalystMeta = (): React.JSX.Element => {
   );
 };
 
-export const DownloadResumeButton = (): React.JSX.Element => {
+export const DownloadResumeSection = ({
+  children,
+}: React.PropsWithChildren): React.JSX.Element => {
   return (
-    <Section size={{ initial: "2", xs: "3" }} pb="0">
+    <Section
+      size={{ initial: "2", xs: "3" }}
+      pb="0"
+      style={{ transform: "translate(0%, calc(-1 * var(--space-2)))" }}
+    >
       <Flex justify="center">
         <Link
           href={siteConfig.links.resume}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button
-            size="3"
-            style={{
-              paddingLeft: "var(--space-6)",
-              paddingRight: "var(--space-6)",
-            }}
-          >
-            <FileTextIcon width="18" height="18" />
-            <Text weight="medium">DOWNLOAD RESUME</Text>
-          </Button>
+          {children}
         </Link>
       </Flex>
     </Section>
+  );
+};
+
+export const DownloadResumeButton = (): React.JSX.Element => {
+  return (
+    <Button
+      size="3"
+      style={{
+        paddingLeft: "var(--space-6)",
+        paddingRight: "var(--space-6)",
+      }}
+    >
+      <FileTextIcon width="18" height="18" />
+      <Text weight="medium">DOWNLOAD RESUME</Text>
+    </Button>
   );
 };
