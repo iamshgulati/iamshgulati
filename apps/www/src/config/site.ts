@@ -1,4 +1,4 @@
-import { getBaseUrl } from "~/helpers/url";
+import { getBaseUrl } from "~/lib/url";
 import type { SiteConfig } from "~/types";
 
 export const siteConfig: SiteConfig = {

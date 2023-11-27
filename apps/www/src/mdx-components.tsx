@@ -173,13 +173,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
       const isInlineCode = !className;
       return isInlineCode ? (
-        <Code
-          {...props}
-          className={className}
-          style={{
-            whiteSpace: "pre",
-          }}
-        />
+        <Code {...props} className={className} />
       ) : (
         <code {...props} className={className} />
       );
