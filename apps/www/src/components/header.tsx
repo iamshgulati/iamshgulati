@@ -52,7 +52,7 @@ export function Header({
             top="0"
             bottom="0"
             left="0"
-            pl={{ initial: "4", sm: "6" }}
+            pl={{ initial: "5", sm: "6" }}
           >
             <HeaderLogoLink>
               <SiteLogoIcon />
@@ -66,7 +66,7 @@ export function Header({
             top="0"
             bottom="0"
             left="0"
-            pl={{ initial: "4", sm: "6" }}
+            pl={{ initial: "5", sm: "6" }}
           >
             <HeaderLogoLink>
               <SiteLogo />
@@ -94,7 +94,7 @@ export function Header({
             top="0"
             bottom="0"
             right="0"
-            pr={{ initial: "4", sm: "6" }}
+            pr={{ initial: "5", sm: "6" }}
           >
             <Search />
           </Flex>
@@ -107,7 +107,7 @@ export function Header({
             top="0"
             bottom="0"
             right="0"
-            pr={{ initial: "4", sm: "6" }}
+            pr={{ initial: "5", sm: "6" }}
           >
             {children}
             <Search />
