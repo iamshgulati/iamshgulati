@@ -47,6 +47,7 @@ const Hero = (): React.JSX.Element => (
           style={{
             paddingLeft: "var(--space-5)",
             paddingRight: "var(--space-5)",
+            gap: "var(--space-2)",
           }}
         >
           <PersonIcon width="18" height="18" />
@@ -65,6 +66,7 @@ const Hero = (): React.JSX.Element => (
           style={{
             paddingLeft: "var(--space-5)",
             paddingRight: "var(--space-5)",
+            gap: "var(--space-2)",
           }}
         >
           <FileTextIcon width="18" height="18" />
