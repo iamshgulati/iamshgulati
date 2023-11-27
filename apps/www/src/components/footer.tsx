@@ -7,12 +7,14 @@ import { NextLink } from "~/lib/link";
 import type { NavItem } from "~/types";
 import { BoxLink } from "./box-link";
 import styles from "./footer.module.css";
-import { SiteLogoIcon } from "./logo";
+import { SiteLogoIcon } from "./site-logo";
+import { SocialIconButton } from "./social-icon-button";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Footer(): React.JSX.Element {
   return (
-    <Grid asChild pb="9" gapX="7" gapY="8" className={styles.Footer}>
-      <footer>
+    <footer>
+      <Grid pb="6" gapX="7" gapY="8" className={styles.Footer}>
         <Flex
           direction="column"
           align="start"
@@ -47,8 +49,25 @@ export function Footer(): React.JSX.Element {
           <GroupItem href={siteConfig.links.linkedin}>LinkedIn</GroupItem>
           <GroupItem href={siteConfig.links.twitter}>Twitter</GroupItem>
         </Group>
-      </footer>
-    </Grid>
+      </Grid>
+      <Flex align="center" justify="between">
+        <Flex gap="5">
+          <SocialIconButton
+            icon="GitHubLogoIcon"
+            href={siteConfig.links.github}
+          />
+          <SocialIconButton
+            icon="LinkedInLogoIcon"
+            href={siteConfig.links.linkedin}
+          />
+          <SocialIconButton
+            icon="TwitterLogoIcon"
+            href={siteConfig.links.twitter}
+          />
+        </Flex>
+        <ThemeToggle />
+      </Flex>
+    </footer>
   );
 }
 

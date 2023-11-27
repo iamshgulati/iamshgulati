@@ -8,7 +8,6 @@ import {
   Box,
   Flex,
   IconButton,
-  Link,
   Tooltip,
 } from "@radix-ui/themes";
 
@@ -20,9 +19,7 @@ import { NextLink } from "~/lib/link";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
 import styles from "./header.module.css";
-import { Icons } from "./icons";
-import { SiteLogo, SiteLogoIcon } from "./logo";
-import { ThemeToggle } from "./theme-toggle";
+import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
@@ -100,7 +97,6 @@ export function Header({
             pr={{ initial: "4", sm: "6" }}
           >
             <Search />
-            <ThemeToggle />
           </Flex>
 
           <Flex
@@ -115,11 +111,6 @@ export function Header({
           >
             {children}
             <Search />
-            <HeaderSocialIcon
-              href={siteConfig.links.github}
-              icon="GitHubLogoIcon"
-            />
-            <ThemeToggle />
           </Flex>
         </Box>
       </nav>
@@ -181,43 +172,12 @@ const HeaderLogoLink = ({
   </NextLink>
 );
 
-const HeaderSocialIcon = ({
-  icon,
-  href,
-}: {
-  icon: keyof typeof Icons;
-  href: string;
-}): React.JSX.Element => {
-  const SocialIcon = Icons[icon];
-  const SocialNetwork = icon.replace("Logo", "").replace("Icon", "");
-
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-      }}
-    >
-      <Tooltip content={`Go to ${SocialNetwork}`}>
-        <IconButton size="3" variant="ghost" color="gray">
-          <AccessibleIcon label={SocialNetwork}>
-            <SocialIcon width="16" height="16" />
-          </AccessibleIcon>
-        </IconButton>
-      </Tooltip>
-    </Link>
-  );
-};
-
 const Search = (): React.JSX.Element => {
   return (
     <Tooltip content="Search website">
       <IconButton size="3" variant="ghost" color="gray">
         <AccessibleIcon label="Light theme">
-          <MagnifyingGlassIcon width="18" height="18" />
+          <MagnifyingGlassIcon width="20" height="20" />
         </AccessibleIcon>
       </IconButton>
     </Tooltip>
