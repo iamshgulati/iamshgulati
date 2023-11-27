@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { Section, Separator, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
@@ -6,10 +7,19 @@ import { Certifications } from "./certifications";
 import Experience from "./experience.mdx";
 import SkillsAndTools from "./skills-and-tools.mdx";
 
+const TITLE = "About Me";
+const DESCRIPTION =
+  "About my professional experience, certifications, skills and tools.";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+};
+
 export default function AboutPage(): React.JSX.Element {
   return (
     <React.Fragment>
-      <Hero title="About Me" description="Learn more about me." />
+      <Hero title={TITLE} description={DESCRIPTION} />
       <Section size="2">
         <Experience />
       </Section>

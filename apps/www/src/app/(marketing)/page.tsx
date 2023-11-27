@@ -1,5 +1,10 @@
 import React from "react";
-import { ArrowRightIcon, FileTextIcon } from "@radix-ui/react-icons";
+import {
+  ArrowRightIcon,
+  ArrowTopRightIcon,
+  FileTextIcon,
+  PersonIcon,
+} from "@radix-ui/react-icons";
 import { Box, Button, Flex, Link, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
@@ -44,7 +49,8 @@ const Hero = (): React.JSX.Element => (
             paddingRight: "var(--space-5)",
           }}
         >
-          <Text>About Me</Text>
+          <PersonIcon width="18" height="18" />
+          <Text>About</Text>
           <ArrowRightIcon width="18" height="18" />
         </Button>
       </NextLink>
@@ -63,6 +69,7 @@ const Hero = (): React.JSX.Element => (
         >
           <FileTextIcon width="18" height="18" />
           <Text>RESUME</Text>
+          <ArrowTopRightIcon width="18" height="18" />
         </Button>
       </Link>
     </Flex>

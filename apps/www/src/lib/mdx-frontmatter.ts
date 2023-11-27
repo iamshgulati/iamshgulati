@@ -39,3 +39,4 @@ const frontmatter = (
 
 export const allBlogPosts = frontmatter("/blog");
 export const allProjects = frontmatter("/projects");
+export const allThoughts = frontmatter("/thoughts");

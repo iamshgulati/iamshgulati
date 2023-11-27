@@ -124,7 +124,7 @@ const HeaderProductLinks = (): React.JSX.Element => {
     <React.Fragment>
       <HeaderProductLink
         href="/"
-        active={["/", "/about"].indexOf(pathname) >= 0}
+        active={!["/blog", "/projects"].includes(pathname)}
       >
         Home
       </HeaderProductLink>

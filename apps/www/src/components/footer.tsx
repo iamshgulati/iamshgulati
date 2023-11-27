@@ -8,7 +8,6 @@ import type { NavItem } from "~/types";
 import { BoxLink } from "./box-link";
 import styles from "./footer.module.css";
 import { SiteLogoIcon } from "./site-logo";
-import { SocialIconButton } from "./social-icon-button";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Footer(): React.JSX.Element {
@@ -26,22 +25,23 @@ export function Footer(): React.JSX.Element {
               <SiteLogoIcon />
             </BoxLink>
           </NextLink>
-          <Box mt="5">
-            <Heading as="h2" size="3">
-              <NextLink href="/" passHref legacyBehavior>
-                <Link color="gray" style={{ color: "inherit" }}>
-                  {siteConfig.name}
-                </Link>
-              </NextLink>
-            </Heading>
-            <Text size="1" color="gray">
-              &copy; {new Date().getFullYear()}, All rights reserved
-            </Text>
-          </Box>
+          <Heading as="h2" size="3" mt="5">
+            <NextLink href="/" passHref legacyBehavior>
+              <Link color="gray" style={{ color: "inherit" }}>
+                {siteConfig.name}
+              </Link>
+            </NextLink>
+          </Heading>
         </Flex>
 
-        <Group groupTitle="Explore" items={navConfig.mainNavItems}>
-          <GroupItem href="/about">About Me</GroupItem>
+        <Group groupTitle="Professional" items={navConfig.mainNavItems}>
+          <GroupItem href="/about">About</GroupItem>
+        </Group>
+
+        <Group groupTitle="Personal">
+          <GroupItem href="/thoughts">Thoughts</GroupItem>
+          <GroupItem href="/quotes">Quotes</GroupItem>
+          <GroupItem href="/tweets">Tweets</GroupItem>
         </Group>
 
         <Group groupTitle="Social">
@@ -51,20 +51,9 @@ export function Footer(): React.JSX.Element {
         </Group>
       </Grid>
       <Flex align="center" justify="between">
-        <Flex gap="5">
-          <SocialIconButton
-            icon="GitHubLogoIcon"
-            href={siteConfig.links.github}
-          />
-          <SocialIconButton
-            icon="LinkedInLogoIcon"
-            href={siteConfig.links.linkedin}
-          />
-          <SocialIconButton
-            icon="TwitterLogoIcon"
-            href={siteConfig.links.twitter}
-          />
-        </Flex>
+        <Text size="1" color="gray">
+          &copy; 2016 — {new Date().getFullYear()} All Rights Reserved.
+        </Text>
         <ThemeToggle />
       </Flex>
     </footer>
