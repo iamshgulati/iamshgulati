@@ -32,8 +32,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         size="8"
         mb="3"
         {...props}
-        className={className}
-        style={{ scrollMarginTop: "var(--space-9)" }}
+        className={cn(className, styles.H)}
       />
     ),
     h2: ({ id = "", children, className, ...props }): React.JSX.Element => (
@@ -44,10 +43,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         mb="2"
         id={id}
         {...props}
-        className={cn(className, styles.H2)}
-        style={{
-          scrollMarginTop: "var(--space-9)",
-        }}
+        className={cn(className, styles.H)}
         data-heading
       >
         <HeadingLink id={id}>{children}</HeadingLink>
@@ -61,8 +57,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         mb="2"
         id={id}
         {...props}
-        className={className}
-        style={{ scrollMarginTop: "var(--space-9)" }}
+        className={cn(className, styles.H)}
         data-heading
       >
         <HeadingLink id={id}>{children}</HeadingLink>
@@ -75,31 +70,45 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         mt="6"
         mb="3"
         {...props}
-        className={className}
-        style={{ scrollMarginTop: "var(--space-9)" }}
+        className={cn(className, styles.H)}
+      />
+    ),
+    h5: ({ className, ...props }): React.JSX.Element => (
+      <Heading
+        as="h5"
+        size="4"
+        mt="6"
+        mb="3"
+        {...props}
+        className={cn(className, styles.H)}
+      />
+    ),
+    h6: ({ className, ...props }): React.JSX.Element => (
+      <Heading
+        as="h6"
+        size="3"
+        mt="4"
+        mb="1"
+        {...props}
+        className={cn(className, styles.H)}
       />
     ),
     p: ({ className, ...props }): React.JSX.Element => (
       <Text as="p" mb="3" size="3" {...props} className={className} />
     ),
-    a: ({ href = "", className, ...props }): React.JSX.Element => {
+    a: ({ href = "", children, className, ...props }): React.JSX.Element => {
       if (href.startsWith("http")) {
         return (
-          <React.Fragment>
-            <Link
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              {...props}
-              className={className}
-            />
-            <ArrowTopRightIcon
-              style={{
-                marginLeft: "var(--space-1)",
-                color: "var(--gray-9)",
-              }}
-            />
-          </React.Fragment>
+          <Link
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            {...props}
+            className={cn(className, styles.Link)}
+          >
+            {children}
+            <ArrowTopRightIcon aria-hidden />
+          </Link>
         );
       }
 
@@ -120,16 +129,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     ul: ({ className, ...props }): React.JSX.Element => (
       <Flex asChild direction="column" gap="1" mb="3">
-        <ul {...props} className={cn(className, styles.UnorderedList)} />
+        <ul {...props} className={cn(className, styles.List)} />
       </Flex>
     ),
     ol: ({ className, ...props }): React.JSX.Element => (
       <Box asChild mb="3">
-        <ol {...props} className={cn(className, styles.OrderedList)} />
+        <ol {...props} className={cn(className, styles.List)} />
       </Box>
     ),
     li: ({ className, ...props }): React.JSX.Element => (
-      <li>
+      <li className={styles.ListItem}>
         <Text as="span" {...props} className={className} />
       </li>
     ),
@@ -155,6 +164,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
         my="6"
         className={cn(className, styles.Blockquote)}
+        style={{
+          fontStyle: "italic",
+        }}
       />
     ),
     pre: ({ ...props }): React.JSX.Element => <PreWithCopyButton {...props} />,
@@ -165,7 +177,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           {...props}
           className={className}
           style={{
-            whiteSpace: "break-spaces",
+            whiteSpace: "pre",
           }}
         />
       ) : (

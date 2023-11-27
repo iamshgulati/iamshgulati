@@ -191,12 +191,14 @@ const SocialLink = ({
         color="gray"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ display: "inline-flex", alignItems: "center" }}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "var(--space-2)",
+        }}
       >
         {label}
-        <ArrowTopRightIcon
-          style={{ marginLeft: "var(--space-2)", color: "var(--gray-8)" }}
-        />
+        <ArrowTopRightIcon aria-hidden style={{ color: "var(--gray-9)" }} />
       </Link>
     </Text>
   );
