@@ -5,11 +5,7 @@ description: All about my professional work experience.
 
 import * as Components from "./components";
 
-import { MDXPageLayout } from "~/components/mdx-layout";
-
-export default function MDXPage({ children }) {
-  return <MDXPageLayout metadata={metadata}>{children}</MDXPageLayout>;
-}
+# {metadata.title}
 
 ## Education Break
 
@@ -66,6 +62,4 @@ export default function MDXPage({ children }) {
 - Developed a framework to manage the state of system services which reduced the maintenance downtime by 95%.
 - Migrated SOAP web services in legacy applications to REST endpoints in modern Spring Boot-based microservices.
 
-<Components.DownloadResumeSection>
-  <Components.DownloadResumeButton />
-</Components.DownloadResumeSection>
+{/* <Components.DownloadResumeSection><Components.DownloadResumeButton /></Components.DownloadResumeSection> */}

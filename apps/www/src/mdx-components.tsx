@@ -30,7 +30,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Heading
         as="h1"
         size="8"
-        mb="3"
+        mb="6"
         {...props}
         className={cn(className, styles.H)}
       />

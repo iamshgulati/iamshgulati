@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import type { Frontmatter, ProjectFrontmatter } from "~/types/frontmatter";
 
 const ROOT_PATH = process.cwd();
-const DATA_PATH = path.join(ROOT_PATH, "src/app");
+const DATA_PATH = path.join(ROOT_PATH, "src/app/(content)");
 
 const frontmatter = (
   fromPath: string,
@@ -23,7 +23,7 @@ const frontmatter = (
         ...(data as Frontmatter | ProjectFrontmatter),
         slug: filePath.replace(`${DATA_PATH}`, "").replace("/page.mdx", ""),
         slugAsParams: filePath
-          .replace(`${PATH}`, "")
+          .replace(`${DATA_PATH}`, "")
           .replace("/page.mdx", "")
           .split("/")
           .slice(1)
@@ -37,10 +37,5 @@ const frontmatter = (
     );
 };
 
-/*
- * Paths here are tightly bound to paths in src/app dir.
- * Include any route groups in the path, eg. /(marketing)
- */
-export const allBlogPosts = frontmatter("/learn/blog");
-export const allProjects = frontmatter("/learn/projects");
-export const allLearnings = frontmatter("/learn/today");
+export const allBlogPosts = frontmatter("/blog");
+export const allProjects = frontmatter("/projects");

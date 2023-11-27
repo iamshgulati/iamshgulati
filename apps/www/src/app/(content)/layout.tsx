@@ -1,13 +1,10 @@
-import React from "react";
 import { Container, Section, Separator } from "@radix-ui/themes";
 
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
-import { MainNav } from "~/components/main-nav";
-import { learnNavConfig } from "~/config/nav";
 
-export default function LearnLayout({
+export default function ContentLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
@@ -25,9 +22,7 @@ export default function LearnLayout({
       />
 
       <Layout.Header>
-        <Header sticky ghost>
-          <MainNav items={learnNavConfig.mainNavItems} />
-        </Header>
+        <Header sticky ghost />
       </Layout.Header>
 
       <Layout.Main>{children}</Layout.Main>

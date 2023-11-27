@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   AccessibleIcon,
   Box,
@@ -11,11 +12,7 @@ import {
   Tooltip,
 } from "@radix-ui/themes";
 
-import {
-  learnNavConfig,
-  marketingNavConfig,
-  workNavConfig,
-} from "~/config/nav";
+import { navConfig } from "~/config/nav";
 import { siteConfig } from "~/config/site";
 import { useOnScroll } from "~/hooks/useOnScroll";
 import type { NextLinkProps } from "~/lib/link";
@@ -25,7 +22,6 @@ import { BoxLink } from "./box-link";
 import styles from "./header.module.css";
 import { Icons } from "./icons";
 import { SiteLogo, SiteLogoIcon } from "./logo";
-import { MobileMenu } from "./mobile-menu";
 import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
@@ -81,10 +77,6 @@ export function Header({
           </Flex>
 
           <Flex
-            display={{
-              initial: "none",
-              xs: "flex",
-            }}
             align="center"
             justify="center"
             style={{
@@ -107,12 +99,8 @@ export function Header({
             right="0"
             pr={{ initial: "4", sm: "6" }}
           >
-            <HeaderSocialIcon
-              href={siteConfig.links.github}
-              icon="GitHubLogoIcon"
-            />
+            <Search />
             <ThemeToggle />
-            <MobileMenu />
           </Flex>
 
           <Flex
@@ -126,6 +114,7 @@ export function Header({
             pr={{ initial: "4", sm: "6" }}
           >
             {children}
+            <Search />
             <HeaderSocialIcon
               href={siteConfig.links.github}
               icon="GitHubLogoIcon"
@@ -142,36 +131,21 @@ const HeaderProductLinks = (): React.JSX.Element => {
   const pathname = usePathname();
   return (
     <React.Fragment>
-      {marketingNavConfig.mainNavItems.length &&
-      marketingNavConfig.mainNavItems[0] ? (
+      <HeaderProductLink href="/" active={pathname === "/"}>
+        Home
+      </HeaderProductLink>
+      {navConfig.mainNavItems.map((item) => (
         <HeaderProductLink
-          href={marketingNavConfig.mainNavItems[0].href}
+          key={item.href}
+          href={item.href}
           active={
-            pathname === marketingNavConfig.hrefPrefix ||
-            pathname === marketingNavConfig.mainNavItems[0]?.href
+            pathname === item.href ||
+            (item.href !== "/" && pathname.startsWith(item.href))
           }
         >
-          {marketingNavConfig.title}
+          {item.title}
         </HeaderProductLink>
-      ) : null}
-
-      {workNavConfig.mainNavItems.length && workNavConfig.mainNavItems[0] ? (
-        <HeaderProductLink
-          href={workNavConfig.mainNavItems[0].href}
-          active={pathname.startsWith(workNavConfig.hrefPrefix)}
-        >
-          {workNavConfig.title}
-        </HeaderProductLink>
-      ) : null}
-
-      {learnNavConfig.mainNavItems.length && learnNavConfig.mainNavItems[0] ? (
-        <HeaderProductLink
-          href={learnNavConfig.mainNavItems[0].href}
-          active={pathname.startsWith(learnNavConfig.hrefPrefix)}
-        >
-          {learnNavConfig.title}
-        </HeaderProductLink>
-      ) : null}
+      ))}
     </React.Fragment>
   );
 };
@@ -232,5 +206,17 @@ const HeaderSocialIcon = ({
         </IconButton>
       </Tooltip>
     </Link>
+  );
+};
+
+const Search = (): React.JSX.Element => {
+  return (
+    <Tooltip content="Search website">
+      <IconButton size="3" variant="ghost" color="gray">
+        <AccessibleIcon label="Light theme">
+          <MagnifyingGlassIcon width="18" height="18" />
+        </AccessibleIcon>
+      </IconButton>
+    </Tooltip>
   );
 };
