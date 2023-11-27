@@ -3,6 +3,7 @@
 # I'm Shubham Gulati,
 
 Software Engineer and Certified Cloud Architect.
+
 Past — Senior Technology Consultant @ Deloitte Consulting.
 
 I love tinkering with code. Currently, I am learning the craft of designing high-performance cloud architectures and minimalistic front-end interfaces.
