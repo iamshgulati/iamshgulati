@@ -124,7 +124,9 @@ const HeaderProductLinks = (): React.JSX.Element => {
     <React.Fragment>
       <HeaderProductLink
         href="/"
-        active={!["/blog", "/projects"].includes(pathname)}
+        active={["/", "/about", "/thoughts", "/quotes", "/contact"].includes(
+          pathname,
+        )}
       >
         Home
       </HeaderProductLink>
@@ -133,8 +135,8 @@ const HeaderProductLinks = (): React.JSX.Element => {
           key={item.href}
           href={item.href}
           active={
-            pathname === item.href ||
-            (item.href !== "/" && pathname.startsWith(item.href))
+            !["/"].includes(item.href) &&
+            (pathname === item.href || pathname.startsWith(item.href))
           }
         >
           {item.title}

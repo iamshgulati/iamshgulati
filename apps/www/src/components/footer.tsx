@@ -41,7 +41,7 @@ export function Footer(): React.JSX.Element {
         <Group groupTitle="Personal">
           <GroupItem href="/thoughts">Thoughts</GroupItem>
           <GroupItem href="/quotes">Quotes</GroupItem>
-          <GroupItem href="/tweets">Tweets</GroupItem>
+          <GroupItem href="/contact">Contact</GroupItem>
         </Group>
 
         <Group groupTitle="Social">
