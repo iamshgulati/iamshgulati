@@ -29,18 +29,23 @@
     }
 
     /*
-     * HeaderInner with simple backdrop filters.
+     * Fallback HeaderInner with no filters.
      */
     &.Ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           box-shadow: 0 1px var(--gray-a4);
-
-          /* 
-           * Set a fallback background color and if the browser supports relative color,
-           * then add alpha channel to the fallback color and also apply backdrop filters.
-           */
           background-color: var(--color-background);
+        }
+      }
+    }
+
+    /*
+     * HeaderInner with simple backdrop filters if browser supports relative colors.
+     */
+    &.Ghost {
+      &:not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
           @supports (color: rgb(from white r g b)) {
             background-color: rgb(from var(--color-background) r g b / 0.8);
             --blur: 20px;

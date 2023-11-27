@@ -1,36 +1,148 @@
-/*
- * HeaderInner with no transparency.
- * Background color =  var(--color-background)
- */
+/* .HeaderInner -> background-color prop must remain in sync with NextThemesProvider.tsx -> themeColor */
 
-.HeaderInner {
-  position: relative;
-  height: inherit;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  user-select: none;
-  -webkit-user-select: none;
-  box-shadow: 0 1px transparent;
-}
+.HeaderRoot {
+  height: var(--header-height);
 
-.HeaderRoot:is(.Sticky) .HeaderInner {
-  position: fixed;
-}
+  .HeaderInner {
+    position: relative;
+    z-index: 2;
+    inset: 0;
+    height: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 1px transparent;
+  }
 
-.HeaderRoot:is(.Sticky) .HeaderInner {
-  transition:
-    background-color 180ms,
-    box-shadow 180ms;
-}
+  &.Sticky {
+    .HeaderInner {
+      position: fixed;
+      transition:
+        background-color 180ms,
+        box-shadow 180ms;
+    }
 
-/* Faster transition when the header gains background and slower when it loses it. */
-.HeaderRoot:is(.Sticky[data-scroll-state="scrolling-down"]) .HeaderInner {
-  transition-duration: 30ms, 120ms;
-}
+    /* Faster transition when the header gains background and slower when it loses it. */
+    &[data-scroll-state="scrolling-down"] {
+      .HeaderInner {
+        transition-duration: 30ms, 120ms;
+      }
+    }
 
-.HeaderRoot:is(.Sticky):not(.Ghost[data-scroll-state="at-top"]) > .HeaderInner {
-  background-color: var(--color-background);
-  box-shadow: 0 1px var(--gray-a4);
+    /*
+     * Fallback HeaderInner with no filters.
+     */
+    &.Ghost {
+      &:not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          box-shadow: 0 1px var(--gray-a4);
+          background-color: var(--color-background);
+        }
+      }
+    }
+  }
+
+  .HeaderContainer {
+    position: relative;
+    max-width: var(--header-max-width);
+    height: inherit;
+    margin: auto;
+  }
+
+  .HeaderProductLink {
+    cursor: pointer;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    font-size: var(--font-size-2);
+    line-height: 16px;
+    letter-spacing: var(--letter-spacing-2);
+    position: relative;
+    color: var(--gray-a11);
+    outline: 0;
+
+    @media (max-width: 369px) {
+      font-size: 13px;
+    }
+
+    @media (min-width: 520px) {
+      padding-left: var(--space-1);
+      padding-right: var(--space-1);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--gray-12);
+      }
+    }
+
+    &:focus-visible {
+      color: var(--gray-12);
+    }
+
+    &[data-state="active"] {
+      color: var(--color-background);
+      padding-left: var(--space-1);
+      padding-right: var(--space-1);
+    }
+
+    .HeaderProductLinkInner,
+    .HeaderProductLinkInnerHidden {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-1);
+      border-radius: var(--radius-2);
+
+      @media (min-width: 370px) {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+      }
+    }
+
+    .HeaderProductLinkInner {
+      position: absolute;
+      letter-spacing: 0.01em;
+    }
+
+    .HeaderProductLinkInnerHidden {
+      visibility: hidden;
+      font-weight: bold;
+      letter-spacing: -0.01em;
+    }
+
+    &[data-state="active"] {
+      .HeaderProductLinkInner,
+      .HeaderProductLinkInnerHidden {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover .HeaderProductLinkInner {
+        background-color: var(--gray-a3);
+      }
+      &:focus-visible:where(:hover) .HeaderProductLinkInner {
+        background-color: var(--accent-a3);
+      }
+    }
+
+    &:focus-visible .HeaderProductLinkInner {
+      box-shadow: 0 0 0 2px var(--accent-a8);
+    }
+
+    &[data-state="active"] {
+      .HeaderProductLinkInner {
+        font-weight: bold;
+        letter-spacing: -0.01em;
+        background-color: var(--gray-12);
+      }
+
+      &::before {
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
 }
