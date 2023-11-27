@@ -12,3 +12,9 @@ Feel free to check what I've been rambling about on [my digital space](https://g
 
 - Back-End Web Developer
 - Tech Enthusiast
+
+## Certifications
+
+- AWS Certified Developer Associate (soon)
+- AWS Certified Solutions Architect Associate
+- AWS Certified Cloud Practitioner
