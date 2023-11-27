@@ -29,7 +29,7 @@
     }
 
     /*
-     * HeaderInner, HeaderInnerBackdrop with simple backdrop filters.
+     * HeaderInner with simple backdrop filters.
      */
     &.Ghost {
       &:not([data-scroll-state="at-top"]) {
