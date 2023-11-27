@@ -23,30 +23,6 @@ import { NextLink } from "~/lib/link";
 import { cn } from "~/lib/utils";
 import styles from "./mdx-components.module.css";
 
-const HeadingLink = ({
-  id,
-  children,
-  className,
-  ...props
-}: React.PropsWithChildren<{
-  id: string;
-}> &
-  React.ComponentProps<typeof Link>): React.JSX.Element => (
-  <Link
-    id={id}
-    href={`#${id}`}
-    weight="bold"
-    highContrast
-    color="gray"
-    underline="hover"
-    {...props}
-    className={cn(className, styles.HeadingLink)}
-  >
-    {children}
-    <Link2Icon aria-hidden />
-  </Link>
-);
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
@@ -163,8 +139,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Box my="6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          alt={alt}
           {...props}
+          alt={alt}
           className={className}
           style={{
             maxWidth: "100%",
@@ -185,9 +161,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
       const isInlineCode = !className;
       return isInlineCode ? (
-        <Code className={className} {...props} />
+        <Code
+          {...props}
+          className={className}
+          style={{
+            whiteSpace: "break-spaces",
+          }}
+        />
       ) : (
-        <code className={className} {...props} />
+        <code {...props} className={className} />
       );
     },
     table: ({ ...props }) => <Table.Root variant="surface" my="5" {...props} />,
@@ -199,3 +181,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     td: ({ ...props }) => <Table.Cell {...props} />,
   };
 }
+
+const HeadingLink = ({
+  id,
+  children,
+  className,
+  ...props
+}: React.PropsWithChildren<{
+  id: string;
+}> &
+  React.ComponentProps<typeof Link>): React.JSX.Element => (
+  <Link
+    id={id}
+    href={`#${id}`}
+    weight="bold"
+    underline="hover"
+    {...props}
+    className={cn(className, styles.HeadingLink)}
+  >
+    {children}
+    <Link2Icon aria-hidden />
+  </Link>
+);

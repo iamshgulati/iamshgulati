@@ -4,8 +4,11 @@
 
 .HeadingLink {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
+  color: inherit;
+  text-wrap: balance;
 }
 
 .HeadingLink svg {
@@ -32,34 +35,4 @@
 
 .Blockquote {
   font-style: italic;
-}
-
-.Note {
-  border-radius: var(--radius-3);
-  color: var(--gray-11);
-  font-size: var(--font-size-2);
-}
-
-.Note p[class*="size-"] {
-  font-size: var(--font-size-2);
-  margin: 0;
-}
-
-.Alert {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-radius: var(--radius-4);
-  box-shadow: inset 0 0 0 1px var(--yellow-a6);
-  background-color: var(--yellow-a3);
-  color: var(--yellow-11);
-}
-
-.Alert p {
-  margin: 0;
-}
-
-.Alert p[class*="size-"] {
-  font-size: var(--font-size-2);
 }
