@@ -43,7 +43,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         mb="2"
         id={id}
         {...props}
-        className={cn(className, styles.H)}
+        className={cn(className, styles.H, styles.H2)}
         data-heading
       >
         <HeadingLink id={id}>{children}</HeadingLink>
@@ -207,6 +207,8 @@ const HeadingLink = ({
     id={id}
     href={`#${id}`}
     weight="bold"
+    color="gray"
+    highContrast
     underline="hover"
     {...props}
     className={cn(className, styles.HeadingLink)}
