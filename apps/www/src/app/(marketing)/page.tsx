@@ -50,7 +50,7 @@ const Hero = (): React.JSX.Element => (
           }}
         >
           <PersonIcon width="18" height="18" />
-          <Text>About</Text>
+          <Text>ABOUT</Text>
           <ArrowRightIcon width="18" height="18" />
         </Button>
       </NextLink>

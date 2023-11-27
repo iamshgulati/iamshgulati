@@ -11,6 +11,7 @@ export default function ContentLayout({
     <Layout.Root>
       <Layout.Background
         style={{
+          zIndex: -1,
           position: "absolute",
           left: 0,
           right: 0,
