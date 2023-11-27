@@ -25,7 +25,9 @@ export default function ContentLayout({
         <Header sticky ghost />
       </Layout.Header>
 
-      <Layout.Main>{children}</Layout.Main>
+      <Layout.Main>
+        <Layout.Content>{children}</Layout.Content>
+      </Layout.Main>
 
       <Layout.Footer>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>

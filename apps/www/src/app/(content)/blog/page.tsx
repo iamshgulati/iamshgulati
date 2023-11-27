@@ -10,7 +10,6 @@ import {
   Text,
 } from "@radix-ui/themes";
 
-import { Layout } from "~/components/layout";
 import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
 import { allBlogPosts } from "~/lib/mdx-frontmatter";
@@ -25,18 +24,16 @@ export const metadata: Metadata = {
 
 export default function BlogPage(): React.JSX.Element {
   return (
-    <Layout.Content>
-      <Box asChild width="100%" style={{ maxWidth: 858 }}>
-        <Section size={{ initial: "2", xs: "3" }}>
-          <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-            <HeroSection title={TITLE} description={DESCRIPTION} />
-            <Section size="2" pb="0">
-              <AllBlogsSection />
-            </Section>
-          </Container>
-        </Section>
-      </Box>
-    </Layout.Content>
+    <Box asChild width="100%" style={{ maxWidth: 858 }}>
+      <Section size={{ initial: "2", xs: "3" }}>
+        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+          <HeroSection title={TITLE} description={DESCRIPTION} />
+          <Section size="2" pb="0">
+            <AllBlogsSection />
+          </Section>
+        </Container>
+      </Section>
+    </Box>
   );
 }
 

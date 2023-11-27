@@ -1,5 +1,5 @@
 import React from "react";
-import { FileTextIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon, FileTextIcon } from "@radix-ui/react-icons";
 import {
   Box,
   Button,
@@ -7,40 +7,21 @@ import {
   Flex,
   Link,
   Section,
-  Separator,
   Text,
 } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
-import { Certifications } from "./certifications";
-import Experience from "./experience.mdx";
-import SkillsAndTools from "./skills-and-tools.mdx";
+import { NextLink } from "~/lib/link";
 
 export default function MarketingPage(): React.JSX.Element {
   return (
     <React.Fragment>
       <Section size={{ initial: "2", xs: "3" }}>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-          <Box style={{ maxWidth: "700px" }}>
+          <Box style={{ maxWidth: 700 }}>
             <HeroSection />
           </Box>
-          <Section size="3" pb="0">
-            <Separator size="2" />
-            <Section size="3">
-              <Experience />
-            </Section>
-            <Separator size="2" />
-            <Section size="3">
-              <Box style={{ maxWidth: "700px" }}>
-                <Certifications />
-              </Box>
-            </Section>
-            <Separator size="2" />
-            <Section size="3" pb="0">
-              <SkillsAndTools />
-            </Section>
-          </Section>
         </Container>
       </Section>
     </React.Fragment>
@@ -67,11 +48,7 @@ const HeroSection = (): React.JSX.Element => (
       interfaces.
     </Text>
     <Flex direction="row" gap="4">
-      <Link
-        href={siteConfig.links.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <NextLink href="/about">
         <Button
           size="3"
           style={{
@@ -79,10 +56,10 @@ const HeroSection = (): React.JSX.Element => (
             paddingRight: "var(--space-5)",
           }}
         >
-          <LinkedInLogoIcon width="18" height="18" />
-          <Text weight="medium">LinkedIn</Text>
+          <Text>About Me</Text>
+          <ArrowRightIcon width="18" height="18" />
         </Button>
-      </Link>
+      </NextLink>
       <Link
         href={siteConfig.links.resume}
         target="_blank"
@@ -97,7 +74,7 @@ const HeroSection = (): React.JSX.Element => (
           }}
         >
           <FileTextIcon width="18" height="18" />
-          <Text weight="medium">RESUME</Text>
+          <Text>RESUME</Text>
         </Button>
       </Link>
     </Flex>

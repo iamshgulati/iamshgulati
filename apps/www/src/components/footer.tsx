@@ -39,7 +39,7 @@ export function Footer(): React.JSX.Element {
         </Flex>
 
         <Group groupTitle="Explore" items={navConfig.mainNavItems}>
-          <GroupItem href="/contact">Contact</GroupItem>
+          <GroupItem href="/about">About Me</GroupItem>
         </Group>
 
         <Group groupTitle="Social">
@@ -64,12 +64,12 @@ const Group = ({
     <Heading as="h3" size="3">
       {groupTitle}
     </Heading>
+    {children}
     {items.map((item) => (
       <GroupItem key={item.href} href={item.href}>
         {item.title}
       </GroupItem>
     ))}
-    {children}
   </Box>
 );
 

@@ -131,7 +131,10 @@ const HeaderProductLinks = (): React.JSX.Element => {
   const pathname = usePathname();
   return (
     <React.Fragment>
-      <HeaderProductLink href="/" active={pathname === "/"}>
+      <HeaderProductLink
+        href="/"
+        active={["/", "/about"].indexOf(pathname) >= 0}
+      >
         Home
       </HeaderProductLink>
       {navConfig.mainNavItems.map((item) => (
