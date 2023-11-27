@@ -83,16 +83,15 @@ export function Header({
           <Flex
             display={{
               initial: "none",
-              sm: "flex",
+              xs: "flex",
             }}
             align="center"
             justify="center"
-            position="absolute"
-            top="0"
-            bottom="0"
             style={{
-              left: "calc(50% - 60px)",
-              width: "120px",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
             }}
           >
             <HeaderProductLinks />

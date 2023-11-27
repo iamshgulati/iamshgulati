@@ -96,7 +96,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ className, ...props }): React.JSX.Element => (
       <Text as="p" mb="3" size="3" {...props} className={className} />
     ),
-    a: ({ href = "", children, className, ...props }): React.JSX.Element => {
+    a: ({ href = "", className, ...props }): React.JSX.Element => {
       if (href.startsWith("http")) {
         return (
           <Link
@@ -106,7 +106,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             {...props}
             className={cn(className, styles.Link)}
           >
-            {children}
+            {props.children}
             <ArrowTopRightIcon aria-hidden />
           </Link>
         );

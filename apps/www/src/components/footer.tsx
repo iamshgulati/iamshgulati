@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import {
   AccessibleIcon,
@@ -39,7 +38,7 @@ export function Footer(): React.JSX.Element {
             <Heading as="h2" size="3">
               <NextLink href="/" passHref legacyBehavior>
                 <Link color="gray" style={{ color: "inherit" }}>
-                  Shubham Gulati
+                  {siteConfig.name}
                 </Link>
               </NextLink>
             </Heading>
@@ -47,41 +46,6 @@ export function Footer(): React.JSX.Element {
               &copy; {new Date().getFullYear()}, All rights reserved
             </Text>
           </Box>
-          {/* <Box pr="8" mt="5">
-            <NextLink href="/" passHref legacyBehavior>
-              <Link
-                style={{
-                  color: "inherit",
-                  textDecorationColor: "var(--gray-a6)",
-                }}
-              >
-                <Text
-                  as="span"
-                  weight="bold"
-                  size="4"
-                  style={{
-                    letterSpacing: "var(--letter-spacing-6)",
-                  }}
-                >
-                  {siteConfig.name}
-                </Text>
-              </Link>
-            </NextLink>
-            <Flex mt="2" gap="5">
-              <SocialIcon
-                href={siteConfig.links.linkedin}
-                icon="LinkedInLogoIcon"
-              />
-              <SocialIcon
-                href={siteConfig.links.github}
-                icon="GitHubLogoIcon"
-              />
-              <SocialIcon
-                href={siteConfig.links.twitter}
-                icon="TwitterLogoIcon"
-              />
-            </Flex>
-          </Box> */}
         </Flex>
 
         <FooterGroup
@@ -95,9 +59,9 @@ export function Footer(): React.JSX.Element {
         />
 
         <FooterGroup groupTitle="Social">
-          <SocialLink label="GitHub" href={siteConfig.links.github} />
-          <SocialLink label="LinkedIn" href={siteConfig.links.linkedin} />
-          <SocialLink label="Twitter" href={siteConfig.links.twitter} />
+          <SocialLink href={siteConfig.links.github}>GitHub</SocialLink>
+          <SocialLink href={siteConfig.links.linkedin}>LinkedIn</SocialLink>
+          <SocialLink href={siteConfig.links.twitter}>Twitter</SocialLink>
         </FooterGroup>
       </footer>
     </Grid>
@@ -136,7 +100,7 @@ const _SocialIcon = ({
 const FooterGroup = ({
   groupTitle,
   items = [],
-  children,
+  children = "",
 }: React.PropsWithChildren<{
   groupTitle: string;
   items?: NavItem[];
@@ -150,12 +114,7 @@ const FooterGroup = ({
         {items.map((item, key) => (
           <Text key={key} as="p" size="2" mt="3">
             <NextLink href={item.href} passHref legacyBehavior>
-              <Link
-                color="gray"
-                // highContrast={usePathname().startsWith(item.href)}
-              >
-                {item.title}
-              </Link>
+              <Link color="gray">{item.title}</Link>
             </NextLink>
           </Text>
         ))}
@@ -178,12 +137,11 @@ const FooterGroup = ({
 };
 
 const SocialLink = ({
-  label,
+  children,
   href,
-}: {
-  label: string;
+}: React.PropsWithChildren<{
   href: string;
-}): React.JSX.Element => {
+}>): React.JSX.Element => {
   return (
     <Text as="p" size="2" mt="3">
       <Link
@@ -197,7 +155,7 @@ const SocialLink = ({
           gap: "var(--space-2)",
         }}
       >
-        {label}
+        {children}
         <ArrowTopRightIcon aria-hidden style={{ color: "var(--gray-9)" }} />
       </Link>
     </Text>
