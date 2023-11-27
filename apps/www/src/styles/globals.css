@@ -2,49 +2,6 @@
 @import "theme-config.css";
 @import "rehype-pretty-code.css";
 
-:root {
-  --header-max-width: 1400px;
-  --header-height: 52px;
-}
-
-/* :root {
-  --header-max-width: 1400px;
-  --header-height: 48px;
-
-  @media (min-width: 768px) {
-    & {
-      --header-height: 52px;
-    }
-  }
-} */
-
-:root,
-.light:not(.system) {
-  --theme-toggle-light-icon-display: block;
-  --theme-toggle-dark-icon-display: none;
-  --theme-toggle-system-icon-display: none;
-}
-.dark:not(.system) {
-  --theme-toggle-light-icon-display: none;
-  --theme-toggle-dark-icon-display: block;
-  --theme-toggle-system-icon-display: none;
-}
-.system {
-  --theme-toggle-light-icon-display: none;
-  --theme-toggle-dark-icon-display: none;
-  --theme-toggle-system-icon-display: block;
-}
-
-:root,
-.light {
-  color-scheme: light;
-}
-.dark {
-  color-scheme: dark;
-}
-
-/* -------------------------------------------------------------------- */
-
 html {
   scroll-behavior: smooth;
 }
@@ -75,4 +32,47 @@ svg {
 
 pre {
   margin: 0;
+}
+
+/* -------------------------------------------------------------------- */
+
+:root {
+  --header-max-width: 1400px;
+  --header-height: 52px;
+}
+
+/* :root {
+  --header-max-width: 1400px;
+  --header-height: 48px;
+
+  @media (min-width: 768px) {
+    --header-height: 52px;
+  }
+} */
+
+/* -------------------------------------------------------------------- */
+
+:root,
+.light {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+:root,
+.light:not(.system) {
+  --theme-toggle-light-icon-display: block;
+  --theme-toggle-dark-icon-display: none;
+  --theme-toggle-system-icon-display: none;
+}
+.dark:not(.system) {
+  --theme-toggle-light-icon-display: none;
+  --theme-toggle-dark-icon-display: block;
+  --theme-toggle-system-icon-display: none;
+}
+.system {
+  --theme-toggle-light-icon-display: none;
+  --theme-toggle-dark-icon-display: none;
+  --theme-toggle-system-icon-display: block;
 }
