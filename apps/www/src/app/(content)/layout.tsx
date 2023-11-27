@@ -1,4 +1,4 @@
-import { Container, Section, Separator } from "@radix-ui/themes";
+import { Box, Container, Section, Separator } from "@radix-ui/themes";
 
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
@@ -26,11 +26,19 @@ export default function ContentLayout({
       </Layout.Header>
 
       <Layout.Main>
-        <Layout.Content>{children}</Layout.Content>
+        <Layout.Content>
+          <Box asChild width="100%" style={{ maxWidth: 858 }}>
+            <Section size={{ initial: "2", xs: "3" }}>
+              <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
+                {children}
+              </Container>
+            </Section>
+          </Box>
+        </Layout.Content>
       </Layout.Main>
 
       <Layout.Footer>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+        <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
           <Section size="2">
             <Footer />

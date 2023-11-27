@@ -1,14 +1,6 @@
 import React from "react";
 import { ArrowRightIcon, FileTextIcon } from "@radix-ui/react-icons";
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Link,
-  Section,
-  Text,
-} from "@radix-ui/themes";
+import { Box, Button, Flex, Link, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
@@ -17,18 +9,14 @@ import { NextLink } from "~/lib/link";
 export default function MarketingPage(): React.JSX.Element {
   return (
     <React.Fragment>
-      <Section size={{ initial: "2", xs: "3" }}>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-          <Box style={{ maxWidth: 700 }}>
-            <HeroSection />
-          </Box>
-        </Container>
-      </Section>
+      <Box style={{ maxWidth: 700 }}>
+        <Hero />
+      </Box>
     </React.Fragment>
   );
 }
 
-const HeroSection = (): React.JSX.Element => (
+const Hero = (): React.JSX.Element => (
   <React.Fragment>
     <Text as="p" mb="1" color="gray" size={{ initial: "5", xs: "7" }}>
       Hello!

@@ -25,10 +25,16 @@ export default function MarketingLayout({
         <Header sticky ghost />
       </Layout.Header>
 
-      <Layout.Main>{children}</Layout.Main>
+      <Layout.Main>
+        <Section size={{ initial: "2", xs: "3" }}>
+          <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
+            {children}
+          </Container>
+        </Section>
+      </Layout.Main>
 
       <Layout.Footer>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+        <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
           <Section size="2">
             <Footer />

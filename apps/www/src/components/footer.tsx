@@ -14,7 +14,7 @@ import { ThemeToggle } from "./theme-toggle";
 export function Footer(): React.JSX.Element {
   return (
     <footer>
-      <Grid pb="6" gapX="7" gapY="8" className={styles.Footer}>
+      <Grid pb="8" gapX="7" gapY="8" className={styles.Footer}>
         <Flex
           direction="column"
           align="start"
