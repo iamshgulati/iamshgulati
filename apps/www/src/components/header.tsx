@@ -45,8 +45,8 @@ export function Header({
       data-scroll-state={scrollState}
       className={cn(
         styles.HeaderRoot,
-        sticky ? styles.sticky : "",
-        ghost ? styles.ghost : "",
+        sticky ? styles.Sticky : "",
+        ghost ? styles.Ghost : "",
       )}
     >
       <nav className={styles.HeaderInner}>
