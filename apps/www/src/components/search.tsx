@@ -41,6 +41,7 @@ export function Search({ frontmatter }: SearchProps): React.JSX.Element {
       <Dialog.Content
         style={{
           padding: 0,
+          borderRadius: "var(--radius-4)",
         }}
       >
         <Command>
