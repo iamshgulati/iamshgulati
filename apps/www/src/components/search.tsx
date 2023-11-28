@@ -38,7 +38,11 @@ export function Search({ frontmatter }: SearchProps): React.JSX.Element {
           </AccessibleIcon>
         </IconButton>
       </Dialog.Trigger>
-      <Dialog.Content style={{ padding: 0 }}>
+      <Dialog.Content
+        style={{
+          padding: 0,
+        }}
+      >
         <Command>
           <Command.Input placeholder="Type a command or search..." />
 
