@@ -37,7 +37,7 @@ const getFrontmatter = (
     );
 };
 
-export const AllFrontmatter = {
+export const FrontmatterData = {
   blogPosts: getFrontmatter("/blog") ?? [],
   projects: getFrontmatter("/projects") ?? [],
   thoughts: getFrontmatter("/thoughts") ?? [],

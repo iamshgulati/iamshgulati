@@ -3,7 +3,7 @@ import { Box, Flex } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
-import { AllFrontmatter } from "~/lib/mdx-frontmatter";
+import { FrontmatterData } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
 import { HeaderProductLinks } from "./header-product-links";
@@ -85,7 +85,7 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            <Search frontmatter={AllFrontmatter} />
+            <Search frontmatter={FrontmatterData} />
           </Flex>
 
           <Flex
@@ -99,7 +99,7 @@ export function Header({
             pr={{ initial: "5", sm: "6" }}
           >
             {children}
-            <Search frontmatter={AllFrontmatter} />
+            <Search frontmatter={FrontmatterData} />
           </Flex>
         </Box>
       </nav>
