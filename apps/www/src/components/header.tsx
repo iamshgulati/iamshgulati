@@ -6,10 +6,10 @@ import { NextLink } from "~/lib/link";
 import { FrontmatterData } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
+import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderRoot } from "./header-root";
 import styles from "./header.module.css";
-import { Search } from "./search";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
@@ -85,7 +85,7 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            <Search frontmatter={FrontmatterData} />
+            <CommandMenu frontmatter={FrontmatterData} />
           </Flex>
 
           <Flex
@@ -99,7 +99,7 @@ export function Header({
             pr={{ initial: "5", sm: "6" }}
           >
             {children}
-            <Search frontmatter={FrontmatterData} />
+            <CommandMenu frontmatter={FrontmatterData} />
           </Flex>
         </Box>
       </nav>

@@ -63,17 +63,17 @@ pre {
 
 :root,
 .light:not(.system) {
-  --theme-toggle-light-icon-display: block;
-  --theme-toggle-dark-icon-display: none;
-  --theme-toggle-system-icon-display: none;
+  --light-theme-icon-display: block;
+  --dark-theme-icon-display: none;
+  --system-theme-icon-display: none;
 }
 .dark:not(.system) {
-  --theme-toggle-light-icon-display: none;
-  --theme-toggle-dark-icon-display: block;
-  --theme-toggle-system-icon-display: none;
+  --light-theme-icon-display: none;
+  --dark-theme-icon-display: block;
+  --system-theme-icon-display: none;
 }
 .system {
-  --theme-toggle-light-icon-display: none;
-  --theme-toggle-dark-icon-display: none;
-  --theme-toggle-system-icon-display: block;
+  --light-theme-icon-display: none;
+  --dark-theme-icon-display: none;
+  --system-theme-icon-display: block;
 }

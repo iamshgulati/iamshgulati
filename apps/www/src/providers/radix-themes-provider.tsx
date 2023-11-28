@@ -1,6 +1,4 @@
-import { Theme, ThemePanel } from "@radix-ui/themes";
-
-import { isProduction } from "~/config/env";
+import { Theme } from "@radix-ui/themes";
 
 export function RadixThemesProvider({
   children,
@@ -16,7 +14,7 @@ export function RadixThemesProvider({
       radius="medium"
     >
       {children}
-      {!isProduction && <ThemePanel defaultOpen={false} />}
+      {/* {!isProduction && <ThemePanel defaultOpen={false} />} */}
     </Theme>
   );
 }

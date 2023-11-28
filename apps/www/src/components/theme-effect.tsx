@@ -3,6 +3,9 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
+/**
+ * @deprecated The method should not be used
+ */
 export const updateThemeClasses = function () {
   try {
     const system = "system";
@@ -19,8 +22,52 @@ export const updateThemeClasses = function () {
   }
 };
 
-/* themeColor.light and themeColor.dark must remain in sync with var(--color-background) */
+/**
+ * @deprecated The method should not be used
+ */
+export function ThemeClasses(): React.JSX.Element {
+  const { theme } = useTheme();
+
+  const onMediaChange = React.useCallback(() => {
+    updateThemeClasses();
+  }, []);
+
+  React.useEffect(() => {
+    const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    matchMedia.addEventListener("change", onMediaChange);
+    return () => matchMedia.removeEventListener("change", onMediaChange);
+  }, [onMediaChange]);
+
+  const onStorageChange = React.useCallback((event: StorageEvent) => {
+    if (event.key === "theme") {
+      updateThemeClasses();
+    }
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener("storage", onStorageChange);
+    return () => window.removeEventListener("storage", onStorageChange);
+  });
+
+  React.useEffect(() => {
+    updateThemeClasses();
+  }, [theme]);
+
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `!${updateThemeClasses.toString()}()`,
+      }}
+    />
+  );
+}
+
 /*
+ * themeColor.light and themeColor.dark must remain in sync with var(--color-background)
+ */
+/**
+ * @deprecated The method should not be used
+ */
 export const updateMetaColor = function () {
   try {
     const themeColor: Record<string, string> = {
@@ -60,14 +107,15 @@ export const updateMetaColor = function () {
     // unsupported
   }
 };
-*/
 
-export function ThemeEffect(): React.JSX.Element {
+/**
+ * @deprecated The method should not be used
+ */
+export function ThemeMetaColor(): React.JSX.Element {
   const { theme } = useTheme();
 
   const onMediaChange = React.useCallback(() => {
-    updateThemeClasses();
-    // updateMetaColor();
+    updateMetaColor();
   }, []);
 
   React.useEffect(() => {
@@ -78,8 +126,7 @@ export function ThemeEffect(): React.JSX.Element {
 
   const onStorageChange = React.useCallback((event: StorageEvent) => {
     if (event.key === "theme") {
-      updateThemeClasses();
-      // updateMetaColor();
+      updateMetaColor();
     }
   }, []);
 
@@ -89,22 +136,14 @@ export function ThemeEffect(): React.JSX.Element {
   });
 
   React.useEffect(() => {
-    updateThemeClasses();
-    // updateMetaColor();
+    updateMetaColor();
   }, [theme]);
 
   return (
-    <React.Fragment>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `!${updateThemeClasses.toString()}()`,
-        }}
-      />
-      {/* <script
-        dangerouslySetInnerHTML={{
-          __html: `!${updateMetaColor.toString()}()`,
-        }}
-      /> */}
-    </React.Fragment>
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `!${updateMetaColor.toString()}()`,
+      }}
+    />
   );
 }

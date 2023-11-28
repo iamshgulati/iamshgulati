@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import {
   Half2Icon,
   MagnifyingGlassIcon,
+  MixIcon,
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
-import { AccessibleIcon, Dialog, IconButton, Text } from "@radix-ui/themes";
-import { Command as CommandPrimitive } from "cmdk";
+import { AccessibleIcon, Dialog, IconButton, Kbd } from "@radix-ui/themes";
+import { Command } from "cmdk";
 import { useTheme } from "next-themes";
 
 import {
@@ -22,46 +23,63 @@ import type {
   FrontmatterKeyTypes,
   FrontmatterTypes,
 } from "~/types/frontmatter";
+import styles from "./command-menu.module.css";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
-import styles from "./search.module.css";
-import { updateThemeClasses } from "./theme-effect";
 
-interface SearchProps {
+interface CommandMenuProps {
   frontmatter: Record<FrontmatterKeyTypes, FrontmatterTypes>;
 }
 
-export function Search({ frontmatter }: SearchProps): React.JSX.Element {
+export function CommandMenu({
+  frontmatter,
+}: CommandMenuProps): React.JSX.Element {
   const [open, setOpen] = React.useState<boolean>(false);
   const router = useRouter();
-  const { setTheme } = useTheme();
+  const { resolvedTheme, systemTheme, setTheme } = useTheme();
 
+  const handleThemeToggle = React.useCallback(() => {
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+    setTheme(newTheme === systemTheme ? "system" : newTheme);
+  }, [resolvedTheme, setTheme, systemTheme]);
+
+  // Toggle CmdK Command Menu with ⌘ + K
   React.useEffect(() => {
-    const down = (event: KeyboardEvent) => {
-      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+    function handleKeydown(event: KeyboardEvent) {
+      const isCmdK =
+        (event.metaKey || event.ctrlKey) &&
+        event.key === "k" &&
+        !event.shiftKey &&
+        !event.altKey;
+      if (isCmdK) {
         event.preventDefault();
         setOpen((open) => !open);
       }
-      if (event.key === "l" && event.ctrlKey) {
-        event.preventDefault();
-        setTheme("light");
-        updateThemeClasses();
-      }
-      if (event.key === "d" && event.ctrlKey) {
-        event.preventDefault();
-        setTheme("dark");
-        updateThemeClasses();
-      }
-      if (event.key === "s" && event.ctrlKey) {
-        event.preventDefault();
-        setTheme("system");
-        updateThemeClasses();
-      }
-    };
+    }
 
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
-  }, [setTheme]);
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
+  }, [setOpen, open]);
+
+  // Toggle theme with ⌘ + D
+  React.useEffect(() => {
+    function handleKeydown(event: KeyboardEvent) {
+      const isCmdD =
+        (event.metaKey || event.ctrlKey) &&
+        event.key === "d" &&
+        !event.shiftKey &&
+        !event.altKey;
+      if (isCmdD) {
+        event.preventDefault();
+        handleThemeToggle();
+        // updateThemeClasses();
+        // updateMetaColor();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
+  }, [handleThemeToggle]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -83,55 +101,54 @@ export function Search({ frontmatter }: SearchProps): React.JSX.Element {
         </IconButton>
       </Dialog.Trigger>
       <Dialog.Content className={styles.DialogContent}>
-        <Command.Root>
+        <Command loop>
           <Command.Input placeholder="Type a command or search..." />
 
           <Command.List>
-            <Command.Empty>No results found</Command.Empty>
+            <Command.Group heading="Shortcuts">
+              <Command.Item
+                value="CmdK Command Menu: Toggle CmdK Command Menu"
+                onSelect={() =>
+                  runCommand(() => {
+                    // do nothing
+                  })
+                }
+              >
+                <MixIcon width="16" height="16" />
+                Toggle Command Menu
+                <CommandShortcut>⌘&thinsp;K</CommandShortcut>
+              </Command.Item>
 
-            <Command.Group heading="Theme">
               <Command.Item
-                value="Theme: Light Theme"
+                value="Theme: Toggle Theme System Light Dark"
                 onSelect={() =>
                   runCommand(() => {
-                    setTheme("light");
-                    updateThemeClasses();
-                  })
-                }
-              >
-                <SunIcon width="16" height="16" />
-                Light
-                <Command.Shortcut>⌃L</Command.Shortcut>
-              </Command.Item>
-              <Command.Item
-                value="Theme: Dark Theme"
-                onSelect={() =>
-                  runCommand(() => {
-                    setTheme("dark");
-                    updateThemeClasses();
-                  })
-                }
-              >
-                <MoonIcon width="16" height="16" />
-                Dark
-                <Command.Shortcut>⌃D</Command.Shortcut>
-              </Command.Item>
-              <Command.Item
-                value="Theme: System Theme"
-                onSelect={() =>
-                  runCommand(() => {
-                    setTheme("system");
-                    updateThemeClasses();
+                    handleThemeToggle();
+                    // updateThemeClasses();
+                    // updateMetaColor();
                   })
                 }
               >
                 <Half2Icon
                   width="16"
                   height="16"
-                  style={{ transform: "rotate(45deg)" }}
+                  style={{
+                    display: "var(--system-theme-icon-display)",
+                    transform: "rotate(45deg)",
+                  }}
                 />
-                System
-                <Command.Shortcut>⌃S</Command.Shortcut>
+                <SunIcon
+                  width="16"
+                  height="16"
+                  style={{ display: "var(--light-theme-icon-display)" }}
+                />
+                <MoonIcon
+                  width="16"
+                  height="16"
+                  style={{ display: "var(--dark-theme-icon-display)" }}
+                />
+                Toggle Theme
+                <CommandShortcut>⌘&thinsp;D</CommandShortcut>
               </Command.Item>
             </Command.Group>
 
@@ -279,34 +296,22 @@ export function Search({ frontmatter }: SearchProps): React.JSX.Element {
                 })}
               </Command.Group>
             ) : null}
+
+            <Command.Empty>No results found</Command.Empty>
           </Command.List>
-        </Command.Root>
+        </Command>
       </Dialog.Content>
     </Dialog.Root>
   );
 }
 
 const CommandShortcut = ({ children }: React.PropsWithChildren) => (
-  <Text
-    size="1"
-    color="gray"
+  <Kbd
     style={{
+      marginTop: "var(--space-1)",
       marginLeft: "auto",
-      letterSpacing: "calc(100 * var(--letter-spacing-1))",
     }}
   >
     {children}
-  </Text>
+  </Kbd>
 );
-
-const Command = {
-  Root: CommandPrimitive,
-  Dialog: CommandPrimitive.Dialog,
-  Empty: CommandPrimitive.Empty,
-  Group: CommandPrimitive.Group,
-  Input: CommandPrimitive.Input,
-  List: CommandPrimitive.List,
-  Item: CommandPrimitive.Item,
-  Separator: CommandPrimitive.Separator,
-  Shortcut: CommandShortcut,
-};
