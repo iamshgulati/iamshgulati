@@ -28,6 +28,7 @@ interface NavItem {
   href: Route;
   external?: boolean;
   disabled?: boolean;
+  icon?: keyof typeof Icons;
 }
 
 type NavItemWithChildren = {

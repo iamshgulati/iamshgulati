@@ -1,3 +1,4 @@
+import type { Icons } from "~/components/icons";
 import type { FrontmatterData } from "~/lib/mdx-frontmatter";
 
 export interface Frontmatter {
@@ -10,6 +11,7 @@ export interface Frontmatter {
   by?: "shubham";
   category?: string;
   tags?: string[];
+  icon?: keyof typeof Icons;
 }
 
 export type ProjectFrontmatter = Frontmatter & {

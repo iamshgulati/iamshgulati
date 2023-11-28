@@ -3,7 +3,6 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 
-import { navConfig } from "~/config/nav";
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
 import styles from "./header.module.css";
@@ -16,26 +15,21 @@ export const HeaderProductLinks = (): React.JSX.Element => {
       <HeaderProductLink
         href="/"
         active={
-          pathname === "/" ||
-          ["/about", "/thoughts", "/quotes", "/contact"].some((href) =>
-            pathname.startsWith(href),
-          )
+          pathname === "/"
+          // || ["/about", "/thoughts", "/quotes", "/contact"].some((href) => pathname.startsWith(href))
         }
       >
         Home
       </HeaderProductLink>
-      {navConfig.mainNavItems.map((item) => (
-        <HeaderProductLink
-          key={item.href}
-          href={item.href}
-          active={
-            !["/"].includes(item.href) &&
-            (pathname === item.href || pathname.startsWith(item.href))
-          }
-        >
-          {item.title}
-        </HeaderProductLink>
-      ))}
+      <HeaderProductLink href="/blog" active={pathname.startsWith("/blog")}>
+        Blog
+      </HeaderProductLink>
+      <HeaderProductLink
+        href="/projects"
+        active={pathname.startsWith("/projects")}
+      >
+        Projects
+      </HeaderProductLink>
     </React.Fragment>
   );
 };

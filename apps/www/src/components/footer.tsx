@@ -1,7 +1,7 @@
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
 
-import { navConfig } from "~/config/nav";
+import { personalNav, professionalNav, socialNav } from "~/config/nav";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import type { NavItem } from "~/types";
@@ -34,21 +34,11 @@ export function Footer(): React.JSX.Element {
           </Heading>
         </Flex>
 
-        <Group groupTitle="Professional" items={navConfig.mainNavItems}>
-          <GroupItem href="/about">About</GroupItem>
-        </Group>
+        <Group groupTitle="Professional" items={professionalNav.mainNav} />
 
-        <Group groupTitle="Personal">
-          <GroupItem href="/thoughts">Thoughts</GroupItem>
-          <GroupItem href="/quotes">Quotes</GroupItem>
-          <GroupItem href="/contact">Contact</GroupItem>
-        </Group>
+        <Group groupTitle="Personal" items={personalNav.mainNav} />
 
-        <Group groupTitle="Social">
-          <GroupItem href={siteConfig.links.github}>GitHub</GroupItem>
-          <GroupItem href={siteConfig.links.linkedin}>LinkedIn</GroupItem>
-          <GroupItem href={siteConfig.links.twitter}>Twitter</GroupItem>
-        </Group>
+        <Group groupTitle="Social" items={socialNav.mainNav.slice(0, 3)} />
       </Grid>
       <Flex align="center" justify="between">
         <Text size="1" color="gray">

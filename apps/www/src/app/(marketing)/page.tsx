@@ -46,7 +46,7 @@ const Hero = (): React.JSX.Element => (
           }}
         >
           <PersonIcon width="18" height="18" />
-          <Text>ABOUT</Text>
+          <Text>ABOUT ME</Text>
         </Button>
       </NextLink>
       <Link

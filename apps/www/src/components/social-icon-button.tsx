@@ -1,15 +1,16 @@
 import { AccessibleIcon, IconButton, Link } from "@radix-ui/themes";
 
+import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 export const SocialIconButton = ({
-  icon,
+  icon = "AtSymbolIcon",
   href,
 }: {
-  icon: keyof typeof Icons;
+  icon?: keyof typeof Icons;
   href: string;
 }): React.JSX.Element => {
-  const SocialIcon = Icons[icon];
+  const SocialIcon: Icon = Icons[icon];
   const SocialNetwork = icon.replace("Logo", "").replace("Icon", "");
 
   return (
