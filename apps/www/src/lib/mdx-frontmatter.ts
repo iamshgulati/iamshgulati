@@ -8,7 +8,7 @@ import type { Frontmatter, ProjectFrontmatter } from "~/types/frontmatter";
 const ROOT_PATH = process.cwd();
 const DATA_PATH = path.join(ROOT_PATH, "src/app/(content)");
 
-const frontmatter = (
+const getFrontmatter = (
   fromPath: string,
 ): Frontmatter[] | ProjectFrontmatter[] => {
   const PATH = path.join(DATA_PATH, fromPath);
@@ -37,6 +37,8 @@ const frontmatter = (
     );
 };
 
-export const allBlogPosts = frontmatter("/blog");
-export const allProjects = frontmatter("/projects");
-export const allThoughts = frontmatter("/thoughts");
+export const AllFrontmatter = {
+  blogPosts: getFrontmatter("/blog") ?? [],
+  projects: getFrontmatter("/projects") ?? [],
+  thoughts: getFrontmatter("/thoughts") ?? [],
+};

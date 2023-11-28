@@ -1,24 +1,15 @@
-"use client";
-
 import React from "react";
-import { usePathname } from "next/navigation";
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import {
-  AccessibleIcon,
-  Box,
-  Flex,
-  IconButton,
-  Tooltip,
-} from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 
-import { navConfig } from "~/config/nav";
 import { siteConfig } from "~/config/site";
-import { useOnScroll } from "~/hooks/useOnScroll";
-import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
+import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
+import { HeaderProductLinks } from "./header-product-links";
+import { HeaderRoot } from "./header-root";
 import styles from "./header.module.css";
+import { Search } from "./search";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
@@ -31,11 +22,9 @@ export function Header({
   sticky = false,
   ghost = false,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
-  const { scrollState } = useOnScroll(0, ghost);
-
   return (
-    <Box
-      data-scroll-state={scrollState}
+    <HeaderRoot
+      ghost={ghost}
       className={cn(
         styles.HeaderRoot,
         sticky ? styles.Sticky : "",
@@ -96,7 +85,7 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            <Search />
+            <Search frontmatter={AllFrontmatter} />
           </Flex>
 
           <Flex
@@ -110,64 +99,13 @@ export function Header({
             pr={{ initial: "5", sm: "6" }}
           >
             {children}
-            <Search />
+            <Search frontmatter={AllFrontmatter} />
           </Flex>
         </Box>
       </nav>
-    </Box>
+    </HeaderRoot>
   );
 }
-
-const HeaderProductLinks = (): React.JSX.Element => {
-  const pathname = usePathname();
-  return (
-    <React.Fragment>
-      <HeaderProductLink
-        href="/"
-        active={
-          pathname === "/" ||
-          ["/about", "/thoughts", "/quotes", "/contact"].some((href) =>
-            pathname.startsWith(href),
-          )
-        }
-      >
-        Home
-      </HeaderProductLink>
-      {navConfig.mainNavItems.map((item) => (
-        <HeaderProductLink
-          key={item.href}
-          href={item.href}
-          active={
-            !["/"].includes(item.href) &&
-            (pathname === item.href || pathname.startsWith(item.href))
-          }
-        >
-          {item.title}
-        </HeaderProductLink>
-      ))}
-    </React.Fragment>
-  );
-};
-
-const HeaderProductLink = ({
-  active = false,
-  children,
-  href,
-  ...props
-}: React.PropsWithChildren<NextLinkProps> & {
-  active?: boolean;
-}): React.JSX.Element => (
-  <NextLink href={href} passHref legacyBehavior>
-    <a
-      data-state={active ? "active" : "inactive"}
-      className={styles.HeaderProductLink}
-      {...props}
-    >
-      <span className={styles.HeaderProductLinkInner}>{children}</span>
-      <span className={styles.HeaderProductLinkInnerHidden}>{children}</span>
-    </a>
-  </NextLink>
-);
 
 const HeaderLogoLink = ({
   children,
@@ -176,15 +114,3 @@ const HeaderLogoLink = ({
     <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>{children}</BoxLink>
   </NextLink>
 );
-
-const Search = (): React.JSX.Element => {
-  return (
-    <Tooltip content="Search website">
-      <IconButton size="3" variant="ghost" color="gray">
-        <AccessibleIcon label="Light theme">
-          <MagnifyingGlassIcon width="20" height="20" />
-        </AccessibleIcon>
-      </IconButton>
-    </Tooltip>
-  );
-};

@@ -1,3 +1,5 @@
+import type { AllFrontmatter } from "~/lib/mdx-frontmatter";
+
 export interface Frontmatter {
   slug: string;
   slugAsParams: string;
@@ -15,3 +17,7 @@ export type ProjectFrontmatter = Frontmatter & {
   link?: string;
   sourceCodeLink?: string;
 };
+
+export type FrontmatterKeyTypes = keyof typeof AllFrontmatter;
+
+export type FrontmatterTypes = (typeof AllFrontmatter)[FrontmatterKeyTypes];

@@ -1,0 +1,110 @@
+[cmdk-root] {
+  max-width: 640px;
+  width: 100%;
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  padding: 0;
+  box-shadow: var(--shadow-6);
+}
+
+[cmdk-input] {
+  border: none;
+  width: 100%;
+  font-size: 18px;
+  padding: 20px;
+  outline: none;
+  background-color: var(--color-panel-solid);
+  color: var(--gray-12);
+  border-bottom: 1px solid var(--gray-6);
+  border-radius: 0;
+  caret-color: var(--accent-6);
+  margin: 0;
+
+  &::placeholder {
+    color: var(--gray-9);
+  }
+}
+
+[cmdk-item] {
+  content-visibility: auto;
+
+  cursor: pointer;
+  height: 48px;
+  font-size: var(--font-size-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+  color: var(--gray-12);
+  user-select: none;
+  will-change: background, color;
+  transition: all 150ms ease;
+  transition-property: none;
+  position: relative;
+
+  &[data-selected="true"] {
+    background: var(--gray-3);
+
+    svg {
+      color: var(--gray-12);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      z-index: 123;
+      width: 3px;
+      height: 100%;
+      background: var(--accent-6);
+    }
+  }
+
+  &[data-disabled="true"] {
+    color: var(--gray-8);
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transition-property: background;
+    background: var(--gray-4);
+  }
+
+  & + [cmdk-item] {
+    margin-top: 4px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: var(--gray-10);
+  }
+}
+
+[cmdk-list] {
+  height: min(300px, var(--cmdk-list-height));
+  max-height: 400px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  transition: 100ms ease;
+  transition-property: height;
+}
+
+[cmdk-group-heading] {
+  user-select: none;
+  font-size: var(--font-size-1);
+  color: var(--gray-11);
+  padding: var(--space-2);
+  display: flex;
+  align-items: center;
+}
+
+[cmdk-empty] {
+  font-size: var(--font-size-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  white-space: pre-wrap;
+  color: var(--gray-11);
+}
