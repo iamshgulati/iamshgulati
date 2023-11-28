@@ -30,7 +30,7 @@ export default function ContentLayout({
         <Layout.Content>
           <Box asChild width="100%" style={{ maxWidth: 858 }}>
             <Section size={{ initial: "2", xs: "3" }}>
-              <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
+              <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
                 {children}
               </Container>
             </Section>
@@ -39,7 +39,7 @@ export default function ContentLayout({
       </Layout.Main>
 
       <Layout.Footer>
-        <Container mx={{ initial: "5", xs: "5", sm: "6", md: "9" }}>
+        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
           <Section size="2">
             <Footer />
