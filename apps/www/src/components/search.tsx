@@ -10,6 +10,7 @@ import type {
   FrontmatterKeyTypes,
   FrontmatterTypes,
 } from "~/types/frontmatter";
+import styles from "./search.module.css";
 
 interface SearchProps {
   frontmatter: Record<FrontmatterKeyTypes, FrontmatterTypes>;
@@ -38,17 +39,12 @@ export function Search({ frontmatter }: SearchProps): React.JSX.Element {
           </AccessibleIcon>
         </IconButton>
       </Dialog.Trigger>
-      <Dialog.Content
-        style={{
-          padding: 0,
-          borderRadius: "var(--radius-4)",
-        }}
-      >
+      <Dialog.Content className={styles.DialogContent}>
         <Command>
           <Command.Input placeholder="Type a command or search..." />
 
           <Command.List>
-            <Command.Empty>No results found.</Command.Empty>
+            <Command.Empty>No results found</Command.Empty>
 
             {frontmatter.blogPosts.length ? (
               <Command.Group heading="Blog Posts">
