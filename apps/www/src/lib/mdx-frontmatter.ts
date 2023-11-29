@@ -23,13 +23,14 @@ const getFrontmatter = (
         ...(data as Frontmatter | ProjectFrontmatter),
         slug: filePath.replace(`${DATA_PATH}`, "").replace("/page.mdx", ""),
         slugAsParams: filePath
-          .replace(`${DATA_PATH}`, "")
+          .replace(`${PATH}`, "")
           .replace("/page.mdx", "")
           .split("/")
           .slice(1)
           .join("/"),
       } as Frontmatter | ProjectFrontmatter;
     })
+    .filter((frontmatter) => !frontmatter.slugAsParams.startsWith("_"))
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt ?? Date.now())) -

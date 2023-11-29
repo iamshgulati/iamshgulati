@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import React from "react";
-import { ArrowTopRightIcon, Link2Icon } from "@radix-ui/react-icons";
+import { Link2Icon } from "@radix-ui/react-icons";
 import {
   Blockquote,
   Box,
@@ -107,7 +107,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             className={cn(className, styles.Link)}
           >
             {props.children}
-            <ArrowTopRightIcon aria-hidden />
           </Link>
         );
       }

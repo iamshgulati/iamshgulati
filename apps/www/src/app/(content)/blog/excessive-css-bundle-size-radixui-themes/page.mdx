@@ -1,0 +1,45 @@
+---
+title: Excessive CSS Bundle Size With RadixUI Themes
+description: Is there a better way to reduce the css bundle size when using RadixUI Themes?
+publishedAt: 2023-11-29
+---
+
+import { Quote, Text } from "@radix-ui/themes";
+
+import { MDXPageLayout } from "~/components/mdx-layout";
+
+export default function MDXPage({ children }) {
+  return <MDXPageLayout metadata={metadata}>{children}</MDXPageLayout>;
+}
+
+I love the idea behind [RadixUI Themes](https://www.radix-ui.com/themes).
+
+However, it does add a lot of unused css to the bundle.
+I am trying to figure out the best way to axe as much unused css
+from the bundle as possible but I have not been able to find an elegant
+way to do it so far.
+
+The only way I could reduce some of it was by cloning `@radix-ui/themes`
+package into my monorepo and manually removing the unused css imports from it's
+css export.
+
+And, it did cut down the overall css bundle by 50% ! Pagespeed also stopped
+complaining about unused css.
+
+I know, I know. I am not trying to justify my approach with the results.
+It is bad in so many ways. Adds a bunch of maintenance debt which will
+eventually be the reason I stop using the dependency in my next annual
+website design refresh.
+
+But, I don't like to obsess too much on just reaching the goal.
+
+<Text as="p" size="5" mt="6" mb="6">
+  <Quote>The process of how you reach there is just as important.</Quote>
+</Text>
+
+So, I am still exploring ways to get this done _more elegantly_ without having
+to clone a bunch of code within my monorepo.
+
+If you have any ideas, do [reach out](/contact) to discuss. Any help is appreciated.
+
+Thanks.
