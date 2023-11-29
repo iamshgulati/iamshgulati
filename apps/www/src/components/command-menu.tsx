@@ -113,7 +113,7 @@ export function CommandMenu({
                 })
               }
             >
-              <MixIcon width="16" height="16" />
+              <MixIcon />
               Toggle Command Menu
               <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
@@ -163,7 +163,7 @@ export function CommandMenu({
                         runCommand(() => router.push(item.href as string));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {item.title}
                     </Command.Item>
                   );
@@ -184,7 +184,7 @@ export function CommandMenu({
                         runCommand(() => router.push(item.href as string));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {item.title}
                     </Command.Item>
                   );
@@ -205,7 +205,7 @@ export function CommandMenu({
                         runCommand(() => router.push(item.href as string));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {item.title}
                     </Command.Item>
                   );
@@ -225,7 +225,7 @@ export function CommandMenu({
                         runCommand(() => router.push(post.slug));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {post.title}
                     </Command.Item>
                   );
@@ -245,7 +245,7 @@ export function CommandMenu({
                         runCommand(() => router.push(project.slug));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {project.title}
                     </Command.Item>
                   );
@@ -266,7 +266,7 @@ export function CommandMenu({
                         runCommand(() => router.push(thought.slug));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {thought.title}
                     </Command.Item>
                   );
@@ -287,7 +287,7 @@ export function CommandMenu({
                         runCommand(() => router.push(item.href as string));
                       }}
                     >
-                      <ItemIcon width="16" height="16" />
+                      <ItemIcon />
                       {item.title}
                     </Command.Item>
                   );
