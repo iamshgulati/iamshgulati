@@ -3,6 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import {
+  ArrowTopRightIcon,
   Half2Icon,
   MagnifyingGlassIcon,
   MoonIcon,
@@ -201,6 +202,7 @@ export function CommandMenu({
                     >
                       <ItemIcon />
                       {item.title}
+                      <ArrowTopRightIcon />
                     </Command.Item>
                   );
                 })}
