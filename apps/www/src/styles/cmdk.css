@@ -1,16 +1,10 @@
-[cmdk-overlay] {
-}
-
-[cmdk-dialog] {
-}
-
 [cmdk-root] {
   max-width: 640px;
   width: 100%;
   border-radius: var(--radius-3);
   overflow: hidden;
   padding: 0;
-  background-color: transparent;
+  background-color: var(--color-panel-solid);
 }
 
 [cmdk-input] {
@@ -20,7 +14,7 @@
   font-size: var(--font-size-3);
   padding: var(--space-3);
   outline: none;
-  background-color: transparent;
+  background-color: var(--color-panel-solid);
   color: var(--gray-12);
   border-bottom: 1px solid var(--gray-a5);
   border-radius: 0;
@@ -43,21 +37,23 @@
 }
 
 [cmdk-group] {
-  &[hidden="true"] {
-  }
+  margin-top: var(--space-2);
 }
 
 [cmdk-group-heading] {
   user-select: none;
   font-size: var(--font-size-1);
-  font-weight: var(--font-weight-medium);
   color: var(--gray-11);
-  padding: var(--space-2) var(--space-3);
+  padding: 0 var(--space-2);
   display: flex;
   align-items: center;
 }
 
 [cmdk-separator] {
+  height: 1px;
+  width: 100%;
+  background: var(--gray-5);
+  margin: var(--space-1) 0;
 }
 
 [cmdk-item] {
@@ -73,7 +69,7 @@
   color: var(--gray-12);
   user-select: none;
   will-change: background, color;
-  transition: all 150ms ease;
+  transition: all 200ms ease;
   transition-property: none;
   position: relative;
 
@@ -125,7 +121,4 @@
   white-space: pre-wrap;
   color: var(--gray-11);
   margin-top: var(--space-2);
-}
-
-[cmdk-loading] {
 }

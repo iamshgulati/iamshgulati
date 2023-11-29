@@ -105,52 +105,50 @@ export function CommandMenu({
           <Command.Input placeholder="Type a command or search..." />
 
           <Command.List>
-            <Command.Group heading="Shortcuts">
-              <Command.Item
-                value="CmdK Command Menu: Toggle CmdK Command Menu"
-                onSelect={() =>
-                  runCommand(() => {
-                    // do nothing
-                  })
-                }
-              >
-                <MixIcon width="16" height="16" />
-                Toggle Command Menu
-                <CommandShortcut>⌘&thinsp;K</CommandShortcut>
-              </Command.Item>
+            <Command.Item
+              value="CmdK Command Menu: Toggle CmdK Command Menu"
+              onSelect={() =>
+                runCommand(() => {
+                  // do nothing
+                })
+              }
+            >
+              <MixIcon width="16" height="16" />
+              Toggle Command Menu
+              <CommandShortcut>⌘&thinsp;K</CommandShortcut>
+            </Command.Item>
 
-              <Command.Item
-                value="Theme: Toggle Theme System Light Dark"
-                onSelect={() =>
-                  runCommand(() => {
-                    handleThemeToggle();
-                    // updateThemeClasses();
-                    // updateMetaColor();
-                  })
-                }
-              >
-                <Half2Icon
-                  width="16"
-                  height="16"
-                  style={{
-                    display: "var(--system-theme-icon-display)",
-                    transform: "rotate(45deg)",
-                  }}
-                />
-                <SunIcon
-                  width="16"
-                  height="16"
-                  style={{ display: "var(--light-theme-icon-display)" }}
-                />
-                <MoonIcon
-                  width="16"
-                  height="16"
-                  style={{ display: "var(--dark-theme-icon-display)" }}
-                />
-                Toggle Theme
-                <CommandShortcut>⌘&thinsp;D</CommandShortcut>
-              </Command.Item>
-            </Command.Group>
+            <Command.Item
+              value="Theme: Toggle Theme System Light Dark"
+              onSelect={() =>
+                runCommand(() => {
+                  handleThemeToggle();
+                  // updateThemeClasses();
+                  // updateMetaColor();
+                })
+              }
+            >
+              <Half2Icon
+                width="16"
+                height="16"
+                style={{
+                  display: "var(--system-theme-icon-display)",
+                  transform: "rotate(45deg)",
+                }}
+              />
+              <SunIcon
+                width="16"
+                height="16"
+                style={{ display: "var(--light-theme-icon-display)" }}
+              />
+              <MoonIcon
+                width="16"
+                height="16"
+                style={{ display: "var(--dark-theme-icon-display)" }}
+              />
+              Toggle Theme
+              <CommandShortcut>⌘&thinsp;D</CommandShortcut>
+            </Command.Item>
 
             {professionalNav.mainNav.length ? (
               <Command.Group heading="Professional">
@@ -308,7 +306,6 @@ export function CommandMenu({
 const CommandShortcut = ({ children }: React.PropsWithChildren) => (
   <Kbd
     style={{
-      marginTop: "var(--space-1)",
       marginLeft: "auto",
     }}
   >
