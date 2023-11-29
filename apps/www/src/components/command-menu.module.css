@@ -1,5 +1,5 @@
 .DialogContent {
   padding: 0;
   overflow: hidden;
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-5);
 }

@@ -1,7 +1,7 @@
 [cmdk-root] {
   max-width: 640px;
   width: 100%;
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-5);
   overflow: hidden;
   padding: 0;
   background-color: var(--color-panel-solid);
@@ -45,7 +45,8 @@
   user-select: none;
   font-size: var(--font-size-1);
   color: var(--gray-11);
-  padding: 0 var(--space-2);
+  padding-bottom: var(--space-1);
+  padding-left: var(--space-2);
   display: flex;
   align-items: center;
 }
