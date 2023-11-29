@@ -3,6 +3,8 @@ title: Typography Preview
 description: Preview of Typography styles configured on this website.
 ---
 
+import * as Components from "./components";
+
 import { MDXPageLayout } from "~/components/mdx-layout";
 
 export default function MDXPage({ children }) {
@@ -11,7 +13,7 @@ export default function MDXPage({ children }) {
 
 ## API Reference
 
-> The text below is from the [Tailwind CSS](https://play.tailwindcss.com/uj1vGACRJA?layout=preview) docs. I copied it here to test the markdown styles. **Tailwind is awesome. You should use it.**
+<Components.TailwindCSSCallout />
 
 Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
 
@@ -68,7 +70,7 @@ It's probably important that images look okay here by default as well:
 
 {/* ![Image](./image-1.jpg) */}
 
-> Unfortunately, colocated images do not work as of yet.
+<Components.ImagesNotWorkingCallout />
 
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
 
