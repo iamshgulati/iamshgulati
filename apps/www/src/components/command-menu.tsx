@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import {
   Half2Icon,
   MagnifyingGlassIcon,
-  MixIcon,
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
@@ -113,7 +112,7 @@ export function CommandMenu({
                 })
               }
             >
-              <MixIcon />
+              <MagnifyingGlassIcon />
               Toggle Command Menu
               <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
