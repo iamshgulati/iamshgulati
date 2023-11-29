@@ -93,7 +93,6 @@
     "@types/react-dom": "^18.0.4",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.15.0",
-    "eslint-config-custom": "*",
     "postcss": "^8.4.30",
     "postcss-cli": "^10.1.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
@@ -105,6 +104,13 @@
     "react-dom": "^18.1.0",
     "stylelint": "^15.10.3",
     "typescript": "^4.5.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@shgulati/eslint-config/base",
+      "@shgulati/eslint-config/react"
+    ]
   },
   "publishConfig": {
     "access": "public"
