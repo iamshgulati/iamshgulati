@@ -6,7 +6,6 @@ settings:
 
 overrides:
   esbuild: ^0.19.8
-  '@radix-ui/themes': workspace:^2.0.1
 
 importers:
 
@@ -67,7 +66,7 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.2.39)(react@18.2.0)
       '@radix-ui/themes':
-        specifier: workspace:^2.0.1
+        specifier: workspace:^2.0.1-ws
         version: link:../../packages/radix-ui-themes
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
@@ -389,6 +388,9 @@ importers:
         specifier: ^2.3.2
         version: 2.3.2
     devDependencies:
+      '@shgulati/eslint-config':
+        specifier: workspace:^0.2.0
+        version: link:../../tooling/eslint
       '@types/react':
         specifier: ^18.2.38
         version: 18.2.39

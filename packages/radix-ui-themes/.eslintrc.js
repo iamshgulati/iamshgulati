@@ -1,4 +1,7 @@
-module.exports = {
+/** @type {import('eslint').Linter.Config} */
+const config = {
   root: true,
-  extends: ["custom"],
+  extends: ["@shgulati/eslint-config/base", "@shgulati/eslint-config/react"],
 };
+
+module.exports = config;

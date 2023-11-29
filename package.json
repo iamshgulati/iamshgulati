@@ -36,8 +36,7 @@
   },
   "pnpm": {
     "overrides": {
-      "esbuild": "^0.19.8",
-      "@radix-ui/themes": "workspace:^2.0.1"
+      "esbuild": "^0.19.8"
     }
   },
   "prettier": "@shgulati/prettier-config"
