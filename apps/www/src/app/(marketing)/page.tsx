@@ -1,5 +1,10 @@
 import React from "react";
-import { FileTextIcon, PersonIcon } from "@radix-ui/react-icons";
+import {
+  ArrowTopRightIcon,
+  ChevronRightIcon,
+  FileTextIcon,
+  PersonIcon,
+} from "@radix-ui/react-icons";
 import { Box, Button, Flex, Link, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
@@ -46,7 +51,8 @@ const Hero = (): React.JSX.Element => (
           }}
         >
           <PersonIcon width="18" height="18" />
-          <Text>ABOUT ME</Text>
+          <Text>ABOUT</Text>
+          <ChevronRightIcon width="18" height="18" />
         </Button>
       </NextLink>
       <Link
@@ -65,6 +71,7 @@ const Hero = (): React.JSX.Element => (
         >
           <FileTextIcon width="18" height="18" />
           <Text>RESUME</Text>
+          <ArrowTopRightIcon width="18" height="18" />
         </Button>
       </Link>
     </Flex>
