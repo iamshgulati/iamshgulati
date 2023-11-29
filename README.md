@@ -1,1 +1,1 @@
-# new.gulati.sh
+# gulati.sh
