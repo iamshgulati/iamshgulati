@@ -6,6 +6,8 @@ publishedAt: 2023-11-29
 
 import { Quote, Text } from "@radix-ui/themes";
 
+import * as Components from "./components.tsx";
+
 import { MDXPageLayout } from "~/components/mdx-layout";
 
 export default function MDXPage({ children }) {
@@ -23,15 +25,14 @@ The only way I could reduce some of it was by cloning `@radix-ui/themes`
 package into my monorepo and manually removing the unused css imports from it's
 css export.
 
-And, it did cut down the overall css bundle by 50% ! Pagespeed also stopped
-complaining about unused css.
+<Components.PagespeedResultsCallout />
 
 I know, I know. I am not trying to justify my approach with the results.
 It is bad in so many ways. Adds a bunch of maintenance debt which will
 eventually be the reason I stop using the dependency in my next annual
 website design refresh.
 
-But, I don't like to obsess too much on just reaching the goal.
+But, I don't like to obsess too much on just reaching the end goal.
 
 <Text as="p" size="5" mt="6" mb="6">
   <Quote>The process of how you reach there is just as important.</Quote>
