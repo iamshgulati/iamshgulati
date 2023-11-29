@@ -81,6 +81,10 @@
     color: var(--gray-10);
   }
 
+  [cmdk-kbd] {
+    margin-left: auto;
+  }
+
   &[data-selected="true"] {
     background: var(--gray-4);
 
@@ -102,6 +106,15 @@
   &[data-disabled="true"] {
     color: var(--gray-8);
     cursor: var(--cursor-disabled);
+    pointer-events: none;
+
+    svg {
+      color: var(--gray-8);
+    }
+
+    [cmdk-kbd] {
+      color: var(--gray-8);
+    }
   }
 
   &:active {

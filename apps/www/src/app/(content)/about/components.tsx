@@ -8,12 +8,10 @@ import { siteConfig } from "~/config/site";
 
 export const EducationBreakDescription = (): React.JSX.Element => {
   return (
-    <Text asChild color="gray" size="2">
-      <em>
-        Took a break from career to pursue specialization in Cloud and Security
-        domains. Achieved certifications and built full-stack applications using
-        cutting edge technologies.
-      </em>
+    <Text color="gray" size="2">
+      Took a break from career to pursue specialization in Cloud and Security
+      domains. Achieved certifications and built full-stack applications using
+      cutting edge technologies.
     </Text>
   );
 };
@@ -29,12 +27,10 @@ export const SaskpolyMeta = (): React.JSX.Element => {
 
 export const DeloitteUSIDescription = (): React.JSX.Element => {
   return (
-    <Text asChild color="gray" size="2">
-      <em>
-        Deloitte Consulting US-India Offices (USI) is an extension of the
-        Deloitte US organization serving clients within USA, from it&apos;s
-        offsite offices in India.
-      </em>
+    <Text color="gray" size="2">
+      Deloitte Consulting US-India Offices (USI) is an extension of the Deloitte
+      US organization serving clients within USA, from it&apos;s offsite offices
+      in India.
     </Text>
   );
 };
@@ -68,11 +64,9 @@ export const DeloitteUSIAnalystMeta = (): React.JSX.Element => {
 
 export const CGIDescription = (): React.JSX.Element => {
   return (
-    <Text asChild color="gray" size="2">
-      <em>
-        CGI Inc. is a Canadian IT consulting and systems integration company
-        headquartered in Montreal, Quebec, Canada.
-      </em>
+    <Text color="gray" size="2">
+      CGI Inc. is a Canadian IT consulting and systems integration company
+      headquartered in Montreal, Quebec, Canada.
     </Text>
   );
 };

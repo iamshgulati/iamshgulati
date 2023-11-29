@@ -88,12 +88,7 @@ export function CommandMenu({
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
-        <IconButton
-          size="3"
-          variant="ghost"
-          color="gray"
-          onClick={() => setOpen(true)}
-        >
+        <IconButton size="3" variant="ghost" color="gray">
           <AccessibleIcon label="Search website">
             <MagnifyingGlassIcon width="20" height="20" />
           </AccessibleIcon>
@@ -104,19 +99,6 @@ export function CommandMenu({
           <Command.Input placeholder="Type a command or search..." />
 
           <Command.List>
-            <Command.Item
-              value="CmdK Command Menu: Toggle CmdK Command Menu"
-              onSelect={() =>
-                runCommand(() => {
-                  // do nothing
-                })
-              }
-            >
-              <MagnifyingGlassIcon />
-              Toggle Command Menu
-              <CommandShortcut>⌘&thinsp;K</CommandShortcut>
-            </Command.Item>
-
             <Command.Item
               value="Theme: Toggle Theme System Light Dark"
               onSelect={() =>
@@ -147,6 +129,19 @@ export function CommandMenu({
               />
               Toggle Theme
               <CommandShortcut>⌘&thinsp;D</CommandShortcut>
+            </Command.Item>
+
+            <Command.Item
+              value="CmdK Command Menu: Toggle CmdK Command Menu"
+              onSelect={() =>
+                runCommand(() => {
+                  // do nothing
+                })
+              }
+            >
+              <MagnifyingGlassIcon />
+              Toggle Menu
+              <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
 
             {professionalNav.mainNav.length ? (
@@ -303,11 +298,5 @@ export function CommandMenu({
 }
 
 const CommandShortcut = ({ children }: React.PropsWithChildren) => (
-  <Kbd
-    style={{
-      marginLeft: "auto",
-    }}
-  >
-    {children}
-  </Kbd>
+  <Kbd cmdk-kbd="">{children}</Kbd>
 );
