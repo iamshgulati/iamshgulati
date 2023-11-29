@@ -32,7 +32,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   scroll-padding-block-end: 44px;
-  transition: 200ms ease;
+  transition: 300ms ease-out;
   transition-property: height;
   padding-bottom: 44px;
 }
