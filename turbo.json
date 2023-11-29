@@ -12,7 +12,8 @@
         "!.next/cache/**",
         "next-env.d.ts",
         ".output/**",
-        ".vercel/output/**"
+        ".vercel/output/**",
+        "dist/**"
       ]
     },
     "dev": {
@@ -38,7 +39,5 @@
       "cache": false
     }
   },
-  "globalEnv": [
-    "DATABASE_URL"
-  ]
+  "globalEnv": ["DATABASE_URL"]
 }
