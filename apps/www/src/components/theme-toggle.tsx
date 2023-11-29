@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { AccessibleIcon, IconButton, Tooltip } from "@radix-ui/themes";
+import { AccessibleIcon, IconButton } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
 
 export function ThemeToggle(): React.JSX.Element {
@@ -43,42 +43,40 @@ export function ThemeToggle(): React.JSX.Element {
   }, [handleThemeToggle]);
 
   return (
-    <Tooltip content="Toggle theme">
-      <IconButton
-        size="3"
-        variant="ghost"
-        color="gray"
-        onClick={() => {
-          handleThemeToggle();
-          // updateThemeClasses();
-          // updateMetaColor();
-        }}
-      >
-        <AccessibleIcon label="System theme">
-          <Half2Icon
-            width="16"
-            height="16"
-            style={{
-              display: "var(--system-theme-icon-display)",
-              transform: "rotate(45deg)",
-            }}
-          />
-        </AccessibleIcon>
-        <AccessibleIcon label="Light theme">
-          <SunIcon
-            width="16"
-            height="16"
-            style={{ display: "var(--light-theme-icon-display)" }}
-          />
-        </AccessibleIcon>
-        <AccessibleIcon label="Dark theme">
-          <MoonIcon
-            width="16"
-            height="16"
-            style={{ display: "var(--dark-theme-icon-display)" }}
-          />
-        </AccessibleIcon>
-      </IconButton>
-    </Tooltip>
+    <IconButton
+      size="3"
+      variant="ghost"
+      color="gray"
+      onClick={() => {
+        handleThemeToggle();
+        // updateThemeClasses();
+        // updateMetaColor();
+      }}
+    >
+      <AccessibleIcon label="System theme">
+        <Half2Icon
+          width="16"
+          height="16"
+          style={{
+            display: "var(--system-theme-icon-display)",
+            transform: "rotate(45deg)",
+          }}
+        />
+      </AccessibleIcon>
+      <AccessibleIcon label="Light theme">
+        <SunIcon
+          width="16"
+          height="16"
+          style={{ display: "var(--light-theme-icon-display)" }}
+        />
+      </AccessibleIcon>
+      <AccessibleIcon label="Dark theme">
+        <MoonIcon
+          width="16"
+          height="16"
+          style={{ display: "var(--dark-theme-icon-display)" }}
+        />
+      </AccessibleIcon>
+    </IconButton>
   );
 }
