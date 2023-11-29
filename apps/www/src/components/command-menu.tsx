@@ -46,10 +46,10 @@ export function CommandMenu({
   React.useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       const isCmdK =
-        (event.metaKey || event.ctrlKey) &&
+        (event.metaKey || event.altKey) &&
         event.key === "k" &&
-        !event.shiftKey &&
-        !event.altKey;
+        !event.ctrlKey &&
+        !event.shiftKey;
       if (isCmdK) {
         event.preventDefault();
         setOpen((open) => !open);
@@ -64,10 +64,10 @@ export function CommandMenu({
   React.useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       const isCmdD =
-        (event.metaKey || event.ctrlKey) &&
+        (event.metaKey || event.altKey) &&
         event.key === "d" &&
-        !event.shiftKey &&
-        !event.altKey;
+        !event.ctrlKey &&
+        !event.shiftKey;
       if (isCmdD) {
         event.preventDefault();
         handleThemeToggle();

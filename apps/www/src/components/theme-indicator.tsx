@@ -26,10 +26,10 @@ export function ThemeIndicator(): React.JSX.Element {
   React.useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       const isCmdD =
-        (event.metaKey || event.ctrlKey) &&
+        (event.metaKey || event.altKey) &&
         event.key === "d" &&
-        !event.shiftKey &&
-        !event.altKey;
+        !event.ctrlKey &&
+        !event.shiftKey;
       if (isCmdD) {
         event.preventDefault();
         handleThemeToggle();
