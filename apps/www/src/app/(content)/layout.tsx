@@ -1,7 +1,7 @@
 import { Box, Container, Section, Separator } from "@radix-ui/themes";
 
 import { Footer } from "~/components/footer";
-import { Header } from "~/components/header";
+import { Header } from "~/components/header.server";
 import { Layout } from "~/components/layout";
 
 export default function ContentLayout({

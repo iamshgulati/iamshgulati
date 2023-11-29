@@ -8,7 +8,7 @@ import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
 import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
-import { HeaderRoot } from "./header-root";
+import { HeaderRoot } from "./header.client";
 import styles from "./header.module.css";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
