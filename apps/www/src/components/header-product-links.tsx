@@ -12,14 +12,8 @@ export const HeaderProductLinks = (): React.JSX.Element => {
 
   return (
     <React.Fragment>
-      <HeaderProductLink
-        href="/"
-        active={
-          pathname === "/"
-          // || ["/about", "/contact"].some((href) => pathname.startsWith(href))
-        }
-      >
-        Home
+      <HeaderProductLink href="/about" active={pathname === "/about"}>
+        About
       </HeaderProductLink>
       <HeaderProductLink href="/blog" active={pathname.startsWith("/blog")}>
         Blog

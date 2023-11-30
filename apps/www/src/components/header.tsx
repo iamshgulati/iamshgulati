@@ -37,7 +37,6 @@ export function Header({
         <div className={styles.HeaderInnerBackdrop} />
         <Box className={styles.HeaderContainer}>
           <Flex
-            display={{ initial: "flex", xs: "none" }}
             align="center"
             position="absolute"
             top="0"
