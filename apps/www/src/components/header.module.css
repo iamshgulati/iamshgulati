@@ -66,6 +66,29 @@
     margin: auto;
   }
 
+  &:where([data-mobile-menu-open="false"]) .HeaderProductLinksContainer {
+    display: none;
+  }
+
+  &:where([data-mobile-menu-open="true"]) .HeaderProductLinksContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .HeaderProductLinksContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (min-width: 520px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .HeaderProductLink {
     cursor: var(--cursor-link);
     box-sizing: border-box;

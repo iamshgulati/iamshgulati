@@ -1,5 +1,6 @@
 import React from "react";
 
+import { MobileMenuProvider } from "~/components/mobile-menu";
 import { NextThemesProvider } from "./next-themes-provider";
 import { RadixThemesProvider } from "./radix-themes-provider";
 
@@ -12,7 +13,7 @@ export function Providers({
       <NextThemesProvider>
         <RadixThemesProvider>
           {/* <FramerMotionProvider> */}
-          {children}
+          <MobileMenuProvider>{children}</MobileMenuProvider>
           {/* </FramerMotionProvider> */}
         </RadixThemesProvider>
       </NextThemesProvider>

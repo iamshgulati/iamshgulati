@@ -1,13 +1,15 @@
+/* 
 .CommandMenuDialogTrigger {
   &:where([data-state="closed"], [aria-expanded="false"]) {
-    --hamburger-icon-display: block;
-    --cross-icon-display: none;
+    --state-open-icon-display: none;
+    --state-closed-icon-display: block;
   }
   &:where([data-state="open"], [aria-expanded="true"]) {
-    --hamburger-icon-display: none;
-    --cross-icon-display: block;
+    --state-open-icon-display: block;
+    --state-closed-icon-display: none;
   }
 }
+*/
 
 .CommandMenuDialogContent {
   padding: 0;

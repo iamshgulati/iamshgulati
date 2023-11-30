@@ -4,7 +4,7 @@ import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
-import { FrontmatterData } from "~/lib/mdx-frontmatter";
+import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 
 const TITLE = "Blog";
 const DESCRIPTION = "Thoughts, stories, and ideas.";
@@ -47,7 +47,7 @@ const Hero = ({
 const AllBlogs = (): React.JSX.Element => {
   return (
     <Flex direction="column" gap="6">
-      {FrontmatterData.blogPosts.map((post) => (
+      {AllFrontmatter.blogPosts.map((post) => (
         <Box key={post.slug}>
           <NextLink href={post.slug} passHref legacyBehavior>
             <Link>

@@ -4,9 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import {
   ArrowTopRightIcon,
-  Cross2Icon,
   Half2Icon,
-  HamburgerMenuIcon,
   MagnifyingGlassIcon,
   MoonIcon,
   SunIcon,
@@ -30,11 +28,11 @@ import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 interface CommandMenuProps {
-  frontmatter: Record<FrontmatterKeyTypes, FrontmatterTypes>;
+  frontmatter?: Record<FrontmatterKeyTypes, FrontmatterTypes>;
 }
 
 export function CommandMenu({
-  frontmatter,
+  frontmatter = undefined,
 }: CommandMenuProps): React.JSX.Element {
   const [open, setOpen] = React.useState<boolean>(false);
   const router = useRouter();
@@ -94,23 +92,8 @@ export function CommandMenu({
           color="gray"
           onClick={() => setOpen(true)}
         >
-          <AccessibleIcon label="Command Pallet">
-            <HamburgerMenuIcon
-              width="16"
-              height="16"
-              style={{
-                display: "var(--hamburger-icon-display)",
-              }}
-            />
-          </AccessibleIcon>
-          <AccessibleIcon label="Close mobile menu">
-            <Cross2Icon
-              width="16"
-              height="16"
-              style={{
-                display: "var(--cross-icon-display)",
-              }}
-            />
+          <AccessibleIcon label="Command Menu">
+            <MagnifyingGlassIcon width="16" height="16" />
           </AccessibleIcon>
         </IconButton>
       </Dialog.Trigger>
@@ -229,7 +212,7 @@ export function CommandMenu({
               </Command.Group>
             ) : null}
 
-            {frontmatter.blogPosts.length ? (
+            {frontmatter?.blogPosts.length ? (
               <Command.Group heading="Blog Posts">
                 {frontmatter.blogPosts.map((post) => {
                   const ItemIcon: Icon = Icons[post.icon ?? "FileTextIcon"];
@@ -249,7 +232,7 @@ export function CommandMenu({
               </Command.Group>
             ) : null}
 
-            {frontmatter.projects.length ? (
+            {frontmatter?.projects.length ? (
               <Command.Group heading="Projects">
                 {frontmatter.projects.map((project) => {
                   const ItemIcon: Icon = Icons[project.icon ?? "CubeIcon"];
@@ -269,7 +252,7 @@ export function CommandMenu({
               </Command.Group>
             ) : null}
 
-            {frontmatter.thoughts.length ? (
+            {frontmatter?.thoughts.length ? (
               <Command.Group heading="Thoughts">
                 {frontmatter.thoughts.map((thought) => {
                   const ItemIcon: Icon =

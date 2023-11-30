@@ -1,10 +1,9 @@
 import { Box, Container, Section, Separator } from "@radix-ui/themes";
 
-import { CommandMenu } from "~/components/command-menu";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
-import { FrontmatterData } from "~/lib/mdx-frontmatter";
+import { MobileMenu } from "~/components/mobile-menu";
 
 export default function ContentLayout({
   children,
@@ -24,10 +23,10 @@ export default function ContentLayout({
         }}
       />
 
+      <MobileMenu />
+
       <Layout.Header>
-        <Header sticky ghost>
-          <CommandMenu frontmatter={FrontmatterData} />
-        </Header>
+        <Header sticky ghost />
       </Layout.Header>
 
       <Layout.Main>

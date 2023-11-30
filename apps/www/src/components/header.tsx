@@ -1,32 +1,33 @@
-"use client";
-
 import React from "react";
-import { Box, Flex } from "@radix-ui/themes";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Box, Flex, IconButton } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
-import { useOnScroll } from "~/hooks/useOnScroll";
 import { NextLink } from "~/lib/link";
+import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
+import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
+import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { SiteLogo } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
+  isMobileMenuOpen?: boolean;
 }
 
 export function Header({
-  children,
+  children = undefined,
   sticky = false,
   ghost = false,
+  isMobileMenuOpen = false,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
-  const { scrollState } = useOnScroll(0, ghost);
-
   return (
-    <Box
-      data-scroll-state={scrollState}
+    <HeaderShell
+      ghost={ghost}
       className={cn(
         styles.HeaderRoot,
         sticky ? styles.Sticky : "",
@@ -51,18 +52,9 @@ export function Header({
             </NextLink>
           </Flex>
 
-          <Flex
-            align="center"
-            justify="center"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
+          <Box className={styles.HeaderProductLinksContainer}>
             <HeaderProductLinks />
-          </Flex>
+          </Box>
 
           <Flex
             align="center"
@@ -73,10 +65,32 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            {children}
+            <Flex
+              display={{ initial: "none", md: "flex" }}
+              align="center"
+              gap="5"
+            >
+              {children}
+            </Flex>
+            <CommandMenu frontmatter={AllFrontmatter} />
+            <Flex
+              display={{ initial: "flex", md: "none" }}
+              align="center"
+              gap="5"
+            >
+              <IconButton
+                size="3"
+                variant="ghost"
+                color="gray"
+                data-state={isMobileMenuOpen ? "open" : "closed"}
+                // onClick={() => mobileMenu.setOpen((open) => !open)}
+              >
+                <HamburgerMenuIcon width="16" height="16" />
+              </IconButton>
+            </Flex>
           </Flex>
         </Box>
       </nav>
-    </Box>
+    </HeaderShell>
   );
 }

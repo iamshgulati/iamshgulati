@@ -1,5 +1,5 @@
 import type { Icons } from "~/components/icons";
-import type { FrontmatterData } from "~/lib/mdx-frontmatter";
+import type { AllFrontmatter } from "~/lib/mdx-frontmatter";
 
 export interface Frontmatter {
   slug: string;
@@ -20,6 +20,6 @@ export type ProjectFrontmatter = Frontmatter & {
   sourceCodeLink?: string;
 };
 
-export type FrontmatterKeyTypes = keyof typeof FrontmatterData;
+export type FrontmatterKeyTypes = keyof typeof AllFrontmatter;
 
-export type FrontmatterTypes = (typeof FrontmatterData)[FrontmatterKeyTypes];
+export type FrontmatterTypes = (typeof AllFrontmatter)[FrontmatterKeyTypes];

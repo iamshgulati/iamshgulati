@@ -4,7 +4,7 @@ import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
-import { FrontmatterData } from "~/lib/mdx-frontmatter";
+import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 
 const TITLE = "Projects";
 const DESCRIPTION = "A showcase of my open source work.";
@@ -47,7 +47,7 @@ const Hero = ({
 const AllProjects = (): React.JSX.Element => {
   return (
     <Flex direction="column" gap="6">
-      {FrontmatterData.projects.map((project) => (
+      {AllFrontmatter.projects.map((project) => (
         <Box key={project.slug}>
           <NextLink href={project.slug} passHref legacyBehavior>
             <Link>
