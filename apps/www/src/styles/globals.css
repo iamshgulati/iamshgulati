@@ -17,6 +17,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
 /* -------------------------------------------------------------------- */
 
 *,
@@ -25,40 +31,11 @@ body {
   box-sizing: border-box;
 }
 
-svg {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: visible;
-}
-
-pre {
-  margin: 0;
-}
-
 /* -------------------------------------------------------------------- */
 
 :root {
   --header-max-width: 1400px;
   --header-height: 52px;
-}
-
-/* :root {
-  --header-max-width: 1400px;
-  --header-height: 48px;
-
-  @media (min-width: 768px) {
-    --header-height: 52px;
-  }
-} */
-
-/* -------------------------------------------------------------------- */
-
-:root,
-.light {
-  color-scheme: light;
-}
-.dark {
-  color-scheme: dark;
 }
 
 :root,
