@@ -391,9 +391,6 @@ importers:
         specifier: ^2.3.2
         version: 2.3.2
     devDependencies:
-      '@shgulati/eslint-config':
-        specifier: workspace:^0.2.0
-        version: link:../../tooling/eslint
       '@types/react':
         specifier: ^18.2.38
         version: 18.2.39

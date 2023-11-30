@@ -89,7 +89,6 @@
     }
   },
   "devDependencies": {
-    "@shgulati/eslint-config": "workspace:^0.2.0",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.16",
@@ -105,13 +104,6 @@
     "react-dom": "^18.2.0",
     "stylelint": "^15.10.3",
     "typescript": "^5.3.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@shgulati/eslint-config/base",
-      "@shgulati/eslint-config/react"
-    ]
   },
   "publishConfig": {
     "access": "public"
