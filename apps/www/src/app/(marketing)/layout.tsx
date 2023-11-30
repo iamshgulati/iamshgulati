@@ -1,8 +1,10 @@
 import { Container, Section, Separator } from "@radix-ui/themes";
 
+import { CommandMenu } from "~/components/command-menu";
 import { Footer } from "~/components/footer";
-import { Header } from "~/components/header.server";
+import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
+import { FrontmatterData } from "~/lib/mdx-frontmatter";
 
 export default function MarketingLayout({
   children,
@@ -22,7 +24,9 @@ export default function MarketingLayout({
       />
 
       <Layout.Header>
-        <Header sticky ghost />
+        <Header sticky ghost>
+          <CommandMenu frontmatter={FrontmatterData} />
+        </Header>
       </Layout.Header>
 
       <Layout.Main>

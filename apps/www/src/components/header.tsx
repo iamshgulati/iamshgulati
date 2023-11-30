@@ -1,16 +1,16 @@
+"use client";
+
 import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
+import { useOnScroll } from "~/hooks/useOnScroll";
 import { NextLink } from "~/lib/link";
-import { FrontmatterData } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
-import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
-import { HeaderRoot } from "./header.client";
 import styles from "./header.module.css";
-import { SiteLogo, SiteLogoIcon } from "./site-logo";
+import { SiteLogo } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
@@ -22,9 +22,11 @@ export function Header({
   sticky = false,
   ghost = false,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
+  const { scrollState } = useOnScroll(0, ghost);
+
   return (
-    <HeaderRoot
-      ghost={ghost}
+    <Box
+      data-scroll-state={scrollState}
       className={cn(
         styles.HeaderRoot,
         sticky ? styles.Sticky : "",
@@ -43,23 +45,12 @@ export function Header({
             left="0"
             pl={{ initial: "5", sm: "6" }}
           >
-            <HeaderLogoLink>
-              <SiteLogoIcon />
-            </HeaderLogoLink>
-          </Flex>
-
-          <Flex
-            display={{ initial: "none", xs: "flex" }}
-            align="center"
-            position="absolute"
-            top="0"
-            bottom="0"
-            left="0"
-            pl={{ initial: "5", sm: "6" }}
-          >
-            <HeaderLogoLink>
-              <SiteLogo />
-            </HeaderLogoLink>
+            <NextLink href="/" passHref legacyBehavior>
+              <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
+                {/* {mobileMenu.open ? <SiteLogoIcon /> : <SiteLogo />} */}
+                <SiteLogo />
+              </BoxLink>
+            </NextLink>
           </Flex>
 
           <Flex
@@ -84,25 +75,10 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            <Flex
-              display={{ initial: "none", md: "flex" }}
-              align="center"
-              gap="5"
-            >
-              {children}
-            </Flex>
-            <CommandMenu frontmatter={FrontmatterData} />
+            {children}
           </Flex>
         </Box>
       </nav>
-    </HeaderRoot>
+    </Box>
   );
 }
-
-const HeaderLogoLink = ({
-  children,
-}: React.PropsWithChildren): React.JSX.Element => (
-  <NextLink href="/" passHref legacyBehavior>
-    <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>{children}</BoxLink>
-  </NextLink>
-);
