@@ -13,7 +13,8 @@
         "next-env.d.ts",
         ".output/**",
         ".vercel/output/**",
-        "dist/**"
+        "dist/**",
+        "styles.css"
       ]
     },
     "dev": {
