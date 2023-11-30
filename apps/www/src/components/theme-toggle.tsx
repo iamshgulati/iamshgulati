@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 export function ThemeToggle(): React.JSX.Element {
   const { theme, resolvedTheme, systemTheme, setTheme } = useTheme();
 
-  const _handleThemeToggleIn3Steps = React.useCallback(() => {
+  const _onThemeTogglePlusPlus = React.useCallback(() => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     if (theme !== null && theme !== "system" && systemTheme === resolvedTheme) {
       setTheme("system");
@@ -18,31 +18,28 @@ export function ThemeToggle(): React.JSX.Element {
   }, [resolvedTheme, setTheme, systemTheme, theme]);
 
   // Toggle theme with ⌘ + D
-  const handleThemeToggle = React.useCallback(() => {
+  const onThemeToggle = React.useCallback(() => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     setTheme(newTheme === systemTheme ? "system" : newTheme);
   }, [resolvedTheme, setTheme, systemTheme]);
 
-  const handleThemeToggleKeydown = React.useCallback(
+  const onThemeToggleShortcut = React.useCallback(
     (event: KeyboardEvent) => {
       const isCmdD = event.key === "d" && (event.metaKey || event.altKey);
       if (isCmdD) {
         event.preventDefault();
         if (!event.repeat) {
-          handleThemeToggle();
+          onThemeToggle();
         }
-        // updateThemeClasses();
-        // updateMetaColor();
       }
     },
-    [handleThemeToggle],
+    [onThemeToggle],
   );
 
   React.useEffect(() => {
-    document.addEventListener("keydown", handleThemeToggleKeydown);
-    return () =>
-      document.removeEventListener("keydown", handleThemeToggleKeydown);
-  }, [handleThemeToggleKeydown]);
+    document.addEventListener("keydown", onThemeToggleShortcut);
+    return () => document.removeEventListener("keydown", onThemeToggleShortcut);
+  }, [onThemeToggleShortcut]);
 
   return (
     <IconButton
@@ -50,9 +47,7 @@ export function ThemeToggle(): React.JSX.Element {
       variant="ghost"
       color="gray"
       onClick={() => {
-        handleThemeToggle();
-        // updateThemeClasses();
-        // updateMetaColor();
+        onThemeToggle();
       }}
     >
       <AccessibleIcon label="System theme">

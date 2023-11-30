@@ -39,7 +39,7 @@ export function CommandMenu({
   const { resolvedTheme, systemTheme, setTheme } = useTheme();
 
   // Toggle CmdK Command Menu with ⌘ + K
-  const handleCommandMenuKeydown = React.useCallback((event: KeyboardEvent) => {
+  const onCommandMenuShortcut = React.useCallback((event: KeyboardEvent) => {
     const isCmdK = event.key === "k" && (event.metaKey || event.altKey);
     if (isCmdK) {
       event.preventDefault();
@@ -50,37 +50,33 @@ export function CommandMenu({
   }, []);
 
   React.useEffect(() => {
-    document.addEventListener("keydown", handleCommandMenuKeydown);
-    return () =>
-      document.removeEventListener("keydown", handleCommandMenuKeydown);
-  }, [handleCommandMenuKeydown]);
+    document.addEventListener("keydown", onCommandMenuShortcut);
+    return () => document.removeEventListener("keydown", onCommandMenuShortcut);
+  }, [onCommandMenuShortcut]);
 
   // Toggle theme with ⌘ + D
-  const handleThemeToggle = React.useCallback(() => {
+  const onThemeToggle = React.useCallback(() => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     setTheme(newTheme === systemTheme ? "system" : newTheme);
   }, [resolvedTheme, setTheme, systemTheme]);
 
-  const handleThemeToggleKeydown = React.useCallback(
+  const onThemeToggleShortcut = React.useCallback(
     (event: KeyboardEvent) => {
       const isCmdD = event.key === "d" && (event.metaKey || event.altKey);
       if (isCmdD) {
         event.preventDefault();
         if (!event.repeat) {
-          handleThemeToggle();
+          onThemeToggle();
         }
-        // updateThemeClasses();
-        // updateMetaColor();
       }
     },
-    [handleThemeToggle],
+    [onThemeToggle],
   );
 
   React.useEffect(() => {
-    document.addEventListener("keydown", handleThemeToggleKeydown);
-    return () =>
-      document.removeEventListener("keydown", handleThemeToggleKeydown);
-  }, [handleThemeToggleKeydown]);
+    document.addEventListener("keydown", onThemeToggleShortcut);
+    return () => document.removeEventListener("keydown", onThemeToggleShortcut);
+  }, [onThemeToggleShortcut]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -110,9 +106,7 @@ export function CommandMenu({
               value="Theme: Toggle Theme System Light Dark"
               onSelect={() =>
                 runCommand(() => {
-                  handleThemeToggle();
-                  // updateThemeClasses();
-                  // updateMetaColor();
+                  onThemeToggle();
                 })
               }
             >
@@ -200,7 +194,7 @@ export function CommandMenu({
                   return (
                     <Command.Item
                       key={item.href}
-                      value={`Social Links: ${item.title}`}
+                      value={`Social Media Network Links: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
                         runCommand(() => router.push(item.href as string));
