@@ -155,7 +155,7 @@ export function CommandMenu({
                       value={`Professional Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href as string));
+                        runCommand(() => router.push(item.href));
                       }}
                     >
                       <ItemIcon />
@@ -176,7 +176,7 @@ export function CommandMenu({
                       value={`Personal Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href as string));
+                        runCommand(() => router.push(item.href));
                       }}
                     >
                       <ItemIcon />
@@ -196,8 +196,9 @@ export function CommandMenu({
                       key={item.href}
                       value={`Social Media Network Links: ${item.title}`}
                       data-disabled={item.disabled}
+                      // TODO: Find a way to open social links in new tab instead.
                       onSelect={() => {
-                        runCommand(() => router.push(item.href as string));
+                        runCommand(() => router.push(item.href));
                       }}
                     >
                       <ItemIcon />
@@ -280,7 +281,7 @@ export function CommandMenu({
                       value={`Legal Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href as string));
+                        runCommand(() => router.push(item.href));
                       }}
                     >
                       <ItemIcon />
