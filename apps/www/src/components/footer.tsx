@@ -8,12 +8,11 @@ import type { NavItem } from "~/types";
 import { BoxLink } from "./box-link";
 import styles from "./footer.module.css";
 import { SiteLogoIcon } from "./site-logo";
-import { ThemeToggle } from "./theme-toggle";
 
 export function Footer(): React.JSX.Element {
   return (
     <footer>
-      <Grid pb="8" gapX="7" gapY="8" className={styles.Footer}>
+      <Grid pb="9" gapX="7" gapY="8" className={styles.Footer}>
         <Flex
           direction="column"
           align="start"
@@ -25,13 +24,18 @@ export function Footer(): React.JSX.Element {
               <SiteLogoIcon />
             </BoxLink>
           </NextLink>
-          <Heading as="h2" size="3" mt="5">
-            <NextLink href="/" passHref legacyBehavior>
-              <Link color="gray" style={{ color: "inherit" }}>
-                {siteConfig.name}
-              </Link>
-            </NextLink>
-          </Heading>
+          <Box>
+            <Heading as="h2" size="3" mt="5">
+              <NextLink href="/" passHref legacyBehavior>
+                <Link color="gray" style={{ color: "inherit" }}>
+                  {siteConfig.name}
+                </Link>
+              </NextLink>
+            </Heading>
+            <Text as="p" size="1" color="gray" mt="1">
+              &copy; {new Date().getFullYear()} All Rights Reserved.
+            </Text>
+          </Box>
         </Flex>
 
         <Group groupTitle="Professional" items={professionalNav.mainNav} />
@@ -40,12 +44,14 @@ export function Footer(): React.JSX.Element {
 
         <Group groupTitle="Social" items={socialNav.mainNav.slice(0, 3)} />
       </Grid>
-      <Flex align="center" justify="between">
+      {/*
+      <Flex align="center" justify="between" mt="-4" mb="7">
         <Text size="1" color="gray">
           &copy; 2016 — {new Date().getFullYear()} All Rights Reserved.
         </Text>
         <ThemeToggle />
       </Flex>
+      */}
     </footer>
   );
 }
@@ -90,7 +96,7 @@ const GroupItem = ({
           }}
         >
           {children}
-          <ArrowTopRightIcon aria-hidden style={{ color: "var(--gray-9)" }} />
+          <ArrowTopRightIcon aria-hidden style={{ color: "var(--gray-8)" }} />
         </Link>
       </Text>
     );

@@ -36,7 +36,7 @@ export default function MarketingLayout({
       <Layout.Footer>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
-          <Section size="2">
+          <Section size="2" pb="0">
             <Footer />
           </Section>
         </Container>
