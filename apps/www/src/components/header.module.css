@@ -5,12 +5,13 @@
 
   .HeaderInner {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     inset: 0;
     height: inherit;
     user-select: none;
     -webkit-user-select: none;
     box-shadow: 0 1px transparent;
+    margin-top: -1px;
   }
 
   &.Sticky {
