@@ -1,10 +1,12 @@
+// prettier-ignore
 /** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: {
     "postcss-import": {},
-    "postcss-nested": {},
-    autoprefixer: {},
-    // "postcss-fail-on-warn": {},
+    "postcss-nesting": {},
+    "postcss-combine-duplicated-selectors": {},
+    "postcss-discard-empty": {},
+    "autoprefixer": {},
   },
 };
 
