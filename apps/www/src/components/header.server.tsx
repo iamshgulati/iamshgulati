@@ -76,7 +76,6 @@ export function Header({
           </Flex>
 
           <Flex
-            display={{ initial: "flex", md: "none" }}
             align="center"
             gap="5"
             position="absolute"
@@ -85,20 +84,13 @@ export function Header({
             right="0"
             pr={{ initial: "5", sm: "6" }}
           >
-            <CommandMenu frontmatter={FrontmatterData} />
-          </Flex>
-
-          <Flex
-            display={{ initial: "none", md: "flex" }}
-            align="center"
-            gap="5"
-            position="absolute"
-            top="0"
-            bottom="0"
-            right="0"
-            pr={{ initial: "5", sm: "6" }}
-          >
-            {children}
+            <Flex
+              display={{ initial: "none", md: "flex" }}
+              align="center"
+              gap="5"
+            >
+              {children}
+            </Flex>
             <CommandMenu frontmatter={FrontmatterData} />
           </Flex>
         </Box>
