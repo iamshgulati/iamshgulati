@@ -1,4 +1,15 @@
-.DialogContent {
+.CommandMenuDialogTrigger {
+  &:where([data-state="closed"], [aria-expanded="false"]) {
+    --hamburger-icon-display: block;
+    --cross-icon-display: none;
+  }
+  &:where([data-state="open"], [aria-expanded="true"]) {
+    --hamburger-icon-display: none;
+    --cross-icon-display: block;
+  }
+}
+
+.CommandMenuDialogContent {
   padding: 0;
   overflow: hidden;
   border-radius: var(--radius-4);

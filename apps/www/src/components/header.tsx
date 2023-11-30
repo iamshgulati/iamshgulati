@@ -47,7 +47,6 @@ export function Header({
           >
             <NextLink href="/" passHref legacyBehavior>
               <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
-                {/* {mobileMenu.open ? <SiteLogoIcon /> : <SiteLogo />} */}
                 <SiteLogo />
               </BoxLink>
             </NextLink>

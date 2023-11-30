@@ -4,7 +4,9 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import {
   ArrowTopRightIcon,
+  Cross2Icon,
   Half2Icon,
+  HamburgerMenuIcon,
   MagnifyingGlassIcon,
   MoonIcon,
   SunIcon,
@@ -85,23 +87,40 @@ export function CommandMenu({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger>
+      <Dialog.Trigger className={styles.CommandMenuDialogTrigger}>
         <IconButton
           size="3"
           variant="ghost"
           color="gray"
           onClick={() => setOpen(true)}
         >
-          <AccessibleIcon label="Search website">
-            <MagnifyingGlassIcon width="20" height="20" />
+          <AccessibleIcon label="Command Pallet">
+            <HamburgerMenuIcon
+              width="16"
+              height="16"
+              style={{
+                display: "var(--hamburger-icon-display)",
+              }}
+            />
+          </AccessibleIcon>
+          <AccessibleIcon label="Close mobile menu">
+            <Cross2Icon
+              width="16"
+              height="16"
+              style={{
+                display: "var(--cross-icon-display)",
+              }}
+            />
           </AccessibleIcon>
         </IconButton>
       </Dialog.Trigger>
-      <Dialog.Content className={styles.DialogContent}>
+      <Dialog.Content className={styles.CommandMenuDialogContent}>
         <Command loop>
           <Command.Input placeholder="Type a command or search..." />
 
           <Command.List>
+            <Command.Empty>No results found</Command.Empty>
+
             <Command.Item
               value="Theme: Toggle Theme System Light Dark"
               onSelect={() =>
@@ -291,8 +310,6 @@ export function CommandMenu({
                 })}
               </Command.Group>
             ) : null}
-
-            <Command.Empty>No results found</Command.Empty>
           </Command.List>
         </Command>
       </Dialog.Content>
