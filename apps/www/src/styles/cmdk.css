@@ -10,7 +10,7 @@
 [cmdk-input] {
   border: none;
   width: 100%;
-  height: 48px;
+  height: 52px;
   font-size: var(--font-size-3);
   padding: var(--space-2) var(--space-4);
   outline: none;
