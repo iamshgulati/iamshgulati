@@ -40,11 +40,12 @@ export function CommandMenu({
 
   // Toggle CmdK Command Menu with ⌘ + K
   const handleCommandMenuKeydown = React.useCallback((event: KeyboardEvent) => {
-    const isCmdK =
-      event.key === "k" && (event.metaKey || event.altKey) && !event.repeat;
+    const isCmdK = event.key === "k" && (event.metaKey || event.altKey);
     if (isCmdK) {
       event.preventDefault();
-      setOpen((open) => !open);
+      if (!event.repeat) {
+        setOpen((open) => !open);
+      }
     }
   }, []);
 
@@ -62,11 +63,12 @@ export function CommandMenu({
 
   const handleThemeToggleKeydown = React.useCallback(
     (event: KeyboardEvent) => {
-      const isCmdD =
-        event.key === "d" && (event.metaKey || event.altKey) && !event.repeat;
+      const isCmdD = event.key === "d" && (event.metaKey || event.altKey);
       if (isCmdD) {
         event.preventDefault();
-        handleThemeToggle();
+        if (!event.repeat) {
+          handleThemeToggle();
+        }
         // updateThemeClasses();
         // updateMetaColor();
       }

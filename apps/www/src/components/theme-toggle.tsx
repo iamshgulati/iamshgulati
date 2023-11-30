@@ -25,11 +25,12 @@ export function ThemeToggle(): React.JSX.Element {
 
   const handleThemeToggleKeydown = React.useCallback(
     (event: KeyboardEvent) => {
-      const isCmdD =
-        event.key === "d" && (event.metaKey || event.altKey) && !event.repeat;
+      const isCmdD = event.key === "d" && (event.metaKey || event.altKey);
       if (isCmdD) {
         event.preventDefault();
-        handleThemeToggle();
+        if (!event.repeat) {
+          handleThemeToggle();
+        }
         // updateThemeClasses();
         // updateMetaColor();
       }
