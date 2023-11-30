@@ -18,7 +18,7 @@ const nextConfig = {
   pageExtensions: ["md", "mdx", "ts", "tsx"],
   experimental: {
     webpackBuildWorker: true,
-    mdxRs: true,
+    // mdxRs: true,
   },
 
   /** We already do linting and typechecking as separate tasks in CI */
