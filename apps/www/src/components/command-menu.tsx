@@ -41,10 +41,7 @@ export function CommandMenu({
   // Toggle CmdK Command Menu with ⌘ + K
   const handleCommandMenuKeydown = React.useCallback((event: KeyboardEvent) => {
     const isCmdK =
-      (event.metaKey || event.altKey) &&
-      event.key === "k" &&
-      !event.ctrlKey &&
-      !event.shiftKey;
+      event.key === "k" && (event.metaKey || event.altKey) && !event.repeat;
     if (isCmdK) {
       event.preventDefault();
       setOpen((open) => !open);
@@ -66,10 +63,7 @@ export function CommandMenu({
   const handleThemeToggleKeydown = React.useCallback(
     (event: KeyboardEvent) => {
       const isCmdD =
-        (event.metaKey || event.altKey) &&
-        event.key === "d" &&
-        !event.ctrlKey &&
-        !event.shiftKey;
+        event.key === "d" && (event.metaKey || event.altKey) && !event.repeat;
       if (isCmdD) {
         event.preventDefault();
         handleThemeToggle();
