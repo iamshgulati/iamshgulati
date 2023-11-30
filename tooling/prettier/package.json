@@ -1,8 +1,9 @@
 {
   "name": "@shgulati/prettier-config",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "main": "index.mjs",
+  "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",

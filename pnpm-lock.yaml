@@ -117,6 +117,9 @@ importers:
       '@shgulati/eslint-config':
         specifier: workspace:^0.2.0
         version: link:../../tooling/eslint
+      '@shgulati/postcss-config':
+        specifier: workspace:^0.1.0
+        version: link:../../tooling/postcss
       '@shgulati/prettier-config':
         specifier: workspace:^0.1.0
         version: link:../../tooling/prettier
@@ -156,24 +159,6 @@ importers:
       postcss:
         specifier: ^8.4.31
         version: 8.4.31
-      postcss-cli:
-        specifier: ^10.1.0
-        version: 10.1.0(postcss@8.4.31)
-      postcss-combine-duplicated-selectors:
-        specifier: ^10.0.3
-        version: 10.0.3(postcss@8.4.31)
-      postcss-discard-comments:
-        specifier: ^6.0.0
-        version: 6.0.0(postcss@8.4.31)
-      postcss-discard-empty:
-        specifier: ^6.0.0
-        version: 6.0.0(postcss@8.4.31)
-      postcss-import:
-        specifier: ^15.1.0
-        version: 15.1.0(postcss@8.4.31)
-      postcss-nesting:
-        specifier: ^12.0.1
-        version: 12.0.1(postcss@8.4.31)
       prettier:
         specifier: ^3.1.0
         version: 3.1.0
@@ -502,6 +487,40 @@ importers:
         version: 5.3.2
 
   tooling/github: {}
+
+  tooling/postcss:
+    dependencies:
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      postcss-combine-duplicated-selectors:
+        specifier: ^10.0.3
+        version: 10.0.3(postcss@8.4.31)
+      postcss-discard-comments:
+        specifier: ^6.0.0
+        version: 6.0.0(postcss@8.4.31)
+      postcss-discard-empty:
+        specifier: ^6.0.0
+        version: 6.0.0(postcss@8.4.31)
+      postcss-import:
+        specifier: ^15.1.0
+        version: 15.1.0(postcss@8.4.31)
+      postcss-nesting:
+        specifier: ^12.0.1
+        version: 12.0.1(postcss@8.4.31)
+    devDependencies:
+      '@shgulati/prettier-config':
+        specifier: workspace:^0.1.0
+        version: link:../prettier
+      '@shgulati/tsconfig':
+        specifier: workspace:^0.1.0
+        version: link:../typescript
+      prettier:
+        specifier: ^3.1.0
+        version: 3.1.0
+      typescript:
+        specifier: ^5.3.2
+        version: 5.3.2
 
   tooling/prettier:
     dependencies:
@@ -1043,7 +1062,6 @@ packages:
       postcss-selector-parser: ^6.0.13
     dependencies:
       postcss-selector-parser: 6.0.13
-    dev: true
 
   /@drizzle-team/studio@0.0.35:
     resolution: {integrity: sha512-t5LTNOVf+L7Bb/wdssOIPx0ueNvhyaIXdrvKgoHR4wK0GD7SRmILcCTzn6N6Ltr1VnFzQZG/bzn6HMagn17Jtw==}
@@ -8001,7 +8019,6 @@ packages:
     dependencies:
       postcss: 8.4.31
       postcss-selector-parser: 6.0.13
-    dev: true
 
   /postcss-custom-media@10.0.2(postcss@8.4.31):
     resolution: {integrity: sha512-zcEFNRmDm2fZvTPdI1pIW3W//UruMcLosmMiCdpQnrCsTRzWlKQPYMa1ud9auL0BmrryKK1+JjIGn19K0UjO/w==}
@@ -8023,7 +8040,7 @@ packages:
       postcss: ^8.2.15
     dependencies:
       postcss: 8.4.31
-    dev: true
+    dev: false
 
   /postcss-discard-empty@6.0.0(postcss@8.4.31):
     resolution: {integrity: sha512-b+h1S1VT6dNhpcg+LpyiUrdnEZfICF0my7HAKgJixJLW7BnNmpRH34+uw/etf5AhOlIhIAuXApSzzDzMI9K/gQ==}
@@ -8032,7 +8049,6 @@ packages:
       postcss: ^8.2.15
     dependencies:
       postcss: 8.4.31
-    dev: true
 
   /postcss-import@15.1.0(postcss@8.4.31):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -8090,7 +8106,6 @@ packages:
       '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
       postcss: 8.4.31
       postcss-selector-parser: 6.0.13
-    dev: true
 
   /postcss-reporter@7.0.5(postcss@8.4.31):
     resolution: {integrity: sha512-glWg7VZBilooZGOFPhN9msJ3FQs19Hie7l5a/eE6WglzYqVeH3ong3ShFcp9kDWJT1g2Y/wd59cocf9XxBtkWA==}
