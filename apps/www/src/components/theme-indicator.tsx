@@ -8,11 +8,6 @@ import { useTheme } from "next-themes";
 export function ThemeIndicator(): React.JSX.Element {
   const { theme, resolvedTheme, systemTheme, setTheme } = useTheme();
 
-  const handleThemeToggle = React.useCallback(() => {
-    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
-    setTheme(newTheme === systemTheme ? "system" : newTheme);
-  }, [resolvedTheme, setTheme, systemTheme]);
-
   const _handleThemeToggleIn3Steps = React.useCallback(() => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     if (theme !== null && theme !== "system" && systemTheme === resolvedTheme) {
@@ -23,8 +18,13 @@ export function ThemeIndicator(): React.JSX.Element {
   }, [resolvedTheme, setTheme, systemTheme, theme]);
 
   // Toggle theme with ⌘ + D
-  React.useEffect(() => {
-    function handleKeydown(event: KeyboardEvent) {
+  const handleThemeToggle = React.useCallback(() => {
+    const newTheme = resolvedTheme === "dark" ? "light" : "dark";
+    setTheme(newTheme === systemTheme ? "system" : newTheme);
+  }, [resolvedTheme, setTheme, systemTheme]);
+
+  const handleThemeToggleKeydown = React.useCallback(
+    (event: KeyboardEvent) => {
       const isCmdD =
         (event.metaKey || event.altKey) &&
         event.key === "d" &&
@@ -36,11 +36,15 @@ export function ThemeIndicator(): React.JSX.Element {
         // updateThemeClasses();
         // updateMetaColor();
       }
-    }
+    },
+    [handleThemeToggle],
+  );
 
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, [handleThemeToggle]);
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleThemeToggleKeydown);
+    return () =>
+      document.removeEventListener("keydown", handleThemeToggleKeydown);
+  }, [handleThemeToggleKeydown]);
 
   return (
     <IconButton

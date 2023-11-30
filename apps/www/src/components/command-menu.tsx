@@ -38,32 +38,33 @@ export function CommandMenu({
   const router = useRouter();
   const { resolvedTheme, systemTheme, setTheme } = useTheme();
 
+  // Toggle CmdK Command Menu with ⌘ + K
+  const handleCommandMenuKeydown = React.useCallback((event: KeyboardEvent) => {
+    const isCmdK =
+      (event.metaKey || event.altKey) &&
+      event.key === "k" &&
+      !event.ctrlKey &&
+      !event.shiftKey;
+    if (isCmdK) {
+      event.preventDefault();
+      setOpen((open) => !open);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleCommandMenuKeydown);
+    return () =>
+      document.removeEventListener("keydown", handleCommandMenuKeydown);
+  }, [handleCommandMenuKeydown]);
+
+  // Toggle theme with ⌘ + D
   const handleThemeToggle = React.useCallback(() => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
     setTheme(newTheme === systemTheme ? "system" : newTheme);
   }, [resolvedTheme, setTheme, systemTheme]);
 
-  // Toggle CmdK Command Menu with ⌘ + K
-  React.useEffect(() => {
-    function handleKeydown(event: KeyboardEvent) {
-      const isCmdK =
-        (event.metaKey || event.altKey) &&
-        event.key === "k" &&
-        !event.ctrlKey &&
-        !event.shiftKey;
-      if (isCmdK) {
-        event.preventDefault();
-        setOpen((open) => !open);
-      }
-    }
-
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, [setOpen, open]);
-
-  // Toggle theme with ⌘ + D
-  React.useEffect(() => {
-    function handleKeydown(event: KeyboardEvent) {
+  const handleThemeToggleKeydown = React.useCallback(
+    (event: KeyboardEvent) => {
       const isCmdD =
         (event.metaKey || event.altKey) &&
         event.key === "d" &&
@@ -75,11 +76,15 @@ export function CommandMenu({
         // updateThemeClasses();
         // updateMetaColor();
       }
-    }
+    },
+    [handleThemeToggle],
+  );
 
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, [handleThemeToggle]);
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleThemeToggleKeydown);
+    return () =>
+      document.removeEventListener("keydown", handleThemeToggleKeydown);
+  }, [handleThemeToggleKeydown]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
