@@ -63,7 +63,7 @@ export const MobileMenuShell = ({
 
   return (
     <Portal>
-      <Theme accentColor="indigo">
+      <Theme>
         <RemoveScroll as={Slot} allowPinchZoom enabled>
           <Box
             position="fixed"

@@ -1,4 +1,4 @@
-import { Box, ScrollArea, Theme } from "@radix-ui/themes";
+import { Box, ScrollArea } from "@radix-ui/themes";
 
 import type { AppRoute, Page } from "~/types";
 import { Header } from "./header";
@@ -18,18 +18,16 @@ export const MobileMenu = ({
   mobileNavRoutes,
 }: MobileMenuProps): React.JSX.Element => {
   return (
-    <Theme accentColor="indigo">
-      <MobileMenuShell>
-        <Header productLinks={productLinks}>
-          {mainNavPages && <MainNav mainNavPages={mainNavPages} />}
-        </Header>
+    <MobileMenuShell>
+      <Header productLinks={productLinks}>
+        {mainNavPages && <MainNav mainNavPages={mainNavPages} />}
+      </Header>
 
-        <ScrollArea>
-          <Box pt="4" px="4" pb="9">
-            <MobileNav routes={mobileNavRoutes} />
-          </Box>
-        </ScrollArea>
-      </MobileMenuShell>
-    </Theme>
+      <ScrollArea>
+        <Box pt="4" px="4" pb="9">
+          <MobileNav routes={mobileNavRoutes} />
+        </Box>
+      </ScrollArea>
+    </MobileMenuShell>
   );
 };

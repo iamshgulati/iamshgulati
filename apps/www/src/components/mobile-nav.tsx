@@ -122,7 +122,6 @@ const MobileNavItem = ({
     <NextLink href={href} passHref legacyBehavior>
       <Link
         size={{ initial: "3", md: "2" }}
-        color="gray"
         highContrast={active}
         className={classNames}
         {...props}
