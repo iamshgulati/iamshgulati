@@ -13,10 +13,7 @@ export const AllAppRoutes: AllAppRouteProps = {
   },
   home: {
     label: "Home",
-    pages: [
-      { title: "About", slug: "/about", icon: "PersonIcon" },
-      { title: "Contact", slug: "/contact", icon: "ChatBubbleIcon" },
-    ],
+    pages: [{ title: "", slug: "/", icon: "HomeIcon" }],
   },
   professional: {
     label: "Professional",

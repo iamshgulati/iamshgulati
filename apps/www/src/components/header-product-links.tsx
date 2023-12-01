@@ -5,32 +5,36 @@ import { usePathname } from "next/navigation";
 
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
-import type { Page } from "~/types";
+import type { AppRoute } from "~/types";
 import styles from "./header.module.css";
 
 interface HeaderproductLinksProps {
-  productLinks: Page[];
+  routes: AppRoute[];
 }
 
 export const HeaderProductLinks = ({
-  productLinks,
+  routes,
 }: HeaderproductLinksProps): React.JSX.Element => {
   const pathname = usePathname();
 
   return (
     <React.Fragment>
-      {productLinks.map((page) => (
-        <HeaderProductLink
-          key={page.slug}
-          href={page.slug}
-          active={
-            (page.slug === "/" && pathname === page.slug) ||
-            (page.slug !== "/" && pathname.startsWith(page.slug))
-          }
-        >
-          {page.title}
-        </HeaderProductLink>
-      ))}
+      {routes.map((section, index) => {
+        const sectionSlug = section.pages.at(0)?.slug;
+        return sectionSlug ? (
+          <HeaderProductLink
+            key={section.label ?? index}
+            href={sectionSlug}
+            active={section.pages.some(
+              (page) =>
+                (page.slug === "/" && pathname === page.slug) ||
+                (page.slug !== "/" && pathname.startsWith(page.slug)),
+            )}
+          >
+            {section.label}
+          </HeaderProductLink>
+        ) : null;
+      })}
     </React.Fragment>
   );
 };

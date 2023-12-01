@@ -5,7 +5,7 @@ import { AccessibleIcon, Box, Flex, IconButton } from "@radix-ui/themes";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import { cn } from "~/lib/utils";
-import type { Page } from "~/types";
+import type { AppRoute } from "~/types";
 import { BoxLink } from "./box-link";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
@@ -17,14 +17,14 @@ export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
   commandMenu?: React.ReactNode;
-  productLinks?: Page[];
+  productLinkRoutes?: AppRoute[];
 }
 
 export function Header({
   children = undefined,
   sticky = false,
   ghost = false,
-  productLinks = undefined,
+  productLinkRoutes = undefined,
   commandMenu = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
@@ -54,9 +54,9 @@ export function Header({
             </NextLink>
           </Flex>
 
-          {productLinks && (
+          {productLinkRoutes && (
             <Box className={styles.HeaderProductLinksContainer}>
-              <HeaderProductLinks productLinks={productLinks} />
+              <HeaderProductLinks routes={productLinkRoutes} />
             </Box>
           )}
 

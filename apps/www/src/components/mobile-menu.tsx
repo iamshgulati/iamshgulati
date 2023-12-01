@@ -7,19 +7,19 @@ import { MobileMenuShell } from "./mobile-menu-shell";
 import { MobileNav } from "./mobile-nav";
 
 interface MobileMenuProps {
-  productLinks?: Page[];
   mainNavPages?: Page[];
+  productLinkRoutes?: AppRoute[];
   mobileNavRoutes: AppRoute[];
 }
 
 export const MobileMenu = ({
-  productLinks = undefined,
+  productLinkRoutes = undefined,
   mainNavPages = undefined,
   mobileNavRoutes,
 }: MobileMenuProps): React.JSX.Element => {
   return (
     <MobileMenuShell>
-      <Header productLinks={productLinks}>
+      <Header productLinkRoutes={productLinkRoutes}>
         {mainNavPages && <MainNav mainNavPages={mainNavPages} />}
       </Header>
 

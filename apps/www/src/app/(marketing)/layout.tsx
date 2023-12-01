@@ -27,7 +27,11 @@ export default function MarketingLayout({
       />
 
       <MobileMenu
-        productLinks={AllAppRoutes.productLinks.pages}
+        productLinkRoutes={[
+          AllAppRoutes.home,
+          AllAppRoutes.professional,
+          AllAppRoutes.personal,
+        ]}
         mobileNavRoutes={[
           AllAppRoutes.professional,
           AllAppRoutes.personal,
@@ -40,7 +44,11 @@ export default function MarketingLayout({
         <Header
           sticky
           ghost
-          productLinks={AllAppRoutes.productLinks.pages}
+          productLinkRoutes={[
+            AllAppRoutes.home,
+            AllAppRoutes.professional,
+            AllAppRoutes.personal,
+          ]}
           commandMenu={
             <CommandMenu
               allAppRoutes={AllAppRoutes}
