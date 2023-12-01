@@ -1,11 +1,16 @@
-export const isServer = typeof window === "undefined";
-export const getTheme = (key: string, fallback?: string) => {
-  if (isServer) return undefined;
-  let theme;
-  try {
-    theme = localStorage.getItem(key) ?? undefined;
-  } catch (e) {
-    // Unsupported
+import type { badgePropDefs } from "@radix-ui/themes";
+
+import type { NavItemLabel } from "~/types";
+
+export const getBadgeColor = (
+  label: NavItemLabel,
+): (typeof badgePropDefs.color.values)[number] => {
+  switch (label) {
+    case "Preview":
+      return "indigo";
+    case "New":
+      return "green";
+    default:
+      return "amber";
   }
-  return theme ?? fallback;
 };

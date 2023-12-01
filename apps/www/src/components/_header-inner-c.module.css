@@ -10,16 +10,17 @@
     height: inherit;
     user-select: none;
     -webkit-user-select: none;
-    box-shadow: 0 1px transparent;
+    box-shadow: 0 1px var(--gray-a4);
   }
 
-  &.Sticky {
+  &.sticky {
     .HeaderInner {
       position: fixed;
     }
 
     &,
     .HeaderInnerBackdrop {
+      box-shadow: 0 1px transparent;
       transition:
         background-color 180ms,
         box-shadow 180ms;
@@ -38,7 +39,7 @@
     /*
      * Fallback HeaderInner with no filters.
      */
-    &.Ghost {
+    &.ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           box-shadow: 0 1px var(--gray-a4);
@@ -49,7 +50,7 @@
     /*
      * Fallback HeaderInnerBackdrop with no filters.
      */
-    &.Ghost {
+    &.ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInnerBackdrop {
           background-color: var(--color-background);
@@ -61,7 +62,7 @@
      * HeaderInnerBackdrop with simple backdrop filters and extended
      * linear-gradient mask image if browser supports relative colors.
      */
-    &.Ghost {
+    &.ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           & > .HeaderInnerBackdrop {

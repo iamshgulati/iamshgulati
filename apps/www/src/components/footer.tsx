@@ -70,7 +70,7 @@ const Group = ({
     </Heading>
     {children}
     {items.map((item) => (
-      <GroupItem key={item.href} href={item.href}>
+      <GroupItem key={item.slug} href={item.slug}>
         {item.title}
       </GroupItem>
     ))}

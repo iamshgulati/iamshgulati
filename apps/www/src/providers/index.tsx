@@ -10,13 +10,15 @@ export function Providers({
   return (
     <React.Fragment>
       {/* <ThemeClasses /> */}
-      <NextThemesProvider>
-        <RadixThemesProvider>
-          {/* <FramerMotionProvider> */}
-          <MobileMenuProvider>{children}</MobileMenuProvider>
-          {/* </FramerMotionProvider> */}
-        </RadixThemesProvider>
-      </NextThemesProvider>
+      <MobileMenuProvider>
+        <NextThemesProvider>
+          <RadixThemesProvider>
+            {/* <FramerMotionProvider> */}
+            {children}
+            {/* </FramerMotionProvider> */}
+          </RadixThemesProvider>
+        </NextThemesProvider>
+      </MobileMenuProvider>
     </React.Fragment>
   );
 }

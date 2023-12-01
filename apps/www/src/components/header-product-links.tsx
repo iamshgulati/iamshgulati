@@ -24,12 +24,6 @@ export const HeaderProductLinks = (): React.JSX.Element => {
       >
         Projects
       </HeaderProductLink>
-      <HeaderProductLink
-        href="/thoughts"
-        active={pathname.startsWith("/thoughts")}
-      >
-        Thoughts
-      </HeaderProductLink>
     </React.Fragment>
   );
 };

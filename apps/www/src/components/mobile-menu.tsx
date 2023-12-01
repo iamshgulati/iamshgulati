@@ -2,10 +2,8 @@
 
 import React from "react";
 import { createContext } from "@radix-ui/react-context";
-import { Box, Portal, ScrollArea, Slot, Theme } from "@radix-ui/themes";
+import { Box, Portal, Slot, Theme } from "@radix-ui/themes";
 import { RemoveScroll } from "react-remove-scroll";
-
-import { Header } from "./header";
 
 const [MenuProvider, useMenuContext] = createContext<{
   open: boolean;
@@ -17,20 +15,6 @@ export const MobileMenuProvider = ({
 }: React.PropsWithChildren): React.JSX.Element => {
   const [open, setOpen] = React.useState<boolean>(false);
 
-  // const router = useRouter();
-  // React.useEffect(() => {
-  //   const handleRouteChangeStart = () => {
-  //     // Dismiss mobile keyboard if focusing an input (e.g. when searching)
-  //     if (document.activeElement instanceof HTMLInputElement) {
-  //       document.activeElement.blur();
-  //     }
-  //     setOpen(false);
-  //   };
-  //   router.events.on("routeChangeStart", handleRouteChangeStart);
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleRouteChangeStart);
-  //   };
-  // }, []);
   React.useEffect(() => {
     // Match @media (--md)
     const mediaQueryList = window.matchMedia("(min-width: 1024px)");
@@ -68,7 +52,9 @@ export const MobileMenuTrigger = ({
   );
 };
 
-export const MobileMenu = () => {
+export const MobileMenu = ({
+  children,
+}: React.PropsWithChildren): React.JSX.Element | null => {
   const mobileMenu = useMobileMenuContext();
 
   if (!mobileMenu.open) {
@@ -77,25 +63,20 @@ export const MobileMenu = () => {
 
   return (
     <Portal>
-      <Theme>
+      <Theme accentColor="indigo">
         <RemoveScroll as={Slot} allowPinchZoom enabled>
           <Box
             position="fixed"
             inset="0"
             style={{
-              zIndex: 2,
+              zIndex: 1,
               display: "grid",
               gridTemplateRows: "auto minmax(0, 1fr)",
               backgroundColor: "var(--color-background)",
+              color: "var(--gray-12)",
             }}
           >
-            <Header />
-
-            <ScrollArea>
-              <Box pt="4" px="4" pb="9">
-                {/* Add the nav items here */}
-              </Box>
-            </ScrollArea>
+            {children}
           </Box>
         </RemoveScroll>
       </Theme>

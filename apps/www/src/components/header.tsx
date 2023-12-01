@@ -29,8 +29,8 @@ export function Header({
       ghost={ghost}
       className={cn(
         styles.HeaderRoot,
-        sticky ? styles.Sticky : "",
-        ghost ? styles.Ghost : "",
+        sticky ? styles.sticky : "",
+        ghost ? styles.ghost : "",
       )}
     >
       <nav className={styles.HeaderInner}>

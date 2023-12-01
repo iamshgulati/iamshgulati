@@ -22,11 +22,13 @@ export interface SiteConfig {
   };
 }
 
+export type NavItemLabel = "Soon" | "Preview" | "New";
+
 interface NavItem {
+  slug: Route;
   title: string;
   description?: string;
-  href: Route;
-  external?: boolean;
+  label?: NavItemLabel;
   disabled?: boolean;
   icon?: keyof typeof Icons;
 }
@@ -34,16 +36,16 @@ interface NavItem {
 type NavItemWithChildren = {
   title: string;
   description?: string;
-  external?: boolean;
+  label?: NavItemLabel;
   disabled?: boolean;
   icon?: keyof typeof Icons;
 } & (
   | {
-      href: Route;
+      slug: Route;
       items?: never;
     }
   | {
-      href?: Route;
+      slug?: Route;
       items: NavItem[];
     }
 );

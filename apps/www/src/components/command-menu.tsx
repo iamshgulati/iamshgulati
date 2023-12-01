@@ -153,11 +153,11 @@ export function CommandMenu({
                   const ItemIcon: Icon = Icons[item.icon ?? "FileIcon"];
                   return (
                     <Command.Item
-                      key={item.href}
+                      key={item.slug}
                       value={`Professional Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href));
+                        runCommand(() => router.push(item.slug));
                       }}
                     >
                       <ItemIcon />
@@ -174,11 +174,11 @@ export function CommandMenu({
                   const ItemIcon: Icon = Icons[item.icon ?? "FileIcon"];
                   return (
                     <Command.Item
-                      key={item.href}
+                      key={item.slug}
                       value={`Personal Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href));
+                        runCommand(() => router.push(item.slug));
                       }}
                     >
                       <ItemIcon />
@@ -195,12 +195,12 @@ export function CommandMenu({
                   const ItemIcon: Icon = Icons[item.icon ?? "AtSymbolIcon"];
                   return (
                     <Command.Item
-                      key={item.href}
+                      key={item.slug}
                       value={`Social Media Network Links: ${item.title}`}
                       data-disabled={item.disabled}
                       // TODO: Find a way to open social links in new tab instead.
                       onSelect={() => {
-                        runCommand(() => router.push(item.href));
+                        runCommand(() => router.push(item.slug));
                       }}
                     >
                       <ItemIcon />
@@ -279,11 +279,11 @@ export function CommandMenu({
                   const ItemIcon: Icon = Icons[item.icon ?? "FileTextIcon"];
                   return (
                     <Command.Item
-                      key={item.href}
+                      key={item.slug}
                       value={`Legal Site Pages: ${item.title}`}
                       data-disabled={item.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.href));
+                        runCommand(() => router.push(item.slug));
                       }}
                     >
                       <ItemIcon />

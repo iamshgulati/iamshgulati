@@ -10,12 +10,13 @@
     height: inherit;
     user-select: none;
     -webkit-user-select: none;
-    box-shadow: 0 1px transparent;
+    box-shadow: 0 1px var(--gray-a4);
   }
 
-  &.Sticky {
+  &.sticky {
     .HeaderInner {
       position: fixed;
+      box-shadow: 0 1px transparent;
       transition:
         background-color 180ms,
         box-shadow 180ms;
@@ -31,7 +32,7 @@
     /*
      * Fallback HeaderInner with no filters.
      */
-    &.Ghost {
+    &.ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           box-shadow: 0 1px var(--gray-a4);
@@ -43,7 +44,7 @@
     /*
      * HeaderInner with simple backdrop filters if browser supports relative colors.
      */
-    &.Ghost {
+    &.ghost {
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           @supports (color: rgb(from white r g b)) {
