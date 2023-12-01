@@ -6,9 +6,9 @@ import matter from "gray-matter";
 import type { AllContentRouteProps, Frontmatter } from "~/types";
 
 const ROOT_PATH = process.cwd();
-const DATA_PATH = path.join(ROOT_PATH, "src/app/(content)");
 
-const getFrontmatter = (fromPath: string): Frontmatter[] => {
+const getFrontmatter = (dataPath: string, fromPath: string): Frontmatter[] => {
+  const DATA_PATH = path.join(ROOT_PATH, dataPath);
   const PATH = path.join(DATA_PATH, fromPath);
   const paths = glob.sync(`${PATH}/**/*.mdx`);
 
@@ -39,14 +39,14 @@ const getFrontmatter = (fromPath: string): Frontmatter[] => {
 export const AllContentRoutes: AllContentRouteProps = {
   blogPosts: {
     label: "Blog Posts",
-    pages: [...getFrontmatter("/blog")],
+    pages: [...getFrontmatter("src/app/(professional)", "/blog")],
   },
   projects: {
     label: "Projects",
-    pages: [...getFrontmatter("/projects")],
+    pages: [...getFrontmatter("src/app/(professional)", "/projects")],
   },
   thoughts: {
     label: "Thoughts",
-    pages: [...getFrontmatter("/thoughts")],
+    pages: [...getFrontmatter("src/app/(personal)", "/thoughts")],
   },
 };
