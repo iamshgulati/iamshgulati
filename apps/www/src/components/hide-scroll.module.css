@@ -1,4 +1,4 @@
-.HiddenScroll {
+.HideScroll {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
