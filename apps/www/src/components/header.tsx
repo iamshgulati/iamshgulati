@@ -1,29 +1,28 @@
 import React from "react";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Box, Flex, IconButton } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
-import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 import { cn } from "~/lib/utils";
 import { BoxLink } from "./box-link";
-import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
+import { MobileMenuTrigger } from "./mobile-menu";
 import { SiteLogo } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
-  isMobileMenuOpen?: boolean;
+  commandMenu?: React.ReactNode;
 }
 
 export function Header({
   children = undefined,
   sticky = false,
   ghost = false,
-  isMobileMenuOpen = false,
+  commandMenu = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
     <HeaderShell
@@ -72,22 +71,34 @@ export function Header({
             >
               {children}
             </Flex>
-            <CommandMenu frontmatter={AllFrontmatter} />
-            <Flex
-              display={{ initial: "flex", md: "none" }}
-              align="center"
-              gap="5"
-            >
-              <IconButton
-                size="3"
-                variant="ghost"
-                color="gray"
-                data-state={isMobileMenuOpen ? "open" : "closed"}
-                // onClick={() => mobileMenu.setOpen((open) => !open)}
-              >
-                <HamburgerMenuIcon width="16" height="16" />
-              </IconButton>
-            </Flex>
+
+            {commandMenu}
+
+            <Box asChild display={{ initial: "block", md: "none" }}>
+              <MobileMenuTrigger>
+                <IconButton
+                  size="3"
+                  variant="ghost"
+                  color="gray"
+                  className={styles.MobileMenuTrigger}
+                >
+                  <HamburgerMenuIcon
+                    width="16"
+                    height="16"
+                    style={{
+                      display: "var(--state-closed-icon-display)",
+                    }}
+                  />
+                  <Cross2Icon
+                    width="16"
+                    height="16"
+                    style={{
+                      display: "var(--state-open-icon-display)",
+                    }}
+                  />
+                </IconButton>
+              </MobileMenuTrigger>
+            </Box>
           </Flex>
         </Box>
       </nav>

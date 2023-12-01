@@ -1,16 +1,3 @@
-/* 
-.CommandMenuDialogTrigger {
-  &:where([data-state="closed"], [aria-expanded="false"]) {
-    --state-open-icon-display: none;
-    --state-closed-icon-display: block;
-  }
-  &:where([data-state="open"], [aria-expanded="true"]) {
-    --state-open-icon-display: block;
-    --state-closed-icon-display: none;
-  }
-}
-*/
-
 .CommandMenuDialogContent {
   padding: 0;
   overflow: hidden;
