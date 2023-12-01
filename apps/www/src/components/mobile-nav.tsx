@@ -85,7 +85,6 @@ const MobileNavItem = ({
     return (
       <Text
         size={{ initial: "3", md: "2" }}
-        color="gray"
         className={classNames}
         style={{
           cursor: "var(--cursor-disabled)",
@@ -103,7 +102,6 @@ const MobileNavItem = ({
           target="_blank"
           rel="noopener noreferrer"
           size={{ initial: "3", md: "2" }}
-          color="gray"
           highContrast={active}
           className={classNames}
           {...props}
