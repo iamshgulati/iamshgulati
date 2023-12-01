@@ -1,6 +1,6 @@
 import React from "react";
 import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { Box, Flex, IconButton } from "@radix-ui/themes";
+import { AccessibleIcon, Box, Flex, IconButton } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
@@ -82,20 +82,24 @@ export function Header({
                   color="gray"
                   className={styles.MobileMenuTrigger}
                 >
-                  <HamburgerMenuIcon
-                    width="16"
-                    height="16"
-                    style={{
-                      display: "var(--state-closed-icon-display)",
-                    }}
-                  />
-                  <Cross2Icon
-                    width="16"
-                    height="16"
-                    style={{
-                      display: "var(--state-open-icon-display)",
-                    }}
-                  />
+                  <AccessibleIcon label="Open Mobile Menu">
+                    <HamburgerMenuIcon
+                      width="16"
+                      height="16"
+                      style={{
+                        display: "var(--state-closed-icon-display)",
+                      }}
+                    />
+                  </AccessibleIcon>
+                  <AccessibleIcon label="Close Mobile Menu">
+                    <Cross2Icon
+                      width="16"
+                      height="16"
+                      style={{
+                        display: "var(--state-open-icon-display)",
+                      }}
+                    />
+                  </AccessibleIcon>
                 </IconButton>
               </MobileMenuTrigger>
             </Box>
