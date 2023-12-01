@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
+import { AllContentRoutes } from "~/lib/contentRoutes";
 import { NextLink } from "~/lib/link";
-import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 
 const TITLE = "Thoughts";
 const DESCRIPTION = "My personal thoughts.";
@@ -19,7 +19,7 @@ export default function ThoughtsPage(): React.JSX.Element {
     <React.Fragment>
       <Hero title={TITLE} description={DESCRIPTION} />
       <Section size="2" pb="0">
-        <AllThoughts />
+        <AllThoughtPreviews />
       </Section>
     </React.Fragment>
   );
@@ -44,18 +44,18 @@ const Hero = ({
   </React.Fragment>
 );
 
-const AllThoughts = (): React.JSX.Element => {
+const AllThoughtPreviews = (): React.JSX.Element => {
   return (
     <Flex direction="column" gap="6">
-      {AllFrontmatter.thoughts.map((thought) => (
-        <Box key={thought.slug}>
-          <NextLink href={thought.slug} passHref legacyBehavior>
+      {AllContentRoutes.thoughts.pages.map((page) => (
+        <Box key={page.slug}>
+          <NextLink href={page.slug} passHref legacyBehavior>
             <Link>
-              <Heading mb="2">{thought.title}</Heading>
+              <Heading mb="2">{page.title}</Heading>
             </Link>
           </NextLink>
           <Text as="p" color="gray">
-            {thought.description}
+            {page.description}
           </Text>
         </Box>
       ))}

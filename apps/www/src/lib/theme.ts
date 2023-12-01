@@ -1,9 +1,9 @@
 import type { badgePropDefs } from "@radix-ui/themes";
 
-import type { NavItemLabel } from "~/types";
+import type { PageLabel } from "~/types";
 
 export const getBadgeColor = (
-  label: NavItemLabel,
+  label: PageLabel,
 ): (typeof badgePropDefs.color.values)[number] => {
   switch (label) {
     case "Preview":

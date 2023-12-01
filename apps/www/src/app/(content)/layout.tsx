@@ -2,10 +2,12 @@ import { Box, Container, Section, Separator } from "@radix-ui/themes";
 
 import { CommandMenu } from "~/components/command-menu";
 import { Footer } from "~/components/footer";
+import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
-import { MarketingHeader } from "~/components/marketing-header";
+import { MainNav } from "~/components/main-nav";
 import { MarketingMobileMenu } from "~/components/marketing-mobile-menu";
-import { AllFrontmatter } from "~/lib/mdx-frontmatter";
+import { AllAppRoutes } from "~/lib/appRoutes";
+import { AllContentRoutes } from "~/lib/contentRoutes";
 
 export default function ContentLayout({
   children,
@@ -28,11 +30,18 @@ export default function ContentLayout({
       <MarketingMobileMenu />
 
       <Layout.Header>
-        <MarketingHeader
+        <Header
           sticky
           ghost
-          commandMenu={<CommandMenu frontmatter={AllFrontmatter} />}
-        />
+          commandMenu={
+            <CommandMenu
+              allAppRoutes={AllAppRoutes}
+              allContentRoutes={AllContentRoutes}
+            />
+          }
+        >
+          <MainNav pages={AllAppRoutes.home.pages} />
+        </Header>
       </Layout.Header>
 
       <Layout.Main>
@@ -51,7 +60,7 @@ export default function ContentLayout({
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
           <Section size="2" pb="0">
-            <Footer />
+            <Footer allAppRoutes={AllAppRoutes} />
           </Section>
         </Container>
       </Layout.Footer>

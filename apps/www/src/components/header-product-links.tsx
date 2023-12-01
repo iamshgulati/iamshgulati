@@ -5,25 +5,36 @@ import { usePathname } from "next/navigation";
 
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
+import type { Page } from "~/types";
 import styles from "./header.module.css";
 
-export const HeaderProductLinks = (): React.JSX.Element => {
+const PRODUCT_LINKS_LIMIT = 4;
+
+interface HeaderproductLinksProps {
+  pages?: Page[];
+}
+
+export const HeaderProductLinks = ({
+  pages = undefined,
+}: HeaderproductLinksProps): React.JSX.Element | null => {
   const pathname = usePathname();
 
   return (
     <React.Fragment>
-      <HeaderProductLink href="/" active={pathname === "/"}>
-        Home
-      </HeaderProductLink>
-      <HeaderProductLink href="/blog" active={pathname.startsWith("/blog")}>
-        Blog
-      </HeaderProductLink>
-      <HeaderProductLink
-        href="/projects"
-        active={pathname.startsWith("/projects")}
-      >
-        Projects
-      </HeaderProductLink>
+      {pages?.length
+        ? pages.slice(0, PRODUCT_LINKS_LIMIT).map((page) => (
+            <HeaderProductLink
+              key={page.slug}
+              href={page.slug}
+              active={
+                pathname === "/" ||
+                (pathname !== "/" && pathname.startsWith(page.slug))
+              }
+            >
+              {page.title}
+            </HeaderProductLink>
+          ))
+        : null}
     </React.Fragment>
   );
 };

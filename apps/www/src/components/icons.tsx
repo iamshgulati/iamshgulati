@@ -475,4 +475,4 @@ export const Icons = {
   PostmanIcon,
   FlagOfIndiaIcon,
   FlagOfCanadaIcon,
-};
+} satisfies Record<string, Icon>;

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
+import { AllContentRoutes } from "~/lib/contentRoutes";
 import { NextLink } from "~/lib/link";
-import { AllFrontmatter } from "~/lib/mdx-frontmatter";
 
 const TITLE = "Projects";
 const DESCRIPTION = "A showcase of my open source work.";
@@ -19,7 +19,7 @@ export default function ProjectsPage(): React.JSX.Element {
     <React.Fragment>
       <Hero title={TITLE} description={DESCRIPTION} />
       <Section size="2" pb="0">
-        <AllProjects />
+        <AllProjectPreviews />
       </Section>
     </React.Fragment>
   );
@@ -44,18 +44,18 @@ const Hero = ({
   </React.Fragment>
 );
 
-const AllProjects = (): React.JSX.Element => {
+const AllProjectPreviews = (): React.JSX.Element => {
   return (
     <Flex direction="column" gap="6">
-      {AllFrontmatter.projects.map((project) => (
-        <Box key={project.slug}>
-          <NextLink href={project.slug} passHref legacyBehavior>
+      {AllContentRoutes.projects.pages.map((page) => (
+        <Box key={page.slug}>
+          <NextLink href={page.slug} passHref legacyBehavior>
             <Link>
-              <Heading mb="2">{project.title}</Heading>
+              <Heading mb="2">{page.title}</Heading>
             </Link>
           </NextLink>
           <Text as="p" color="gray">
-            {project.description}
+            {page.description}
           </Text>
         </Box>
       ))}

@@ -7,41 +7,43 @@ import { Badge, Flex, Link, Text } from "@radix-ui/themes";
 
 import { NextLink } from "~/lib/link";
 import { getBadgeColor } from "~/lib/theme";
-import type { NavItem } from "~/types";
+import type { Page } from "~/types";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 interface MainNavProps {
-  items?: NavItem[];
+  pages?: Page[];
 }
 
 export function MainNav({
-  items = [],
+  pages = undefined,
 }: MainNavProps): React.JSX.Element[] | null {
   const pathname = usePathname();
 
-  return items.map((item) => {
-    const ItemIcon: Icon | undefined = item.icon && Icons[item.icon];
-    return (
-      <MainNavItem
-        key={item.slug}
-        href={item.slug}
-        disabled={item.disabled}
-        active={pathname === item.slug}
-      >
-        <Flex display="inline-flex" align="center" gap="2">
-          {ItemIcon && <ItemIcon width="16" height="16" />}
-          {/* initial size = 3 for mobile menu; md size = 2 for sidebar menu */}
-          <Text size={{ initial: "3", md: "2" }}>{item.title}</Text>
-          {item.label && (
-            <Badge radius="full" color={getBadgeColor(item.label)}>
-              {item.label}
-            </Badge>
-          )}
-        </Flex>
-      </MainNavItem>
-    );
-  });
+  return pages?.length
+    ? pages.map((page) => {
+        const PageIcon: Icon | undefined = page.icon && Icons[page.icon];
+        return (
+          <MainNavItem
+            key={page.slug}
+            href={page.slug}
+            disabled={page.disabled}
+            active={pathname === page.slug}
+          >
+            <Flex display="inline-flex" align="center" gap="2">
+              {PageIcon && <PageIcon width="16" height="16" />}
+              {/* initial size = 3 for mobile menu; md size = 2 for sidebar menu */}
+              <Text size={{ initial: "3", md: "2" }}>{page.title}</Text>
+              {page.label && (
+                <Badge radius="full" color={getBadgeColor(page.label)}>
+                  {page.label}
+                </Badge>
+              )}
+            </Flex>
+          </MainNavItem>
+        );
+      })
+    : null;
 }
 
 interface MainNavItemProps {

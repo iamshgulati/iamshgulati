@@ -3,14 +3,12 @@ import path from "path";
 import glob from "glob";
 import matter from "gray-matter";
 
-import type { Frontmatter, ProjectFrontmatter } from "~/types/frontmatter";
+import type { AllContentRouteProps, Frontmatter } from "~/types";
 
 const ROOT_PATH = process.cwd();
 const DATA_PATH = path.join(ROOT_PATH, "src/app/(content)");
 
-const getFrontmatter = (
-  fromPath: string,
-): Frontmatter[] | ProjectFrontmatter[] => {
+const getFrontmatter = (fromPath: string): Frontmatter[] => {
   const PATH = path.join(DATA_PATH, fromPath);
   const paths = glob.sync(`${PATH}/**/*.mdx`);
 
@@ -20,7 +18,7 @@ const getFrontmatter = (
       const { data }: matter.GrayMatterFile<string> = matter(source);
 
       return {
-        ...(data as Frontmatter | ProjectFrontmatter),
+        ...(data as Frontmatter),
         slug: filePath.replace(`${DATA_PATH}`, "").replace("/page.mdx", ""),
         slugAsParams: filePath
           .replace(`${PATH}`, "")
@@ -28,7 +26,7 @@ const getFrontmatter = (
           .split("/")
           .slice(1)
           .join("/"),
-      } as Frontmatter | ProjectFrontmatter;
+      } as Frontmatter;
     })
     .filter((frontmatter) => !frontmatter.slugAsParams.startsWith("_"))
     .sort(
@@ -38,8 +36,17 @@ const getFrontmatter = (
     );
 };
 
-export const AllFrontmatter = {
-  blogPosts: getFrontmatter("/blog") ?? [],
-  projects: getFrontmatter("/projects") ?? [],
-  thoughts: getFrontmatter("/thoughts") ?? [],
+export const AllContentRoutes: AllContentRouteProps = {
+  blogPosts: {
+    label: "Blog Posts",
+    pages: [...getFrontmatter("/blog")],
+  },
+  projects: {
+    label: "Projects",
+    pages: [...getFrontmatter("/projects")],
+  },
+  thoughts: {
+    label: "Thoughts",
+    pages: [...getFrontmatter("/thoughts")],
+  },
 };

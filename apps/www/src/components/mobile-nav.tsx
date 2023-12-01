@@ -8,16 +8,13 @@ import { Badge, Box, Flex, Heading, Link, Text } from "@radix-ui/themes";
 import { NextLink } from "~/lib/link";
 import { getBadgeColor } from "~/lib/theme";
 import { cn } from "~/lib/utils";
-import type { NavItem } from "~/types";
+import type { AppRoute } from "~/types";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 import styles from "./mobile-nav.module.css";
 
 interface MobileNavProps {
-  routes: {
-    label?: string;
-    pages?: NavItem[];
-  }[];
+  routes: AppRoute[];
 }
 
 export const MobileNav = ({ routes }: MobileNavProps): React.JSX.Element => {
@@ -71,8 +68,8 @@ interface MobileNavItemProps {
 }
 
 const MobileNavItem = ({
-  active,
-  disabled,
+  active = false,
+  disabled = false,
   href,
   className = undefined,
   ...props

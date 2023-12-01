@@ -1,15 +1,20 @@
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
 
-import { personalNav, professionalNav, socialNav } from "~/config/nav";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
-import type { NavItem } from "~/types";
+import type { AllAppRouteProps, Page } from "~/types";
 import { BoxLink } from "./box-link";
 import styles from "./footer.module.css";
 import { SiteLogoIcon } from "./site-logo";
 
-export function Footer(): React.JSX.Element {
+interface FooterProps {
+  allAppRoutes?: AllAppRouteProps;
+}
+
+export function Footer({
+  allAppRoutes = undefined,
+}: FooterProps): React.JSX.Element {
   return (
     <footer>
       <Grid pb="9" gapX="7" gapY="8" className={styles.Footer}>
@@ -38,38 +43,45 @@ export function Footer(): React.JSX.Element {
           </Box>
         </Flex>
 
-        <Group groupTitle="Professional" items={professionalNav.mainNav} />
+        {allAppRoutes?.professional.pages.length ? (
+          <Group
+            groupTitle={allAppRoutes.professional.label}
+            pages={allAppRoutes.professional.pages}
+          />
+        ) : null}
 
-        <Group groupTitle="Personal" items={personalNav.mainNav} />
+        {allAppRoutes?.personal.pages.length ? (
+          <Group
+            groupTitle={allAppRoutes.personal.label}
+            pages={allAppRoutes.personal.pages}
+          />
+        ) : null}
 
-        <Group groupTitle="Social" items={socialNav.mainNav.slice(0, 3)} />
+        {allAppRoutes?.social.pages.length ? (
+          <Group
+            groupTitle={allAppRoutes.social.label}
+            pages={allAppRoutes.social.pages.slice(0, 3)}
+          />
+        ) : null}
       </Grid>
-      {/*
-      <Flex align="center" justify="between" mt="-4" mb="7">
-        <Text size="1" color="gray">
-          &copy; 2016 — {new Date().getFullYear()} All Rights Reserved.
-        </Text>
-        <ThemeToggle />
-      </Flex>
-      */}
     </footer>
   );
 }
 
 const Group = ({
   groupTitle,
-  items = [],
+  pages = [],
   children = undefined,
 }: React.PropsWithChildren<{
   groupTitle: string;
-  items?: NavItem[];
+  pages?: Page[];
 }>): React.JSX.Element => (
   <Box>
     <Heading as="h3" size="3">
       {groupTitle}
     </Heading>
     {children}
-    {items.map((item) => (
+    {pages.map((item) => (
       <GroupItem key={item.slug} href={item.slug}>
         {item.title}
       </GroupItem>

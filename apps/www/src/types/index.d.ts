@@ -22,30 +22,53 @@ export interface SiteConfig {
   };
 }
 
-export type NavItemLabel = "Soon" | "Preview" | "New";
+export type PageLabel = "Soon" | "Preview" | "New";
 
-interface NavItem {
+export interface Page {
   slug: Route;
   title: string;
   description?: string;
-  label?: NavItemLabel;
+  label?: PageLabel;
   disabled?: boolean;
   icon?: keyof typeof Icons;
 }
 
-type NavItemWithChildren = {
+export interface AppRoute {
+  label: string;
+  pages: Page[];
+}
+
+export type AllAppRouteProps = Record<
+  "productLinks" | "home" | "professional" | "personal" | "social" | "legal",
+  AppRoute
+>;
+
+export interface Frontmatter {
+  slug: string;
+  slugAsParams: string;
   title: string;
   description?: string;
-  label?: NavItemLabel;
-  disabled?: boolean;
+  publishedAt?: string;
+  image?: string;
+  by?: "shubham";
+  category?: string;
+  tags?: string[];
   icon?: keyof typeof Icons;
-} & (
-  | {
-      slug: Route;
-      items?: never;
-    }
-  | {
-      slug?: Route;
-      items: NavItem[];
-    }
-);
+  label?: PageLabel;
+}
+
+export type ProjectFrontmatter = Frontmatter & {
+  summary?: string;
+  link?: string;
+  sourceCodeLink?: string;
+};
+
+export interface ContentRoute {
+  label: string;
+  pages: Frontmatter[];
+}
+
+export type AllContentRouteProps = Record<
+  "blogPosts" | "projects" | "thoughts",
+  ContentRoute
+>;

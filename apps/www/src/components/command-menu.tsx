@@ -13,26 +13,19 @@ import { AccessibleIcon, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
 
-import {
-  legalNav,
-  personalNav,
-  professionalNav,
-  socialNav,
-} from "~/config/nav";
-import type {
-  FrontmatterKeyTypes,
-  FrontmatterTypes,
-} from "~/types/frontmatter";
+import type { AllAppRouteProps, AllContentRouteProps } from "~/types";
 import styles from "./command-menu.module.css";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 interface CommandMenuProps {
-  frontmatter?: Record<FrontmatterKeyTypes, FrontmatterTypes>;
+  allContentRoutes?: AllContentRouteProps;
+  allAppRoutes?: AllAppRouteProps;
 }
 
 export function CommandMenu({
-  frontmatter = undefined,
+  allContentRoutes = undefined,
+  allAppRoutes = undefined,
 }: CommandMenuProps): React.JSX.Element {
   const [open, setOpen] = React.useState<boolean>(false);
   const router = useRouter();
@@ -147,64 +140,66 @@ export function CommandMenu({
               <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
 
-            {professionalNav.mainNav.length ? (
-              <Command.Group heading="Professional">
-                {professionalNav.mainNav.map((item) => {
-                  const ItemIcon: Icon = Icons[item.icon ?? "FileIcon"];
+            {allAppRoutes?.professional.pages.length ? (
+              <Command.Group heading={allAppRoutes.professional.label}>
+                {allAppRoutes.professional.pages.map((page) => {
+                  const ItemIcon: Icon = Icons[page.icon ?? "FileIcon"];
                   return (
                     <Command.Item
-                      key={item.slug}
-                      value={`Professional Site Pages: ${item.title}`}
-                      data-disabled={item.disabled}
+                      key={page.slug}
+                      value={`Professional Site Pages: ${page.title}`}
+                      data-disabled={page.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
                       <ItemIcon />
-                      {item.title}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
             ) : null}
 
-            {personalNav.mainNav.length ? (
-              <Command.Group heading="Personal">
-                {personalNav.mainNav.map((item) => {
-                  const ItemIcon: Icon = Icons[item.icon ?? "FileIcon"];
+            {allAppRoutes?.personal.pages.length ? (
+              <Command.Group heading={allAppRoutes.personal.label}>
+                {allAppRoutes.personal.pages.map((page) => {
+                  const PageIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
-                      key={item.slug}
-                      value={`Personal Site Pages: ${item.title}`}
-                      data-disabled={item.disabled}
+                      key={page.slug}
+                      value={`Personal Site Pages: ${page.title}`}
+                      data-disabled={page.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {item.title}
+                      {PageIcon && <PageIcon />}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
             ) : null}
 
-            {socialNav.mainNav.length ? (
-              <Command.Group heading="Social">
-                {socialNav.mainNav.map((item) => {
-                  const ItemIcon: Icon = Icons[item.icon ?? "AtSymbolIcon"];
+            {allAppRoutes?.social.pages.length ? (
+              <Command.Group heading={allAppRoutes.social.label}>
+                {allAppRoutes.social.pages.map((pages) => {
+                  const PageIcon: Icon | undefined =
+                    pages.icon && Icons[pages.icon];
                   return (
                     <Command.Item
-                      key={item.slug}
-                      value={`Social Media Network Links: ${item.title}`}
-                      data-disabled={item.disabled}
+                      key={pages.slug}
+                      value={`Social Media Network Links: ${pages.title}`}
+                      data-disabled={pages.disabled}
                       // TODO: Find a way to open social links in new tab instead.
                       onSelect={() => {
-                        runCommand(() => router.push(item.slug));
+                        runCommand(() => router.push(pages.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {item.title}
+                      {PageIcon && <PageIcon />}
+                      {pages.title}
                       <ArrowTopRightIcon />
                     </Command.Item>
                   );
@@ -212,82 +207,85 @@ export function CommandMenu({
               </Command.Group>
             ) : null}
 
-            {frontmatter?.blogPosts.length ? (
-              <Command.Group heading="Blog Posts">
-                {frontmatter.blogPosts.map((post) => {
-                  const ItemIcon: Icon = Icons[post.icon ?? "FileTextIcon"];
+            {allContentRoutes?.blogPosts.pages.length ? (
+              <Command.Group heading={allContentRoutes.blogPosts.label}>
+                {allContentRoutes.blogPosts.pages.map((page) => {
+                  const PageIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
-                      key={post.slug}
-                      value={`Blog Posts: ${post.title}`}
+                      key={page.slug}
+                      value={`Blog Posts: ${page.title}`}
                       onSelect={() => {
-                        runCommand(() => router.push(post.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {post.title}
+                      {PageIcon && <PageIcon />}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
             ) : null}
 
-            {frontmatter?.projects.length ? (
-              <Command.Group heading="Projects">
-                {frontmatter.projects.map((project) => {
-                  const ItemIcon: Icon = Icons[project.icon ?? "CubeIcon"];
+            {allContentRoutes?.projects.pages.length ? (
+              <Command.Group heading={allContentRoutes.projects.label}>
+                {allContentRoutes.projects.pages.map((page) => {
+                  const PageIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
-                      key={project.slug}
-                      value={`Projects: ${project.title}`}
+                      key={page.slug}
+                      value={`Projects: ${page.title}`}
                       onSelect={() => {
-                        runCommand(() => router.push(project.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {project.title}
+                      {PageIcon && <PageIcon />}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
             ) : null}
 
-            {frontmatter?.thoughts.length ? (
-              <Command.Group heading="Thoughts">
-                {frontmatter.thoughts.map((thought) => {
-                  const ItemIcon: Icon =
-                    Icons[thought.icon ?? "CrumpledPaperIcon"];
+            {allContentRoutes?.thoughts.pages.length ? (
+              <Command.Group heading={allContentRoutes.thoughts.label}>
+                {allContentRoutes.thoughts.pages.map((page) => {
+                  const PageIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
-                      key={thought.slug}
-                      value={`Thoughts: ${thought.title}`}
+                      key={page.slug}
+                      value={`Thoughts: ${page.title}`}
                       onSelect={() => {
-                        runCommand(() => router.push(thought.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {thought.title}
+                      {PageIcon && <PageIcon />}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
             ) : null}
 
-            {legalNav.mainNav.length ? (
-              <Command.Group heading="Legal">
-                {legalNav.mainNav.map((item) => {
-                  const ItemIcon: Icon = Icons[item.icon ?? "FileTextIcon"];
+            {allAppRoutes?.legal.pages.length ? (
+              <Command.Group heading={allAppRoutes.legal.label}>
+                {allAppRoutes.legal.pages.map((page) => {
+                  const PageIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
-                      key={item.slug}
-                      value={`Legal Site Pages: ${item.title}`}
-                      data-disabled={item.disabled}
+                      key={page.slug}
+                      value={`Legal Site Pages: ${page.title}`}
+                      data-disabled={page.disabled}
                       onSelect={() => {
-                        runCommand(() => router.push(item.slug));
+                        runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
-                      {item.title}
+                      {PageIcon && <PageIcon />}
+                      {page.title}
                     </Command.Item>
                   );
                 })}
