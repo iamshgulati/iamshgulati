@@ -5,23 +5,26 @@ import { AccessibleIcon, Box, Flex, IconButton } from "@radix-ui/themes";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import { cn } from "~/lib/utils";
+import type { Page } from "~/types";
 import { BoxLink } from "./box-link";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
-import { MobileMenuTrigger } from "./mobile-menu";
+import { MobileMenuTrigger } from "./mobile-menu-shell";
 import { SiteLogo } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
   commandMenu?: React.ReactNode;
+  productLinks?: Page[];
 }
 
 export function Header({
   children = undefined,
   sticky = false,
   ghost = false,
+  productLinks = undefined,
   commandMenu = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
@@ -51,9 +54,11 @@ export function Header({
             </NextLink>
           </Flex>
 
-          <Box className={styles.HeaderProductLinksContainer}>
-            <HeaderProductLinks />
-          </Box>
+          {productLinks && (
+            <Box className={styles.HeaderProductLinksContainer}>
+              <HeaderProductLinks productLinks={productLinks} />
+            </Box>
+          )}
 
           <Flex
             align="center"
@@ -74,7 +79,10 @@ export function Header({
 
             {commandMenu}
 
-            <Box asChild display={{ initial: "block", md: "none" }}>
+            <Flex
+              display={{ initial: "inline-flex", md: "none" }}
+              align="center"
+            >
               <MobileMenuTrigger>
                 <IconButton
                   size="3"
@@ -102,7 +110,7 @@ export function Header({
                   </AccessibleIcon>
                 </IconButton>
               </MobileMenuTrigger>
-            </Box>
+            </Flex>
           </Flex>
         </Box>
       </nav>

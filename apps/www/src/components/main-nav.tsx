@@ -8,42 +8,34 @@ import { Badge, Flex, Link, Text } from "@radix-ui/themes";
 import { NextLink } from "~/lib/link";
 import { getBadgeColor } from "~/lib/theme";
 import type { Page } from "~/types";
-import type { Icon } from "./icons";
-import { Icons } from "./icons";
 
 interface MainNavProps {
-  pages?: Page[];
+  mainNavPages: Page[];
 }
 
-export function MainNav({
-  pages = undefined,
-}: MainNavProps): React.JSX.Element[] | null {
+export function MainNav({ mainNavPages }: MainNavProps): React.JSX.Element[] {
   const pathname = usePathname();
 
-  return pages?.length
-    ? pages.map((page) => {
-        const PageIcon: Icon | undefined = page.icon && Icons[page.icon];
-        return (
-          <MainNavItem
-            key={page.slug}
-            href={page.slug}
-            disabled={page.disabled}
-            active={pathname === page.slug}
-          >
-            <Flex display="inline-flex" align="center" gap="2">
-              {PageIcon && <PageIcon width="16" height="16" />}
-              {/* initial size = 3 for mobile menu; md size = 2 for sidebar menu */}
-              <Text size={{ initial: "3", md: "2" }}>{page.title}</Text>
-              {page.label && (
-                <Badge radius="full" color={getBadgeColor(page.label)}>
-                  {page.label}
-                </Badge>
-              )}
-            </Flex>
-          </MainNavItem>
-        );
-      })
-    : null;
+  return mainNavPages.map((page) => {
+    return (
+      <MainNavItem
+        key={page.slug}
+        href={page.slug}
+        disabled={page.disabled}
+        active={pathname === page.slug}
+      >
+        <Flex display="inline-flex" align="center" gap="2">
+          {/* initial size = 3 for mobile menu; md size = 2 for sidebar menu */}
+          <Text size={{ initial: "3", md: "2" }}>{page.title}</Text>
+          {page.label && (
+            <Badge radius="full" color={getBadgeColor(page.label)}>
+              {page.label}
+            </Badge>
+          )}
+        </Flex>
+      </MainNavItem>
+    );
+  });
 }
 
 interface MainNavItemProps {
@@ -78,7 +70,7 @@ const MainNavItem = ({
 
   if (isExternal) {
     return (
-      <Flex display="inline-flex" align="center" gap="2">
+      <Flex display="flex" align="center" gap="2">
         <Link
           href={href}
           target="_blank"

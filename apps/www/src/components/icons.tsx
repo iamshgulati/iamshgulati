@@ -9,6 +9,7 @@ import {
   FileTextIcon,
   GitHubLogoIcon,
   KeyboardIcon,
+  Link2Icon,
   LinkedInLogoIcon,
   PersonIcon,
   QuoteIcon,
@@ -455,6 +456,7 @@ export const Icons = {
   KeyboardIcon,
   EyeNoneIcon,
   CheckboxIcon,
+  Link2Icon,
   //
   SiteLogoIcon,
   LinkedInLogoIcon,

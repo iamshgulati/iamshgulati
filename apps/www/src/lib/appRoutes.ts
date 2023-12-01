@@ -21,6 +21,7 @@ export const AllAppRoutes: AllAppRouteProps = {
   professional: {
     label: "Professional",
     pages: [
+      { title: "About", slug: "/about", icon: "PersonIcon" },
       { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
       { title: "Projects", slug: "/projects", icon: "CubeIcon" },
     ],
@@ -30,6 +31,7 @@ export const AllAppRoutes: AllAppRouteProps = {
     pages: [
       { title: "Thoughts", slug: "/thoughts", icon: "CrumpledPaperIcon" },
       { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
+      { title: "Contact", slug: "/contact", icon: "ChatBubbleIcon" },
     ],
   },
   social: {
@@ -63,6 +65,7 @@ export const AllAppRoutes: AllAppRouteProps = {
       {
         title: "Bluesky",
         slug: siteConfig.links.bluesky,
+        icon: "Link2Icon",
       },
     ],
   },

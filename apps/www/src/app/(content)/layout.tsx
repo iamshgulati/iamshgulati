@@ -5,7 +5,7 @@ import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { MainNav } from "~/components/main-nav";
-import { MarketingMobileMenu } from "~/components/marketing-mobile-menu";
+import { MobileMenu } from "~/components/mobile-menu";
 import { AllAppRoutes } from "~/lib/appRoutes";
 import { AllContentRoutes } from "~/lib/contentRoutes";
 
@@ -27,12 +27,21 @@ export default function ContentLayout({
         }}
       />
 
-      <MarketingMobileMenu />
+      <MobileMenu
+        productLinks={AllAppRoutes.productLinks.pages}
+        mobileNavRoutes={[
+          AllAppRoutes.professional,
+          AllAppRoutes.personal,
+          AllAppRoutes.social,
+          AllAppRoutes.legal,
+        ]}
+      />
 
       <Layout.Header>
         <Header
           sticky
           ghost
+          productLinks={AllAppRoutes.productLinks.pages}
           commandMenu={
             <CommandMenu
               allAppRoutes={AllAppRoutes}
@@ -40,7 +49,7 @@ export default function ContentLayout({
             />
           }
         >
-          <MainNav pages={AllAppRoutes.home.pages} />
+          <MainNav mainNavPages={AllAppRoutes.home.pages} />
         </Header>
       </Layout.Header>
 

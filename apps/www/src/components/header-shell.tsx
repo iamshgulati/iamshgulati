@@ -3,7 +3,7 @@
 import { Box } from "@radix-ui/themes";
 
 import { useOnScroll } from "~/hooks/useOnScroll";
-import { useMobileMenuContext } from "./mobile-menu";
+import { useMobileMenuContext } from "./mobile-menu-shell";
 
 export interface HeaderShellProps {
   ghost?: boolean;

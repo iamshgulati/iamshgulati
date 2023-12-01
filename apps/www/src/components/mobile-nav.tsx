@@ -40,7 +40,7 @@ export const MobileNav = ({ routes }: MobileNavProps): React.JSX.Element => {
                 href={page.slug}
                 active={pathname === page.slug}
               >
-                <Flex display="inline-flex" align="center" gap="2">
+                <Flex display="flex" align="center" gap="3">
                   {PageIcon && <PageIcon width="16" height="16" />}
                   {/* initial size = 3 for mobile menu; md size = 2 for sidebar menu */}
                   <Text size={{ initial: "3", md: "2" }}>{page.title}</Text>
@@ -97,7 +97,7 @@ const MobileNavItem = ({
 
   if (isExternal) {
     return (
-      <Flex display="inline-flex" align="center" gap="2">
+      <Flex display="flex" align="center">
         <Link
           href={href}
           target="_blank"
@@ -108,7 +108,12 @@ const MobileNavItem = ({
           className={classNames}
           {...props}
         />
-        <ArrowTopRightIcon aria-hidden style={{ color: "var(--gray-8)" }} />
+        <ArrowTopRightIcon
+          aria-hidden
+          width="16"
+          height="16"
+          style={{ color: "var(--gray-8)" }}
+        />
       </Flex>
     );
   }

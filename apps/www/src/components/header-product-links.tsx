@@ -8,33 +8,29 @@ import { NextLink } from "~/lib/link";
 import type { Page } from "~/types";
 import styles from "./header.module.css";
 
-const PRODUCT_LINKS_LIMIT = 4;
-
 interface HeaderproductLinksProps {
-  pages?: Page[];
+  productLinks: Page[];
 }
 
 export const HeaderProductLinks = ({
-  pages = undefined,
-}: HeaderproductLinksProps): React.JSX.Element | null => {
+  productLinks,
+}: HeaderproductLinksProps): React.JSX.Element => {
   const pathname = usePathname();
 
   return (
     <React.Fragment>
-      {pages?.length
-        ? pages.slice(0, PRODUCT_LINKS_LIMIT).map((page) => (
-            <HeaderProductLink
-              key={page.slug}
-              href={page.slug}
-              active={
-                pathname === "/" ||
-                (pathname !== "/" && pathname.startsWith(page.slug))
-              }
-            >
-              {page.title}
-            </HeaderProductLink>
-          ))
-        : null}
+      {productLinks.map((page) => (
+        <HeaderProductLink
+          key={page.slug}
+          href={page.slug}
+          active={
+            (page.slug === "/" && pathname === page.slug) ||
+            (page.slug !== "/" && pathname.startsWith(page.slug))
+          }
+        >
+          {page.title}
+        </HeaderProductLink>
+      ))}
     </React.Fragment>
   );
 };

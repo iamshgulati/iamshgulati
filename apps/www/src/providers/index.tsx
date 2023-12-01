@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MobileMenuProvider } from "~/components/mobile-menu";
+import { MobileMenuProvider } from "~/components/mobile-menu-shell";
 import { NextThemesProvider } from "./next-themes-provider";
 import { RadixThemesProvider } from "./radix-themes-provider";
 
