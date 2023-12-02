@@ -17,6 +17,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  position: relative;
+  z-index: 0;
+}
+
 svg {
   display: inline-block;
   vertical-align: middle;

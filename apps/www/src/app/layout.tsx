@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <div id="skip-to-top" />
-        <Providers>
-          {children}
-          {!isProduction && <ScreenSizeIndicator />}
+        <Providers asChild>
+          <div id="root">
+            {children}
+            {!isProduction && <ScreenSizeIndicator />}
+          </div>
         </Providers>
       </body>
     </html>

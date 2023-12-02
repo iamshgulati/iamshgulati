@@ -1,14 +1,17 @@
 import React from "react";
+import { Slot } from "@radix-ui/themes";
 
 import { MobileMenuProvider } from "~/components/mobile-menu-shell";
 import { NextThemesProvider } from "./next-themes-provider";
 import { RadixThemesProvider } from "./radix-themes-provider";
 
 export function Providers({
+  asChild = false,
   children,
-}: React.PropsWithChildren): React.JSX.Element {
+}: React.PropsWithChildren<{ asChild?: boolean }>): React.JSX.Element {
+  const Component = asChild ? Slot : React.Fragment;
   return (
-    <React.Fragment>
+    <Component>
       {/* <ThemeClasses /> */}
       <MobileMenuProvider>
         <NextThemesProvider>
@@ -19,6 +22,6 @@ export function Providers({
           </RadixThemesProvider>
         </NextThemesProvider>
       </MobileMenuProvider>
-    </React.Fragment>
+    </Component>
   );
 }
