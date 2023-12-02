@@ -8,10 +8,10 @@ export function RadixThemesProvider({
       hasBackground
       accentColor="indigo"
       grayColor="auto"
-      appearance="inherit"
       panelBackground="translucent"
       scaling="100%"
       radius="medium"
+      appearance="inherit"
     >
       {children}
       {/* {!isProduction && <ThemePanel defaultOpen={false} />} */}
