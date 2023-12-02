@@ -12,7 +12,6 @@ export function Providers({
   const Component = asChild ? Slot : React.Fragment;
   return (
     <Component>
-      {/* <ThemeClasses /> */}
       <MobileMenuProvider>
         <NextThemesProvider>
           <RadixThemesProvider>
