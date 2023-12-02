@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { createContext } from "@radix-ui/react-context";
 import { Box, Portal, Slot, Theme } from "@radix-ui/themes";
 import { RemoveScroll } from "react-remove-scroll";
@@ -14,19 +15,31 @@ export const MobileMenuProvider = ({
   children,
 }: React.PropsWithChildren): React.JSX.Element => {
   const [open, setOpen] = React.useState<boolean>(false);
+  const pathname = usePathname();
 
+  /*
+   * Close mobile menu if viewport becomes larger than size md
+   * March @media (--md)
+   */
   React.useEffect(() => {
-    // Match @media (--md)
     const mediaQueryList = window.matchMedia("(min-width: 1024px)");
-
-    const handleChange = () => {
+    const onViewportWidthChange = () => {
       setOpen((open) => (open ? !mediaQueryList.matches : false));
     };
-
-    handleChange();
-    mediaQueryList.addEventListener("change", handleChange);
-    return () => mediaQueryList.removeEventListener("change", handleChange);
+    onViewportWidthChange();
+    mediaQueryList.addEventListener("change", onViewportWidthChange);
+    return () =>
+      mediaQueryList.removeEventListener("change", onViewportWidthChange);
   }, []);
+
+  /*
+   * Close mobile menu if path changes.
+   * NOTE: Chnage this to intercepting route change action
+   * using userRouter hook when support is added in the future.
+   */
+  React.useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <MenuProvider open={open} setOpen={setOpen}>
