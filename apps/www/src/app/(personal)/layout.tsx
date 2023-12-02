@@ -34,6 +34,7 @@ export default function PersonalLayout({
           AllAppRoutes.personal,
         ]}
         mobileNavRoutes={[
+          AllAppRoutes.home,
           AllAppRoutes.professional,
           AllAppRoutes.personal,
           AllAppRoutes.social,

@@ -33,6 +33,7 @@ export default function MarketingLayout({
           AllAppRoutes.personal,
         ]}
         mobileNavRoutes={[
+          AllAppRoutes.home,
           AllAppRoutes.professional,
           AllAppRoutes.personal,
           AllAppRoutes.social,
