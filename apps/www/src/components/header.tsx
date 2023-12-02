@@ -88,7 +88,7 @@ export function Header({
                   size="3"
                   variant="ghost"
                   color="gray"
-                  className={styles.MobileMenuTrigger}
+                  className={styles.MobileMenuButton}
                 >
                   <AccessibleIcon label="Open Mobile Menu">
                     <HamburgerMenuIcon

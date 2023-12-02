@@ -71,16 +71,17 @@ export const MobileMenuShell = ({
 };
 
 export const MobileMenuTrigger = ({
+  asChild = false,
   children,
-}: React.PropsWithChildren): React.JSX.Element => {
+}: React.PropsWithChildren<{ asChild?: boolean }>): React.JSX.Element => {
   const mobileMenu = useMobileMenuContext();
-
+  const Component = asChild ? Slot : Box;
   return (
-    <Slot
+    <Component
       data-state={mobileMenu.open ? "open" : "closed"}
       onClick={() => mobileMenu.setOpen((open) => !open)}
     >
       {children}
-    </Slot>
+    </Component>
   );
 };
