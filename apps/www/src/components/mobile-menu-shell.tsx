@@ -37,25 +37,11 @@ export const MobileMenuProvider = ({
 
 export const useMobileMenuContext = () => useMenuContext("MobileMenu");
 
-export const MobileMenuTrigger = ({
-  children,
-}: React.PropsWithChildren): React.JSX.Element => {
-  const mobileMenu = useMobileMenuContext();
-
-  return (
-    <Slot
-      data-state={mobileMenu.open ? "open" : "closed"}
-      onClick={() => mobileMenu.setOpen((open) => !open)}
-    >
-      {children}
-    </Slot>
-  );
-};
-
 export const MobileMenuShell = ({
   children,
 }: React.PropsWithChildren): React.JSX.Element | null => {
   const mobileMenu = useMobileMenuContext();
+  ``;
 
   if (!mobileMenu.open) {
     return null;
@@ -81,5 +67,20 @@ export const MobileMenuShell = ({
         </RemoveScroll>
       </Theme>
     </Portal>
+  );
+};
+
+export const MobileMenuTrigger = ({
+  children,
+}: React.PropsWithChildren): React.JSX.Element => {
+  const mobileMenu = useMobileMenuContext();
+
+  return (
+    <Slot
+      data-state={mobileMenu.open ? "open" : "closed"}
+      onClick={() => mobileMenu.setOpen((open) => !open)}
+    >
+      {children}
+    </Slot>
   );
 };
