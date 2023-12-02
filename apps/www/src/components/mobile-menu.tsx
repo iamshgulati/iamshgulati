@@ -23,9 +23,7 @@ export const MobileMenu = ({
         {mainNavPages && <MainNav mainNavPages={mainNavPages} />}
       </Header>
 
-      <ScrollArea
-      // style={{ overflow: "scroll" }}
-      >
+      <ScrollArea>
         <Box pt="4" px="4" pb="9">
           <MobileNav routes={mobileNavRoutes} />
         </Box>
