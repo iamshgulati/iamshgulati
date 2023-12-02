@@ -97,14 +97,19 @@ export const allRoutes: AllRoutes = {
     label: "Legal",
     pages: [
       {
+        title: "Credits",
+        slug: "/credits",
+        icon: "HeartIcon",
+      },
+      {
         title: "Privacy",
         slug: "/privacy",
-        icon: "EyeNoneIcon",
+        icon: "LockClosedIcon",
       },
       {
         title: "Terms",
         slug: "/terms",
-        icon: "CheckboxIcon",
+        icon: "InfoCircledIcon",
       },
     ],
   },
