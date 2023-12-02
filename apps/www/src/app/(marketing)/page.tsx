@@ -26,7 +26,7 @@ const Hero = (): React.JSX.Element => (
     <Text as="p" mb="1" color="gray" size={{ initial: "5", xs: "7" }}>
       Hello!
     </Text>
-    <PageHeading as="h1" mb="6" variant="sans">
+    <PageHeading as="h1" mb="6">
       I&apos;m Shubham Gulati,
     </PageHeading>
     <Text as="p" size={{ initial: "3", xs: "5" }}>
