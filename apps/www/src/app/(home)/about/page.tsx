@@ -7,7 +7,7 @@ import { Certifications } from "./certifications";
 import Experience from "./experience.mdx";
 import SkillsAndTools from "./skills-and-tools.mdx";
 
-const TITLE = "About Me";
+const TITLE = "About";
 const DESCRIPTION =
   "About my professional experience, certifications, skills and tools.";
 

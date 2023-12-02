@@ -2,7 +2,7 @@
 // TODO: Add React.JSX.Element
 
 import React from "react";
-import { Box } from "@radix-ui/themes";
+import { Box, ScrollArea } from "@radix-ui/themes";
 
 // import { createContext } from "@radix-ui/react-context";
 import { cn } from "~/lib/utils";
@@ -22,17 +22,19 @@ export const Pre = React.forwardRef<HTMLPreElement, PreProps>(function Pre(
   // const { scheme } = useSyntaxSchemeContext("Pre");
 
   return (
-    <Box asChild {...props}>
-      <pre
-        ref={forwardedRef}
-        className={cn(
-          styles.Pre,
-          // styles[scheme],
-          className,
-        )}
-      >
-        {children}
-      </pre>
-    </Box>
+    <ScrollArea size="1">
+      <Box asChild {...props}>
+        <pre
+          ref={forwardedRef}
+          className={cn(
+            styles.Pre,
+            // styles[scheme],
+            className,
+          )}
+        >
+          {children}
+        </pre>
+      </Box>
+    </ScrollArea>
   );
 });

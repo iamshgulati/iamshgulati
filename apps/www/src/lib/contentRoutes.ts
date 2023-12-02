@@ -37,13 +37,13 @@ const getFrontmatter = (dataPath: string, fromPath: string): Frontmatter[] => {
 };
 
 export const AllContentRoutes: AllContentRouteProps = {
-  blogPosts: {
-    label: "Blog Posts",
-    pages: [...getFrontmatter("src/app/(professional)", "/blog")],
-  },
   projects: {
     label: "Projects",
     pages: [...getFrontmatter("src/app/(professional)", "/projects")],
+  },
+  blogPosts: {
+    label: "Blog Posts",
+    pages: [...getFrontmatter("src/app/(personal)", "/blog")],
   },
   thoughts: {
     label: "Thoughts",

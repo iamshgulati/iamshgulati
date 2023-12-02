@@ -9,6 +9,55 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
+// eslint-disable-next-line @typescript-eslint/require-await
+const nextRedirects = async () => [
+  {
+    source: "/professional",
+    destination: "/projects",
+    permanent: false,
+  },
+  {
+    source: "/personal",
+    destination: "/blog",
+    permanent: false,
+  },
+  {
+    source: "/get-resume",
+    destination: "/files/ShubhamGulati_Resume.pdf",
+    permanent: true,
+  },
+  {
+    source: "/github",
+    destination: "https://github.com/iamshgulati",
+    permanent: true,
+  },
+  {
+    source: "/linkedin",
+    destination: "https://www.linkedin.com/in/iamshgulati/",
+    permanent: true,
+  },
+  {
+    source: "/twitter",
+    destination: "https://twitter.com/iamshgulati",
+    permanent: true,
+  },
+  {
+    source: "/threads",
+    destination: "https://www.threads.net/@iamshgulati",
+    permanent: true,
+  },
+  {
+    source: "/mastodon",
+    destination: "https://mastodon.social/@iamshgulati",
+    permanent: true,
+  },
+  {
+    source: "/bluesky",
+    destination: "https://bsky.app/about/iamshgulati.bsky.social",
+    permanent: true,
+  },
+];
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -16,6 +65,7 @@ const nextConfig = {
   /** transpilePackages: ["@shgulati/api", "@shgulati/auth", "@shgulati/db"], */
   transpilePackages: ["@radix-ui/themes"],
   pageExtensions: ["md", "mdx", "ts", "tsx"],
+  redirects: nextRedirects,
   experimental: {
     webpackBuildWorker: true,
     // mdxRs: true,

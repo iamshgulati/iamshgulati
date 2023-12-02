@@ -140,6 +140,27 @@ export function CommandMenu({
               <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
 
+            {allAppRoutes?.home.pages.length ? (
+              <Command.Group heading={allAppRoutes.home.label}>
+                {allAppRoutes.professional.pages.map((page) => {
+                  const ItemIcon: Icon = Icons[page.icon ?? "FileIcon"];
+                  return (
+                    <Command.Item
+                      key={page.slug}
+                      value={`Professional Site Pages: ${page.title}`}
+                      data-disabled={page.disabled}
+                      onSelect={() => {
+                        runCommand(() => router.push(page.slug));
+                      }}
+                    >
+                      <ItemIcon />
+                      {page.title}
+                    </Command.Item>
+                  );
+                })}
+              </Command.Group>
+            ) : null}
+
             {allAppRoutes?.professional.pages.length ? (
               <Command.Group heading={allAppRoutes.professional.label}>
                 {allAppRoutes.professional.pages.map((page) => {

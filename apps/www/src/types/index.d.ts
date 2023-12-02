@@ -39,7 +39,7 @@ export interface AppRoute {
 }
 
 export type AllAppRouteProps = Record<
-  "productLinks" | "home" | "professional" | "personal" | "social" | "legal",
+  "home" | "professional" | "personal" | "social" | "legal",
   AppRoute
 >;
 

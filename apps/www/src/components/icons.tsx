@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BackpackIcon,
   ChatBubbleIcon,
   CheckboxIcon,
   CrumpledPaperIcon,
@@ -12,6 +13,7 @@ import {
   KeyboardIcon,
   Link2Icon,
   LinkedInLogoIcon,
+  MixIcon,
   PersonIcon,
   QuoteIcon,
 } from "@radix-ui/react-icons";
@@ -459,6 +461,8 @@ export const Icons = {
   CheckboxIcon,
   Link2Icon,
   HomeIcon,
+  BackpackIcon,
+  MixIcon,
   //
   SiteLogoIcon,
   LinkedInLogoIcon,

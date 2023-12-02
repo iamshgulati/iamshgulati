@@ -2,33 +2,28 @@ import { siteConfig } from "~/config/site";
 import type { AllAppRouteProps } from "~/types";
 
 export const AllAppRoutes: AllAppRouteProps = {
-  productLinks: {
-    label: "",
-    pages: [
-      { title: "Home", slug: "/" },
-      { title: "Blog", slug: "/blog" },
-      { title: "Projects", slug: "/projects" },
-      { title: "Thoughts", slug: "/thoughts" },
-    ],
-  },
   home: {
     label: "Home",
-    pages: [{ title: "Home", slug: "/", icon: "HomeIcon" }],
+    pages: [
+      { title: "Home", slug: "/", icon: "HomeIcon" },
+      { title: "About", slug: "/about", icon: "PersonIcon" },
+      { title: "Contact", slug: "/contact", icon: "ChatBubbleIcon" },
+    ],
   },
   professional: {
     label: "Professional",
     pages: [
-      { title: "About", slug: "/about", icon: "PersonIcon" },
-      { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
       { title: "Projects", slug: "/projects", icon: "CubeIcon" },
+      { title: "Experience", slug: "/experience", icon: "BackpackIcon" },
+      { title: "Skills", slug: "/skills", icon: "MixIcon" },
     ],
   },
   personal: {
     label: "Personal",
     pages: [
+      { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
       { title: "Thoughts", slug: "/thoughts", icon: "CrumpledPaperIcon" },
       { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
-      { title: "Contact", slug: "/contact", icon: "ChatBubbleIcon" },
     ],
   },
   social: {

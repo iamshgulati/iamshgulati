@@ -9,7 +9,7 @@ import { MobileMenu } from "~/components/mobile-menu";
 import { AllAppRoutes } from "~/lib/appRoutes";
 import { AllContentRoutes } from "~/lib/contentRoutes";
 
-export default function ContentLayout({
+export default function HomeLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (

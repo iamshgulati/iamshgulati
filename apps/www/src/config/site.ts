@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
     twitter: "https://twitter.com/iamshgulati",
     threads: "https://www.threads.net/@iamshgulati",
     mastodon: "https://mastodon.social/@iamshgulati",
-    bluesky: "https://bsky.app/profile/iamshgulati.bsky.social",
+    bluesky: "https://bsky.app/about/iamshgulati.bsky.social",
   },
   og: {
     displayUrl: "gulati.sh",
