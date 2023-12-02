@@ -3,11 +3,29 @@ import path from "path";
 import glob from "glob";
 import matter from "gray-matter";
 
-import type { AllContentRouteProps, Frontmatter } from "~/types";
+import type { Page } from "./routes";
+
+export type Frontmatter = Page & {
+  slugAsParams: string;
+  publishedAt?: string;
+  image?: string;
+  by?: "shubham";
+  category?: string;
+  tags?: string[];
+};
+
+export type ProjectFrontmatter = Frontmatter & {
+  summary?: string;
+  link?: string;
+  sourceCodeLink?: string;
+};
 
 const ROOT_PATH = process.cwd();
 
-const getFrontmatter = (dataPath: string, fromPath: string): Frontmatter[] => {
+export const getFrontmatter = (
+  dataPath: string,
+  fromPath: string,
+): Frontmatter[] => {
   const DATA_PATH = path.join(ROOT_PATH, dataPath);
   const PATH = path.join(DATA_PATH, fromPath);
   const paths = glob.sync(`${PATH}/**/*.mdx`);
@@ -34,19 +52,4 @@ const getFrontmatter = (dataPath: string, fromPath: string): Frontmatter[] => {
         Number(new Date(b.publishedAt ?? Date.now())) -
         Number(new Date(a.publishedAt ?? Date.now())),
     );
-};
-
-export const AllContentRoutes: AllContentRouteProps = {
-  projects: {
-    label: "Projects",
-    pages: [...getFrontmatter("src/app/(professional)", "/projects")],
-  },
-  blogPosts: {
-    label: "Blog Posts",
-    pages: [...getFrontmatter("src/app/(personal)", "/blog")],
-  },
-  thoughts: {
-    label: "Thoughts",
-    pages: [...getFrontmatter("src/app/(personal)", "/thoughts")],
-  },
 };

@@ -6,15 +6,15 @@ import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Badge, Box, Flex, Heading, Link, Text } from "@radix-ui/themes";
 
 import { NextLink } from "~/lib/link";
+import type { Route } from "~/lib/routes";
 import { getBadgeColor } from "~/lib/theme";
 import { cn } from "~/lib/utils";
-import type { AppRoute } from "~/types";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 import styles from "./mobile-nav.module.css";
 
 interface MobileNavProps {
-  routes: AppRoute[];
+  routes: Route[];
 }
 
 export const MobileNav = ({ routes }: MobileNavProps): React.JSX.Element => {

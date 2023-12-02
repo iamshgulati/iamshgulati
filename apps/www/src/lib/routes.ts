@@ -1,7 +1,39 @@
-import { siteConfig } from "~/config/site";
-import type { AllAppRouteProps } from "~/types";
+import type { Route as NextRoute } from "next";
 
-export const AllAppRoutes: AllAppRouteProps = {
+import type { Icons } from "~/components/icons";
+import { siteConfig } from "~/config/site";
+import type { Frontmatter } from "./mdx";
+import { getFrontmatter } from "./mdx";
+
+export type PageLabel = "Soon" | "Preview" | "New";
+
+export interface Page {
+  slug: NextRoute;
+  title: string;
+  description?: string;
+  label?: PageLabel;
+  disabled?: boolean;
+  icon?: keyof typeof Icons;
+}
+
+export interface Route {
+  label: string;
+  pages: Page[] | Frontmatter[];
+}
+
+export type AllRoutes = Record<
+  | "home"
+  | "professional"
+  | "personal"
+  | "social"
+  | "legal"
+  | "projects"
+  | "blog"
+  | "thoughts",
+  Route
+>;
+
+export const allRoutes: AllRoutes = {
   home: {
     label: "Home",
     pages: [
@@ -74,6 +106,33 @@ export const AllAppRoutes: AllAppRouteProps = {
         slug: "/terms",
         icon: "CheckboxIcon",
       },
+    ],
+  },
+  projects: {
+    label: "Projects",
+    pages: [
+      ...getFrontmatter("src/app/(professional)", "/projects").map((page) => {
+        page.icon = "CubeIcon";
+        return page;
+      }),
+    ],
+  },
+  blog: {
+    label: "Blog Posts",
+    pages: [
+      ...getFrontmatter("src/app/(personal)", "/blog").map((page) => {
+        page.icon = "FileTextIcon";
+        return page;
+      }),
+    ],
+  },
+  thoughts: {
+    label: "Thoughts",
+    pages: [
+      ...getFrontmatter("src/app/(personal)", "/thoughts").map((page) => {
+        page.icon = "CrumpledPaperIcon";
+        return page;
+      }),
     ],
   },
 };

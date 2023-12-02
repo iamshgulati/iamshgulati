@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
-import type { AppRoute } from "~/types";
+import type { Route } from "~/lib/routes";
 import styles from "./header.module.css";
 
 interface HeaderproductLinksProps {
-  routes: AppRoute[];
+  routes: Route[];
 }
 
 export const HeaderProductLinks = ({

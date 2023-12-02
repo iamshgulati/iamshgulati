@@ -13,19 +13,17 @@ import { AccessibleIcon, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
 
-import type { AllAppRouteProps, AllContentRouteProps } from "~/types";
+import type { Route } from "~/lib/routes";
 import styles from "./command-menu.module.css";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 interface CommandMenuProps {
-  allContentRoutes?: AllContentRouteProps;
-  allAppRoutes?: AllAppRouteProps;
+  routes?: Route[];
 }
 
 export function CommandMenu({
-  allContentRoutes = undefined,
-  allAppRoutes = undefined,
+  routes = undefined,
 }: CommandMenuProps): React.JSX.Element {
   const [open, setOpen] = React.useState<boolean>(false);
   const router = useRouter();
@@ -140,178 +138,31 @@ export function CommandMenu({
               <CommandShortcut>⌘&thinsp;K</CommandShortcut>
             </Command.Item>
 
-            {allAppRoutes?.home.pages.length ? (
-              <Command.Group heading={allAppRoutes.home.label}>
-                {allAppRoutes.professional.pages.map((page) => {
-                  const ItemIcon: Icon = Icons[page.icon ?? "FileIcon"];
+            {routes?.map((section, index) => (
+              <Command.Group
+                key={section.label ?? index}
+                heading={section.label}
+              >
+                {section.pages.map((page) => {
+                  const ItemIcon: Icon | undefined =
+                    page.icon && Icons[page.icon];
                   return (
                     <Command.Item
                       key={page.slug}
-                      value={`Professional Site Pages: ${page.title}`}
+                      value={`${section.label}: ${page.title}`}
                       data-disabled={page.disabled}
                       onSelect={() => {
                         runCommand(() => router.push(page.slug));
                       }}
                     >
-                      <ItemIcon />
+                      {ItemIcon && <ItemIcon />}
                       {page.title}
+                      {page.slug.startsWith("http") && <ArrowTopRightIcon />}
                     </Command.Item>
                   );
                 })}
               </Command.Group>
-            ) : null}
-
-            {allAppRoutes?.professional.pages.length ? (
-              <Command.Group heading={allAppRoutes.professional.label}>
-                {allAppRoutes.professional.pages.map((page) => {
-                  const ItemIcon: Icon = Icons[page.icon ?? "FileIcon"];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Professional Site Pages: ${page.title}`}
-                      data-disabled={page.disabled}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      <ItemIcon />
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allAppRoutes?.personal.pages.length ? (
-              <Command.Group heading={allAppRoutes.personal.label}>
-                {allAppRoutes.personal.pages.map((page) => {
-                  const PageIcon: Icon | undefined =
-                    page.icon && Icons[page.icon];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Personal Site Pages: ${page.title}`}
-                      data-disabled={page.disabled}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allAppRoutes?.social.pages.length ? (
-              <Command.Group heading={allAppRoutes.social.label}>
-                {allAppRoutes.social.pages.map((pages) => {
-                  const PageIcon: Icon | undefined =
-                    pages.icon && Icons[pages.icon];
-                  return (
-                    <Command.Item
-                      key={pages.slug}
-                      value={`Social Media Network Links: ${pages.title}`}
-                      data-disabled={pages.disabled}
-                      // TODO: Find a way to open social links in new tab instead.
-                      onSelect={() => {
-                        runCommand(() => router.push(pages.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {pages.title}
-                      <ArrowTopRightIcon />
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allContentRoutes?.blogPosts.pages.length ? (
-              <Command.Group heading={allContentRoutes.blogPosts.label}>
-                {allContentRoutes.blogPosts.pages.map((page) => {
-                  const PageIcon: Icon | undefined =
-                    page.icon && Icons[page.icon];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Blog Posts: ${page.title}`}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allContentRoutes?.projects.pages.length ? (
-              <Command.Group heading={allContentRoutes.projects.label}>
-                {allContentRoutes.projects.pages.map((page) => {
-                  const PageIcon: Icon | undefined =
-                    page.icon && Icons[page.icon];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Projects: ${page.title}`}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allContentRoutes?.thoughts.pages.length ? (
-              <Command.Group heading={allContentRoutes.thoughts.label}>
-                {allContentRoutes.thoughts.pages.map((page) => {
-                  const PageIcon: Icon | undefined =
-                    page.icon && Icons[page.icon];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Thoughts: ${page.title}`}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
-
-            {allAppRoutes?.legal.pages.length ? (
-              <Command.Group heading={allAppRoutes.legal.label}>
-                {allAppRoutes.legal.pages.map((page) => {
-                  const PageIcon: Icon | undefined =
-                    page.icon && Icons[page.icon];
-                  return (
-                    <Command.Item
-                      key={page.slug}
-                      value={`Legal Site Pages: ${page.title}`}
-                      data-disabled={page.disabled}
-                      onSelect={() => {
-                        runCommand(() => router.push(page.slug));
-                      }}
-                    >
-                      {PageIcon && <PageIcon />}
-                      {page.title}
-                    </Command.Item>
-                  );
-                })}
-              </Command.Group>
-            ) : null}
+            ))}
           </Command.List>
         </Command>
       </Dialog.Content>

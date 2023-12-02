@@ -6,17 +6,17 @@ import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Badge, Flex, Link, Text } from "@radix-ui/themes";
 
 import { NextLink } from "~/lib/link";
+import type { Route } from "~/lib/routes";
 import { getBadgeColor } from "~/lib/theme";
-import type { Page } from "~/types";
 
 interface MainNavProps {
-  mainNavPages: Page[];
+  route: Route;
 }
 
-export function MainNav({ mainNavPages }: MainNavProps): React.JSX.Element[] {
+export function MainNav({ route }: MainNavProps): React.JSX.Element[] {
   const pathname = usePathname();
 
-  return mainNavPages.map((page) => {
+  return route.pages.map((page) => {
     return (
       <MainNavItem
         key={page.slug}

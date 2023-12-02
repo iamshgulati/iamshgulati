@@ -3,18 +3,16 @@ import { Box, Flex, Grid, Heading, Link, Text } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
-import type { AllAppRouteProps, Page } from "~/types";
+import type { Page, Route } from "~/lib/routes";
 import { BoxLink } from "./box-link";
 import styles from "./footer.module.css";
 import { SiteLogoIcon } from "./site-logo";
 
 interface FooterProps {
-  allAppRoutes?: AllAppRouteProps;
+  routes?: Route[];
 }
 
-export function Footer({
-  allAppRoutes = undefined,
-}: FooterProps): React.JSX.Element {
+export function Footer({ routes = undefined }: FooterProps): React.JSX.Element {
   return (
     <footer>
       <Grid pb="9" gapX="7" gapY="8" className={styles.Footer}>
@@ -43,47 +41,34 @@ export function Footer({
           </Box>
         </Flex>
 
-        {allAppRoutes?.professional.pages.length ? (
-          <Group
-            groupTitle={allAppRoutes.professional.label}
-            pages={allAppRoutes.professional.pages}
+        {routes?.map((section, index) => (
+          <Section
+            key={section.label ?? index}
+            label={section.label}
+            pages={section.pages}
           />
-        ) : null}
-
-        {allAppRoutes?.personal.pages.length ? (
-          <Group
-            groupTitle={allAppRoutes.personal.label}
-            pages={allAppRoutes.personal.pages}
-          />
-        ) : null}
-
-        {allAppRoutes?.social.pages.length ? (
-          <Group
-            groupTitle={allAppRoutes.social.label}
-            pages={allAppRoutes.social.pages.slice(0, 3)}
-          />
-        ) : null}
+        ))}
       </Grid>
     </footer>
   );
 }
 
-const Group = ({
-  groupTitle,
+const Section = ({
+  label,
   pages = [],
   children = undefined,
 }: React.PropsWithChildren<{
-  groupTitle: string;
+  label: string;
   pages?: Page[];
 }>): React.JSX.Element => (
   <Box>
     <Heading as="h3" size="3">
-      {groupTitle}
+      {label}
     </Heading>
     {children}
-    {pages.map((item) => (
-      <GroupItem key={item.slug} href={item.slug}>
-        {item.title}
+    {pages.map((page) => (
+      <GroupItem key={page.slug} href={page.slug}>
+        {page.title}
       </GroupItem>
     ))}
   </Box>

@@ -6,8 +6,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { MainNav } from "~/components/main-nav";
 import { MobileMenu } from "~/components/mobile-menu";
-import { AllAppRoutes } from "~/lib/appRoutes";
-import { AllContentRoutes } from "~/lib/contentRoutes";
+import { allRoutes } from "~/lib/routes";
 
 export default function MarketingLayout({
   children,
@@ -28,16 +27,16 @@ export default function MarketingLayout({
 
       <MobileMenu
         productLinkRoutes={[
-          AllAppRoutes.home,
-          AllAppRoutes.professional,
-          AllAppRoutes.personal,
+          allRoutes.home,
+          allRoutes.professional,
+          allRoutes.personal,
         ]}
-        mobileNavRoutes={[
-          AllAppRoutes.home,
-          AllAppRoutes.professional,
-          AllAppRoutes.personal,
-          AllAppRoutes.social,
-          AllAppRoutes.legal,
+        routes={[
+          allRoutes.home,
+          allRoutes.professional,
+          allRoutes.personal,
+          allRoutes.social,
+          allRoutes.legal,
         ]}
       />
 
@@ -46,18 +45,26 @@ export default function MarketingLayout({
           sticky
           ghost
           productLinkRoutes={[
-            AllAppRoutes.home,
-            AllAppRoutes.professional,
-            AllAppRoutes.personal,
+            allRoutes.home,
+            allRoutes.professional,
+            allRoutes.personal,
           ]}
           commandMenu={
             <CommandMenu
-              allAppRoutes={AllAppRoutes}
-              allContentRoutes={AllContentRoutes}
+              routes={[
+                allRoutes.home,
+                allRoutes.professional,
+                allRoutes.personal,
+                allRoutes.projects,
+                allRoutes.blog,
+                allRoutes.thoughts,
+                allRoutes.social,
+                allRoutes.legal,
+              ]}
             />
           }
         >
-          <MainNav mainNavPages={AllAppRoutes.home.pages} />
+          <MainNav route={allRoutes.home} />
         </Header>
       </Layout.Header>
 
@@ -73,7 +80,16 @@ export default function MarketingLayout({
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Separator size="2" />
           <Section size="2" pb="0">
-            <Footer allAppRoutes={AllAppRoutes} />
+            <Footer
+              routes={[
+                allRoutes.professional,
+                allRoutes.personal,
+                {
+                  label: allRoutes.social.label,
+                  pages: allRoutes.social.pages.slice(0, 3),
+                },
+              ]}
+            />
           </Section>
         </Container>
       </Layout.Footer>

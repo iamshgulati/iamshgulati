@@ -1,5 +1,24 @@
 import { getBaseUrl } from "~/lib/url";
-import type { SiteConfig } from "~/types";
+
+export interface SiteConfig {
+  name: string;
+  description: string;
+  url: string;
+  links: {
+    resume: string;
+    linkedin: string;
+    github: string;
+    githubGists: string;
+    twitter: string;
+    threads: string;
+    mastodon: string;
+    bluesky: string;
+  };
+  og: {
+    displayUrl: string;
+    displayHandle: string;
+  };
+}
 
 export const siteConfig: SiteConfig = {
   name: "Shubham Gulati",

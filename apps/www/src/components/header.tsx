@@ -4,8 +4,8 @@ import { AccessibleIcon, Box, Flex, IconButton } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
+import type { Route } from "~/lib/routes";
 import { cn } from "~/lib/utils";
-import type { AppRoute } from "~/types";
 import { BoxLink } from "./box-link";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
@@ -17,7 +17,7 @@ export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
   commandMenu?: React.ReactNode;
-  productLinkRoutes?: AppRoute[];
+  productLinkRoutes?: Route[];
 }
 
 export function Header({

@@ -1,7 +1,7 @@
 import React from "react";
 import { Section, Text } from "@radix-ui/themes";
 
-import type { Frontmatter } from "~/types";
+import type { Frontmatter } from "~/lib/mdx";
 import { PageHeading } from "./page-heading";
 
 interface MDXPageLayoutProps {

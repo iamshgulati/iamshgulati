@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
-import { AllContentRoutes } from "~/lib/contentRoutes";
 import { NextLink } from "~/lib/link";
+import { allRoutes } from "~/lib/routes";
 
 const TITLE = "Projects";
 const DESCRIPTION = "A showcase of my open source work.";
@@ -47,7 +47,7 @@ const Hero = ({
 const AllProjectPreviews = (): React.JSX.Element => {
   return (
     <Flex direction="column" gap="6">
-      {AllContentRoutes.projects.pages.map((page) => (
+      {allRoutes.projects.pages.map((page) => (
         <Box key={page.slug}>
           <NextLink href={page.slug} passHref legacyBehavior>
             <Link>
