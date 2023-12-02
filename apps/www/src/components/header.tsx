@@ -83,7 +83,7 @@ export function Header({
               display={{ initial: "inline-flex", md: "none" }}
               align="center"
             >
-              <MobileMenuTrigger className={styles.MobileMenuTrigger}>
+              <MobileMenuTrigger asChild className={styles.MobileMenuTrigger}>
                 <IconButton
                   size="3"
                   variant="ghost"
