@@ -188,10 +188,12 @@
     }
   }
 
-  .MobileMenuButton {
+  .MobileMenuTrigger {
     display: flex;
     align-items: center;
+  }
 
+  .MobileMenuButton {
     &:where([data-state="closed"], [aria-expanded="false"]) {
       --state-open-icon-display: none;
       --state-closed-icon-display: block;
