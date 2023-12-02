@@ -32,13 +32,7 @@ export default function PersonalLayout({
           allRoutes.professional,
           allRoutes.personal,
         ]}
-        routes={[
-          allRoutes.home,
-          allRoutes.professional,
-          allRoutes.personal,
-          allRoutes.social,
-          allRoutes.legal,
-        ]}
+        routes={[allRoutes.personal, allRoutes.blog, allRoutes.thoughts]}
       />
 
       <Layout.Header>

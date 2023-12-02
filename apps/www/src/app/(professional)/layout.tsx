@@ -32,13 +32,7 @@ export default function ProfessionalLayout({
           allRoutes.professional,
           allRoutes.personal,
         ]}
-        routes={[
-          allRoutes.home,
-          allRoutes.professional,
-          allRoutes.personal,
-          allRoutes.social,
-          allRoutes.legal,
-        ]}
+        routes={[allRoutes.professional, allRoutes.projects]}
       />
 
       <Layout.Header>

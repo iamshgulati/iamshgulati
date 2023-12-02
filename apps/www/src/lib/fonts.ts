@@ -12,7 +12,7 @@ export const sansFont = localFont({
     },
   ],
   weight: "100 900",
-  display: "optional",
+  display: "swap",
   variable: "--sans-font",
   fallback: ["Helvetica", "ui-sans-serif"],
 });

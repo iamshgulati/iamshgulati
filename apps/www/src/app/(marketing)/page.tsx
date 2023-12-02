@@ -5,7 +5,15 @@ import {
   FileTextIcon,
   PersonIcon,
 } from "@radix-ui/react-icons";
-import { Box, Button, Flex, Link, Text } from "@radix-ui/themes";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Link,
+  Section,
+  Text,
+} from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
@@ -14,9 +22,13 @@ import { NextLink } from "~/lib/link";
 export default function MarketingPage(): React.JSX.Element {
   return (
     <React.Fragment>
-      <Box style={{ maxWidth: 700 }}>
-        <Hero />
-      </Box>
+      <Section size={{ initial: "2", xs: "3" }}>
+        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+          <Box style={{ maxWidth: 700 }}>
+            <Hero />
+          </Box>
+        </Container>
+      </Section>
     </React.Fragment>
   );
 }
