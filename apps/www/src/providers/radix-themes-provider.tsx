@@ -12,7 +12,7 @@ export function RadixThemesProvider({
       scaling="100%"
       radius="medium"
       appearance="inherit"
-      // className="radix-themes-custom-fonts"
+      className="radix-themes-custom-fonts"
     >
       {children}
       {/* {!isProduction && <ThemePanel defaultOpen={false} />} */}
