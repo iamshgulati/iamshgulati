@@ -6,10 +6,6 @@ export const sansFont = localFont({
       path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
       style: "normal",
     },
-    {
-      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
-      style: "italic",
-    },
   ],
   weight: "100 900",
   display: "swap",

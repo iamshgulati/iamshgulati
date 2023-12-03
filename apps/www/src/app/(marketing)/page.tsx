@@ -35,7 +35,7 @@ const Hero = (): React.JSX.Element => (
     <Text as="p" mb="6" size={{ initial: "3", xs: "5" }}>
       Past — Senior Technology Consultant @ Deloitte Consulting.
     </Text>
-    <Text as="p" mb="6" size={{ initial: "3", xs: "5" }}>
+    <Text as="p" mb="6" color="gray" size={{ initial: "3", xs: "5" }}>
       I love tinkering with code. Currently, I am learning the craft of
       designing high-performance cloud architectures and minimalistic front-end
       interfaces.
