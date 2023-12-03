@@ -1,3 +1,22 @@
+import localFont from "next/font/local";
+
+export const sansFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--sans-font",
+  fallback: ["Helvetica", "ui-sans-serif"],
+});
+
 /**
  * Inter 3 — Google Fonts
  * Variable, best overall
