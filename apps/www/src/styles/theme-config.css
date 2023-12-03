@@ -3,9 +3,9 @@
     min-height: 100vh;
   }
 
-  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI (Custom)",
-    Roboto, "Helvetica Neue", "Open Sans (Custom)", system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji";
+  --default-font-family: var(--sans-font), -apple-system, BlinkMacSystemFont,
+    "Segoe UI (Custom)", Roboto, "Helvetica Neue", "Open Sans (Custom)",
+    system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
   --serif-font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times,
     serif;
@@ -18,18 +18,4 @@
 
   --code-font-family: "Menlo", "Consolas (Custom)", "Bitstream Vera Sans Mono",
     monospace, "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-.radix-themes-custom-fonts {
-  --letter-spacing-1: 0.003em;
-  --letter-spacing-2: 0.014em;
-  --letter-spacing-3: 0.014em;
-  --letter-spacing-4: 0.023em;
-  --letter-spacing-5: 0.028em;
-  --letter-spacing-6: 0.028em;
-  --letter-spacing-7: 0.005em;
-  --letter-spacing-8: 0.008em;
-  --letter-spacing-9: 0.015em;
-  --heading-letter-spacing: -0.025em;
-  --code-letter-spacing: -0.02em;
 }
