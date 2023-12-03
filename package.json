@@ -13,7 +13,7 @@
     "db:push": "pnpm -F db push",
     "db:studio": "pnpm -F db studio",
     "dev": "turbo dev --parallel",
-    "dev:web": "turbo dev --parallel --filter !@shgulati/db --filter !@radix-ui/themes",
+    "dev:web": "turbo dev --parallel --filter !@shgulati/db",
     "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
     "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
     "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'",
@@ -37,6 +37,9 @@
   "pnpm": {
     "overrides": {
       "esbuild": "^0.19.8"
+    },
+    "patchedDependencies": {
+      "@radix-ui/themes@2.0.1": "patches/@radix-ui__themes@2.0.1.patch"
     }
   },
   "prettier": "@shgulati/prettier-config"
