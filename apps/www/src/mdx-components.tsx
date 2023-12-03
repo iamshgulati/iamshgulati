@@ -127,14 +127,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     ul: ({ className, ...props }): React.JSX.Element => (
-      <Flex asChild direction="column" gap="1" mb="3">
+      <Flex asChild direction="column" gap="1" mt="2" mb="3">
         <ul {...props} className={cn(className, styles.List)} />
       </Flex>
     ),
     ol: ({ className, ...props }): React.JSX.Element => (
-      <Box asChild mb="3">
+      <Flex asChild direction="column" gap="1" mt="2" mb="3">
         <ol {...props} className={cn(className, styles.List)} />
-      </Box>
+      </Flex>
     ),
     li: ({ className, ...props }): React.JSX.Element => (
       <li className={styles.ListItem}>
