@@ -15,6 +15,7 @@ export default function MarketingLayout({
     <Layout.Root>
       <Layout.Background
         style={{
+          zIndex: -1,
           position: "absolute",
           left: 0,
           right: 0,
