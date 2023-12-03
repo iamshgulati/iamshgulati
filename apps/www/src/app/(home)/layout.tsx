@@ -1,4 +1,4 @@
-import { Container, Section, Separator } from "@radix-ui/themes";
+import { Box, Container, Section, Separator } from "@radix-ui/themes";
 
 import { CommandMenu } from "~/components/command-menu";
 import { Footer } from "~/components/footer";
@@ -8,7 +8,7 @@ import { MainNav } from "~/components/main-nav";
 import { MobileMenu } from "~/components/mobile-menu";
 import { allRoutes } from "~/lib/routes";
 
-export default function MarketingLayout({
+export default function HomeLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
@@ -69,11 +69,15 @@ export default function MarketingLayout({
       </Layout.Header>
 
       <Layout.Main>
-        <Section size={{ initial: "2", xs: "3" }}>
-          <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-            {children}
-          </Container>
-        </Section>
+        <Layout.Content>
+          <Box asChild width="100%" style={{ maxWidth: 858 }}>
+            <Section size={{ initial: "2", xs: "3" }}>
+              <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+                {children}
+              </Container>
+            </Section>
+          </Box>
+        </Layout.Content>
       </Layout.Main>
 
       <Layout.Footer>

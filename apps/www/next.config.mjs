@@ -63,7 +63,6 @@ const nextConfig = {
   reactStrictMode: true,
   /** Enables hot reloading for local packages without a build step */
   /** transpilePackages: ["@shgulati/api", "@shgulati/auth", "@shgulati/db"], */
-  transpilePackages: ["@radix-ui/themes"],
   pageExtensions: ["md", "mdx", "ts", "tsx"],
   redirects: nextRedirects,
   experimental: {
