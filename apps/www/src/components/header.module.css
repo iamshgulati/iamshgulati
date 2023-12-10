@@ -1,0 +1,190 @@
+/* .HeaderInner -> background-color prop must remain in sync with NextThemesProvider.tsx -> themeColor */
+
+.HeaderRoot {
+  height: var(--header-height);
+
+  .HeaderInner {
+    position: relative;
+    z-index: 1;
+    inset: 0;
+    height: inherit;
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 1px transparent;
+    margin-top: -1px;
+  }
+
+  &.sticky {
+    .HeaderInner {
+      position: fixed;
+      transition:
+        background-color 180ms,
+        box-shadow 180ms;
+    }
+
+    /* Faster transition when the header gains background and slower when it loses it. */
+    &[data-scroll-state="scrolling-down"] {
+      .HeaderInner {
+        transition-duration: 30ms, 120ms;
+      }
+    }
+
+    /*
+     * Fallback HeaderInner with no filters.
+     */
+    &.ghost {
+      &:not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          box-shadow: 0 1px var(--gray-a4);
+          background-color: var(--color-background);
+        }
+      }
+    }
+
+    /*
+     * HeaderInner with simple backdrop filters if browser supports relative colors.
+     */
+    &.ghost {
+      &:not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          @supports (color: rgb(from white r g b)) {
+            background-color: rgb(from var(--color-background) r g b / 0.8);
+            --blur: 20px;
+            --saturate: 1.8;
+            backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+            -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+          }
+        }
+      }
+    }
+  }
+
+  &:where([data-mobile-menu-open="true"]) {
+    box-shadow: 0 1px var(--gray-a4);
+  }
+
+  .HeaderContainer {
+    position: relative;
+    max-width: var(--header-max-width);
+    height: inherit;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /*
+   * HeaderProductLinksContainer
+   */
+  .HeaderProductLinksContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .HeaderProductLink {
+    cursor: var(--cursor-link);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    font-size: var(--font-size-2);
+    line-height: 16px;
+    letter-spacing: var(--letter-spacing-2);
+    position: relative;
+    color: var(--gray-a11);
+    outline: 0;
+
+    @media (max-width: 369px) {
+      font-size: 13px;
+    }
+
+    /* Add left and right padding when viewport is large enough */
+    /* @media (min-width: 520px) {
+      padding-left: var(--space-1);
+      padding-right: var(--space-1);
+    } */
+
+    /* Always have left and right padding */
+    padding-left: var(--space-1);
+    padding-right: var(--space-1);
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--gray-12);
+      }
+    }
+
+    &:focus-visible {
+      color: var(--gray-12);
+    }
+
+    &[data-state="active"] {
+      color: var(--color-background);
+      padding-left: var(--space-1);
+      padding-right: var(--space-1);
+    }
+
+    .HeaderProductLinkInner,
+    .HeaderProductLinkInnerHidden {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-1);
+      border-radius: var(--radius-2);
+
+      @media (min-width: 370px) {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+      }
+    }
+
+    .HeaderProductLinkInner {
+      position: absolute;
+      letter-spacing: 0.01em;
+    }
+
+    .HeaderProductLinkInnerHidden {
+      visibility: hidden;
+      font-weight: bold;
+      letter-spacing: -0.01em;
+    }
+
+    &[data-state="active"] {
+      .HeaderProductLinkInner,
+      .HeaderProductLinkInnerHidden {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover .HeaderProductLinkInner {
+        background-color: var(--gray-a3);
+      }
+      &:focus-visible:where(:hover) .HeaderProductLinkInner {
+        background-color: var(--accent-a3);
+      }
+    }
+
+    &:focus-visible .HeaderProductLinkInner {
+      box-shadow: 0 0 0 2px var(--accent-a8);
+    }
+
+    &[data-state="active"] {
+      .HeaderProductLinkInner {
+        font-weight: bold;
+        letter-spacing: -0.01em;
+        background-color: var(--gray-12);
+      }
+
+      &::before {
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+}

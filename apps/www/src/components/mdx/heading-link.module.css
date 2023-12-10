@@ -1,0 +1,15 @@
+.HeadingLink {
+  display: inline-block;
+  vertical-align: middle;
+  color: inherit;
+
+  svg {
+    margin-left: var(--space-2);
+    color: var(--gray-11);
+    visibility: hidden;
+  }
+
+  &:hover svg {
+    visibility: visible;
+  }
+}

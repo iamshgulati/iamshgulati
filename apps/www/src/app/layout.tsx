@@ -1,0 +1,77 @@
+import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
+import { Providers } from "~/providers";
+
+import "~/styles/globals.css";
+
+import type { Metadata } from "next";
+import { Container, Flex, Section, Separator } from "@radix-ui/themes";
+
+import { Footer } from "~/components/footer";
+import { Header } from "~/components/header";
+import { Layout } from "~/components/layout";
+import { siteConfig } from "~/config/site";
+import { isProduction } from "~/env.mjs";
+import { allRoutes } from "~/lib/routes";
+
+export const metadata: Metadata = {
+  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+  description: siteConfig.description,
+  manifest: "/site.webmanifest",
+};
+
+export default function RootLayout({
+  children,
+}: React.PropsWithChildren): React.JSX.Element {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <div id="root">
+          <Providers>
+            <Layout.Root>
+              <Layout.Background
+                style={{
+                  zIndex: -1,
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  height: 480,
+                  opacity: 0.6,
+                  background:
+                    "linear-gradient(to bottom, transparent, transparent, transparent)",
+                }}
+              />
+
+              <Layout.Header>
+                <Header
+                  sticky
+                  ghost
+                  productLinkRoute={allRoutes.productLinks}
+                  commandMenuRoutes={[
+                    allRoutes.projects,
+                    allRoutes.blog,
+                    allRoutes.social,
+                  ]}
+                />
+              </Layout.Header>
+
+              <Layout.Main>{children}</Layout.Main>
+
+              <Layout.Footer>
+                <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+                  <Flex align="center" justify="center">
+                    <Separator size="3" />
+                  </Flex>
+                  <Section size="2" pb="0">
+                    <Footer pages={allRoutes.social.pages.slice(0, 4)} />
+                  </Section>
+                </Container>
+              </Layout.Footer>
+            </Layout.Root>
+
+            {!isProduction && <ScreenSizeIndicator />}
+          </Providers>
+        </div>
+      </body>
+    </html>
+  );
+}

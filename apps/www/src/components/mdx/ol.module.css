@@ -1,0 +1,7 @@
+.List {
+  padding-inline-start: var(--space-5);
+
+  .List {
+    padding-inline-start: var(--space-5);
+  }
+}

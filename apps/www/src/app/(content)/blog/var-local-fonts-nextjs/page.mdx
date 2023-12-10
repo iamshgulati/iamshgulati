@@ -1,0 +1,42 @@
+---
+title: Variable Local Fonts With Next.js
+description: How to properly load variable local fonts with multiple style variants in Next.js?
+publishedAt: 2023-12-03
+---
+
+import * as Components from "./components.tsx";
+
+import { ContentLayout } from "~/components/content-layout";
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}
+
+Next.js has a font module load local and google fonts but their documentation isn't clear on how to load `variable local fonts` properly.
+
+I have tried to use Inter 4 variable font on my website and waned to share how I did it.
+
+```ts showLineNumbers {14} title="font.ts"
+import localFont from "next/font/local";
+
+export const sansFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--sans-font",
+  fallback: ["ui-sans-serif", "system-ui"],
+});
+```
+
+From here, the documentation is pretty clear. You just add `sansFont.variable` to `className` on `body` tag, prepend `var(--sans-font)` to your `font-family` and you are set.
+
+<Components.WeightPropCallout />

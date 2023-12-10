@@ -1,0 +1,77 @@
+@import "@radix-ui/themes/styles-shgulati.css";
+@import "theme-config.css";
+@import "cmdk.css";
+@import "rehype-pretty-code.css";
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--gray-12);
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+#root {
+  position: relative;
+  z-index: 0;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------- */
+
+:root {
+  --header-max-width: 1400px;
+  --header-height: 52px;
+}
+
+:root,
+.light:not(.system) {
+  --light-theme-icon-display: block;
+  --dark-theme-icon-display: none;
+  --system-theme-icon-display: none;
+}
+.dark:not(.system) {
+  --light-theme-icon-display: none;
+  --dark-theme-icon-display: block;
+  --system-theme-icon-display: none;
+}
+.system {
+  --light-theme-icon-display: none;
+  --dark-theme-icon-display: none;
+  --system-theme-icon-display: block;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@shgulati/{{ name }}",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@shgulati/eslint-config": "workspace:^0.2.0",
+    "@shgulati/prettier-config": "workspace:^0.1.0",
+    "@shgulati/tsconfig": "workspace:^0.1.0",
+    "eslint": "^8.53.0",
+    "typescript": "^5.2.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@shgulati/eslint-config/base"
+    ]
+  },
+  "prettier": "@shgulati/prettier-config"
+}

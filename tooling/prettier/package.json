@@ -1,0 +1,22 @@
+{
+  "name": "@shgulati/prettier-config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.mjs",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.9"
+  },
+  "devDependencies": {
+    "@shgulati/tsconfig": "workspace:^0.1.0",
+    "typescript": "^5.3.3"
+  },
+  "prettier": "@shgulati/prettier-config"
+}
