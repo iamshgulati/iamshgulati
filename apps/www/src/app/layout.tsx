@@ -45,7 +45,7 @@ export default function RootLayout({
                 <Header
                   sticky
                   ghost
-                  backdrop
+                  backdropExtended
                   productLinkRoute={allRoutes.productLinks}
                   commandMenuRoutes={[
                     allRoutes.projects,

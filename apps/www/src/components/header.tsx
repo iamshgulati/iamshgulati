@@ -18,6 +18,7 @@ export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
   backdrop?: boolean;
+  backdropExtended?: boolean;
   productLinkRoute?: AppRoute;
   commandMenuRoutes?: AppRoute[];
 }
@@ -27,6 +28,7 @@ export function Header({
   sticky = false,
   ghost = false,
   backdrop = false,
+  backdropExtended = false,
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
@@ -38,6 +40,7 @@ export function Header({
         sticky ? styles.sticky : "",
         ghost ? styles.ghost : "",
         backdrop ? styles.backdrop : "",
+        backdropExtended ? styles.backdropExtended : "",
       )}
     >
       <nav className={styles.HeaderInner}>
@@ -46,6 +49,10 @@ export function Header({
             display={{ initial: "flex", md: "none" }}
             align="center"
             pl={{ initial: "5", sm: "6" }}
+            position="absolute"
+            top="0"
+            bottom="0"
+            left="0"
           >
             <NextLink href="/" passHref legacyBehavior>
               <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
@@ -58,6 +65,10 @@ export function Header({
             display={{ initial: "none", md: "flex" }}
             align="center"
             pl={{ initial: "5", sm: "6" }}
+            position="absolute"
+            top="0"
+            bottom="0"
+            left="0"
           >
             <NextLink href="/" passHref legacyBehavior>
               <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
@@ -72,7 +83,15 @@ export function Header({
             </Box>
           )}
 
-          <Flex align="center" gap="5" pr={{ initial: "5", sm: "6" }}>
+          <Flex
+            align="center"
+            gap="5"
+            pr={{ initial: "5", sm: "6" }}
+            position="absolute"
+            top="0"
+            bottom="0"
+            right="0"
+          >
             <Flex
               display={{ initial: "none", md: "flex" }}
               align="center"
@@ -81,9 +100,9 @@ export function Header({
               {children}
             </Flex>
 
-            <Box className={styles.HeaderCommandMenuContainer}>
+            <Flex align="center">
               <CommandMenu routes={commandMenuRoutes} />
-            </Box>
+            </Flex>
           </Flex>
         </Box>
       </nav>

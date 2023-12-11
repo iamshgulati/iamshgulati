@@ -11,7 +11,6 @@
     user-select: none;
     -webkit-user-select: none;
     box-shadow: 0 1px transparent;
-    margin-top: -1px;
   }
 
   &.sticky {
@@ -61,6 +60,54 @@
             backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
             -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
           }
+        }
+      }
+    }
+
+    /*
+     * HeaderInner with simple backdrop filters and extended
+     * linear-gradient mask image if browser supports relative colors.
+     * &[data-scroll-state] — this is required so that backdrop rules take precedence.
+     */
+    &.backdropExtended {
+      &[data-scroll-state] {
+        & > .HeaderInner {
+          background-color: transparent;
+          backdrop-filter: unset;
+          -webkit-backdrop-filter: unset;
+        }
+
+        & > .HeaderInner::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background-color: var(--color-background);
+
+          @supports (color: rgb(from white r g b)) {
+            background-color: rgb(from var(--color-background) r g b / 0.6);
+            --blur: 20px;
+            --saturate: 1.8;
+            backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+            -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+          }
+
+          /* Extended linear-gradient mask image */
+          --extended-by: 6.25rem;
+          bottom: calc(-1 * var(--extended-by));
+          --cutoff: calc(100% - var(--extended-by));
+          mask-image: linear-gradient(
+            to bottom,
+            black 0,
+            black var(--cutoff),
+            transparent var(--cutoff)
+          );
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 0,
+            black var(--cutoff),
+            transparent var(--cutoff)
+          );
         }
       }
     }
