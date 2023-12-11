@@ -17,6 +17,8 @@
   &.sticky {
     .HeaderInner {
       position: fixed;
+      box-shadow: 0 1px var(--gray-a4);
+      background-color: var(--color-background);
       transition:
         background-color 180ms,
         box-shadow 180ms;
@@ -29,10 +31,14 @@
       }
     }
 
-    /*
-     * Fallback HeaderInner with no filters.
-     */
     &.ghost {
+      &[data-scroll-state="at-top"] {
+        & > .HeaderInner {
+          box-shadow: 0 1px transparent;
+          background-color: transparent;
+        }
+      }
+
       &:not([data-scroll-state="at-top"]) {
         & > .HeaderInner {
           box-shadow: 0 1px var(--gray-a4);
@@ -43,9 +49,10 @@
 
     /*
      * HeaderInner with simple backdrop filters if browser supports relative colors.
+     * &[data-scroll-state] — this is required so that backdrop rules take precedence.
      */
-    &.ghost {
-      &:not([data-scroll-state="at-top"]) {
+    &.backdrop {
+      &[data-scroll-state] {
         & > .HeaderInner {
           @supports (color: rgb(from white r g b)) {
             background-color: rgb(from var(--color-background) r g b / 0.8);
@@ -59,10 +66,9 @@
     }
   }
 
-  &:where([data-mobile-menu-open="true"]) {
-    box-shadow: 0 1px var(--gray-a4);
-  }
-
+  /*
+   * HeaderContainer
+   */
   .HeaderContainer {
     position: relative;
     max-width: var(--header-max-width);
@@ -100,13 +106,6 @@
       font-size: 13px;
     }
 
-    /* Add left and right padding when viewport is large enough */
-    /* @media (min-width: 520px) {
-      padding-left: var(--space-1);
-      padding-right: var(--space-1);
-    } */
-
-    /* Always have left and right padding */
     padding-left: var(--space-1);
     padding-right: var(--space-1);
 

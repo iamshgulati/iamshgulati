@@ -17,6 +17,7 @@ import { SiteLogo, SiteLogoIcon } from "./site-logo";
 export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
+  backdrop?: boolean;
   productLinkRoute?: AppRoute;
   commandMenuRoutes?: AppRoute[];
 }
@@ -25,6 +26,7 @@ export function Header({
   children = undefined,
   sticky = false,
   ghost = false,
+  backdrop = false,
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
@@ -35,10 +37,10 @@ export function Header({
         styles.HeaderRoot,
         sticky ? styles.sticky : "",
         ghost ? styles.ghost : "",
+        backdrop ? styles.backdrop : "",
       )}
     >
       <nav className={styles.HeaderInner}>
-        <div className={styles.HeaderInnerBackdrop} />
         <Box className={styles.HeaderContainer}>
           <Flex
             display={{ initial: "flex", md: "none" }}
