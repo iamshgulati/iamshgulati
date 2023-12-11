@@ -27,6 +27,7 @@ export function Footer({ pages }: FooterProps): React.JSX.Element {
               key={page.slug}
               href={page.slug}
               icon={page.icon}
+              label={page.title}
             />
           ))}
         </Flex>
@@ -40,14 +41,15 @@ export function Footer({ pages }: FooterProps): React.JSX.Element {
 }
 
 const SocialIconButton = ({
-  icon = "AtSymbolIcon",
   href,
+  icon = "AtSymbolIcon",
+  label,
 }: {
-  icon?: keyof typeof Icons;
   href: string;
+  icon?: keyof typeof Icons;
+  label: string;
 }): React.JSX.Element => {
   const SocialIcon: Icon = Icons[icon];
-  const SocialNetwork = icon.replace("Logo", "").replace("Icon", "");
 
   return (
     <Link
@@ -60,7 +62,7 @@ const SocialIconButton = ({
       }}
     >
       <IconButton size="3" variant="ghost" color="gray">
-        <AccessibleIcon label={SocialNetwork}>
+        <AccessibleIcon label={label}>
           <SocialIcon width="16" height="16" />
         </AccessibleIcon>
       </IconButton>
