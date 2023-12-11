@@ -9,7 +9,7 @@ import type { AppPage, AppRoute } from "~/lib/routes";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Ramblings about technology.",
+  description: "Thoughts, stories, and ideas.",
 };
 
 export default function BlogPage(): React.JSX.Element {
