@@ -11,6 +11,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { siteConfig } from "~/config/site";
 import { isProduction } from "~/env.mjs";
+import { sansFont } from "~/lib/fonts";
 import { allRoutes } from "~/lib/routes";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={sansFont.variable}>
         <div id="root">
           <Providers>
             <Layout.Root>

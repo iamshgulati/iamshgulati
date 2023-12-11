@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   font-family:
+    var(--sans-font),
     ui-sans-serif,
     system-ui,
     -apple-system,
