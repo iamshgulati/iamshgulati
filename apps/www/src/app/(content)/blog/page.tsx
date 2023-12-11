@@ -4,16 +4,16 @@ import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
 import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
-import type { AppRoute } from "~/lib/routes";
 import { allRoutes } from "~/lib/routes";
+import type { AppPage, AppRoute } from "~/lib/routes";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "A showcase of my open source work.",
+  title: "Blog",
+  description: "Ramblings about technology.",
 };
 
-export default function ProjectsPage(): React.JSX.Element {
-  const route = allRoutes.projects;
+export default function BlogPage(): React.JSX.Element {
+  const route = allRoutes.blog;
 
   return (
     <React.Fragment>
@@ -24,7 +24,16 @@ export default function ProjectsPage(): React.JSX.Element {
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
-        <Previews route={route} />
+        <Flex direction="column" gap="6">
+          <PinnedPreview
+            page={{
+              slug: "/blog/quotes",
+              title: "Quotes",
+              description: "My favorite quotations from around the internet.",
+            }}
+          />
+          <Previews route={route} />
+        </Flex>
       </Section>
     </React.Fragment>
   );
@@ -49,9 +58,26 @@ const TitleAndDescription = ({
   </React.Fragment>
 );
 
+const PinnedPreview = ({ page }: { page: AppPage }): React.JSX.Element => {
+  return (
+    <Box>
+      <NextLink href={page.slug} passHref legacyBehavior>
+        <Link>
+          <Heading mb="2" weight="medium">
+            {page.title}
+          </Heading>
+        </Link>
+      </NextLink>
+      <Text as="p" color="gray">
+        {page.description}
+      </Text>
+    </Box>
+  );
+};
+
 const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
   return (
-    <Flex direction="column" gap="6">
+    <React.Fragment>
       {route.pages.map((page) => (
         <Box key={page.slug}>
           <NextLink href={page.slug} passHref legacyBehavior>
@@ -66,6 +92,6 @@ const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
           </Text>
         </Box>
       ))}
-    </Flex>
+    </React.Fragment>
   );
 };
