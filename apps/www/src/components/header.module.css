@@ -85,7 +85,7 @@
           background-color: var(--color-background);
 
           @supports (color: rgb(from white r g b)) {
-            background-color: rgb(from var(--color-background) r g b / 0.6);
+            background-color: rgb(from var(--color-background) r g b / 0.7);
             --blur: 20px;
             --saturate: 1.8;
             backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
