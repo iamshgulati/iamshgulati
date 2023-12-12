@@ -12,7 +12,9 @@ export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
 }
 
-## Subsetting fonts
+## Generating a font subset
+
+Font subsetting can make your font files as low as 5% of the original font files with hundreds or thousands of glyphs.
 
 1. Install `fonttools` and `brotli`
 
@@ -41,3 +43,5 @@ pyftsubset \
 ```
 
 > For the two styles of Inter 4, size reduced from total 733KB to just 58KB. Thats... not bad at all.
+
+You can now load the woff2 font files using `@font-face`, or using `next/font/local` package as I have shared in [this post](/blog/var-local-fonts-nextjs).

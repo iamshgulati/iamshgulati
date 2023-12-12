@@ -9,7 +9,7 @@ export const WeightPropCallout = () => (
     <CalloutText>
       Setting the <Code>{`weight: "100 900"`}</Code> was important here. This is
       not documented clearly in Next.js documentation, and without it all my
-      font sizes were being synthesized from just single regular weight.
+      font weights were being synthesized from single regular weight.
     </CalloutText>
   </CalloutRoot>
 );
