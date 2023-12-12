@@ -17,8 +17,6 @@ export const HeroHeading = ({
             "--heading-font-family": "var(--em-font-family)",
             "--heading-font-size-adjust": "1.1",
             "--heading-letter-spacing": "0em",
-            "--letter-spacing-8": "0em",
-            "--letter-spacing-9": "0em",
             ...props.style,
           } as React.CSSProperties
         }
@@ -37,8 +35,6 @@ export const HeroHeading = ({
             "var(--font-heading), var(--default-font-family)",
           "--heading-font-size-adjust": "1.1",
           "--heading-letter-spacing": "0em",
-          "--letter-spacing-8": "0em",
-          "--letter-spacing-9": "0em",
           ...props.style,
         } as React.CSSProperties
       }
@@ -61,9 +57,8 @@ export const PageHeading = ({
         style={
           {
             "--heading-font-family": "var(--em-font-family)",
+            "--heading-font-size-adjust": "1",
             "--heading-letter-spacing": "0em",
-            "--letter-spacing-8": "0em",
-            "--letter-spacing-9": "0em",
             ...props.style,
           } as React.CSSProperties
         }
@@ -80,9 +75,8 @@ export const PageHeading = ({
         {
           "--heading-font-family":
             "var(--font-heading), var(--default-font-family)",
+          "--heading-font-size-adjust": "1",
           "--heading-letter-spacing": "0em",
-          "--letter-spacing-8": "0em",
-          "--letter-spacing-9": "0em",
           ...props.style,
         } as React.CSSProperties
       }
