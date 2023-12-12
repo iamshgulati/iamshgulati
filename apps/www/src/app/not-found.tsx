@@ -6,8 +6,8 @@ import {
 } from "@radix-ui/react-icons";
 import { Box, Button, Container, Section, Text } from "@radix-ui/themes";
 
+import { PageHeading } from "~/components/heading";
 import { Layout } from "~/components/layout";
-import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
 
 export const metadata: Metadata = {

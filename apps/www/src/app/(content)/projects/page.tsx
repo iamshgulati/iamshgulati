@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 
-import { PageHeading } from "~/components/page-heading";
+import { PageHeading } from "~/components/heading";
 import { NextLink } from "~/lib/link";
 import type { AppRoute } from "~/lib/routes";
 import { allRoutes } from "~/lib/routes";

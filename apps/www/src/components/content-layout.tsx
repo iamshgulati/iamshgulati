@@ -3,7 +3,7 @@ import { Flex, Section, Text } from "@radix-ui/themes";
 
 import type { ContentPage } from "~/lib/mdx";
 import { BackButton } from "./back-button";
-import { PageHeading } from "./page-heading";
+import { PageHeading } from "./heading";
 
 interface ContentLayoutProps {
   metadata: ContentPage;
