@@ -15,10 +15,8 @@ export function RadixThemesProvider({
       radius="medium"
       appearance="inherit"
       className={cn(
-        /* reset letter-spacing */
-        "radix-themes-custom-reset",
-        /* apply custom font family */
         "radix-themes-custom-fonts",
+        // "radix-themes-custom-reset",
       )}
     >
       {children}
