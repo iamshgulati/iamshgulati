@@ -55,7 +55,7 @@ const SocialIconButton = ({
     <Link
       href={href}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noreferrer"
       style={{
         display: "inline-flex",
         alignItems: "center",

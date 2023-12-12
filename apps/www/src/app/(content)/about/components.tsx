@@ -190,11 +190,7 @@ export const SoftwareAndToolBadges = (): React.JSX.Element => {
 export const ResumeButton = (): React.JSX.Element => {
   return (
     <Flex align="center" justify="center">
-      <Link
-        href={siteConfig.links.resume}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
         <Button
           variant="solid"
           size="3"

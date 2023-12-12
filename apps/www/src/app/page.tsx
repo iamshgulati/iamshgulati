@@ -65,11 +65,7 @@ const Hero = (): React.JSX.Element => (
           <ChevronRightIcon width="18" height="18" />
         </Button>
       </NextLink>
-      <Link
-        href={siteConfig.links.resume}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
         <Button
           variant="soft"
           size="3"

@@ -10,7 +10,7 @@ export const A = ({ href = "", ...props }): React.JSX.Element => {
         {...props}
         href={href}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noreferrer"
         className={styles.Link}
       />
     );
