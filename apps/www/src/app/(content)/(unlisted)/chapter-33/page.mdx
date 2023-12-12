@@ -1,0 +1,27 @@
+---
+title: "#33"
+description: Life moves to a new chapter today.
+publishedAt: 2023-12-12
+---
+
+import { Quote, Text } from "@radix-ui/themes";
+
+import * as Components from "./components.tsx";
+
+import { ContentLayout } from "~/components/content-layout";
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}
+
+I have so many things to say, but not all things that can be said need to be said.
+
+Some things, you just experience.
+
+<Text as="p" size="4" mt="6" mb="6">
+  {
+    <Quote>
+      Let them touch you, let them teach you, and then let them never be said.
+    </Quote>
+  }
+</Text>
