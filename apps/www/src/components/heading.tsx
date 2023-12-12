@@ -15,7 +15,7 @@ export const HeroHeading = ({
         style={
           {
             "--heading-font-family": "var(--em-font-family)",
-            "--heading-font-size-adjust": "1.2",
+            "--heading-font-size-adjust": "1.1",
             "--heading-letter-spacing": "0em",
             ...props.style,
           } as React.CSSProperties
@@ -33,7 +33,7 @@ export const HeroHeading = ({
         {
           "--heading-font-family":
             "var(--font-heading), var(--default-font-family)",
-          "--heading-font-size-adjust": "1.2",
+          "--heading-font-size-adjust": "1.1",
           "--heading-letter-spacing": "0em",
           ...props.style,
         } as React.CSSProperties
