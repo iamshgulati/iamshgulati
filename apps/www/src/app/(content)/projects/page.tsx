@@ -58,7 +58,7 @@ const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
         <Box key={page.slug}>
           <NextLink href={page.slug} passHref legacyBehavior>
             <Link>
-              <Heading mb="2" weight="medium">
+              <Heading size={{ initial: "6", xs: "7" }} mb="2" weight="medium">
                 {page.title}
               </Heading>
             </Link>
