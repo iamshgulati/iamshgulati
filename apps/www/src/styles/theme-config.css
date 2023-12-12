@@ -1,11 +1,43 @@
 .radix-themes {
+  &[data-is-root-theme="true"] {
+    min-height: 100vh;
+  }
+}
+
+.radix-themes-custom-reset {
+  /* Default values */
+  --letter-spacing-1: 0em;
+  --letter-spacing-2: 0em;
+  --letter-spacing-3: 0em;
+  --letter-spacing-4: 0em;
+  --letter-spacing-5: 0em;
+  --letter-spacing-6: 0em;
+  --letter-spacing-7: 0em;
+  --letter-spacing-8: 0em;
+  --letter-spacing-9: 0em;
+
+  /* Headings */
+  --heading-letter-spacing: 0em;
+
+  /* Code */
+  --code-letter-spacing: 0em;
+
+  /* Strong */
+  --strong-letter-spacing: 0em;
+
+  /* Em */
+  --em-letter-spacing: 0em;
+
+  /* Quote */
+  --quote-letter-spacing: 0em;
+}
+
+.radix-themes-custom-fonts {
+  /* Default values */
   --default-font-family: var(--font-sans), -apple-system, BlinkMacSystemFont,
     "Segoe UI (Custom)", Roboto, "Helvetica Neue", "Open Sans (Custom)",
     system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
+  /* Heading */
   --heading-font-family: var(--font-heading), var(--default-font-family);
-
-  &[data-is-root-theme="true"] {
-    min-height: 100vh;
-  }
 }
