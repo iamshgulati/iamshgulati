@@ -1,0 +1,43 @@
+---
+title: Subsetting Fonts
+description: How to subset fonts for performance optimization?
+publishedAt: 2023-12-11
+---
+
+import * as Components from "./components.tsx";
+
+import { ContentLayout } from "~/components/content-layout";
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}
+
+## Subsetting fonts
+
+1. Install `fonttools` and `brotli`
+
+```sh
+pip install fonttools brotli
+```
+
+2. Run `pyftsubset` with desired options
+
+```sh
+pyftsubset \
+  InterVariable.ttf \
+  --output-file="InterVariable.woff2" \
+  --flavor="woff2" \
+  --layout-features="" \
+  --unicodes="U+0020-007F"
+```
+
+```sh
+pyftsubset \
+  InterVariable-Italic.ttf \
+  --output-file="InterVariable-Italic.woff2" \
+  --flavor="woff2" \
+  --layout-features="" \
+  --unicodes="U+0020-007F"
+```
+
+> Size reduced from 733KB to 58KB. Thats... not bad at all.

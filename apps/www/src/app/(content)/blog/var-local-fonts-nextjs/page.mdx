@@ -32,11 +32,11 @@ export const sansFont = localFont({
   ],
   weight: "100 900",
   display: "swap",
-  variable: "--sans-font",
+  variable: "--font-sans",
   fallback: ["ui-sans-serif", "system-ui"],
 });
 ```
 
-From here, the documentation is pretty clear. You just add `sansFont.variable` to `className` on `body` tag, prepend `var(--sans-font)` to your `font-family` and you are set.
+From here, the documentation is pretty clear. You just add `sansFont.variable` to `className` on `body` tag, prepend `var(--font-sans)` to your `font-family` and you are set.
 
 <Components.WeightPropCallout />

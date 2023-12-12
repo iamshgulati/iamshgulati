@@ -1,35 +1,6 @@
-import { Inter as SansFont } from "next/font/google";
-
-export const sansFont = SansFont({
-  weight: "variable",
-  subsets: ["latin"],
-  style: ["normal"],
-  display: "swap",
-  variable: "--sans-font",
-});
-
-/**
- * Inter 3 — Google Fonts
- * Variable, best overall
- */
-/*
-import { Inter as SansFont } from "next/font/google";
-export const sansFont = SansFont({
-  weight: "variable",
-  subsets: ["latin"],
-  style: ["normal"],
-  display: "swap",
-  variable: "--sans-font",
-});
-*/
-
-/**
- * Inter 4 — Google Fonts
- * Variable, best overall
- */
-/*
 import localFont from "next/font/local";
-export const sansFont = localFont({
+
+export const fontSans = localFont({
   src: [
     {
       path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
@@ -42,54 +13,118 @@ export const sansFont = localFont({
   ],
   weight: "100 900",
   display: "swap",
-  variable: "--sans-font",
-  fallback: ["ui-sans-serif", "system-ui"],
+  variable: "--font-sans",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+
+/**
+ * Inter 4 — Subset
+ */
+/*
+import localFont from "next/font/local";
+export const fontSans = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-sans",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+*/
+
+/**
+ * Inter 4
+ */
+/*
+import localFont from "next/font/local";
+export const fontSans = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-sans",
+});
+*/
+
+/**
+ * Inter 3 — Google Fonts
+ */
+/*
+import { Inter as SansFont } from "next/font/google";
+export const fontSans = SansFont({
+  weight: "variable",
+  subsets: ["latin"],
+  style: ["normal"],
+  display: "swap",
+  variable: "--font-sans",
 });
 */
 
 /**
  * Playfair Diaplay — Google Fonts
- * Variable, Good for serif headings
  */
 /*
 import { Playfair_Display as SerifFont, } from "next/font/google";
-export const serifFont = SerifFont({
+export const fontSerif = SerifFont({
   weight: "variable",
   subsets: ["latin"],
   style: ["normal"],
   display: "swap",
-  variable: "--serif-font",
+  variable: "--font-serif",
 });
 */
 
 /**
  * Bricolage Grotesque — Google Fonts
- * Variable, Good for sans headings
  * Failed to find font override values for font `Bricolage Grotesque`
  */
 /*
 import { Bricolage_Grotesque as GrotesqueFont } from "next/font/google";
-export const grotesqueFont = GrotesqueFont({
+export const fontGrotesque = GrotesqueFont({
   weight: "variable",
   subsets: ["latin"],
   style: ["normal"],
   display: "swap",
-  variable: "--grotesque-font",
+  variable: "--font-grotesque",
 });
 */
 
 /**
  * Plus Jakarta Sans — Google Fonts
- * Variable, Good for sans headings
- * Failed to find font override values for font `Bricolage Grotesque`
  */
 /*
 import { Plus_Jakarta_Sans as SansFont } from "next/font/google";
-export const sansFont = SansFont({
+export const fontSans = SansFont({
   weight: "variable",
   subsets: ["latin"],
   style: ["normal"],
   display: "swap",
-  variable: "--sans-font",
+  variable: "--font-sans",
 });
 */
