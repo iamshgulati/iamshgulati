@@ -15,7 +15,7 @@ import {
   Text,
 } from "@radix-ui/themes";
 
-import { PageHeading } from "~/components/heading";
+import { HeroHeading } from "~/components/heading";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 
@@ -36,9 +36,9 @@ const Hero = (): React.JSX.Element => (
     <Text as="p" mb="1" color="gray" size={{ initial: "5", xs: "7" }}>
       Hello!
     </Text>
-    <PageHeading as="h1" mb="6">
+    <HeroHeading as="h1" mb="6">
       I&apos;m Shubham Gulati,
-    </PageHeading>
+    </HeroHeading>
     <Text as="p" size={{ initial: "3", xs: "5" }}>
       Software Engineer and Certified Cloud Architect.
     </Text>
