@@ -16,7 +16,7 @@ export const PageHeading = ({
           {
             "--heading-font-family": "var(--em-font-family)",
             "--heading-font-size-adjust": "1.2",
-            // "--heading-letter-spacing": "0em",
+            "--heading-letter-spacing": "0em",
             ...props.style,
           } as React.CSSProperties
         }
@@ -31,9 +31,10 @@ export const PageHeading = ({
       {...props}
       style={
         {
-          "--heading-font-family": "var(--default-font-family)",
-          "--heading-font-size-adjust": "1.1",
-          // "--heading-letter-spacing": "-0.02em",
+          "--heading-font-family":
+            "var(--font-heading), var(--default-font-family)",
+          "--heading-font-size-adjust": "1.2",
+          "--heading-letter-spacing": "0em",
           ...props.style,
         } as React.CSSProperties
       }

@@ -3,6 +3,8 @@
     "Segoe UI (Custom)", Roboto, "Helvetica Neue", "Open Sans (Custom)",
     system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 
+  --heading-font-family: var(--font-heading), var(--default-font-family);
+
   &[data-is-root-theme="true"] {
     min-height: 100vh;
   }

@@ -11,7 +11,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { siteConfig } from "~/config/site";
 import { isProduction } from "~/env.mjs";
-import { fontSans } from "~/lib/fonts";
+import { fontHeading, fontSans } from "~/lib/fonts";
 import { allRoutes } from "~/lib/routes";
 import { cn } from "~/lib/utils";
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(fontSans.variable)}>
+      <body className={cn(fontSans.variable, fontHeading.variable)}>
         <div id="root">
           <Providers>
             <Layout.Root>
