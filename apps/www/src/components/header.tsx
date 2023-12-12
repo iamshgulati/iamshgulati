@@ -34,6 +34,7 @@ export function Header({
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
     <HeaderShell
+      threshold={40}
       ghost={ghost}
       className={cn(
         styles.HeaderRoot,
