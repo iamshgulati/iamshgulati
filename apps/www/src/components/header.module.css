@@ -93,7 +93,7 @@
           }
 
           /* Extended linear-gradient mask image */
-          --extended-by: 5rem;
+          --extended-by: 6.25rem;
           bottom: calc(-1 * var(--extended-by));
           --cutoff: calc(100% - var(--extended-by));
           mask-image: linear-gradient(
