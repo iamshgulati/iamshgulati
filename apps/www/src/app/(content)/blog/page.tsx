@@ -5,7 +5,7 @@ import { Box, Flex, Heading, Link, Section, Text } from "@radix-ui/themes";
 import { PageHeading } from "~/components/heading";
 import { NextLink } from "~/lib/link";
 import { allRoutes } from "~/lib/routes";
-import type { AppPage, AppRoute } from "~/lib/routes";
+import type { AppRoute } from "~/lib/routes";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -25,13 +25,6 @@ export default function BlogPage(): React.JSX.Element {
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
         <Flex direction="column" gap="6">
-          <PinnedPreview
-            page={{
-              slug: "/blog/quotes",
-              title: "Quotes",
-              description: "My favorite quotations from around the internet.",
-            }}
-          />
           <Previews route={route} />
         </Flex>
       </Section>
@@ -57,23 +50,6 @@ const TitleAndDescription = ({
     )}
   </React.Fragment>
 );
-
-const PinnedPreview = ({ page }: { page: AppPage }): React.JSX.Element => {
-  return (
-    <Box>
-      <NextLink href={page.slug} passHref legacyBehavior>
-        <Link>
-          <Heading size={{ initial: "6", xs: "7" }} mb="2" weight="medium">
-            {page.title}
-          </Heading>
-        </Link>
-      </NextLink>
-      <Text as="p" color="gray">
-        {page.description}
-      </Text>
-    </Box>
-  );
-};
 
 const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
   return (
