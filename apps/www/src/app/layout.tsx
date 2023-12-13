@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
 import { Footer } from "~/components/footer";
-import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { siteConfig } from "~/config/site";
 import { isProduction } from "~/env.mjs";
@@ -43,23 +42,7 @@ export default function RootLayout({
                 }}
               />
 
-              <Layout.Header>
-                <Header
-                  sticky
-                  ghost
-                  autoHide
-                  backdrop
-                  scrollDelay={50}
-                  productLinkRoute={allRoutes.productLinks}
-                  commandMenuRoutes={[
-                    allRoutes.projects,
-                    allRoutes.blog,
-                    allRoutes.social,
-                  ]}
-                />
-              </Layout.Header>
-
-              <Layout.Main>{children}</Layout.Main>
+              {children}
 
               <Layout.Footer>
                 <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>

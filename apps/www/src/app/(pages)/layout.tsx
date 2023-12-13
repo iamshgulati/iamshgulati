@@ -6,7 +6,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { allRoutes } from "~/lib/routes";
 
-export default function ContentLayout({
+export default function PagesLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
@@ -32,7 +32,7 @@ export default function ContentLayout({
           <Box asChild width="100%" style={{ maxWidth: 858 }}>
             <Section size={{ initial: "2", xs: "3" }}>
               <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                <Breadcrumbs omitCurrentLabel />
+                <Breadcrumbs />
                 {children}
               </Container>
             </Section>
