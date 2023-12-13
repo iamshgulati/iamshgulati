@@ -32,18 +32,16 @@ export function Header({
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
+  const headerShellClasses = cn(
+    styles.HeaderRoot,
+    sticky ? styles.sticky : "",
+    ghost ? styles.ghost : "",
+    backdrop ? styles.backdrop : "",
+    backdropExtended ? styles.backdropExtended : "",
+  );
+
   return (
-    <HeaderShell
-      threshold={40}
-      ghost={ghost}
-      className={cn(
-        styles.HeaderRoot,
-        sticky ? styles.sticky : "",
-        ghost ? styles.ghost : "",
-        backdrop ? styles.backdrop : "",
-        backdropExtended ? styles.backdropExtended : "",
-      )}
-    >
+    <HeaderShell threshold={40} ghost={ghost} className={headerShellClasses}>
       <nav className={styles.HeaderInner}>
         <Box className={styles.HeaderContainer}>
           <Flex
