@@ -24,7 +24,7 @@ export default function ProjectsPage(): React.JSX.Element {
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
-        <Flex direction="column" gap="6">
+        <Flex direction="column" gap="7">
           <Previews route={route} />
         </Flex>
       </Section>
@@ -58,7 +58,7 @@ const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
         <Box key={page.slug}>
           <NextLink href={page.slug} passHref legacyBehavior>
             <Link>
-              <Heading size={{ initial: "6", xs: "7" }} mb="2" weight="medium">
+              <Heading size={{ initial: "5", xs: "6" }} mb="1">
                 {page.title}
               </Heading>
             </Link>
