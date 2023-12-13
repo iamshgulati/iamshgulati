@@ -259,8 +259,8 @@
       }
 
       &::before {
-        box-sizing: border-box;
         content: "";
+        box-sizing: border-box;
         position: absolute;
         inset: 0;
       }
