@@ -14,10 +14,12 @@ export function HeaderShell({
   className = undefined,
 }: React.PropsWithChildren<HeaderShellProps> &
   React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element {
-  const { scrollState } = useOnScroll(scrollDelay);
-
   return (
-    <Box data-scroll-state={scrollState} className={className}>
+    <Box
+      data-scroll-state={useOnScroll().scrollState}
+      data-delayed-scroll-state={useOnScroll(scrollDelay).scrollState}
+      className={className}
+    >
       {children}
     </Box>
   );

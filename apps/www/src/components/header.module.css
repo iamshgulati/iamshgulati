@@ -39,6 +39,7 @@
     /*
      * Changes background color and box-shadow to transparent
      * to reveal page background when user is at the top of the page.
+     * Uses state without a scrollDelay.
      */
     &.ghost {
       &[data-scroll-state="at-top"] {
@@ -59,17 +60,18 @@
     /*
      * Automatically hides the header when user is scrolling down
      * and shows it when scrolling up or at the top.
+     * Uses state with a scrollDelay.
      */
     &.autoHide {
-      &[data-scroll-state="scrolling-down"] {
+      &[data-delayed-scroll-state="scrolling-down"] {
         .HeaderInner {
           transform: translateY(-102%);
           transition: transform 0.4s ease-out;
         }
       }
 
-      &[data-scroll-state="scrolling-up"],
-      &[data-scroll-state="at-top"] {
+      &[data-delayed-scroll-state="scrolling-up"],
+      &[data-delayed-scroll-state="at-top"] {
         .HeaderInner {
           transform: translateY(0);
           transition: transform 0.2s ease-out;
