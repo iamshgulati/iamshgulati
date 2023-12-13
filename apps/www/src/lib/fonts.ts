@@ -35,3 +35,17 @@ export const fontHeading = localFont({
     },
   ],
 });
+
+export const fontMono = localFont({
+  src: "../assets/fonts/JetBrainsMono-2.304/JetBrainsMono-Variable.woff2",
+  weight: "400",
+  style: "normal",
+  display: "swap",
+  variable: "--font-mono",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
