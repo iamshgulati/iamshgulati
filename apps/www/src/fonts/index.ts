@@ -1,33 +1,5 @@
 import localFont from "next/font/local";
 
-const plusJakartaSans = localFont({
-  src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
-  weight: "100 900",
-  style: "normal",
-  display: "swap",
-  variable: "--font-heading",
-  declarations: [
-    {
-      prop: "unicode-range",
-      value: "U+0020-007F",
-    },
-  ],
-});
-
-const _calSans = localFont({
-  src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
-  weight: "700",
-  style: "normal",
-  display: "swap",
-  variable: "--font-heading",
-  declarations: [
-    {
-      prop: "unicode-range",
-      value: "U+0020-007F",
-    },
-  ],
-});
-
 const inter = localFont({
   src: [
     {
@@ -64,8 +36,36 @@ const jetBrainsMono = localFont({
   ],
 });
 
+const _plusJakartaSans = localFont({
+  src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
+  weight: "100 900",
+  style: "normal",
+  display: "swap",
+  variable: "--font-heading",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+
+const _calSans = localFont({
+  src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
+  weight: "700",
+  style: "normal",
+  display: "swap",
+  variable: "--font-heading",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+
 export const Fonts = {
-  Heading: plusJakartaSans.variable,
+  Heading: inter.variable,
   Body: inter.variable,
   Code: jetBrainsMono.variable,
 } as const;
