@@ -9,9 +9,9 @@ export const HeroHeading = ({
   if (variant === "serif") {
     return (
       <Heading
-        weight="medium"
-        size={{ initial: "8", xs: "9" }}
         {...props}
+        size={{ initial: "8", xs: "9" }}
+        weight="bold"
         style={
           {
             "--heading-font-family": "var(--em-font-family)",
@@ -26,9 +26,9 @@ export const HeroHeading = ({
 
   return (
     <Heading
-      weight="medium"
-      size={{ initial: "8", xs: "9" }}
       {...props}
+      size={{ initial: "8", xs: "9" }}
+      weight="bold"
       style={
         {
           "--heading-font-family":
@@ -51,9 +51,9 @@ export const PageHeading = ({
   if (variant === "serif") {
     return (
       <Heading
-        weight="medium"
-        size={{ initial: "8", xs: "9" }}
         {...props}
+        size={{ initial: "8", xs: "9" }}
+        weight="bold"
         style={
           {
             "--heading-font-family": "var(--em-font-family)",
@@ -68,9 +68,9 @@ export const PageHeading = ({
 
   return (
     <Heading
-      weight="medium"
-      size={{ initial: "8", xs: "9" }}
       {...props}
+      size={{ initial: "8", xs: "9" }}
+      weight="bold"
       style={
         {
           "--heading-font-family":

@@ -16,35 +16,3 @@
     min-height: 100vh;
   }
 }
-
-/* -------------------------------------------------------------------- */
-
-.rt-Heading {
-  &:where(.rt-r-size-1) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-2) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-3) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-4) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-5) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-6) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-7) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-8) {
-    letter-spacing: 0em;
-  }
-  &:where(.rt-r-size-9) {
-    letter-spacing: 0em;
-  }
-}
