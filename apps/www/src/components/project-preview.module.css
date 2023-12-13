@@ -1,0 +1,5 @@
+.ProjectPreviewHeading {
+  &:not(:hover) {
+    color: var(--gray-12);
+  }
+}
