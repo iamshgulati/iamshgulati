@@ -15,6 +15,8 @@ export const HeadingLink = ({
     {...props}
     id={id}
     href={`#${id}`}
+    color="gray"
+    highContrast
     underline="hover"
     className={cn(className, styles.HeadingLink)}
   >

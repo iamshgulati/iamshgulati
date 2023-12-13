@@ -1,10 +1,9 @@
 .HeadingLink {
-  display: inline-block;
-  vertical-align: middle;
-  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 
   svg {
-    margin-left: var(--space-2);
     color: var(--gray-11);
     visibility: hidden;
   }
