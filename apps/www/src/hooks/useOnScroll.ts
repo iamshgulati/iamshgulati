@@ -3,36 +3,33 @@ import React from "react";
 type ScrollState = "at-top" | "scrolling-up" | "scrolling-down";
 
 interface UseOnScrollOutput {
-  isScrolled: boolean;
   scrollState: ScrollState;
 }
 
-export function useOnScroll(threshold = 0, ghost = false): UseOnScrollOutput {
-  const [isScrolled, setScrolled] = React.useState<boolean>(false);
+export function useOnScroll(scrollDelay = 0): UseOnScrollOutput {
   const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
+  const [previousPosition, setPreviousPosition] = React.useState<number>(0);
+
+  const onScroll = React.useCallback(() => {
+    const currentPosition = window.scrollY;
+
+    const isScrolledPastDelay =
+      Math.abs(currentPosition - previousPosition) > scrollDelay;
+
+    if (isScrolledPastDelay) {
+      const direction =
+        previousPosition < currentPosition ? "scrolling-down" : "scrolling-up";
+      const state = currentPosition <= scrollDelay ? "at-top" : direction;
+      setPreviousPosition(currentPosition);
+      setScrollState(state);
+    }
+  }, [previousPosition, scrollDelay]);
 
   React.useEffect(() => {
-    let previousScrollY = window.scrollY;
+    setPreviousPosition(window.scrollY);
+    document.addEventListener("scroll", onScroll, { passive: true });
+    return () => document.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
 
-    const onScroll = () => {
-      setScrolled(window.scrollY > threshold);
-
-      const direction =
-        previousScrollY < window.scrollY ? "scrolling-down" : "scrolling-up";
-      const state = window.scrollY <= threshold ? "at-top" : direction;
-      previousScrollY = window.scrollY;
-      setScrollState(state);
-    };
-
-    if (ghost) {
-      addEventListener("scroll", onScroll, { passive: true });
-    } else {
-      removeEventListener("scroll", onScroll);
-    }
-
-    onScroll();
-    return () => removeEventListener("scroll", onScroll);
-  }, [threshold, ghost]);
-
-  return { isScrolled, scrollState };
+  return { scrollState };
 }

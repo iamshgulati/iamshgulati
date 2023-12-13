@@ -16,7 +16,9 @@ import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
+  scrollDelay?: number;
   ghost?: boolean;
+  autoHide?: boolean;
   backdrop?: boolean;
   backdropExtended?: boolean;
   productLinkRoute?: AppRoute;
@@ -24,22 +26,24 @@ export interface HeaderProps {
 }
 
 export function Header({
-  children = undefined,
   sticky = false,
   ghost = false,
+  autoHide = false,
   backdrop = false,
   backdropExtended = false,
+  scrollDelay = undefined,
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
+  children = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
     <HeaderShell
-      threshold={40}
-      ghost={ghost}
+      scrollDelay={scrollDelay}
       className={cn(
         styles.HeaderRoot,
         sticky ? styles.sticky : "",
         ghost ? styles.ghost : "",
+        autoHide ? styles.autoHide : "",
         backdrop ? styles.backdrop : "",
         backdropExtended ? styles.backdropExtended : "",
       )}

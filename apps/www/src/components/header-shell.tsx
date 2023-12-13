@@ -5,18 +5,16 @@ import { Box } from "@radix-ui/themes";
 import { useOnScroll } from "~/hooks/useOnScroll";
 
 export interface HeaderShellProps {
-  threshold?: number;
-  ghost?: boolean;
+  scrollDelay?: number;
 }
 
 export function HeaderShell({
+  scrollDelay = 0,
   children = undefined,
-  threshold = 0,
-  ghost = false,
   className = undefined,
 }: React.PropsWithChildren<HeaderShellProps> &
   React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element {
-  const { scrollState } = useOnScroll(threshold, ghost);
+  const { scrollState } = useOnScroll(scrollDelay);
 
   return (
     <Box data-scroll-state={scrollState} className={className}>

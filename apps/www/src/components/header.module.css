@@ -1,4 +1,7 @@
-/* .HeaderInner -> background-color prop must remain in sync with NextThemesProvider.tsx -> themeColor */
+/*
+ * .HeaderInner -> background-color prop must remain
+ * in sync with NextThemesProvider.tsx -> themeColor.
+ */
 
 .HeaderRoot {
   height: var(--header-height);
@@ -13,6 +16,9 @@
     box-shadow: 0 1px transparent;
   }
 
+  /*
+   * Keeps the header on top of the page.
+   */
   &.sticky {
     .HeaderInner {
       position: fixed;
@@ -30,6 +36,10 @@
       }
     }
 
+    /*
+     * Changes background color and box-shadow to transparent
+     * to reveal page background when user is at the top of the page.
+     */
     &.ghost {
       &[data-scroll-state="at-top"] {
         & > .HeaderInner {
@@ -47,8 +57,29 @@
     }
 
     /*
-     * HeaderInner with simple backdrop filters if browser supports relative colors.
-     * &[data-scroll-state] — this is required so that backdrop rules take precedence.
+     * Automatically hides the header when user is scrolling down
+     * and shows it when scrolling up or at the top.
+     */
+    &.autoHide {
+      &[data-scroll-state="scrolling-down"] {
+        .HeaderInner {
+          transform: translateY(-102%);
+          transition: transform 0.4s ease-out;
+        }
+      }
+
+      &[data-scroll-state="scrolling-up"],
+      &[data-scroll-state="at-top"] {
+        .HeaderInner {
+          transform: translateY(0);
+          transition: transform 0.2s ease-out;
+        }
+      }
+    }
+
+    /*
+     * Adds simple backdrop filters if browser supports relative colors.
+     * &[data-scroll-state] is required so that backdrop rules take precedence.
      */
     &.backdrop {
       &[data-scroll-state] {
@@ -65,9 +96,9 @@
     }
 
     /*
-     * HeaderInner with simple backdrop filters and extended
-     * linear-gradient mask image if browser supports relative colors.
-     * &[data-scroll-state] — this is required so that backdrop rules take precedence.
+     * Adds linear-gradient mask image on top of
+     * simple backdrop filters if browser supports relative colors.
+     * &[data-scroll-state] is required so that backdrop rules take precedence.
      */
     &.backdropExtended {
       &[data-scroll-state] {
