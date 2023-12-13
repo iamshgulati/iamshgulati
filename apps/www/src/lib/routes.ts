@@ -31,9 +31,9 @@ export const allRoutes: AllRoutes = {
     label: "",
     pages: [
       { title: "Home", slug: "/" },
-      { title: "About", slug: "/about" },
-      { title: "Projects", slug: "/projects" },
       { title: "Blog", slug: "/blog" },
+      { title: "Projects", slug: "/projects" },
+      { title: "About", slug: "/about" },
     ],
   },
   social: {
