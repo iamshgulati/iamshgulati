@@ -22,7 +22,7 @@ import { NextLink } from "~/lib/link";
 export default function HomePage(): React.JSX.Element {
   return (
     <Section size={{ initial: "2", xs: "3" }}>
-      <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+      <Container mx={{ initial: "5", sm: "6", md: "9" }}>
         <Box style={{ maxWidth: 700 }}>
           <Hero />
         </Box>

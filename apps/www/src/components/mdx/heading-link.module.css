@@ -8,7 +8,7 @@
   svg {
     position: absolute;
     top: 50%;
-    left: calc(-1 * var(--space-2));
+    left: calc(-1 * var(--space-3));
     transform: translate(-50%, -50%);
     color: var(--gray-11);
     display: none;
