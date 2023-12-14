@@ -22,18 +22,40 @@ export interface AppRoute {
 }
 
 export type AllRoutes = Record<
-  "productLinks" | "social" | "projects" | "blog",
+  "productLinks" | "personal" | "projects" | "blog" | "social" | "legal",
   AppRoute
 >;
 
 export const allRoutes: AllRoutes = {
   productLinks: {
-    label: "",
+    label: "Most Visited",
     pages: [
-      { title: "Home", slug: "/" },
-      { title: "Blog", slug: "/blog" },
-      { title: "Projects", slug: "/projects" },
-      { title: "About", slug: "/about" },
+      { title: "Home", slug: "/", icon: "HomeIcon" },
+      { title: "About", slug: "/about", icon: "PersonIcon" },
+      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
+      { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
+    ],
+  },
+  personal: {
+    label: "Personal",
+    pages: [{ title: "Quotes", slug: "/quotes", icon: "QuoteIcon" }],
+  },
+  projects: {
+    label: "Projects",
+    pages: [
+      ...getFrontmatter("src/app/(content)", "/projects").map((page) => {
+        page.icon = "CubeIcon";
+        return page;
+      }),
+    ],
+  },
+  blog: {
+    label: "Blog Posts",
+    pages: [
+      ...getFrontmatter("src/app/(content)", "/blog").map((page) => {
+        page.icon = "FileTextIcon";
+        return page;
+      }),
     ],
   },
   social: {
@@ -71,22 +93,24 @@ export const allRoutes: AllRoutes = {
       },
     ],
   },
-  projects: {
-    label: "Projects",
+  legal: {
+    label: "Legal",
     pages: [
-      ...getFrontmatter("src/app/(content)", "/projects").map((page) => {
-        page.icon = "CubeIcon";
-        return page;
-      }),
-    ],
-  },
-  blog: {
-    label: "Blog",
-    pages: [
-      ...getFrontmatter("src/app/(content)", "/blog").map((page) => {
-        page.icon = "FileTextIcon";
-        return page;
-      }),
+      {
+        title: "Credits",
+        slug: "/credits",
+        icon: "HeartIcon",
+      },
+      {
+        title: "Privacy",
+        slug: "/privacy",
+        icon: "LockClosedIcon",
+      },
+      {
+        title: "Terms",
+        slug: "/terms",
+        icon: "InfoCircledIcon",
+      },
     ],
   },
 };
