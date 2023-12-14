@@ -17,7 +17,7 @@ export const HeadingLink = ({
     href={`#${id}`}
     className={cn(className, styles.HeadingLink)}
   >
-    {children}
     <Link2Icon aria-hidden />
+    {children}
   </Link>
 );

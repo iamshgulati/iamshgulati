@@ -1,18 +1,20 @@
 .HeadingLink {
-  display: inline-block;
-  vertical-align: middle;
+  position: relative;
 
   &:not(:hover) {
     color: var(--gray-12);
   }
 
   svg {
-    margin-left: var(--space-2);
+    position: absolute;
+    top: 50%;
+    left: calc(-1 * var(--space-2));
+    transform: translate(-50%, -50%);
     color: var(--gray-11);
-    visibility: hidden;
+    display: none;
   }
 
-  &:not(:empty):hover svg {
-    visibility: visible;
+  &:hover svg {
+    display: block;
   }
 }
