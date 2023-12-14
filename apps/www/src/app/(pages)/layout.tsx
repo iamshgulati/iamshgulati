@@ -17,7 +17,7 @@ export default function PagesLayout({
           ghost
           autoHide
           backdrop
-          scrollDelay={50}
+          scrollDelay={25}
           productLinkRoute={allRoutes.productLinks}
           commandMenuRoutes={[
             allRoutes.projects,
