@@ -4,8 +4,9 @@ import { Box, Flex, Section } from "@radix-ui/themes";
 
 import { ProjectPreview } from "~/components/project-preview";
 import { TitleAndDescription } from "~/components/title-and-description";
-import type { AppRoute } from "~/lib/routes";
+import type { ContentPage } from "~/lib/mdx";
 import { allRoutes } from "~/lib/routes";
+import type { AppRoute } from "~/lib/routes";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -33,14 +34,18 @@ export default function ProjectsPage(): React.JSX.Element {
 }
 
 const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
+  const pages = route.pages as ContentPage[];
+
   return (
     <React.Fragment>
-      {route.pages.map((page) => (
+      {pages.map((page) => (
         <Box key={page.slug}>
           <ProjectPreview
             slug={page.slug}
             title={page.title}
             description={page.description}
+            publishedAt={page.publishedAt}
+            readingTime={page.readingTime}
           />
         </Box>
       ))}
