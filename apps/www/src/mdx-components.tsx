@@ -22,7 +22,6 @@ import { Table } from "./components/mdx/table";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...components,
     h1: H1,
     h2: H2,
     h3: H3,
@@ -47,5 +46,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     th: Table.ColumnHeaderCell,
     tr: Table.Row,
     td: Table.Cell,
+    ...components,
   };
 }
