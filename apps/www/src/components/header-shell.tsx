@@ -16,7 +16,7 @@ export function HeaderShell({
   React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element {
   return (
     <Box
-      data-scroll-state={useOnScroll().scrollState}
+      data-scroll-state={useOnScroll(1).scrollState}
       data-delayed-scroll-state={useOnScroll(scrollDelay).scrollState}
       className={className}
     >
