@@ -61,6 +61,12 @@ const nextRedirects = async () => [
     destination: "https://bsky.app/about/iamshgulati.bsky.social",
     permanent: true,
   },
+  // Temporary — To be removed after April 30, 2024.
+  {
+    source: "/33",
+    destination: "/private/33",
+    permanent: false,
+  },
 ];
 
 /**
