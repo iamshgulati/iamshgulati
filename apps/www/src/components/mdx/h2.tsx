@@ -8,7 +8,7 @@ export const H2 = ({
   children,
   ...props
 }: React.PropsWithChildren<{ id?: string }>): React.JSX.Element => (
-  <Heading asChild size="6" mt="7" mb="2" id={id} className={styles.H2}>
+  <Heading asChild size="6" mt="7" mb="2" className={styles.H2}>
     <h2 {...props} style={{ scrollMarginTop: "var(--space-9)" }}>
       <HeadingLink id={id}>{children}</HeadingLink>
     </h2>

@@ -7,7 +7,7 @@ export const H3 = ({
   children,
   ...props
 }: React.PropsWithChildren<{ id?: string }>): React.JSX.Element => (
-  <Heading asChild size="5" mt="7" mb="2" id={id}>
+  <Heading asChild size="5" mt="7" mb="2">
     <h3 {...props} style={{ scrollMarginTop: "var(--space-9)" }}>
       <HeadingLink id={id}>{children}</HeadingLink>
     </h3>
