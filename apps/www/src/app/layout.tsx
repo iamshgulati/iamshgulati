@@ -65,7 +65,7 @@ export default function RootLayout({
               <Layout.Main>{children}</Layout.Main>
 
               <Layout.Footer>
-                <Container mx={{ initial: "5", sm: "6", md: "9" }}>
+                <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
                   <Flex align="center" justify="center">
                     <Separator size="3" />
                   </Flex>
