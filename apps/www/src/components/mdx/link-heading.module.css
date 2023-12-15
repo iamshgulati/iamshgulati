@@ -1,4 +1,4 @@
-.HeadingLink {
+.LinkHeading {
   position: relative;
 
   &:not(:hover) {

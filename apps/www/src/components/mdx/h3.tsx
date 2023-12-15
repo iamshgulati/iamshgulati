@@ -1,6 +1,6 @@
 import { Heading } from "@radix-ui/themes";
 
-import { HeadingLink } from "./heading-link";
+import { LinkHeading } from "./link-heading";
 
 export const H3 = ({
   id,
@@ -9,7 +9,7 @@ export const H3 = ({
 }: React.PropsWithChildren<{ id?: string }>): React.JSX.Element => (
   <Heading asChild size="5" mt="7" mb="2">
     <h3 {...props} style={{ scrollMarginTop: "var(--space-9)" }}>
-      <HeadingLink id={id}>{children}</HeadingLink>
+      <LinkHeading id={id}>{children}</LinkHeading>
     </h3>
   </Heading>
 );

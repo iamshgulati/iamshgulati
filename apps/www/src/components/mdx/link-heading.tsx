@@ -3,9 +3,9 @@ import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Link } from "@radix-ui/themes";
 
 import { cn } from "~/lib/utils";
-import styles from "./heading-link.module.css";
+import styles from "./link-heading.module.css";
 
-export const HeadingLink = ({
+export const LinkHeading = ({
   id,
   children,
   className,
@@ -15,7 +15,8 @@ export const HeadingLink = ({
     {...props}
     id={id}
     href={`#${id}`}
-    className={cn(className, styles.HeadingLink)}
+    underline="hover"
+    className={cn(className, styles.LinkHeading)}
   >
     <Link2Icon aria-hidden />
     {children}
