@@ -27,32 +27,19 @@
       transition:
         background-color 180ms,
         box-shadow 180ms;
+
+      &:before {
+        transition: background-color 180ms;
+      }
     }
 
     /* Faster transition when the header gains background and slower when it loses it. */
     &[data-scroll-state="scrolling-down"] {
       .HeaderInner {
         transition-duration: 30ms, 120ms;
-      }
-    }
 
-    /*
-     * Changes background color and box-shadow to transparent
-     * to reveal page background when user is at the top of the page.
-     * Uses state without a scrollDelay.
-     */
-    &.ghost {
-      &[data-scroll-state="at-top"] {
-        & > .HeaderInner {
-          box-shadow: 0 1px transparent;
-          background-color: transparent;
-        }
-      }
-
-      &:not([data-scroll-state="at-top"]) {
-        & > .HeaderInner {
-          box-shadow: 0 1px var(--gray-a4);
-          background-color: var(--color-background);
+        &:before {
+          transition-duration: 30ms, 120ms;
         }
       }
     }
@@ -80,26 +67,78 @@
     }
 
     /*
-     * Adds simple backdrop filters if browser supports relative colors.
-     * &[data-scroll-state] is required so that backdrop rules take precedence.
+     * Changes background color and box-shadow to transparent
+     * to reveal page background when user is at the top of the page.
+     * Uses state without a scrollDelay.
      */
-    &.backdrop {
-      &[data-scroll-state] {
+    &.ghost {
+      &[data-scroll-state="at-top"] {
         & > .HeaderInner {
+          box-shadow: 0 1px transparent;
+          background-color: transparent;
+        }
+      }
+
+      &:not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          box-shadow: 0 1px var(--gray-a4);
+          background-color: var(--color-background);
+        }
+      }
+
+      /* Add alpha to background color and use panel translucent as fallback. */
+      &:is(.backdrop):not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          background-color: var(--color-panel-translucent);
           @supports (color: rgb(from white r g b)) {
             background-color: rgb(from var(--color-background) r g b / 0.8);
-            --blur: 20px;
-            --saturate: 1.8;
-            backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-            -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+          }
+        }
+      }
+
+      /* Add alpha to background color and use panel translucent as fallback. */
+      &:is(.backdropExtended):not([data-scroll-state="at-top"]) {
+        & > .HeaderInner {
+          background-color: transparent;
+          backdrop-filter: unset;
+          -webkit-backdrop-filter: unset;
+        }
+
+        & > .HeaderInner::before {
+          background-color: var(--color-panel-translucent);
+          @supports (color: rgb(from white r g b)) {
+            background-color: rgb(from var(--color-background) r g b / 0.8);
           }
         }
       }
     }
 
     /*
-     * Adds linear-gradient mask image on top of
-     * simple backdrop filters if browser supports relative colors.
+     * Adds backdrop filters.
+     * &[data-scroll-state] is required so that backdrop rules take precedence.
+     */
+    &.backdrop {
+      &[data-scroll-state] {
+        /* Add alpha to background color and use panel translucent as fallback. */
+        &:is(:not(.ghost)) > .HeaderInner {
+          background-color: var(--color-panel-translucent);
+          @supports (color: rgb(from white r g b)) {
+            background-color: rgb(from var(--color-background) r g b / 0.8);
+          }
+        }
+
+        & > .HeaderInner {
+          /* Backdrop filters */
+          --blur: 20px;
+          --saturate: 1.8;
+          backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+          -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+        }
+      }
+    }
+
+    /*
+     * Adds linear-gradient mask image on top of backdrop filters.
      * &[data-scroll-state] is required so that backdrop rules take precedence.
      */
     &.backdropExtended {
@@ -110,22 +149,27 @@
           -webkit-backdrop-filter: unset;
         }
 
+        /* Add alpha to background color and use panel translucent as fallback. */
+        &:is(:not(.ghost)) > .HeaderInner::before {
+          background-color: var(--color-panel-translucent);
+          @supports (color: rgb(from white r g b)) {
+            background-color: rgb(from var(--color-background) r g b / 0.8);
+          }
+        }
+
         & > .HeaderInner::before {
           content: "";
           position: absolute;
           inset: 0;
           z-index: -1;
-          background-color: var(--color-background);
 
-          @supports (color: rgb(from white r g b)) {
-            background-color: rgb(from var(--color-background) r g b / 0.8);
-            --blur: 20px;
-            --saturate: 1.8;
-            backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-            -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-          }
+          /* Backdrop filters */
+          --blur: 20px;
+          --saturate: 1.8;
+          backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+          -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
 
-          /* Extended linear-gradient mask image */
+          /* Adds extended linear-gradient mask image. */
           --extended-by: 6.25rem;
           bottom: calc(-1 * var(--extended-by));
           --cutoff: calc(100% - var(--extended-by));
