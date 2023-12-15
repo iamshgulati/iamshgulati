@@ -16,6 +16,7 @@ import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
+  scrollHeightFactorThreshold?: number;
   scrollDelay?: number;
   ghost?: boolean;
   autoHide?: boolean;
@@ -31,6 +32,7 @@ export function Header({
   autoHide = false,
   backdrop = false,
   backdropExtended = false,
+  scrollHeightFactorThreshold = undefined,
   scrollDelay = undefined,
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
@@ -38,6 +40,7 @@ export function Header({
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
   return (
     <HeaderShell
+      scrollHeightFactorThreshold={scrollHeightFactorThreshold}
       scrollDelay={scrollDelay}
       className={cn(
         styles.HeaderRoot,

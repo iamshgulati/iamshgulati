@@ -38,6 +38,7 @@ export default function RootLayout({
                     ghost
                     backdrop
                     autoHide
+                    scrollHeightFactorThreshold={1.25}
                     scrollDelay={22}
                     productLinkRoute={allRoutes.productLinks}
                     commandMenuRoutes={[
