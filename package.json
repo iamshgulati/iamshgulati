@@ -39,7 +39,6 @@
       "esbuild": "^0.19.8"
     },
     "patchedDependencies": {
-      "@radix-ui/themes@2.0.2": "patches/@radix-ui__themes@2.0.2.patch",
       "next-themes@0.2.1": "patches/next-themes@0.2.1.patch"
     }
   },

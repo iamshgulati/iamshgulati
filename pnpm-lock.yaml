@@ -8,9 +8,6 @@ overrides:
   esbuild: ^0.19.8
 
 patchedDependencies:
-  '@radix-ui/themes@2.0.2':
-    hash: ealq2aezumwajoa4es6ikrrmpq
-    path: patches/@radix-ui__themes@2.0.2.patch
   next-themes@0.2.1:
     hash: p75k3m55ou6qtluyhjn2kznx2y
     path: patches/next-themes@0.2.1.patch
@@ -69,7 +66,7 @@ importers:
         version: 1.3.0(react@18.2.0)
       '@radix-ui/themes':
         specifier: ^2.0.2
-        version: 2.0.2(patch_hash=ealq2aezumwajoa4es6ikrrmpq)(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
+        version: 2.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.3.3)(zod@3.22.4)
@@ -2459,7 +2456,7 @@ packages:
       '@babel/runtime': 7.23.5
     dev: false
 
-  /@radix-ui/themes@2.0.2(patch_hash=ealq2aezumwajoa4es6ikrrmpq)(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0):
+  /@radix-ui/themes@2.0.2(@types/react-dom@18.2.17)(@types/react@18.2.42)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-9NaIp3HkoSkyCGAnJ21PL8yuazcV2q/q3wVNJ7jU00qZfzeybYREpoik11tMRA0+DWttQhSUy1ZqD8u6YqsbkQ==}
     peerDependencies:
       '@types/react': '*'
@@ -2504,7 +2501,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
-    patched: true
 
   /@rushstack/eslint-patch@1.6.0:
     resolution: {integrity: sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==}
