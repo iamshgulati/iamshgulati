@@ -31,7 +31,7 @@ export const HeroHeading = ({
       weight="bold"
       style={
         {
-          fontWeight: "600",
+          fontWeight: "550",
           "--heading-font-family":
             "var(--font-heading), var(--default-font-family)",
           "--heading-font-size-adjust": "1.1",
@@ -74,7 +74,7 @@ export const PageHeading = ({
       weight="bold"
       style={
         {
-          fontWeight: "600",
+          fontWeight: "550",
           "--heading-font-family":
             "var(--font-heading), var(--default-font-family)",
           "--heading-font-size-adjust": "1",
