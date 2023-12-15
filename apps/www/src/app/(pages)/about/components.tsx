@@ -2,7 +2,7 @@ import { ArrowTopRightIcon, FileTextIcon } from "@radix-ui/react-icons";
 import { Button, Flex, Link, Text } from "@radix-ui/themes";
 
 import { BadgeWithIndicator } from "~/components/badge-with-indicator";
-import { HStack, VStack } from "~/components/stack";
+import { HStack, VStack } from "~/components/mdx/stacks";
 import { siteConfig } from "~/config/site";
 
 export const ContinuingEducationDescription = (): React.JSX.Element => {
