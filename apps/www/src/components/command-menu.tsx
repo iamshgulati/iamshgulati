@@ -12,8 +12,10 @@ import {
 } from "@radix-ui/react-icons";
 import { AccessibleIcon, Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command, CommandGroup } from "cmdk";
-import { useTheme } from "next-themes";
 
+import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
+import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
+import { useThemeToggle } from "~/hooks/useThemeToggle";
 import type { AppRoute } from "~/lib/routes";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
@@ -46,7 +48,14 @@ export function CommandMenu({
 }: CommandMenuProps): React.JSX.Element {
   const commandMenu = useCommandMenu();
   const router = useRouter();
-  const nextThemes = useTheme();
+
+  const { handleCommandMenuToggle } = useCommandMenuToggle();
+  const { handleGeneralThemeToggle } = useThemeToggle();
+
+  useKeyboardShortcuts({
+    handleCommandMenuToggle,
+    handleThemeToggle: handleGeneralThemeToggle,
+  });
 
   const runCommand = React.useCallback(
     (command: () => unknown) => {
@@ -55,59 +64,6 @@ export function CommandMenu({
     },
     [commandMenu],
   );
-
-  /*
-   * Toggle Command Menu with Command + K keyboard shortcut
-   */
-  const handleCommandMenuToggle = React.useCallback(() => {
-    commandMenu.setOpen((open) => !open);
-  }, [commandMenu]);
-
-  const onCommandMenuShortcut = React.useCallback(
-    (event: KeyboardEvent) => {
-      const isCmdK = event.key === "k" && (event.metaKey || event.altKey);
-      if (isCmdK) {
-        event.preventDefault();
-        if (!event.repeat) {
-          handleCommandMenuToggle();
-        }
-      }
-    },
-    [handleCommandMenuToggle],
-  );
-
-  React.useEffect(() => {
-    document.addEventListener("keydown", onCommandMenuShortcut);
-    return () => document.removeEventListener("keydown", onCommandMenuShortcut);
-  }, [onCommandMenuShortcut]);
-
-  /*
-   * Toggle Theme with Command + D keyboard shortcut
-   */
-  const handleThemeToggle = React.useCallback(() => {
-    const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
-    nextThemes.setTheme(
-      newTheme === nextThemes.systemTheme ? "system" : newTheme,
-    );
-  }, [nextThemes]);
-
-  const onThemeToggleShortcut = React.useCallback(
-    (event: KeyboardEvent) => {
-      const isCmdD = event.key === "d" && (event.metaKey || event.altKey);
-      if (isCmdD) {
-        event.preventDefault();
-        if (!event.repeat) {
-          handleThemeToggle();
-        }
-      }
-    },
-    [handleThemeToggle],
-  );
-
-  React.useEffect(() => {
-    document.addEventListener("keydown", onThemeToggleShortcut);
-    return () => document.removeEventListener("keydown", onThemeToggleShortcut);
-  }, [onThemeToggleShortcut]);
 
   return (
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
@@ -138,7 +94,7 @@ export function CommandMenu({
               <CommandGroup heading="Keyboard Shortcuts">
                 <Command.Item
                   value="Theme Keyboard Shortcut: Toggle Theme System Light Dark"
-                  onSelect={() => runCommand(() => handleThemeToggle())}
+                  onSelect={() => runCommand(() => handleGeneralThemeToggle())}
                 >
                   <Half2Icon
                     width="16"
