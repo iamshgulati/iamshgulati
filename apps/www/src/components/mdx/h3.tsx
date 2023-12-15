@@ -1,6 +1,6 @@
 import { Heading } from "@radix-ui/themes";
 
-import { LinkHeading } from "./link-heading";
+import { LinkHeading } from "../link-heading";
 
 export const H3 = ({
   id,

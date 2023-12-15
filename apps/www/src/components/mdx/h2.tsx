@@ -1,7 +1,7 @@
 import { Heading } from "@radix-ui/themes";
 
+import { LinkHeading } from "../link-heading";
 import styles from "./h2.module.css";
-import { LinkHeading } from "./link-heading";
 
 export const H2 = ({
   id = "",
