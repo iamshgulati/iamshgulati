@@ -6,6 +6,7 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
+import { BackgroundImage } from "~/components/background-image";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -29,52 +30,41 @@ export default function RootLayout({
       <body className={cn(Fonts.Heading, Fonts.Body, Fonts.Code)}>
         <div id="root">
           <Providers>
-            <Layout.Root>
-              <Layout.Background
-                style={{
-                  zIndex: -1,
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  height: 480,
-                  opacity: 0.6,
-                  background:
-                    "linear-gradient(to bottom, transparent, transparent, transparent)",
-                }}
-              />
+            <BackgroundImage style={backgroundImageStyle}>
+              <Layout.Root>
+                <Layout.Header>
+                  <Header
+                    sticky
+                    ghost
+                    backdrop
+                    autoHide
+                    scrollDelay={22}
+                    productLinkRoute={allRoutes.productLinks}
+                    commandMenuRoutes={[
+                      allRoutes.productLinks,
+                      allRoutes.personal,
+                      allRoutes.projects,
+                      allRoutes.blog,
+                      allRoutes.social,
+                      allRoutes.legal,
+                    ]}
+                  />
+                </Layout.Header>
 
-              <Layout.Header>
-                <Header
-                  sticky
-                  ghost
-                  backdrop
-                  autoHide
-                  scrollDelay={20}
-                  productLinkRoute={allRoutes.productLinks}
-                  commandMenuRoutes={[
-                    allRoutes.productLinks,
-                    allRoutes.personal,
-                    allRoutes.projects,
-                    allRoutes.blog,
-                    allRoutes.social,
-                    allRoutes.legal,
-                  ]}
-                />
-              </Layout.Header>
+                <Layout.Main>{children}</Layout.Main>
 
-              <Layout.Main>{children}</Layout.Main>
-
-              <Layout.Footer>
-                <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                  <Flex align="center" justify="center">
-                    <Separator size="3" />
-                  </Flex>
-                  <Section size="2" pb="0">
-                    <Footer pages={allRoutes.social.pages.slice(0, 4)} />
-                  </Section>
-                </Container>
-              </Layout.Footer>
-            </Layout.Root>
+                <Layout.Footer>
+                  <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+                    <Flex align="center" justify="center">
+                      <Separator size="3" />
+                    </Flex>
+                    <Section size="2" pb="0">
+                      <Footer pages={allRoutes.social.pages.slice(0, 4)} />
+                    </Section>
+                  </Container>
+                </Layout.Footer>
+              </Layout.Root>
+            </BackgroundImage>
 
             {!isProduction && <ScreenSizeIndicator />}
           </Providers>
@@ -83,3 +73,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+const backgroundImageStyle = {
+  "--color-background-image-base": "var(--color-background)",
+} as React.CSSProperties;

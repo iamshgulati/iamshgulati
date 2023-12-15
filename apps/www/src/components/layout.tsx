@@ -24,6 +24,9 @@ function LayoutBackground(
       inset="0"
       align="start"
       justify="center"
+      style={{
+        overflow: "hidden",
+      }}
       {...props}
     />
   );
