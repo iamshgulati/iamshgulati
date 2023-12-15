@@ -12,9 +12,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { siteConfig } from "~/config/site";
 import { isProduction } from "~/env.mjs";
-import { Fonts } from "~/fonts";
 import { allRoutes } from "~/lib/routes";
-import { cn } from "~/lib/utils";
 
 export const metadata: Metadata = {
   title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
@@ -27,7 +25,9 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(Fonts.Heading, Fonts.Body, Fonts.Code)}>
+      <body
+      // className={cn(Fonts.Heading, Fonts.Body, Fonts.Code)}
+      >
         <div id="root">
           <Providers>
             <BackgroundImage style={backgroundImageStyle}>
