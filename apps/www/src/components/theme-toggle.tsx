@@ -8,21 +8,10 @@ import { useTheme } from "next-themes";
 export function ThemeToggle(): React.JSX.Element {
   const nextThemes = useTheme();
 
-  const _onThemeTogglePlusPlus = React.useCallback(() => {
-    const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
-    if (
-      nextThemes.theme !== null &&
-      nextThemes.theme !== "system" &&
-      nextThemes.systemTheme === nextThemes.resolvedTheme
-    ) {
-      nextThemes.setTheme("system");
-    } else {
-      nextThemes.setTheme(newTheme);
-    }
-  }, [nextThemes]);
-
-  // Toggle theme with ⌘ + D
-  const onThemeToggle = React.useCallback(() => {
+  /*
+   * Toggle Theme with Command + D keyboard shortcut
+   */
+  const handleThemeToggle = React.useCallback(() => {
     const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
     nextThemes.setTheme(
       newTheme === nextThemes.systemTheme ? "system" : newTheme,
@@ -35,11 +24,11 @@ export function ThemeToggle(): React.JSX.Element {
       if (isCmdD) {
         event.preventDefault();
         if (!event.repeat) {
-          onThemeToggle();
+          handleThemeToggle();
         }
       }
     },
-    [onThemeToggle],
+    [handleThemeToggle],
   );
 
   React.useEffect(() => {
@@ -52,7 +41,7 @@ export function ThemeToggle(): React.JSX.Element {
       size="3"
       variant="ghost"
       color="gray"
-      onClick={() => onThemeToggle()}
+      onClick={() => handleThemeToggle()}
     >
       <AccessibleIcon label="System theme">
         <Half2Icon
@@ -81,3 +70,18 @@ export function ThemeToggle(): React.JSX.Element {
     </IconButton>
   );
 }
+
+/*
+const handleThemeToggle = React.useCallback(() => {
+    const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
+    if (
+      nextThemes.theme !== null &&
+      nextThemes.theme !== "system" &&
+      nextThemes.systemTheme === nextThemes.resolvedTheme
+    ) {
+      nextThemes.setTheme("system");
+    } else {
+      nextThemes.setTheme(newTheme);
+    }
+  }, [nextThemes]);
+*/

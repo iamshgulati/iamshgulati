@@ -48,18 +48,32 @@ export function CommandMenu({
   const router = useRouter();
   const nextThemes = useTheme();
 
-  // Toggle CmdK Command Menu with ⌘ + K
+  const runCommand = React.useCallback(
+    (command: () => unknown) => {
+      commandMenu.setOpen(false);
+      command();
+    },
+    [commandMenu],
+  );
+
+  /*
+   * Toggle Command Menu with Command + K keyboard shortcut
+   */
+  const handleCommandMenuToggle = React.useCallback(() => {
+    commandMenu.setOpen((open) => !open);
+  }, [commandMenu]);
+
   const onCommandMenuShortcut = React.useCallback(
     (event: KeyboardEvent) => {
       const isCmdK = event.key === "k" && (event.metaKey || event.altKey);
       if (isCmdK) {
         event.preventDefault();
         if (!event.repeat) {
-          commandMenu.setOpen((open) => !open);
+          handleCommandMenuToggle();
         }
       }
     },
-    [commandMenu],
+    [handleCommandMenuToggle],
   );
 
   React.useEffect(() => {
@@ -67,8 +81,10 @@ export function CommandMenu({
     return () => document.removeEventListener("keydown", onCommandMenuShortcut);
   }, [onCommandMenuShortcut]);
 
-  // Toggle theme with ⌘ + D
-  const onThemeToggle = React.useCallback(() => {
+  /*
+   * Toggle Theme with Command + D keyboard shortcut
+   */
+  const handleThemeToggle = React.useCallback(() => {
     const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
     nextThemes.setTheme(
       newTheme === nextThemes.systemTheme ? "system" : newTheme,
@@ -81,25 +97,17 @@ export function CommandMenu({
       if (isCmdD) {
         event.preventDefault();
         if (!event.repeat) {
-          onThemeToggle();
+          handleThemeToggle();
         }
       }
     },
-    [onThemeToggle],
+    [handleThemeToggle],
   );
 
   React.useEffect(() => {
     document.addEventListener("keydown", onThemeToggleShortcut);
     return () => document.removeEventListener("keydown", onThemeToggleShortcut);
   }, [onThemeToggleShortcut]);
-
-  const runCommand = React.useCallback(
-    (command: () => unknown) => {
-      commandMenu.setOpen(false);
-      command();
-    },
-    [commandMenu],
-  );
 
   return (
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
@@ -130,7 +138,7 @@ export function CommandMenu({
               <CommandGroup heading="Keyboard Shortcuts">
                 <Command.Item
                   value="Theme Keyboard Shortcut: Toggle Theme System Light Dark"
-                  onSelect={() => runCommand(() => onThemeToggle())}
+                  onSelect={() => runCommand(() => handleThemeToggle())}
                 >
                   <Half2Icon
                     width="16"
