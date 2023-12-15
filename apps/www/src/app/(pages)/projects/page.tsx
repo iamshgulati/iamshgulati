@@ -1,8 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Box, Flex, Section } from "@radix-ui/themes";
+import { Flex, Section } from "@radix-ui/themes";
 
-import { ProjectPreview } from "~/components/project-preview";
+import { LinkCard } from "~/components/link-card";
 import { TitleAndDescription } from "~/components/title-and-description";
 import type { ContentPage } from "~/lib/mdx";
 import { allRoutes } from "~/lib/routes";
@@ -25,7 +25,7 @@ export default function ProjectsPage(): React.JSX.Element {
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
-        <Flex direction="column" gap="7">
+        <Flex direction="column" gap="5">
           <Previews route={route} />
         </Flex>
       </Section>
@@ -39,15 +39,16 @@ const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
   return (
     <React.Fragment>
       {pages.map((page) => (
-        <Box key={page.slug}>
-          <ProjectPreview
-            slug={page.slug}
-            title={page.title}
-            description={page.description}
-            publishedAt={page.publishedAt}
-            readingTime={page.readingTime}
-          />
-        </Box>
+        <LinkCard
+          key={page.slug}
+          href={page.slug}
+          title={page.title}
+          description={page.description}
+          metadata={{
+            publishedAt: page.publishedAt,
+            readingTime: page.readingTime,
+          }}
+        />
       ))}
     </React.Fragment>
   );
