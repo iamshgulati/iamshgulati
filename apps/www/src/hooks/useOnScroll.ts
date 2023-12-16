@@ -1,4 +1,5 @@
 import React from "react";
+import { usePathname } from "next/navigation";
 
 type ScrollState = "at-top" | "scrolling-up" | "scrolling-down";
 
@@ -16,6 +17,7 @@ export function useOnScroll(
   const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
   const [previousScrollPosition, setPreviousScrollPosition] =
     React.useState<number>(0);
+  const pathname = usePathname();
 
   const handleScroll = React.useCallback(() => {
     const scrollHeightFactor =
@@ -45,6 +47,16 @@ export function useOnScroll(
     document.addEventListener("scroll", handleScroll, { passive: true });
     return () => document.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+
+  React.useEffect(() => {
+    return () => {
+      setScrollState("at-top");
+    };
+  }, []);
+
+  React.useEffect(() => {
+    setScrollState("at-top");
+  }, [pathname]);
 
   return scrollState;
 }
