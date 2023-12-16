@@ -1,3 +1,4 @@
+import React from "react";
 import { Table as RTTable } from "@radix-ui/themes";
 
 const TableRoot = ({ ...props }): React.JSX.Element => (

@@ -3,6 +3,7 @@ import { Providers } from "~/providers";
 
 import "~/styles/globals.css";
 
+import React from "react";
 import type { Metadata } from "next";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 

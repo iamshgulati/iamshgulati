@@ -1,3 +1,4 @@
+import React from "react";
 import { Link2Icon } from "@radix-ui/react-icons";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Link } from "@radix-ui/themes";

@@ -10,8 +10,6 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
-import { env } from "./src/env.mjs";
-
 /**
  * Next.js redirects
  */
@@ -135,7 +133,7 @@ const withMDX = mdx(mdxConfig);
  * Bundle analyzer configuration
  */
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: env.ANALYZE === "true",
+  enabled: process.env.ANALYZE === "true",
 });
 
 export default withBundleAnalyzer(withMDX(nextConfig));

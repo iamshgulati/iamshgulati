@@ -1,17 +1,5 @@
+import React from "react";
 import Image from "next/image";
-
-export const _Img = ({ alt = "", ...props }): React.JSX.Element => (
-  // eslint-disable-next-line @next/next/no-img-element
-  <img
-    {...props}
-    alt={alt}
-    style={{
-      maxWidth: "100%",
-      verticalAlign: "middle",
-      borderRadius: "var(--radius-4)",
-    }}
-  />
-);
 
 export const Img = ({
   src,
@@ -36,3 +24,18 @@ export const Img = ({
     }}
   />
 );
+
+/*
+export const _Img = ({ alt = "", ...props }): React.JSX.Element => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img
+    {...props}
+    alt={alt}
+    style={{
+      maxWidth: "100%",
+      verticalAlign: "middle",
+      borderRadius: "var(--radius-4)",
+    }}
+  />
+);
+ */

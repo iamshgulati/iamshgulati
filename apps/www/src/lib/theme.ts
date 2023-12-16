@@ -1,3 +1,4 @@
+/*
 import type { badgePropDefs } from "@radix-ui/themes";
 
 import type { PageLabel } from "./routes";
@@ -14,3 +15,4 @@ export const getBadgeColor = (
       return "amber";
   }
 };
+ */

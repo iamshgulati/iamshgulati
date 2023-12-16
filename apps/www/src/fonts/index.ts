@@ -1,3 +1,4 @@
+/*
 import localFont from "next/font/local";
 
 const inter = localFont({
@@ -69,3 +70,4 @@ export const Fonts = {
   Body: inter.variable,
   Code: jetBrainsMono.variable,
 } as const;
+ */

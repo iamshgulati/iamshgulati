@@ -15,14 +15,6 @@ export const formatDate = (date: string): string => {
   return date;
 };
 
-export const formatDateShort = (date: string): string => {
-  if (isValid(new Date(date))) {
-    return format(new Date(formatDateISO(date)), "MMM d, yyyy");
-  }
-
-  return date;
-};
-
 export const formatDateRelative = (date: string): string => {
   if (isValid(new Date(date))) {
     const days = differenceInDays(new Date(), new Date(date));
@@ -45,3 +37,13 @@ export const formatDateRelative = (date: string): string => {
 
   return date;
 };
+
+/*
+export const formatDateShort = (date: string): string => {
+  if (isValid(new Date(date))) {
+    return format(new Date(formatDateISO(date)), "MMM d, yyyy");
+  }
+
+  return date;
+};
+*/

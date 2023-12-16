@@ -16,11 +16,13 @@ export type ContentPage = AppPage & {
   readingTime: string;
 };
 
+/*
 export type ProjectContentPage = ContentPage & {
   summary?: string;
   link?: string;
   sourceCodeLink?: string;
 };
+ */
 
 const ROOT_PATH = process.cwd();
 

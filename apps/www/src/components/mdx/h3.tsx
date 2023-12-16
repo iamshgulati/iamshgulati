@@ -1,3 +1,4 @@
+import React from "react";
 import { Heading } from "@radix-ui/themes";
 
 import { LinkHeading } from "../link-heading";

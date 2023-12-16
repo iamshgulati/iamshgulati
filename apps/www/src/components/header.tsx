@@ -1,5 +1,5 @@
 import React from "react";
-import { AccessibleIcon, Box, Flex, IconButton, Link } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
@@ -10,8 +10,6 @@ import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
-import type { Icon } from "./icons";
-import { Icons } from "./icons";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
@@ -118,6 +116,7 @@ export function Header({
   );
 }
 
+/*
 const _SocialIconButton = ({
   icon = "AtSymbolIcon",
   href,
@@ -146,3 +145,4 @@ const _SocialIconButton = ({
     </Link>
   );
 };
+ */

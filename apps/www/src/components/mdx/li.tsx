@@ -1,3 +1,4 @@
+import React from "react";
 import { Text } from "@radix-ui/themes";
 
 import styles from "./li.module.css";

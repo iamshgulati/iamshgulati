@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, IconButton, Text } from "@radix-ui/themes";
 
 export function ScreenSizeIndicator(): React.JSX.Element {

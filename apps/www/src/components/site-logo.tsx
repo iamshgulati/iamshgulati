@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
 import type { Icon } from "./icons";

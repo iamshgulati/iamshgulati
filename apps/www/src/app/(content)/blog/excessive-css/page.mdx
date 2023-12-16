@@ -50,6 +50,6 @@ Update — three days later.
 
 <br />
 
-Since the changes I needed in the css were inside `src` directory, I couldn't directy patch target css files. The exported css in dependency is compiled on build step. So, I had to build the package with my changes applied, and copy the output css from `dist` directory and apply the patch using `pnpm patch`.
+Since the changes I needed in the css were inside `src` directory, I couldn't directly patch target css files. The exported css in dependency is compiled on build step. So, I had to build the package with my changes applied, and copy the output css from `dist` directory and apply the patch using `pnpm patch`.
 
 Still not ideal, but something that works and is better than not having it.
