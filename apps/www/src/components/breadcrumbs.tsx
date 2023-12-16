@@ -8,31 +8,35 @@ import { Flex, Link, Text } from "@radix-ui/themes";
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
 
+interface BreadcrumbProps {
+  label: string;
+  href: string;
+}
+
+type BreadcrumbsProps = React.ComponentProps<typeof Flex> & {
+  rootLabel?: string;
+  omitRootLabel?: boolean;
+  omitCurrentLabel?: boolean;
+};
+
 export const Breadcrumbs = ({
   rootLabel = "Home",
   omitRootLabel = false,
   omitCurrentLabel = false,
-  section = undefined,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Flex> & {
-  rootLabel?: string;
-  omitRootLabel?: boolean;
-  omitCurrentLabel?: boolean;
-  section?: {
-    label: string;
-    href: string;
-  };
-}): React.JSX.Element => {
-  const pathname = usePathname();
-  const paths = pathname.split("/");
+}: BreadcrumbsProps): React.JSX.Element => {
+  const pathname: string = usePathname();
+  const paths: string[] = pathname.split("/");
   paths.shift();
   omitCurrentLabel && paths.pop();
-  const breadcrumbs = paths.map((path, index) => {
-    return {
-      label: path,
-      href: "/" + paths.slice(0, index + 1).join("/"),
-    };
-  });
+  const breadcrumbs: BreadcrumbProps[] = paths.map(
+    (path: string, index: number): BreadcrumbProps => {
+      return {
+        label: path,
+        href: "/" + paths.slice(0, index + 1).join("/"),
+      };
+    },
+  );
 
   return (
     <Flex
@@ -47,10 +51,6 @@ export const Breadcrumbs = ({
         <Breadcrumb href="/" noChevron>
           {rootLabel}
         </Breadcrumb>
-      )}
-
-      {section && (
-        <Breadcrumb href={`/${section.href}`}>{section.label}</Breadcrumb>
       )}
 
       {breadcrumbs.map((breadcrumb) => {

@@ -4,7 +4,7 @@ import { Heading } from "@radix-ui/themes";
 export const HeroHeading = ({
   variant = "sans",
   ...props
-}: React.ComponentPropsWithoutRef<typeof Heading> & {
+}: React.ComponentProps<typeof Heading> & {
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
   let headingStyle: React.CSSProperties = {
@@ -37,7 +37,7 @@ export const HeroHeading = ({
 export const PageHeading = ({
   variant = "sans",
   ...props
-}: React.ComponentPropsWithoutRef<typeof Heading> & {
+}: React.ComponentProps<typeof Heading> & {
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
   let headingStyles: React.CSSProperties = {

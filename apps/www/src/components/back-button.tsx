@@ -8,7 +8,7 @@ import { Button } from "@radix-ui/themes";
 export const BackButton = ({
   children = undefined,
   ...props
-}: React.PropsWithChildren & React.ComponentPropsWithoutRef<typeof Button>) => {
+}: React.ComponentProps<typeof Button>) => {
   const router = useRouter();
 
   return (

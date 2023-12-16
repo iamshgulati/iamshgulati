@@ -16,7 +16,7 @@ export const BoxLink = React.forwardRef<HTMLAnchorElement, BoxLinkProps>(
       <a
         aria-label={ariaLabel}
         ref={forwardedRef}
-        className={cn(styles.BoxLink, className)}
+        className={cn(className, styles.BoxLink)}
         {...props}
       />
     );

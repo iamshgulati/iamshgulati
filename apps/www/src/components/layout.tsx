@@ -3,7 +3,7 @@ import { Box, Flex } from "@radix-ui/themes";
 
 const LayoutRoot = ({
   ...props
-}: React.ComponentPropsWithoutRef<typeof Flex>): React.JSX.Element => {
+}: React.ComponentProps<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
       {...props}
@@ -18,7 +18,7 @@ const LayoutRoot = ({
 
 const LayoutBackground = ({
   ...props
-}: React.ComponentPropsWithoutRef<typeof Flex>): React.JSX.Element => {
+}: React.ComponentProps<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
       {...props}
@@ -35,7 +35,7 @@ const LayoutBackground = ({
 
 const LayoutHeader = ({
   ...props
-}: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
+}: React.ComponentProps<typeof Box>): React.JSX.Element => {
   return <Box {...props} height="0" />;
 };
 

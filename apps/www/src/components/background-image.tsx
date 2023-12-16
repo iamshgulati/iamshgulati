@@ -4,8 +4,7 @@ import { Box } from "@radix-ui/themes";
 export const BackgroundImage = ({
   style = undefined,
   children = undefined,
-}: React.ComponentProps<"div"> &
-  React.PropsWithChildren): React.JSX.Element => {
+}: React.ComponentProps<"div">): React.JSX.Element => {
   return (
     <Box style={{ position: "relative", zIndex: 0 }}>
       <Box

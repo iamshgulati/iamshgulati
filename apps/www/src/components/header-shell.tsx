@@ -16,7 +16,7 @@ export const HeaderShell = ({
   children = undefined,
   className = undefined,
 }: React.PropsWithChildren<HeaderShellProps> &
-  React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
+  React.ComponentProps<typeof Box>): React.JSX.Element => {
   return (
     <Box
       data-scroll-state={useOnScroll()}
