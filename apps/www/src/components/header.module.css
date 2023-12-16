@@ -89,7 +89,7 @@
         &.backdrop > .HeaderInner::before {
           background-color: var(--color-panel-translucent);
           @supports (color: rgb(from white r g b)) {
-            background-color: rgb(from var(--color-background) r g b / 0.4);
+            background-color: rgb(from var(--color-background) r g b / 0.5);
           }
         }
       }
@@ -147,7 +147,7 @@
           & > .HeaderInner::before {
             background-color: var(--color-panel-translucent);
             @supports (color: rgb(from white r g b)) {
-              background-color: rgb(from var(--color-background) r g b / 0.4);
+              background-color: rgb(from var(--color-background) r g b / 0.5);
             }
           }
         }
