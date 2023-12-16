@@ -14,8 +14,17 @@ const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
+    ecmaVersion: 2022,
   },
-  plugins: ["@typescript-eslint", "import"],
+  plugins: [
+    "@typescript-eslint",
+    "import",
+
+    /*
+     * Add plugin to handle removing of unused imports automatically
+     */
+    "unused-imports",
+  ],
   rules: {
     "turbo/no-undeclared-env-vars": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -31,6 +40,22 @@ const config = {
       { checksVoidReturn: { attributes: false } },
     ],
     "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+
+    /*
+     * Disable base ESLint rule for "no-unused-vars" because
+     * it conflicts with rules in "unused-imports" plugin.
+     */
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        args: "after-used",
+        argsIgnorePattern: "^_",
+        vars: "all",
+        varsIgnorePattern: "^_",
+      },
+    ],
   },
   ignorePatterns: [
     "**/.eslintrc.cjs",
