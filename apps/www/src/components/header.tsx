@@ -13,10 +13,10 @@ import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
 export interface HeaderProps {
   sticky?: boolean;
-  scrollHeightFactorThreshold?: number;
-  scrollDelay?: number;
   ghost?: boolean;
   autoHide?: boolean;
+  scrollHeightFactor?: number;
+  scrollDelay?: number;
   backdrop?: boolean;
   backdropExtended?: boolean;
   productLinkRoute?: AppRoute;
@@ -27,25 +27,25 @@ export const Header = ({
   sticky = false,
   ghost = false,
   autoHide = false,
+  scrollHeightFactor = undefined,
+  scrollDelay = undefined,
   backdrop = false,
   backdropExtended = false,
-  scrollHeightFactorThreshold = undefined,
-  scrollDelay = undefined,
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
   children = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
   return (
     <HeaderShell
-      scrollHeightFactorThreshold={scrollHeightFactorThreshold}
+      scrollHeightFactor={scrollHeightFactor}
       scrollDelay={scrollDelay}
       className={cn(
         styles.HeaderRoot,
-        sticky ? styles.sticky : "",
-        ghost ? styles.ghost : "",
-        autoHide ? styles.autoHide : "",
-        backdrop ? styles.backdrop : "",
-        backdropExtended ? styles.backdropExtended : "",
+        sticky && styles.sticky,
+        ghost && styles.ghost,
+        autoHide && styles.autoHide,
+        backdrop && styles.backdrop,
+        backdropExtended && [styles.backdrop, styles.extendBackdrop].join(" "),
       )}
     >
       <nav className={styles.HeaderInner}>

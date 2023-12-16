@@ -7,7 +7,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
-import { BackgroundImage } from "~/components/background-image";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -31,16 +30,16 @@ export default function RootLayout({
       <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
         <div id="root">
           <Providers>
-            <BackgroundImage style={backgroundImageStyle}>
+            <Layout.Background style={backgroundImageStyle}>
               <Layout.Root>
                 <Layout.Header>
                   <Header
                     sticky
                     ghost
-                    backdrop
                     autoHide
-                    scrollHeightFactorThreshold={1.25}
+                    scrollHeightFactor={1.25}
                     scrollDelay={22}
+                    backdropExtended
                     productLinkRoute={allRoutes.productLinks}
                     commandMenuRoutes={[
                       allRoutes.productLinks,
@@ -52,9 +51,7 @@ export default function RootLayout({
                     ]}
                   />
                 </Layout.Header>
-
                 <Layout.Main>{children}</Layout.Main>
-
                 <Layout.Footer>
                   <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
                     <Flex align="center" justify="center">
@@ -66,8 +63,7 @@ export default function RootLayout({
                   </Container>
                 </Layout.Footer>
               </Layout.Root>
-            </BackgroundImage>
-
+            </Layout.Background>
             {!isProduction && <ScreenSizeIndicator />}
           </Providers>
         </div>
@@ -77,5 +73,5 @@ export default function RootLayout({
 }
 
 const backgroundImageStyle: React.CSSProperties = {
-  "--color-background-image-base": "var(--color-background)",
+  backgroundColor: "var(--color-background)",
 } as React.CSSProperties;
