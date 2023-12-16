@@ -15,15 +15,15 @@
   "dependencies": {
     "postcss": "^8.4.32",
     "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-discard-comments": "^6.0.0",
-    "postcss-discard-empty": "^6.0.0",
+    "postcss-discard-comments": "^6.0.1",
+    "postcss-discard-empty": "^6.0.1",
     "postcss-import": "^15.1.0",
-    "postcss-nesting": "^12.0.1"
+    "postcss-nesting": "^12.0.2"
   },
   "devDependencies": {
     "@shgulati/prettier-config": "workspace:^0.1.0",
     "@shgulati/tsconfig": "workspace:^0.1.0",
-    "prettier": "^3.1.0",
+    "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   },
   "prettier": "@shgulati/prettier-config"
