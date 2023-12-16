@@ -29,7 +29,7 @@ export function BadgeWithIndicator({
           bottom: "0",
           width: `${percentage}%`,
           height: "0.125rem",
-          backgroundColor: "currentcolor",
+          backgroundColor: "currentColor",
         }}
       />
     </Badge>

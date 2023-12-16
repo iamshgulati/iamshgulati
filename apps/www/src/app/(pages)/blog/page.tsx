@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage(): React.JSX.Element {
-  const route = allRoutes.blog;
+  const route: AppRoute = allRoutes.blog;
 
   return (
     <React.Fragment>
@@ -34,11 +34,11 @@ export default function BlogPage(): React.JSX.Element {
 }
 
 const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
-  const pages = route.pages as ContentPage[];
+  const pages: ContentPage[] = route.pages as ContentPage[];
 
   return (
     <React.Fragment>
-      {pages.map((page) => (
+      {pages.map((page: ContentPage) => (
         <LinkCard
           key={page.slug}
           href={page.slug}

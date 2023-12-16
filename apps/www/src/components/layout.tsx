@@ -1,25 +1,27 @@
 import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
-function LayoutRoot({ children }: React.PropsWithChildren): React.JSX.Element {
+const LayoutRoot = ({
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
+      {...props}
       position="relative"
       direction="column"
       style={{
         minHeight: "100vh",
       }}
-    >
-      {children}
-    </Flex>
+    />
   );
-}
+};
 
-function LayoutBackground(
-  props: React.ComponentPropsWithoutRef<"div">,
-): React.JSX.Element {
+const LayoutBackground = ({
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
+      {...props}
       position="absolute"
       inset="0"
       align="start"
@@ -27,20 +29,22 @@ function LayoutBackground(
       style={{
         overflow: "hidden",
       }}
-      {...props}
     />
   );
-}
+};
 
-function LayoutHeader({
-  children,
-}: React.PropsWithChildren): React.JSX.Element {
-  return <Box height="0">{children}</Box>;
-}
+const LayoutHeader = ({
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
+  return <Box {...props} height="0" />;
+};
 
-function LayoutMain({ children }: React.PropsWithChildren): React.JSX.Element {
+const LayoutMain = ({
+  ...props
+}: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
   return (
     <Flex
+      {...props}
       asChild
       direction="column"
       grow="1"
@@ -52,16 +56,17 @@ function LayoutMain({ children }: React.PropsWithChildren): React.JSX.Element {
         paddingTop: "var(--header-height)",
       }}
     >
-      <main>{children}</main>
+      <main>{props.children}</main>
     </Flex>
   );
-}
+};
 
-function LayoutContent({
-  children,
-}: React.PropsWithChildren): React.JSX.Element {
+const LayoutContent = ({
+  ...props
+}: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
   return (
     <Flex
+      {...props}
       asChild
       direction="column"
       grow="1"
@@ -70,16 +75,16 @@ function LayoutContent({
         maxWidth: "100%",
       }}
     >
-      <article>{children}</article>
+      <article>{props.children}</article>
     </Flex>
   );
-}
+};
 
-function LayoutFooter({
-  children,
-}: React.PropsWithChildren): React.JSX.Element {
-  return <Box>{children}</Box>;
-}
+const LayoutFooter = ({
+  ...props
+}: React.ComponentProps<typeof Box>): React.JSX.Element => {
+  return <Box {...props} />;
+};
 
 export const Layout = {
   Root: LayoutRoot,
@@ -88,4 +93,4 @@ export const Layout = {
   Main: LayoutMain,
   Content: LayoutContent,
   Footer: LayoutFooter,
-};
+} as const;

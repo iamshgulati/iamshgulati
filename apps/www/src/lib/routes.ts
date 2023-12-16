@@ -1,5 +1,3 @@
-import type { Route } from "next";
-
 import type { Icons } from "~/components/icons";
 import { siteConfig } from "~/config/site";
 import type { ContentPage } from "./mdx";
@@ -8,7 +6,7 @@ import { getFrontmatter } from "./mdx";
 export type PageLabel = "Soon" | "Preview" | "New";
 
 export interface AppPage {
-  slug: Route;
+  slug: string;
   title: string;
   description?: string;
   label?: PageLabel;

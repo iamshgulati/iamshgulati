@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
-import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import type { AppRoute } from "~/lib/routes";
 import { cn } from "~/lib/utils";
@@ -24,7 +23,7 @@ export interface HeaderProps {
   commandMenuRoutes?: AppRoute[];
 }
 
-export function Header({
+export const Header = ({
   sticky = false,
   ghost = false,
   autoHide = false,
@@ -35,7 +34,7 @@ export function Header({
   productLinkRoute = undefined,
   commandMenuRoutes = undefined,
   children = undefined,
-}: React.PropsWithChildren<HeaderProps>): React.JSX.Element {
+}: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
   return (
     <HeaderShell
       scrollHeightFactorThreshold={scrollHeightFactorThreshold}
@@ -61,8 +60,8 @@ export function Header({
             left="0"
           >
             <NextLink href="/" passHref legacyBehavior>
-              <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
-                <SiteLogoIcon />
+              <BoxLink ariaLabel="Homepage Link">
+                <SiteLogoIcon aria-label="Site Logo Icon" />
               </BoxLink>
             </NextLink>
           </Flex>
@@ -77,8 +76,8 @@ export function Header({
             left="0"
           >
             <NextLink href="/" passHref legacyBehavior>
-              <BoxLink ariaLabel={`${siteConfig.name}'s Homepage`}>
-                <SiteLogo />
+              <BoxLink ariaLabel="Homepage Link">
+                <SiteLogo aria-label="Site Logo" />
               </BoxLink>
             </NextLink>
           </Flex>
@@ -114,18 +113,19 @@ export function Header({
       </nav>
     </HeaderShell>
   );
-}
+};
 
 /*
-const _SocialIconButton = ({
-  icon = "AtSymbolIcon",
+const _LinkSocialIconButton = ({
   href,
+  icon = "Link2Icon",
+  ariaLabel,
 }: {
-  icon?: keyof typeof Icons;
   href: string;
+  icon?: keyof typeof Icons;
+  ariaLabel: string;
 }): React.JSX.Element => {
   const SocialIcon: Icon = Icons[icon];
-  const SocialNetwork = icon.replace("Logo", "").replace("Icon", "");
 
   return (
     <Link
@@ -138,9 +138,7 @@ const _SocialIconButton = ({
       }}
     >
       <IconButton size="3" variant="ghost" color="gray">
-        <AccessibleIcon label={SocialNetwork}>
-          <SocialIcon width="16" height="16" />
-        </AccessibleIcon>
+          <SocialIcon aria-label={ariaLabel} width="16" height="16" />
       </IconButton>
     </Link>
   );

@@ -5,7 +5,7 @@ import { Breadcrumbs } from "~/components/breadcrumbs";
 import { Layout } from "~/components/layout";
 
 export default function PagesLayout({
-  children,
+  children = undefined,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <React.Fragment>

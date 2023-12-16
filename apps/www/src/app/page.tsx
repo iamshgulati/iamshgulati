@@ -60,9 +60,9 @@ const Hero = (): React.JSX.Element => (
             gap: "var(--space-2)",
           }}
         >
-          <PersonIcon width="18" height="18" />
+          <PersonIcon width="18" height="18" aria-hidden />
           <Text>ABOUT</Text>
-          <ChevronRightIcon width="18" height="18" />
+          <ChevronRightIcon width="18" height="18" aria-hidden />
         </Button>
       </NextLink>
       <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
@@ -75,9 +75,9 @@ const Hero = (): React.JSX.Element => (
             gap: "var(--space-2)",
           }}
         >
-          <FileTextIcon width="18" height="18" />
+          <FileTextIcon width="18" height="18" aria-hidden />
           <Text>RESUME</Text>
-          <ArrowTopRightIcon width="18" height="18" />
+          <ArrowTopRightIcon width="18" height="18" aria-hidden />
         </Button>
       </Link>
     </Flex>

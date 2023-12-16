@@ -1,7 +1,8 @@
+import React from "react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { CalloutIcon, CalloutRoot, CalloutText, Link } from "@radix-ui/themes";
 
-export const PagespeedResultsCallout = () => (
+export const PagespeedResultsCallout = (): React.JSX.Element => (
   <CalloutRoot variant="surface" mt="5" mb="5">
     <CalloutIcon>
       <InfoCircledIcon />

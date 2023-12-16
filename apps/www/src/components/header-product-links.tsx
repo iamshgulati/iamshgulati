@@ -2,10 +2,10 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 
-import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
-import type { AppRoute } from "~/lib/routes";
+import type { AppPage, AppRoute } from "~/lib/routes";
 import styles from "./header.module.css";
 
 interface HeaderProductLinksProps {
@@ -15,11 +15,11 @@ interface HeaderProductLinksProps {
 export const HeaderProductLinks = ({
   route,
 }: HeaderProductLinksProps): React.JSX.Element => {
-  const pathname = usePathname();
+  const pathname: string = usePathname();
 
   return (
     <React.Fragment>
-      {route.pages.map((page) => {
+      {route.pages.map((page: AppPage): React.JSX.Element | null => {
         return page ? (
           <HeaderProductLink
             key={page.slug}
@@ -38,14 +38,14 @@ export const HeaderProductLinks = ({
 };
 
 const HeaderProductLink = ({
+  href = undefined,
   active = false,
-  children,
-  href,
+  children = undefined,
   ...props
-}: React.PropsWithChildren<NextLinkProps> & {
+}: PropsWithoutRefOrColor<"a"> & {
   active?: boolean;
 }): React.JSX.Element => (
-  <NextLink href={href} passHref legacyBehavior>
+  <NextLink href={href!} passHref legacyBehavior>
     <a
       data-state={active ? "active" : "inactive"}
       className={styles.HeaderProductLink}

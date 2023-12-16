@@ -5,10 +5,10 @@ import { CommandMenuProvider } from "~/components/command-menu";
 import { NextThemesProvider } from "./next-themes-provider";
 import { RadixThemesProvider } from "./radix-themes-provider";
 
-export function Providers({
+export const Providers = ({
   asChild = false,
-  children,
-}: React.PropsWithChildren<{ asChild?: boolean }>): React.JSX.Element {
+  children = undefined,
+}: React.PropsWithChildren<{ asChild?: boolean }>): React.JSX.Element => {
   const Component = asChild ? Slot : React.Fragment;
   return (
     <Component>
@@ -19,4 +19,4 @@ export function Providers({
       </CommandMenuProvider>
     </Component>
   );
-}
+};

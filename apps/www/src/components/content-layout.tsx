@@ -9,10 +9,10 @@ interface ContentLayoutProps {
   metadata: ContentPage;
 }
 
-export function ContentLayout({
+export const ContentLayout = ({
   metadata,
   children = undefined,
-}: React.PropsWithChildren<ContentLayoutProps>): React.JSX.Element {
+}: React.PropsWithChildren<ContentLayoutProps>): React.JSX.Element => {
   return (
     <React.Fragment>
       <Section size="1" pt="4">
@@ -29,4 +29,4 @@ export function ContentLayout({
       </Section>
     </React.Fragment>
   );
-}
+};

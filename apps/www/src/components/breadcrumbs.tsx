@@ -22,7 +22,7 @@ export const Breadcrumbs = ({
     label: string;
     href: string;
   };
-}) => {
+}): React.JSX.Element => {
   const pathname = usePathname();
   const paths = pathname.split("/");
   paths.shift();
@@ -68,7 +68,9 @@ const Breadcrumb = ({
   href,
   noChevron = false,
   children = undefined,
-}: React.PropsWithChildren<NextLinkProps & { noChevron?: boolean }>) => (
+}: React.PropsWithChildren<
+  NextLinkProps & { noChevron?: boolean }
+>): React.JSX.Element => (
   <React.Fragment>
     {!noChevron && <ChevronRightIcon color="var(--gray-8)" />}
     <NextLink href={href} passHref legacyBehavior>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Sorry, the page you are looking for has moved or doesn't exist.",
 };
-export default function NotFound() {
+export default function NotFound(): React.JSX.Element {
   return (
     <Box
       style={{
@@ -29,6 +29,7 @@ export default function NotFound() {
       }}
     >
       <ExclamationTriangleIcon
+        aria-label="WarningIcon"
         width="52"
         height="52"
         style={{
@@ -56,7 +57,7 @@ export default function NotFound() {
             gap: "var(--space-2)",
           }}
         >
-          <ChevronLeftIcon width="18" height="18" />
+          <ChevronLeftIcon width="18" height="18" aria-hidden />
           <Text>GO BACK</Text>
         </BackButton>
         <NextLink href="/">
@@ -71,7 +72,7 @@ export default function NotFound() {
           >
             <HomeIcon width="18" height="18" />
             <Text>GO HOME</Text>
-            <ChevronRightIcon width="18" height="18" />
+            <ChevronRightIcon width="18" height="18" aria-hidden />
           </Button>
         </NextLink>
       </Flex>

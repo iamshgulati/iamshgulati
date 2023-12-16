@@ -4,12 +4,7 @@ import { Card, Flex, Text } from "@radix-ui/themes";
 import { formatDateRelative } from "~/lib/date";
 import { NextLink } from "~/lib/link";
 
-export const LinkCard = ({
-  href,
-  title,
-  description,
-  metadata,
-}: {
+interface LinkCardProp {
   href: string;
   title: string;
   description?: string;
@@ -17,7 +12,14 @@ export const LinkCard = ({
     publishedAt?: string;
     readingTime?: string;
   };
-}) => {
+}
+
+export const LinkCard = ({
+  href,
+  title,
+  description,
+  metadata,
+}: LinkCardProp): React.JSX.Element => {
   const cardContent: React.JSX.Element = (
     <React.Fragment>
       <Text as="div" size="2" weight="bold" mb="1">

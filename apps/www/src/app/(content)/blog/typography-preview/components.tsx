@@ -1,3 +1,4 @@
+import React from "react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import {
   CalloutIcon,
@@ -7,7 +8,7 @@ import {
   Link,
 } from "@radix-ui/themes";
 
-export const TailwindCSSCallout = () => (
+export const TailwindCSSCallout = (): React.JSX.Element => (
   <CalloutRoot variant="surface" mt="5" mb="5">
     <CalloutIcon>
       <InfoCircledIcon />
@@ -22,13 +23,13 @@ export const TailwindCSSCallout = () => (
   </CalloutRoot>
 );
 
-export const ColocatedImagesCallout = () => (
+export const ColocatedImagesCallout = (): React.JSX.Element => (
   <CalloutRoot variant="surface" color="amber" mt="5" mb="5">
     <CalloutIcon>
       <InfoCircledIcon />
     </CalloutIcon>
     <CalloutText>
-      Unfortunately, colocated images do not work as of yet. But they will be
+      Unfortunately, co-located images do not work as of yet. But they will be
       sometime later. For now, I can put them in <Code>/public</Code> directory
       and load from there.
     </CalloutText>

@@ -2,15 +2,15 @@ import React from "react";
 import Image from "next/image";
 
 export const Img = ({
-  src,
-  alt,
-  width,
-  height,
+  src = undefined,
+  alt = undefined,
+  width = undefined,
+  height = undefined,
 }: {
-  src?: string | undefined;
-  alt?: string | undefined;
-  width?: string | number | undefined;
-  height?: string | number | undefined;
+  src?: string;
+  alt?: string;
+  width?: string | number;
+  height?: string | number;
 }): React.JSX.Element => (
   <Image
     src={src!}

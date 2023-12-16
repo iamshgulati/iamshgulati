@@ -2,7 +2,7 @@ import React from "react";
 import { Heading } from "@radix-ui/themes";
 
 export const H6 = ({
-  children,
+  children = undefined,
   ...props
 }: React.PropsWithChildren): React.JSX.Element => (
   <Heading asChild size="3" mt="4" mb="1">

@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
 
 export const BackButton = ({
-  children,
+  children = undefined,
   ...props
 }: React.PropsWithChildren & React.ComponentPropsWithoutRef<typeof Button>) => {
   const router = useRouter();

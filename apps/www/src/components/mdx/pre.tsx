@@ -4,7 +4,7 @@ import { Box, ScrollArea } from "@radix-ui/themes";
 import { cn } from "~/lib/utils";
 import styles from "./pre.module.css";
 
-type PreProps = React.ComponentPropsWithoutRef<typeof Box> &
+type PreProps = Omit<React.ComponentPropsWithoutRef<typeof Box>, "as"> &
   React.ComponentPropsWithoutRef<"pre">;
 
 export const Pre = React.forwardRef<HTMLPreElement, PreProps>(function Pre(

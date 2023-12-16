@@ -2,8 +2,8 @@ import React from "react";
 import { Box } from "@radix-ui/themes";
 
 export const BackgroundImage = ({
-  style,
-  children,
+  style = undefined,
+  children = undefined,
 }: React.ComponentProps<"div"> &
   React.PropsWithChildren): React.JSX.Element => {
   return (

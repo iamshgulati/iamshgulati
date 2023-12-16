@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, IconButton, Text } from "@radix-ui/themes";
 
-export function ScreenSizeIndicator(): React.JSX.Element {
+export const ScreenSizeIndicator = (): React.JSX.Element => {
   return (
     <IconButton
+      aria-label="Screen Size Indicator"
       size="1"
       variant="soft"
       color="gray"
@@ -91,4 +92,4 @@ export function ScreenSizeIndicator(): React.JSX.Element {
       </Text>
     </IconButton>
   );
-}
+};

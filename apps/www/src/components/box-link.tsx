@@ -8,7 +8,10 @@ interface BoxLinkProps extends React.ComponentPropsWithoutRef<"a"> {
 }
 
 export const BoxLink = React.forwardRef<HTMLAnchorElement, BoxLinkProps>(
-  function BoxLink({ ariaLabel, className, ...props }, forwardedRef) {
+  function BoxLink(
+    { ariaLabel, className = undefined, ...props },
+    forwardedRef,
+  ): React.JSX.Element {
     return (
       <a
         aria-label={ariaLabel}

@@ -10,13 +10,13 @@ import {
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
-import { AccessibleIcon, Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
+import { Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command, CommandGroup } from "cmdk";
 
 import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
-import type { AppRoute } from "~/lib/routes";
+import type { AppPage, AppRoute } from "~/lib/routes";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
@@ -26,7 +26,7 @@ const [MenuProvider, useMenuContext] = createContext<{
 }>("CommandMenu");
 
 export const CommandMenuProvider = ({
-  children,
+  children = undefined,
 }: React.PropsWithChildren): React.JSX.Element => {
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -58,7 +58,7 @@ export function CommandMenu({
   });
 
   const runCommand = React.useCallback(
-    (command: () => unknown) => {
+    (command: () => unknown): void => {
       commandMenu.setOpen(false);
       command();
     },
@@ -69,12 +69,14 @@ export function CommandMenu({
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
         <IconButton size="3" variant="ghost" color="gray">
-          <AccessibleIcon label="Open Command Menu">
-            <MagnifyingGlassIcon width="16" height="16" />
-          </AccessibleIcon>
+          <MagnifyingGlassIcon
+            aria-label="Open Command Menu"
+            width="16"
+            height="16"
+          />
         </IconButton>
       </Dialog.Trigger>
-      {/* Inline styles necessary here to override styles defined by RT */}
+      {/* Inline styles necessary here to override styles defined by Radix Themes */}
       <Box
         asChild
         style={{
@@ -121,7 +123,7 @@ export function CommandMenu({
                 <Command.Item
                   value="CmdK Command Menu Keyboard Shortcut: Toggle CmdK Command Menu"
                   onSelect={() =>
-                    runCommand(() => {
+                    runCommand((): void => {
                       // do nothing
                     })
                   }
@@ -132,34 +134,35 @@ export function CommandMenu({
                 </Command.Item>
               </CommandGroup>
 
-              {routes?.map((section, index) =>
-                section.pages.length > 0 ? (
-                  <Command.Group
-                    key={section.label ?? index}
-                    heading={section.label}
-                  >
-                    {section.pages.map((page) => {
-                      const ItemIcon: Icon | undefined =
-                        page.icon && Icons[page.icon];
-                      return (
-                        <Command.Item
-                          key={page.slug}
-                          value={`${section.label}: ${page.title}`}
-                          data-disabled={page.disabled}
-                          onSelect={() => {
-                            runCommand(() => router.push(page.slug));
-                          }}
-                        >
-                          {ItemIcon && <ItemIcon />}
-                          {page.title}
-                          {page.slug.startsWith("http") && (
-                            <ArrowTopRightIcon />
-                          )}
-                        </Command.Item>
-                      );
-                    })}
-                  </Command.Group>
-                ) : null,
+              {routes?.map(
+                (section: AppRoute, index: number): React.JSX.Element | null =>
+                  section.pages.length > 0 ? (
+                    <Command.Group
+                      key={section.label ?? index}
+                      heading={section.label}
+                    >
+                      {section.pages.map((page: AppPage) => {
+                        const ItemIcon: Icon | undefined =
+                          page.icon && Icons[page.icon];
+                        return (
+                          <Command.Item
+                            key={page.slug}
+                            value={`${section.label}: ${page.title}`}
+                            data-disabled={page.disabled}
+                            onSelect={(): void => {
+                              runCommand(() => router.push(page.slug));
+                            }}
+                          >
+                            {ItemIcon && <ItemIcon />}
+                            {page.title}
+                            {page.slug.startsWith("http") && (
+                              <ArrowTopRightIcon />
+                            )}
+                          </Command.Item>
+                        );
+                      })}
+                    </Command.Group>
+                  ) : null,
               )}
             </Command.List>
           </Command>
@@ -169,6 +172,8 @@ export function CommandMenu({
   );
 }
 
-const CommandShortcut = ({ children }: React.PropsWithChildren) => (
+const CommandShortcut = ({
+  children = undefined,
+}: React.PropsWithChildren): React.JSX.Element => (
   <Kbd cmdk-kbd="">{children}</Kbd>
 );

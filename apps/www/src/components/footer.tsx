@@ -1,5 +1,5 @@
 import React from "react";
-import { AccessibleIcon, Flex, IconButton, Link, Text } from "@radix-ui/themes";
+import { Flex, IconButton, Link, Text } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
 import type { AppPage } from "~/lib/routes";
@@ -10,7 +10,7 @@ interface FooterProps {
   pages: AppPage[];
 }
 
-export function Footer({ pages }: FooterProps): React.JSX.Element {
+export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
   return (
     <Flex
       asChild
@@ -22,12 +22,12 @@ export function Footer({ pages }: FooterProps): React.JSX.Element {
     >
       <footer>
         <Flex gap="5">
-          {pages.map((page) => (
-            <SocialIconButton
+          {pages.map((page: AppPage) => (
+            <LinkSocialIconButton
               key={page.slug}
               href={page.slug}
               icon={page.icon}
-              label={page.title}
+              ariaLabel={page.title}
             />
           ))}
         </Flex>
@@ -38,16 +38,16 @@ export function Footer({ pages }: FooterProps): React.JSX.Element {
       </footer>
     </Flex>
   );
-}
+};
 
-const SocialIconButton = ({
+const LinkSocialIconButton = ({
   href,
-  icon = "AtSymbolIcon",
-  label,
+  icon = "Link2Icon",
+  ariaLabel,
 }: {
   href: string;
   icon?: keyof typeof Icons;
-  label: string;
+  ariaLabel: string;
 }): React.JSX.Element => {
   const SocialIcon: Icon = Icons[icon];
 
@@ -62,9 +62,7 @@ const SocialIconButton = ({
       }}
     >
       <IconButton size="3" variant="ghost" color="gray">
-        <AccessibleIcon label={label}>
-          <SocialIcon width="16" height="16" />
-        </AccessibleIcon>
+        <SocialIcon aria-label={ariaLabel} width="16" height="16" />
       </IconButton>
     </Link>
   );

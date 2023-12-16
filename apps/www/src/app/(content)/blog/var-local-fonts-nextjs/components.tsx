@@ -1,7 +1,8 @@
+import React from "react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { CalloutIcon, CalloutRoot, CalloutText, Code } from "@radix-ui/themes";
 
-export const WeightPropCallout = () => (
+export const WeightPropCallout = (): React.JSX.Element => (
   <CalloutRoot variant="surface" mt="5" mb="5">
     <CalloutIcon>
       <InfoCircledIcon />

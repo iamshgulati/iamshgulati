@@ -4,8 +4,8 @@ import { Heading } from "@radix-ui/themes";
 import { LinkHeading } from "../link-heading";
 
 export const H3 = ({
-  id,
-  children,
+  id = undefined,
+  children = undefined,
   ...props
 }: React.PropsWithChildren<{ id?: string }>): React.JSX.Element => (
   <Heading asChild size="5" mt="7" mb="2">

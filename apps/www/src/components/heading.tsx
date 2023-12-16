@@ -4,25 +4,24 @@ import { Heading } from "@radix-ui/themes";
 export const HeroHeading = ({
   variant = "sans",
   ...props
-}: React.ComponentPropsWithRef<typeof Heading> & {
+}: React.ComponentPropsWithoutRef<typeof Heading> & {
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
+  let headingStyle: React.CSSProperties = {
+    fontWeight: "550",
+    "--heading-font-family": "var(--font-heading), var(--default-font-family)",
+    "--heading-font-size-adjust": "1.1",
+    "--heading-letter-spacing": "-0.01em",
+    ...props.style,
+  } as React.CSSProperties;
+
   if (variant === "serif") {
-    return (
-      <Heading
-        {...props}
-        size={{ initial: "8", xs: "9" }}
-        weight="bold"
-        style={
-          {
-            "--heading-font-family": "var(--em-font-family)",
-            "--heading-font-size-adjust": "1.1",
-            "--heading-letter-spacing": "0em",
-            ...props.style,
-          } as React.CSSProperties
-        }
-      />
-    );
+    headingStyle = {
+      "--heading-font-family": "var(--em-font-family)",
+      "--heading-font-size-adjust": "1.1",
+      "--heading-letter-spacing": "0em",
+      ...props.style,
+    } as React.CSSProperties;
   }
 
   return (
@@ -30,16 +29,7 @@ export const HeroHeading = ({
       {...props}
       size={{ initial: "8", xs: "9" }}
       weight="bold"
-      style={
-        {
-          fontWeight: "550",
-          "--heading-font-family":
-            "var(--font-heading), var(--default-font-family)",
-          "--heading-font-size-adjust": "1.1",
-          "--heading-letter-spacing": "-0.01em",
-          ...props.style,
-        } as React.CSSProperties
-      }
+      style={{ ...headingStyle }}
     />
   );
 };
@@ -47,25 +37,24 @@ export const HeroHeading = ({
 export const PageHeading = ({
   variant = "sans",
   ...props
-}: React.ComponentPropsWithRef<typeof Heading> & {
+}: React.ComponentPropsWithoutRef<typeof Heading> & {
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
+  let headingStyles: React.CSSProperties = {
+    fontWeight: "550",
+    "--heading-font-family": "var(--font-heading), var(--default-font-family)",
+    "--heading-font-size-adjust": "1",
+    "--heading-letter-spacing": "-0.01em",
+    ...props.style,
+  } as React.CSSProperties;
+
   if (variant === "serif") {
-    return (
-      <Heading
-        {...props}
-        size={{ initial: "8", xs: "9" }}
-        weight="bold"
-        style={
-          {
-            "--heading-font-family": "var(--em-font-family)",
-            "--heading-font-size-adjust": "1",
-            "--heading-letter-spacing": "0em",
-            ...props.style,
-          } as React.CSSProperties
-        }
-      />
-    );
+    headingStyles = {
+      "--heading-font-family": "var(--em-font-family)",
+      "--heading-font-size-adjust": "1",
+      "--heading-letter-spacing": "0em",
+      ...props.style,
+    } as React.CSSProperties;
   }
 
   return (
@@ -73,16 +62,7 @@ export const PageHeading = ({
       {...props}
       size={{ initial: "8", xs: "9" }}
       weight="bold"
-      style={
-        {
-          fontWeight: "550",
-          "--heading-font-family":
-            "var(--font-heading), var(--default-font-family)",
-          "--heading-font-size-adjust": "1",
-          "--heading-letter-spacing": "-0.01em",
-          ...props.style,
-        } as React.CSSProperties
-      }
+      style={{ ...headingStyles }}
     />
   );
 };

@@ -10,13 +10,13 @@ export interface HeaderShellProps {
   scrollDelay?: number;
 }
 
-export function HeaderShell({
+export const HeaderShell = ({
   scrollHeightFactorThreshold = undefined,
   scrollDelay = undefined,
   children = undefined,
   className = undefined,
 }: React.PropsWithChildren<HeaderShellProps> &
-  React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element {
+  React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
   return (
     <Box
       data-scroll-state={useOnScroll()}
@@ -29,4 +29,4 @@ export function HeaderShell({
       {children}
     </Box>
   );
-}
+};
