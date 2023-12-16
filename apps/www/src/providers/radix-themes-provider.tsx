@@ -1,6 +1,9 @@
 import React from "react";
 import { Theme } from "@radix-ui/themes";
 
+import { env } from "~/env.mjs";
+import { cn } from "~/lib/utils";
+
 export const RadixThemesProvider = ({
   ...props
 }: React.ComponentProps<typeof Theme>): React.JSX.Element => (
@@ -13,6 +16,6 @@ export const RadixThemesProvider = ({
     scaling="100%"
     radius="medium"
     appearance="inherit"
-    className="radix-themes-custom-fonts"
+    className={cn(env.USE_CUSTOM_FONTS && "radix-themes-custom-fonts")}
   />
 );

@@ -17,6 +17,10 @@ export const env = createEnv({
    */
   server: {
     // SERVERVAR: z.string(),
+    USE_CUSTOM_FONTS: z
+      .enum(["true", "false"])
+      .optional()
+      .transform((v) => v === "true"),
   },
 
   /**
@@ -31,10 +35,12 @@ export const env = createEnv({
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
    */
   runtimeEnv: {
+    // SHAREDVAR: process.env.SHAREDVAR,
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
-    // SERVERVAR: z.string(),
+    // SERVERVAR: process.env.SERVERVAR,
+    USE_CUSTOM_FONTS: process.env.USE_CUSTOM_FONTS,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 

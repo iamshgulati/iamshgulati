@@ -64,8 +64,8 @@ const _calSans = localFont({
   ],
 });
 
-export const Fonts = {
-  Heading: plusJakartaSans.variable,
-  Body: inter.variable,
-  Code: jetBrainsMono.variable,
-} as const;
+export const fonts = [
+  plusJakartaSans.variable,
+  inter.variable,
+  jetBrainsMono.variable,
+].join(" ");
