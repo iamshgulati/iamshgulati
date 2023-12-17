@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
+import { BackgroundImage } from "~/components/background-image";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -10,27 +11,31 @@ export default function HomeLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
-    <Layout.Background style={backgroundStyle}>
+    <React.Fragment>
+      <Layout.Header>
+        <Header
+          sticky
+          ghost
+          autoHide
+          viewportScrollFactorThreshold={2}
+          scrollDistanceThreshold={100}
+          backdropExtended
+          productLinkRoute={allRoutes.productLinks}
+          commandMenuRoutes={[
+            allRoutes.productLinks,
+            allRoutes.personal,
+            allRoutes.projects,
+            allRoutes.blog,
+            allRoutes.social,
+            allRoutes.legal,
+          ]}
+        />
+      </Layout.Header>
+
       <Layout.Root>
-        <Layout.Header>
-          <Header
-            sticky
-            ghost
-            autoHide
-            viewportScrollFactorThreshold={2}
-            scrollDistanceThreshold={100}
-            backdropExtended
-            productLinkRoute={allRoutes.productLinks}
-            commandMenuRoutes={[
-              allRoutes.productLinks,
-              allRoutes.personal,
-              allRoutes.projects,
-              allRoutes.blog,
-              allRoutes.social,
-              allRoutes.legal,
-            ]}
-          />
-        </Layout.Header>
+        <Layout.BackgroundImage>
+          <BackgroundImage style={backgroundImageStyle} id="1" />
+        </Layout.BackgroundImage>
         <Layout.Main>{children}</Layout.Main>
         <Layout.Footer>
           <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
@@ -43,18 +48,20 @@ export default function HomeLayout({
           </Container>
         </Layout.Footer>
       </Layout.Root>
-    </Layout.Background>
+    </React.Fragment>
   );
 }
 
-const backgroundStyle: React.CSSProperties = {
-  backgroundRepeat: "no-repeat",
-  backgroundImage: `
-              radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
-              radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
-              radial-gradient(circle 800px at right center, var(--sky-3), transparent),
-              radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
-              radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
-            `,
+const backgroundImageStyle = {
+  "--color-background-image-base": "var(--color-background)",
+  "--color-background-image-accent-1": "var(--indigo-a7)",
+  "--color-background-image-accent-2": "var(--violet-6)",
+  "--color-background-image-accent-3": "var(--purple-9)",
+  "--color-background-image-accent-4": "var(--blue-5)",
+  "--color-background-image-accent-5": "var(--slate-1)",
+  "--color-background-image-accent-6": "var(--crimson-a5)",
+  "--color-background-image-accent-7": "var(--indigo-5)",
+  transformOrigin: "center center",
+  transform: "scaleX(-1) rotate(160deg)",
   opacity: "0.005",
 } as React.CSSProperties;
