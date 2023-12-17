@@ -38,7 +38,7 @@ export default function RootLayout({
                     ghost
                     autoHide
                     viewportScrollFactorThreshold={2}
-                    scrollDistanceThreshold={200}
+                    scrollDistanceThreshold={100}
                     backdropExtended
                     productLinkRoute={allRoutes.productLinks}
                     commandMenuRoutes={[
