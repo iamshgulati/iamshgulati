@@ -3,7 +3,7 @@
 import React from "react";
 import { Box } from "@radix-ui/themes";
 
-import { useOnScroll } from "~/hooks/useOnScroll";
+import { useScrollState } from "~/hooks/useScrollState";
 
 export interface HeaderShellProps {
   viewportScrollFactorThreshold?: number;
@@ -19,8 +19,8 @@ export const HeaderShell = ({
   React.ComponentProps<typeof Box>): React.JSX.Element => {
   return (
     <Box
-      data-scroll-state={useOnScroll()}
-      data-delayed-scroll-state={useOnScroll(
+      data-scroll-state={useScrollState()}
+      data-delayed-scroll-state={useScrollState(
         viewportScrollFactorThreshold,
         scrollDistanceThreshold,
       )}

@@ -9,7 +9,7 @@ type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
  * @param [scrollDistanceThreshold = 0] - The delay in pixels before considering a scroll action.
  * @returns {ScrollState} Returns the current scroll state: 'at-top', 'scrolling-up', or 'scrolling-down'.
  */
-export function useOnScroll(
+export function useScrollState(
   viewportScrollFactorThreshold = 1,
   scrollDistanceThreshold = 0,
 ): ScrollState {
