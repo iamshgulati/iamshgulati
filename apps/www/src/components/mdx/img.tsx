@@ -17,9 +17,10 @@ export const Img = ({
     alt={alt!}
     width={width as number}
     height={height as number}
-    layout="responsive"
     loading="lazy"
     style={{
+      width: "100%",
+      height: "auto",
       borderRadius: "var(--radius-4)",
     }}
   />
