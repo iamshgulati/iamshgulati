@@ -81,5 +81,5 @@ const backgroundStyle: React.CSSProperties = {
               radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
               radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
             `,
-  opacity: "0.001",
+  opacity: "0.005",
 } as React.CSSProperties;
