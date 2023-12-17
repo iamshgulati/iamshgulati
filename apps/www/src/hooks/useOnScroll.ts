@@ -5,13 +5,13 @@ type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
 
 /**
  * Custom React hook to track scroll behavior and provide scroll state.
- * @param [scrollHeightFactor = 1] - Minimum threshold of viewport height expressed as factor of viewport height.
- * @param [ScrollDelay = 0] - The delay in pixels before considering a scroll action.
+ * @param [viewportScrollFactorThreshold = 1] - Minimum height of document expressed as factor of viewport height.
+ * @param [scrollDistanceThreshold = 0] - The delay in pixels before considering a scroll action.
  * @returns {ScrollState} Returns the current scroll state: 'at-top', 'scrolling-up', or 'scrolling-down'.
  */
 export function useOnScroll(
-  scrollHeightFactor = 1,
-  ScrollDelay = 0,
+  viewportScrollFactorThreshold = 1,
+  scrollDistanceThreshold = 0,
 ): ScrollState {
   const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
   const [previousScrollPosition, setPreviousScrollPosition] =
@@ -19,27 +19,36 @@ export function useOnScroll(
   const pathname = usePathname();
 
   const handleScroll = React.useCallback(() => {
-    const currentScrollHeightFactor =
-      document.documentElement.scrollHeight / window.innerHeight;
+    const totalHeight = document.documentElement.scrollHeight;
+    const viewportHeight = window.innerHeight;
 
-    if (currentScrollHeightFactor >= scrollHeightFactor) {
+    const viewportScrollFactor = totalHeight / viewportHeight;
+
+    if (viewportScrollFactor >= viewportScrollFactorThreshold) {
       const currentScrollPosition = window.scrollY;
 
-      const hasScrolledPastDelay =
-        Math.abs(currentScrollPosition - previousScrollPosition) > ScrollDelay;
+      const hasScrolledPastThreshold =
+        Math.abs(currentScrollPosition - previousScrollPosition) >
+        scrollDistanceThreshold;
 
-      if (hasScrolledPastDelay) {
+      if (hasScrolledPastThreshold) {
         const scrollDirection =
           previousScrollPosition < currentScrollPosition
             ? "scrolling-down"
             : "scrolling-up";
         const newScrollState =
-          currentScrollPosition <= ScrollDelay ? "at-top" : scrollDirection;
+          currentScrollPosition <= scrollDistanceThreshold
+            ? "at-top"
+            : scrollDirection;
         setPreviousScrollPosition(currentScrollPosition);
         setScrollState(newScrollState);
       }
     }
-  }, [previousScrollPosition, ScrollDelay, scrollHeightFactor]);
+  }, [
+    previousScrollPosition,
+    scrollDistanceThreshold,
+    viewportScrollFactorThreshold,
+  ]);
 
   React.useEffect(() => {
     setPreviousScrollPosition(window.scrollY);

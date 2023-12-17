@@ -6,13 +6,13 @@ import { Box } from "@radix-ui/themes";
 import { useOnScroll } from "~/hooks/useOnScroll";
 
 export interface HeaderShellProps {
-  scrollHeightFactor?: number;
-  scrollDelay?: number;
+  viewportScrollFactorThreshold?: number;
+  scrollDistanceThreshold?: number;
 }
 
 export const HeaderShell = ({
-  scrollHeightFactor = undefined,
-  scrollDelay = undefined,
+  viewportScrollFactorThreshold = undefined,
+  scrollDistanceThreshold = undefined,
   children = undefined,
   className = undefined,
 }: React.PropsWithChildren<HeaderShellProps> &
@@ -20,7 +20,10 @@ export const HeaderShell = ({
   return (
     <Box
       data-scroll-state={useOnScroll()}
-      data-delayed-scroll-state={useOnScroll(scrollHeightFactor, scrollDelay)}
+      data-delayed-scroll-state={useOnScroll(
+        viewportScrollFactorThreshold,
+        scrollDistanceThreshold,
+      )}
       className={className}
     >
       {children}

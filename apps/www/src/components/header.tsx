@@ -15,8 +15,8 @@ export interface HeaderProps {
   sticky?: boolean;
   ghost?: boolean;
   autoHide?: boolean;
-  scrollHeightFactor?: number;
-  scrollDelay?: number;
+  viewportScrollFactorThreshold?: number;
+  scrollDistanceThreshold?: number;
   backdrop?: boolean;
   backdropExtended?: boolean;
   productLinkRoute?: AppRoute;
@@ -27,8 +27,8 @@ export const Header = ({
   sticky = false,
   ghost = false,
   autoHide = false,
-  scrollHeightFactor = undefined,
-  scrollDelay = undefined,
+  viewportScrollFactorThreshold = undefined,
+  scrollDistanceThreshold = undefined,
   backdrop = false,
   backdropExtended = false,
   productLinkRoute = undefined,
@@ -37,8 +37,8 @@ export const Header = ({
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
   return (
     <HeaderShell
-      scrollHeightFactor={scrollHeightFactor}
-      scrollDelay={scrollDelay}
+      viewportScrollFactorThreshold={viewportScrollFactorThreshold}
+      scrollDistanceThreshold={scrollDistanceThreshold}
       className={cn(
         styles.HeaderRoot,
         sticky && styles.sticky,
