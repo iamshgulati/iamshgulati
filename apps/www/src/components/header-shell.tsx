@@ -19,11 +19,11 @@ export const HeaderShell = ({
   React.ComponentProps<typeof Box>): React.JSX.Element => {
   return (
     <Box
-      data-scroll-state={useScrollState()}
-      data-delayed-scroll-state={useScrollState(
+      data-scroll-state={useScrollState({})}
+      data-delayed-scroll-state={useScrollState({
         viewportScrollFactorThreshold,
         scrollDistanceThreshold,
-      )}
+      })}
       className={className}
     >
       {children}
