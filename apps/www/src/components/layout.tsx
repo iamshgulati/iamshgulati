@@ -2,18 +2,16 @@ import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
 const LayoutBackground = ({
-  style = undefined,
+  style = {},
   children = undefined,
-}: React.ComponentProps<"div">): React.JSX.Element => {
+}: React.ComponentProps<typeof Box>): React.JSX.Element => {
   return (
     <Box style={{ position: "relative", zIndex: 0 }}>
       <Box
         style={{
           position: "absolute",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
+          inset: 0,
+          backgroundColor: "var(--color-background)",
           zIndex: -1,
           overflow: "hidden",
         }}
@@ -51,23 +49,21 @@ const LayoutRoot = ({
   );
 };
 
-function LayoutBackgroundImage(
+const LayoutBackgroundImage = (
   props: React.ComponentProps<typeof Flex>,
-): React.JSX.Element {
-  return (
-    <Flex
-      position="absolute"
-      inset="0"
-      align="start"
-      justify="center"
-      style={{
-        zIndex: -1,
-        overflow: "hidden",
-      }}
-      {...props}
-    />
-  );
-}
+): React.JSX.Element => (
+  <Flex
+    position="absolute"
+    inset="0"
+    align="start"
+    justify="center"
+    style={{
+      zIndex: -1,
+      overflow: "hidden",
+    }}
+    {...props}
+  />
+);
 
 const LayoutHeader = ({
   ...props
