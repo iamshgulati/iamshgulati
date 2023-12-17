@@ -51,6 +51,24 @@ const LayoutRoot = ({
   );
 };
 
+function LayoutBackgroundImage(
+  props: React.ComponentProps<typeof Flex>,
+): React.JSX.Element {
+  return (
+    <Flex
+      position="absolute"
+      inset="0"
+      align="start"
+      justify="center"
+      style={{
+        zIndex: -1,
+        overflow: "hidden",
+      }}
+      {...props}
+    />
+  );
+}
+
 const LayoutHeader = ({
   ...props
 }: React.ComponentProps<typeof Box>): React.JSX.Element => {
@@ -106,8 +124,9 @@ const LayoutFooter = ({
 
 export const Layout = {
   Background: LayoutBackground,
-  Header: LayoutHeader,
   Root: LayoutRoot,
+  BackgroundImage: LayoutBackgroundImage,
+  Header: LayoutHeader,
   Main: LayoutMain,
   Content: LayoutContent,
   Footer: LayoutFooter,
