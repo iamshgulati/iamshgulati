@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
 
 /**
- * Custom React hook to track scroll behavior and provide scroll state.
+ * Custom React hook to track the scroll state.
  * @param [viewportScrollFactorThreshold = 1] - Minimum height of document expressed as factor of viewport height.
  * @param [scrollDistanceThreshold = 0] - The delay in pixels before considering a scroll action.
  * @returns {ScrollState} Returns the current scroll state: 'at-top', 'scrolling-up', or 'scrolling-down'.
