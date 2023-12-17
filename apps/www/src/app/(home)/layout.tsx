@@ -1,13 +1,12 @@
 import React from "react";
-import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
+import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
-import { Breadcrumbs } from "~/components/breadcrumbs";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { allRoutes } from "~/lib/routes";
 
-export default function PagesLayout({
+export default function HomeLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
@@ -32,18 +31,7 @@ export default function PagesLayout({
             ]}
           />
         </Layout.Header>
-        <Layout.Main>
-          <Layout.Content>
-            <Box asChild width="100%" style={{ maxWidth: 858 }}>
-              <Section size={{ initial: "2", xs: "3" }}>
-                <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                  <Breadcrumbs />
-                  {children}
-                </Container>
-              </Section>
-            </Box>
-          </Layout.Content>
-        </Layout.Main>
+        <Layout.Main>{children}</Layout.Main>
         <Layout.Footer>
           <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
             <Flex align="center" justify="center">
