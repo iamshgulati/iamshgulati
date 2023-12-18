@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import glob from "glob";
 import matter from "gray-matter";
-import readingTime from "reading-time";
 
 import type { AppPage } from "./routes";
 
@@ -13,7 +12,6 @@ export type ContentPage = AppPage & {
   by?: "shubham";
   category?: string;
   tags?: string[];
-  readingTime: string;
 };
 
 /*
@@ -37,7 +35,7 @@ export const getFrontmatter = (
   return paths
     .map((filePath: string) => {
       const source = fs.readFileSync(path.join(filePath), "utf8");
-      const { data, content }: matter.GrayMatterFile<string> = matter(source);
+      const { data }: matter.GrayMatterFile<string> = matter(source);
 
       return {
         ...(data as ContentPage),
@@ -48,7 +46,6 @@ export const getFrontmatter = (
           .split("/")
           .slice(1)
           .join("/"),
-        readingTime: readingTime(content).text,
       } as ContentPage;
     })
     .filter((frontmatter) => !frontmatter.slugAsParams.startsWith("_"))

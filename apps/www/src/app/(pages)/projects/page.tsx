@@ -46,7 +46,6 @@ const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
           description={page.description}
           metadata={{
             publishedAt: page.publishedAt,
-            readingTime: page.readingTime,
           }}
         />
       ))}

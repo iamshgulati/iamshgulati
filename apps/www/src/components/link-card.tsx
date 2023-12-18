@@ -10,7 +10,6 @@ interface LinkCardProp {
   description?: string;
   metadata?: {
     publishedAt?: string;
-    readingTime?: string;
   };
 }
 
