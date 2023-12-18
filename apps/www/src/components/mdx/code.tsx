@@ -7,10 +7,11 @@ export const Code = ({ ...props }): React.JSX.Element => {
   if (className === undefined) {
     return <RTCode {...props} />;
   } else {
+    const children: string = (props.children as string) ?? "";
     return (
       <code
         className={className}
-        dangerouslySetInnerHTML={{ __html: highlight(props.children) }}
+        dangerouslySetInnerHTML={{ __html: highlight(children) }}
       />
     );
   }

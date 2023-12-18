@@ -1,0 +1,12 @@
+.PreContainer {
+  position: relative;
+
+  .CopyButton {
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+  }
+
+  &:hover .CopyButton {
+    opacity: 1;
+  }
+}
