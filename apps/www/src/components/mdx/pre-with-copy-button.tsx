@@ -3,7 +3,7 @@
 import React from "react";
 import { Box } from "@radix-ui/themes";
 
-import { CopyCodeButton } from "./copy-code-button";
+import { CopyTextButton } from "./copy-text-button";
 import { Pre } from "./pre";
 
 export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
@@ -24,7 +24,7 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
           }
         }}
       />
-      <CopyCodeButton code={code} />
+      <CopyTextButton textToCopy={code} />
     </Box>
   );
 };

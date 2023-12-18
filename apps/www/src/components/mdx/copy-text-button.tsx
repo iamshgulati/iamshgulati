@@ -2,27 +2,37 @@ import React from "react";
 import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { IconButton } from "@radix-ui/themes";
-import copy from "copy-to-clipboard";
 
-export const CopyCodeButton = ({
-  code = undefined,
+export const CopyTextButton = ({
+  textToCopy = undefined,
   ...props
 }: PropsWithoutRefOrColor<typeof IconButton> & {
-  code?: string;
+  textToCopy?: string;
 }): React.JSX.Element => {
-  const [hasCopied, setHasCopied] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
 
   React.useEffect((): void => {
-    if (hasCopied) setTimeout(() => setHasCopied(false), 1500);
-  }, [hasCopied]);
+    if (copied) setTimeout(() => setCopied(false), 1500);
+  }, [copied]);
+
+  const copyToClipboard = (textToCopy: string) => {
+    window.navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        setCopied(true);
+      })
+      .catch((error) => {
+        console.error("Failed to copy:", error);
+      });
+  };
 
   return (
     <IconButton
       {...props}
       aria-label="Copy code to clipboard"
       onClick={(): void => {
-        copy(code ?? "");
-        setHasCopied(true);
+        copyToClipboard(textToCopy ?? "");
+        setCopied(true);
       }}
       mt="3"
       mr="3"
@@ -34,7 +44,7 @@ export const CopyCodeButton = ({
         right: "0",
       }}
     >
-      {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
+      {copied ? <CheckIcon /> : <ClipboardIcon />}
     </IconButton>
   );
 };
