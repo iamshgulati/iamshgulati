@@ -3,7 +3,7 @@ import { Link2Icon } from "@radix-ui/react-icons";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Link } from "@radix-ui/themes";
 
-import { cn } from "~/lib/utils";
+import { cn } from "~/lib/classnames";
 import styles from "./link-heading.module.css";
 
 export const LinkHeading = ({

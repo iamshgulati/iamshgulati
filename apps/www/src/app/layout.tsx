@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { fonts } from "~/fonts";
-import { cn } from "~/lib/utils";
+import { cn } from "~/lib/classnames";
 
 export const metadata: Metadata = {
   title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },

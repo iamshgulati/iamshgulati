@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "~/lib/utils";
+import { cn } from "~/lib/classnames";
 import styles from "./box-link.module.css";
 
 interface BoxLinkProps extends React.ComponentPropsWithoutRef<"a"> {
