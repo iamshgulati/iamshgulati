@@ -16,11 +16,7 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
         ref={(node: HTMLPreElement | null): void => {
           if (node) {
             const codeElement: HTMLElement | null = node.querySelector("code");
-            const code: string | undefined = codeElement?.innerText.replace(
-              /\n{2}/g,
-              "\n",
-            );
-            setCode(code);
+            setCode(removeDoubleLineBreaks(codeElement?.innerText ?? ""));
           }
         }}
       />
@@ -28,3 +24,5 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
     </Box>
   );
 };
+
+const removeDoubleLineBreaks = (text: string) => text.replace(/\n{2}/g, "\n");
