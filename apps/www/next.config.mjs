@@ -3,7 +3,6 @@ import "./src/env.mjs";
 
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import rehypePrettyCode from "rehype-pretty-code";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
@@ -91,15 +90,6 @@ const remarkMdxFrontmatterOptions = {
 };
 
 /**
- * Rehype Pretty Code configuration
- */
-/** @type {import("rehype-pretty-code").Options} */
-const rehypePrettyCodeOptions = {
-  theme: { dark: "github-dark", light: "github-light" },
-  keepBackground: false,
-};
-
-/**
  * Next.js MDX configuration
  */
 /** @type {import('@next/mdx').NextMDXOptions} */
@@ -110,7 +100,6 @@ const mdxConfig = {
       remarkFrontmatter,
       [remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
     ],
-    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
   },
 };
 const withMDX = mdx(mdxConfig);
