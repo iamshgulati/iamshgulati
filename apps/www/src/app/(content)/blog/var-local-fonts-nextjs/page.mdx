@@ -4,10 +4,6 @@ description: How to properly load variable local fonts with multiple style varia
 publishedAt: 2023-12-03
 ---
 
-import * as Components from "./components.tsx";
-
-import { ContentLayout } from "~/components/content-layout";
-
 export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
 }
@@ -42,7 +38,12 @@ export const fontSans = localFont({
 });
 ```
 
-<Components.WeightPropCallout />
+{<Callout>
+Setting the <Code>{`weight: "100 900"`}</Code> was important here. This is
+not documented clearly in Next.js documentation, and without it all my
+font weights were being synthesized from single regular weight.
+
+</Callout>}
 
 From here, the documentation is pretty clear. You just add `fontSans.variable` to `className` on `body` tag, prepend `var(--font-sans)` to your `font-family` and you are set.
 

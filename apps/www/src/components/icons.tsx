@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ArrowTopRightIcon,
   BackpackIcon,
   ChatBubbleIcon,
   CrumpledPaperIcon,
@@ -492,6 +493,7 @@ export const Icons = {
   MixIcon,
   HeartIcon,
   InfoCircledIcon,
+  ArrowTopRightIcon,
   //
   SiteLogoIcon,
   LinkedInLogoIcon,

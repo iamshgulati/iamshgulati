@@ -4,12 +4,6 @@ description: Is there a better way to reduce the css bundle size when using comp
 publishedAt: 2023-11-29
 ---
 
-import { Quote, Text } from "@radix-ui/themes";
-
-import * as Components from "./components.tsx";
-
-import { ContentLayout } from "~/components/content-layout";
-
 export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
 }
@@ -25,7 +19,7 @@ The only way I could reduce some of it was by cloning `@radix-ui/themes`
 package into my monorepo and manually removing the unused css imports from it's
 css export.
 
-<Components.PagespeedResultsCallout />
+> Doing this cut down the overall css bundle by half. And <Link href="https://pagespeed.web.dev">Pagespeed</Link> also stopped complaining about unused css.
 
 I know, I know. I am not trying to justify my approach with the results.
 It is bad in so many ways. Adds a bunch of maintenance debt which will

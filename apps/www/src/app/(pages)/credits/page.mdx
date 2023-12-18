@@ -3,7 +3,9 @@ title: Credits
 description: Credit where credit is due.
 ---
 
-import { ContentLayout } from "~/components/content-layout";
+import { Link } from "@radix-ui/themes";
+
+import { Table } from "~/components/mdx/table";
 
 export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
@@ -13,17 +15,33 @@ export default function ContentPage({ children }) {
 
 I am most thankful to the following people whose work helped me develop my online home. Some of them are:
 
-| Tool              | Link                                                                               |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| Radix UI          | [radix-ui.com](https://www.radix-ui.com)                                           |
-| Cmdk              | [cmdk.paco.me](https://cmdk.paco.me/)                                              |
-| Create T3 App     | [create.t3.gg](https://create.t3.gg)                                               |
-| Next.js           | [nextjs.org](https://nextjs.org)                                                   |
-| React             | [react.dev](https://react.dev)                                                     |
-| MDX               | [mdxjs.com](https://mdxjs.com)                                                     |
-| Typescript        | [typescriptlang.org](https://www.typescriptlang.org)                               |
-| Inter             | [rsms.me/inter](https://rsms.me/inter)                                             |
-| Plus Jakarta Sans | [tokotype.github.io/plusjakarta-sans](https://tokotype.github.io/plusjakarta-sans) |
-| JetBrains Mono    | [jetbrains.com/lp/mono](https://www.jetbrains.com/lp/mono)                         |
-
-{/* | CalSans           | [github.com/calcom/font](https://github.com/calcom/font)                           | */}
+<Table
+  data={{
+    headers: ["Tool", "Link"],
+    rows: [
+      ["Radix UI", <Link href="https://www.radix-ui.com">radix-ui.com</Link>],
+      ["Cmdk", <Link href="https://cmdk.paco.me">cmdk.paco.me</Link>],
+      ["Create T3 App", <Link href="https://create.t3.gg">create.t3.gg</Link>],
+      ["Next.js", <Link href="https://nextjs.org">nextjs.org</Link>],
+      ["React", <Link href="https://react.dev">react.dev</Link>],
+      ["MDX", <Link href="https://mdxjs.com">mdxjs.com</Link>],
+      [
+        "Typescript",
+        <Link href="https://www.typescriptlang.org">typescriptlang.org</Link>,
+      ],
+      ["Inter", <Link href="https://rsms.me/inter">rsms.me/inter</Link>],
+      [
+        "Plus Jakarta Sans",
+        <Link href="https://tokotype.github.io/plusjakarta-sans">
+          tokotype.github.io/plusjakarta-sans
+        </Link>,
+      ],
+      [
+        "JetBrains Mono",
+        <Link href="https://www.jetbrains.com/lp/mono">
+          jetbrains.com/lp/mono
+        </Link>,
+      ],
+    ],
+  }}
+/>

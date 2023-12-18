@@ -38,7 +38,7 @@
 
 .Pre {
   code {
-    display: grid;
+    display: inline-block;
     min-width: 100%;
     border-width: 0;
 

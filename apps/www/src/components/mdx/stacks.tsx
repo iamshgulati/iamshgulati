@@ -6,7 +6,7 @@ export const VStack = ({
   ...props
 }: React.ComponentProps<typeof Flex>): React.JSX.Element => {
   return (
-    <Flex {...props} direction="column" wrap="wrap" gap="3" mt="4">
+    <Flex {...props} direction="column" wrap="wrap" gap="3" mt="4" mb="4">
       {children}
     </Flex>
   );

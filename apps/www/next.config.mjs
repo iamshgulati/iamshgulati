@@ -4,7 +4,6 @@ import "./src/env.mjs";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
 import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /**
@@ -96,7 +95,6 @@ const remarkMdxFrontmatterOptions = {
 const mdxConfig = {
   options: {
     remarkPlugins: [
-      remarkGfm,
       remarkFrontmatter,
       [remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
     ],

@@ -1,5 +1,7 @@
+import { Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 import type { MDXComponents } from "mdx/types";
 
+import { ContentLayout } from "~/components/content-layout";
 import { A } from "~/components/mdx/a";
 import { Blockquote } from "~/components/mdx/blockquote";
 import { Code } from "~/components/mdx/code";
@@ -18,9 +20,41 @@ import { P } from "~/components/mdx/p";
 import { PreWithCopyButton } from "~/components/mdx/pre-with-copy-button";
 import { Strong } from "~/components/mdx/strong";
 import { Ul } from "~/components/mdx/ul";
-import { Table } from "./components/mdx/table";
+import { BadgeWithIndicator } from "./components/badge-with-indicator";
+import { Icons } from "./components/icons";
+import { Callout } from "./components/mdx/callout";
+import { HStack, VStack } from "./components/mdx/stacks";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableColumnHeaderCell,
+  TableHeader,
+  TableRoot,
+  TableRow,
+} from "./components/mdx/table";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+  const themesComponents = {
+    ...Icons,
+    Link,
+    Code,
+    Quote,
+    Text,
+    Button,
+    Flex,
+    Grid,
+  };
+
+  const customComponents = {
+    ContentLayout,
+    Callout,
+    Table,
+    HStack,
+    VStack,
+    BadgeWithIndicator,
+  };
+
   return {
     h1: H1,
     h2: H2,
@@ -40,12 +74,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     blockquote: Blockquote,
     pre: PreWithCopyButton,
     code: Code,
-    table: Table.Root,
-    thead: Table.Header,
-    tbody: Table.Body,
-    th: Table.ColumnHeaderCell,
-    tr: Table.Row,
-    td: Table.Cell,
+    table: TableRoot,
+    thead: TableHeader,
+    tbody: TableBody,
+    th: TableColumnHeaderCell,
+    tr: TableRow,
+    td: TableCell,
     ...components,
+    ...themesComponents,
+    ...customComponents,
   };
 }

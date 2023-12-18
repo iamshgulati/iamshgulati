@@ -3,11 +3,7 @@ title: About
 description: About my professional experience, certifications, skills and tools.
 ---
 
-import * as Components from "./components";
-
-import { ContentLayout } from "~/components/content-layout";
-
-import { Flex, Grid } from "@radix-ui/themes";
+import { siteConfig } from "~/config/site";
 
 export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
@@ -15,7 +11,12 @@ export default function ContentPage({ children }) {
 
 ## Continuing Education
 
-<Components.ContinuingEducationDescription />
+{<Text color="gray" size="2">
+Currently continuing education in Cloud and Security domains. Achieved AWS
+certifications and built full-stack applications using cutting edge web
+technologies.
+
+</Text>}
 
 ### Certifications
 
@@ -24,7 +25,10 @@ export default function ContentPage({ children }) {
 
 ### Saskatchewan Polytechnic, Canada
 
-{/* <Components.SaskpolyMeta /> */}
+<Flex justify="between">
+  {/* <em>Canada</em> */}
+  {/* <em>Dec 2022 - Dec 2023</em> */}
+</Flex>
 
 - Pursuing _Cloud Computing & Blockchain_ postgraduate certificate program.
 - Dean's Honour List recipient.
@@ -52,11 +56,19 @@ export default function ContentPage({ children }) {
 
 ### Deloitte Consulting USI, India
 
-<Components.DeloitteUSIDescription />
+{<Text color="gray" size="2">
+Deloitte Consulting US-India Offices (USI) is an extension of the Deloitte
+US organization serving clients within USA, from it&apos;s offsite offices
+in India.
+
+</Text>}
 
 #### Senior Technology Consultant
 
-{/* <Components.DeloitteUSISeniorConsultantMeta /> */}
+<Flex justify="between">
+  {/* <em>Bangalore, KA</em> */}
+  {/* <em>Jun 2022 - Nov 2022</em> */}
+</Flex>
 
 - Lead a team of six junior developers to enhance the reliability and accuracy of a usage reporting application by 30%.
 - Streamlined the development processes by enforcing best practices to improve code quality and reliability of the system.
@@ -64,7 +76,10 @@ export default function ContentPage({ children }) {
 
 #### Technology Consultant
 
-{/* <Components.DeloitteUSIConsultantMeta /> */}
+<Flex justify="between">
+  {/* <em>Bangalore, KA</em> */}
+  {/* <em>Sep 2019 - May 2022</em> */}
+</Flex>
 
 - Developed the client's support portal which is a one stop shop for all the support related needs for business users.
 - Increased code re-usability and system reliability by developing a common foundation for all microservice modules.
@@ -72,7 +87,10 @@ export default function ContentPage({ children }) {
 
 #### Technology Analyst
 
-{/* <Components.DeloitteUSIAnalystMeta /> */}
+<Flex justify="between">
+  {/* <em>Bangalore, KA</em> */}
+  {/* <em>Apr 2018 - Aug 2019</em> */}
+</Flex>
 
 - Developed the client's HR Portal with more than 15 independent modules with a diverse set of HR related features.
 - Reduced the operational costs of the portal by 20% by re-writing the legacy Coldfusion application using Spring Boot.
@@ -80,11 +98,18 @@ export default function ContentPage({ children }) {
 
 ### CGI Inc., India
 
-<Components.CGIDescription />
+{<Text color="gray" size="2">
+CGI Inc. is a Canadian IT consulting and systems integration company
+headquartered in Montreal, Quebec, Canada.
+
+</Text>}
 
 #### Associate Software Engineer
 
-{/* <Components.CGIAnalystMeta /> */}
+<Flex justify="between">
+  {/* <em>Bangalore, KA</em> */}
+  {/* <em>Aug 2016 - Apr 2018</em> */}
+</Flex>
 
 - Developed a framework to manage the state of system services which reduced the maintenance downtime by 95%.
 - Migrated SOAP web services in legacy applications to REST endpoints in modern Spring Boot-based microservices.
@@ -135,28 +160,113 @@ The biggest challenge thereafter will be finding the balance between creating a 
 
 ### Summary of Skills
 
-{/* I represent all data in badges with indicators to make it easier to read. The **underline indicator** shows how often I used the related item, e.g.: */}
+I have represented data in badges with indicators to make it more expressive. The **underline indicator** shows how often I used the related item, e.g.:
 
-{/* <Components.ExampleBadges /> */}
-
-Summary of my skills represented as badges with indicators representing how frequently or recently I used certain skill and tools.
+<VStack>
+  <HStack>
+    <BadgeWithIndicator indicator={90}>Frequently Used</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={30}>Occasionally Used</BadgeWithIndicator>
+  </HStack>
+</VStack>
 
 #### Programming Languages
 
-<Components.ProgrammingLanguageBadges />
+<VStack>
+  <HStack>
+    <BadgeWithIndicator indicator={100}>Java</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={60}>SQL</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={40}>Shell</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={50}>TypeScript</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={40}>JavaScript</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={60}>HTML</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={60}>CSS</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={20}>Solidity</BadgeWithIndicator>
+  </HStack>
+</VStack>
 
 #### Libraries & Frameworks
 
-<Components.LibraryAndFrameworkBadges />
+<VStack>
+  <HStack>
+    <BadgeWithIndicator indicator={90}>Spring Boot</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={80}>REST API</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={40}>GraphQL</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={70}>JPA</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={60}>Hibernate</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={50}>PostgreSQL</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={50}>MySQL</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={80}>Tailwind CSS</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>React</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={80}>Next.js</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={20}>Ethereum</BadgeWithIndicator>
+  </HStack>
+</VStack>
 
 #### Infrastructure
 
-<Components.InfrastructureBadges />
+<VStack>
+  <HStack>
+    <BadgeWithIndicator indicator={70}>AWS IAM</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS VPC</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS EC2</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS S3</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS EBS</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS ALB</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={70}>AWS Lambda</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS SQS</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>AWS SNS</BadgeWithIndicator>
+  </HStack>
+</VStack>
 
 #### Softwares and Tools
 
-<Components.SoftwareAndToolBadges />
+<VStack>
+  <HStack>
+    <BadgeWithIndicator indicator={100}>IntelliJ IDEA</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={100}>WebStorm</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={80}>VS Code</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>Postman</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={100}>Git</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={100}>GitHub</BadgeWithIndicator>
+  </HStack>
+  <HStack>
+    <BadgeWithIndicator indicator={60}>OpenAPI</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>Swagger</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={70}>CrushFTP</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={60}>Jenkins</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={40}>Docker</BadgeWithIndicator>
+    <BadgeWithIndicator indicator={30}>Kubernetes</BadgeWithIndicator>
+  </HStack>
+</VStack>
 
 ---
 
-<Components.ResumeButton />
+<Flex align="center" justify="center">
+  <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
+    <Button
+      variant="solid"
+      size="3"
+      style={{
+        paddingLeft: "var(--space-5)",
+        paddingRight: "var(--space-5)",
+        gap: "var(--space-2)",
+      }}
+    >
+      <FileTextIcon width="18" height="18" />
+      <Text>RESUME</Text>
+      <ArrowTopRightIcon width="18" height="18" />
+    </Button>
+  </Link>
+</Flex>
