@@ -3,7 +3,6 @@ import "./src/env.mjs";
 
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import imageSize from "rehype-img-size";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -101,14 +100,6 @@ const rehypePrettyCodeOptions = {
 };
 
 /**
- * Rehype Image Size configuration
- */
-/** @type {import("rehype-img-size").Options} */
-const rehypeImageSizeOptions = {
-  dir: "public",
-};
-
-/**
  * Next.js MDX configuration
  */
 /** @type {import('@next/mdx').NextMDXOptions} */
@@ -119,10 +110,7 @@ const mdxConfig = {
       remarkFrontmatter,
       [remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
     ],
-    rehypePlugins: [
-      [rehypePrettyCode, rehypePrettyCodeOptions],
-      [imageSize, rehypeImageSizeOptions],
-    ],
+    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
   },
 };
 const withMDX = mdx(mdxConfig);
