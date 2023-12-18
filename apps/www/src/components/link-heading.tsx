@@ -1,24 +1,28 @@
 import React from "react";
-import { Link2Icon } from "@radix-ui/react-icons";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Link } from "@radix-ui/themes";
 
 import { cn } from "~/lib/classnames";
+import { extractTextFromChildren } from "~/lib/react";
+import { slugify } from "~/lib/slugify";
+import { Icons } from "./icons";
 import styles from "./link-heading.module.css";
 
 export const LinkHeading = ({
-  id = undefined,
   children = undefined,
   className = undefined,
   ...props
-}: PropsWithoutRefOrColor<"a">): React.JSX.Element => (
-  <Link
-    {...props}
-    id={id}
-    href={`#${id}`}
-    className={cn(className, styles.LinkHeading)}
-  >
-    <Link2Icon aria-hidden />
-    {children}
-  </Link>
-);
+}: PropsWithoutRefOrColor<"a">): React.JSX.Element => {
+  const slug = slugify(extractTextFromChildren(children) ?? "");
+  return (
+    <Link
+      {...props}
+      id={slug}
+      href={`#${slug}`}
+      className={cn(className, styles.LinkHeading)}
+    >
+      <Icons.HashIcon aria-hidden />
+      {children}
+    </Link>
+  );
+};
