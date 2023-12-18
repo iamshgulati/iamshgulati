@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Flex, Text } from "@radix-ui/themes";
 
-import { formatDateRelative } from "~/lib/date";
+import { formatFullDate, formatRelativeDate } from "~/lib/date";
 import { NextLink } from "~/lib/link";
 
 interface LinkCardProp {
@@ -32,7 +32,7 @@ export const LinkCard = ({
         <Text asChild size="1">
           {metadata?.publishedAt && (
             <time dateTime={metadata.publishedAt}>
-              {formatDateRelative(metadata.publishedAt).toString()}
+              {formatFullDate(metadata.publishedAt)}
             </time>
           )}
         </Text>
@@ -40,7 +40,11 @@ export const LinkCard = ({
           &middot;
         </Text>
         <Text as="p" size="1">
-          {metadata?.readingTime}
+          {metadata?.publishedAt && (
+            <time dateTime={metadata.publishedAt}>
+              {formatRelativeDate(metadata.publishedAt)}
+            </time>
+          )}
         </Text>
       </Flex>
     </React.Fragment>

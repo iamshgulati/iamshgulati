@@ -1,49 +1,55 @@
-import { differenceInDays, format, formatISO, isValid } from "date-fns";
-
-export const formatDateISO = (date: string): string => {
-  if (isValid(new Date(date))) {
-    return formatISO(new Date(date), { representation: "date" });
+/**
+ * Formats a given date or string representation of a date into a full date string.
+ * @param {(string | Date)} date - The date or string representation of a date to format.
+ * @returns {string} - Returns the formatted full date string in "Month day, year" format (e.g., "January 1, 2023").
+ */
+export const formatFullDate = (date: string | Date): string => {
+  if (date instanceof Date) {
+    date = date.toISOString();
   }
 
-  return date;
-};
-export const formatDate = (date: string): string => {
-  if (isValid(new Date(date))) {
-    return format(new Date(formatDateISO(date)), "MMMM d, yyyy");
+  if (!date.includes("T")) {
+    date = `${date}T00:00:00`;
   }
 
-  return date;
+  const targetDate = new Date(date);
+
+  return targetDate.toLocaleString("en-us", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 };
 
-export const formatDateRelative = (date: string): string => {
-  if (isValid(new Date(date))) {
-    const days = differenceInDays(new Date(), new Date(date));
-    if (days > 30) {
-      return formatDate(date);
-    }
-
-    if (days > 1) {
-      return `${days} days ago`;
-    }
-
-    if (days === 1) {
-      return `Yesterday`;
-    }
-
-    if (days === 0) {
-      return `Today`;
-    }
+/**
+ * Formats a given date or string representation of a date into a relative date string.
+ * @param {(string | Date)} date - The date or string representation of a date to format.
+ * @returns {string} - Returns the formatted relative date string (e.g., "2 years ago", "3 months ago", "Yesterday", "Today").
+ */
+export const formatRelativeDate = (date: string | Date): string => {
+  if (date instanceof Date) {
+    date = date.toISOString();
   }
 
-  return date;
-};
-
-/*
-export const formatDateShort = (date: string): string => {
-  if (isValid(new Date(date))) {
-    return format(new Date(formatDateISO(date)), "MMM d, yyyy");
+  if (!date.includes("T")) {
+    date = `${date}T00:00:00`;
   }
 
-  return date;
+  const currentDate = new Date();
+  const pastDate = new Date(date);
+
+  const yearsAgo = currentDate.getFullYear() - pastDate.getFullYear();
+  const monthsAgo = currentDate.getMonth() - pastDate.getMonth();
+  const daysAgo = currentDate.getDate() - pastDate.getDate();
+
+  return yearsAgo > 0
+    ? `${yearsAgo} year${yearsAgo > 1 ? "s" : ""} ago`
+    : monthsAgo > 0
+      ? `${monthsAgo} month${monthsAgo > 1 ? "s" : ""} ago`
+      : daysAgo > 1
+        ? `${daysAgo} day${daysAgo > 1 ? "s" : ""} ago`
+        : daysAgo === 1
+          ? "Yesterday"
+          : "Today";
 };
-*/
