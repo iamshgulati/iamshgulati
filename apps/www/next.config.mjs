@@ -91,7 +91,7 @@ const nextConfig = {
   redirects: nextRedirects,
   experimental: {
     webpackBuildWorker: true,
-    // mdxRs: true,
+    mdxRs: true,
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },

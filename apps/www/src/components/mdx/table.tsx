@@ -27,14 +27,13 @@ export const TableCell = ({ ...props }): React.JSX.Element => (
 );
 
 type TableProps = {
-  data: {
-    header: string[];
-    rows: (string[] | React.ReactNode[])[];
-  };
+  header: string[];
+  rows: (string | React.ReactNode)[][];
 } & PropsWithoutRefOrColor<typeof RTTable.Root>;
 
 export const Table = ({
-  data: { header = [], rows = [] },
+  header = [],
+  rows = [],
   ...props
 }: TableProps): React.JSX.Element => (
   <RTTable.Root {...props} variant="surface" my="5">

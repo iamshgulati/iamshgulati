@@ -4,7 +4,9 @@ export const metadata = {
     "About my professional experience, certifications, skills and tools.",
 };
 
-import { siteConfig } from "~/config/site";
+import { ResumeButton } from "./resume-button";
+
+import { CeritificationBadgesGrid } from "./certification-badges-grid";
 
 ## Continuing Education
 
@@ -36,7 +38,7 @@ technologies.
 
 ### Cloud Certification
 
-<Grid align="center" columns={{ initial: "3", xs: "5" }} gap="5" pt="3">
+<CeritificationBadgesGrid>
   <div>
     ![AWS Certified Solutions Architect
     Associate](/images/badges/aws-solutions-architect-associate-badge.png)
@@ -45,7 +47,7 @@ technologies.
     ![AWS Certified Cloud
     Practitioner](/images/badges/aws-cloud-practitioner-badge.png)
   </div>
-</Grid>
+</CeritificationBadgesGrid>
 
 ---
 
@@ -250,23 +252,7 @@ I have represented data in badges with indicators to make it more expressive. Th
 
 ---
 
-<Flex align="center" justify="center">
-  <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-    <Button
-      variant="solid"
-      size="3"
-      style={{
-        paddingLeft: "var(--space-5)",
-        paddingRight: "var(--space-5)",
-        gap: "var(--space-2)",
-      }}
-    >
-      <FileTextIcon width="18" height="18" />
-      <Text>RESUME</Text>
-      <ArrowTopRightIcon width="18" height="18" />
-    </Button>
-  </Link>
-</Flex>
+<ResumeButton />
 
 export default function ContentPage({ children }) {
   return <ContentLayout metadata={metadata}>{children}</ContentLayout>;

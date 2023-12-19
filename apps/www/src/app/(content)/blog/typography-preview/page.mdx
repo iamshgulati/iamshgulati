@@ -179,16 +179,14 @@ I almost forgot to mention links, like [this link to the Tailwind CSS website](h
 We even included table styles, check it out:
 
 <Table
-  data={{
-    header: ["Wrestler", "Origin", "Finisher"],
-    rows: [
-      ['Bret "The Hitman" Hart', "Calgary, AB", "Stone Cold Stunner"],
-      ["Stone Cold Steve Austin", "Austin, TX", "Sharpshooter"],
-      ["Randy Savage", "Sarasota, FL", "Elbow Drop"],
-      ["Vader", "Boulder, CO", "Vader Bomb"],
-      ["Razor Ramon", "Chuluota, FL", "Razor's Edge"],
-    ],
-  }}
+  header={["Wrestler", "Origin", "Finisher"]}
+  rows={[
+    ['Bret "The Hitman" Hart', "Calgary, AB", "Stone Cold Stunner"],
+    ["Stone Cold Steve Austin", "Austin, TX", "Sharpshooter"],
+    ["Randy Savage", "Sarasota, FL", "Elbow Drop"],
+    ["Vader", "Boulder, CO", "Vader Bomb"],
+    ["Razor Ramon", "Chuluota, FL", "Razor's Edge"],
+  ]}
 />
 
 We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
