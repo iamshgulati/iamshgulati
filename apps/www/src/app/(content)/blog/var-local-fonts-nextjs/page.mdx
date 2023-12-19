@@ -1,12 +1,9 @@
----
-title: Variable Local Fonts With Next.js
-description: How to properly load variable local fonts with multiple style variants in Next.js?
-publishedAt: 2023-12-03
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Variable Local Fonts With Next.js",
+  description:
+    "How to properly load variable local fonts with multiple style variants in Next.js?",
+  publishedAt: "2023-12-03",
+};
 
 Next.js has a font module load local and google fonts but their documentation isn't clear on how to load **variable local fonts** properly.
 
@@ -48,3 +45,7 @@ font weights were being synthesized from single regular weight.
 From here, the documentation is pretty clear. You just add `fontSans.variable` to `className` on `body` tag, prepend `var(--font-sans)` to your `font-family` and you are set.
 
 > The code snippet in this post also uses a `unicode-range`. To read more about it you can read [this post](/blog/subsetting-fonts).
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

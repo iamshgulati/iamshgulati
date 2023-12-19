@@ -4,9 +4,9 @@ import { Flex, Section } from "@radix-ui/themes";
 
 import { LinkCard } from "~/components/link-card";
 import { TitleAndDescription } from "~/components/title-and-description";
-import type { ContentPage } from "~/lib/mdx";
 import { allRoutes } from "~/lib/routes";
 import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -34,11 +34,9 @@ export default function ProjectsPage(): React.JSX.Element {
 }
 
 const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
-  const pages: ContentPage[] = route.pages as ContentPage[];
-
   return (
     <React.Fragment>
-      {pages.map((page: ContentPage) => (
+      {route.pages.map((page: Frontmatter) => (
         <LinkCard
           key={page.slug}
           href={page.slug}

@@ -1,26 +1,20 @@
-import type { Icons } from "~/components/icons";
 import { siteConfig } from "~/config/site";
-import type { ContentPage } from "./mdx";
-import { getFrontmatter } from "./mdx";
-
-export type PageLabel = "Soon" | "Preview" | "New";
-
-export interface AppPage {
-  slug: string;
-  title: string;
-  description?: string;
-  label?: PageLabel;
-  disabled?: boolean;
-  icon?: keyof typeof Icons;
-}
+import type { Frontmatter } from "~/types/frontmatter";
+import { getAllFrontmatter } from "./mdx";
 
 export interface AppRoute {
   label: string;
-  pages: AppPage[] | ContentPage[];
+  pages: Frontmatter[];
 }
 
 export type AllRoutes = Record<
-  "productLinks" | "personal" | "projects" | "blog" | "social" | "legal",
+  | "productLinks"
+  | "personal"
+  | "projects"
+  | "blog"
+  | "private"
+  | "social"
+  | "legal",
   AppRoute
 >;
 
@@ -41,19 +35,34 @@ export const allRoutes: AllRoutes = {
   projects: {
     label: "Projects",
     pages: [
-      ...getFrontmatter("src/app/(content)", "/projects").map((page) => {
-        page.icon = "CubeIcon";
-        return page;
-      }),
+      ...(await getAllFrontmatter("/src/app/(content)", "/projects")).map(
+        (page: Frontmatter) => {
+          page.icon = "CubeIcon";
+          return page;
+        },
+      ),
     ],
   },
   blog: {
     label: "Blog Posts",
     pages: [
-      ...getFrontmatter("src/app/(content)", "/blog").map((page) => {
-        page.icon = "FileTextIcon";
-        return page;
-      }),
+      ...(await getAllFrontmatter("/src/app/(content)", "/blog")).map(
+        (page: Frontmatter) => {
+          page.icon = "FileTextIcon";
+          return page;
+        },
+      ),
+    ],
+  },
+  private: {
+    label: "Private Pages",
+    pages: [
+      ...(await getAllFrontmatter("/src/app/(content)", "/private")).map(
+        (page: Frontmatter) => {
+          page.icon = "FileTextIcon";
+          return page;
+        },
+      ),
     ],
   },
   social: {

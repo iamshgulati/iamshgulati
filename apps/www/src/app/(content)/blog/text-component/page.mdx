@@ -1,11 +1,7 @@
----
-title: Text Component
-description: Text component API reference.
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Text Component",
+  description: "Text component API reference.",
+};
 
 ## API Reference
 
@@ -263,3 +259,7 @@ Composing `Text` with a form control like [`Checkbox`](/themes/docs/components/c
   </Text>
 </Box>
 ```
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

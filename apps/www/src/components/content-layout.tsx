@@ -1,12 +1,12 @@
 import React from "react";
 import { Flex, Section } from "@radix-ui/themes";
 
-import type { ContentPage } from "~/lib/mdx";
+import type { Frontmatter } from "~/types/frontmatter";
 import { BackButton } from "./back-button";
 import { TitleAndDescription } from "./title-and-description";
 
 interface ContentLayoutProps {
-  metadata: ContentPage;
+  metadata: Frontmatter;
 }
 
 export const ContentLayout = ({

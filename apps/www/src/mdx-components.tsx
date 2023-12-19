@@ -2,8 +2,11 @@ import { Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 import type { MDXComponents } from "mdx/types";
 
 import { ContentLayout } from "~/components/content-layout";
+import { Icons } from "~/components/icons";
 import { A } from "~/components/mdx/a";
+import { BadgeWithIndicator } from "~/components/mdx/badge-with-indicator";
 import { Blockquote } from "~/components/mdx/blockquote";
+import { Callout } from "~/components/mdx/callout";
 import { Code } from "~/components/mdx/code";
 import { Em } from "~/components/mdx/em";
 import { H1 } from "~/components/mdx/h1";
@@ -18,12 +21,8 @@ import { Li } from "~/components/mdx/li";
 import { Ol } from "~/components/mdx/ol";
 import { P } from "~/components/mdx/p";
 import { PreWithCopyButton } from "~/components/mdx/pre-with-copy-button";
+import { HStack, VStack } from "~/components/mdx/stacks";
 import { Strong } from "~/components/mdx/strong";
-import { Ul } from "~/components/mdx/ul";
-import { BadgeWithIndicator } from "./components/badge-with-indicator";
-import { Icons } from "./components/icons";
-import { Callout } from "./components/mdx/callout";
-import { HStack, VStack } from "./components/mdx/stacks";
 import {
   Table,
   TableBody,
@@ -32,7 +31,8 @@ import {
   TableHeader,
   TableRoot,
   TableRow,
-} from "./components/mdx/table";
+} from "~/components/mdx/table";
+import { Ul } from "~/components/mdx/ul";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const themesComponents = {

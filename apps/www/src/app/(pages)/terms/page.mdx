@@ -1,11 +1,8 @@
----
-title: Terms of Service
-description: Terms and conditions for usage of products and services on this website.
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Terms of Service",
+  description:
+    "Terms and conditions for usage of products and services on this website.",
+};
 
 ## Terms
 
@@ -28,3 +25,7 @@ We reserve the right, at our sole discretion, to update, change or replace any p
 ## Contact
 
 Questions about the Terms of Service should be sent to us through any of the [contact](/contact) channels.
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

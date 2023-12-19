@@ -1,13 +1,10 @@
----
-title: About
-description: About my professional experience, certifications, skills and tools.
----
+export const metadata = {
+  title: "About",
+  description:
+    "About my professional experience, certifications, skills and tools.",
+};
 
 import { siteConfig } from "~/config/site";
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
 
 ## Continuing Education
 
@@ -270,3 +267,7 @@ I have represented data in badges with indicators to make it more expressive. Th
     </Button>
   </Link>
 </Flex>
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

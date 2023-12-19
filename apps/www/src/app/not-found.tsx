@@ -4,7 +4,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ExclamationTriangleIcon,
-  HomeIcon,
 } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
@@ -70,7 +69,6 @@ export default function NotFound(): React.JSX.Element {
               gap: "var(--space-2)",
             }}
           >
-            <HomeIcon width="18" height="18" />
             <Text>GO HOME</Text>
             <ChevronRightIcon width="18" height="18" aria-hidden />
           </Button>

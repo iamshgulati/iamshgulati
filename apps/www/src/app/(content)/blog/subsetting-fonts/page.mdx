@@ -1,12 +1,8 @@
----
-title: Subsetting Fonts
-description: How to subset fonts for performance optimization?
-publishedAt: 2023-12-11
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Subsetting Fonts",
+  description: "How to subset fonts for performance optimization?",
+  publishedAt: "2023-12-11",
+};
 
 ## Generating a font subset
 
@@ -41,3 +37,7 @@ pyftsubset \
 > For the two styles of Inter 4, size reduced from total 733KB to just 58KB. Thats... not bad at all.
 
 You can now load the woff2 font files using `@font-face`, or using `next/font/local` package as I have shared in [this post](/blog/var-local-fonts-nextjs).
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

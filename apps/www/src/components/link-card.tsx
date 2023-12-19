@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Flex, Text } from "@radix-ui/themes";
+import { Badge, Card, Flex, Text } from "@radix-ui/themes";
 
 import { formatFullDate, formatRelativeDate } from "~/lib/date";
 import { NextLink } from "~/lib/link";
@@ -28,23 +28,25 @@ export const LinkCard = ({
         {description}
       </Text>
       <Flex align="center" gap="2" style={{ color: "var(--gray-10)" }}>
-        <Text asChild size="1">
-          {metadata?.publishedAt && (
-            <time dateTime={metadata.publishedAt}>
-              {formatFullDate(metadata.publishedAt)}
-            </time>
-          )}
-        </Text>
-        <Text as="p" size="1">
-          &middot;
-        </Text>
-        <Text as="p" size="1">
-          {metadata?.publishedAt && (
-            <time dateTime={metadata.publishedAt}>
-              {formatRelativeDate(metadata.publishedAt)}
-            </time>
-          )}
-        </Text>
+        {metadata?.publishedAt ? (
+          <React.Fragment>
+            <Text asChild size="1">
+              <time dateTime={metadata.publishedAt}>
+                {formatFullDate(metadata.publishedAt)}
+              </time>
+            </Text>
+            <Text as="p" size="1">
+              &middot;
+            </Text>
+            <Text as="p" size="1">
+              <time dateTime={metadata.publishedAt}>
+                {formatRelativeDate(metadata.publishedAt)}
+              </time>
+            </Text>
+          </React.Fragment>
+        ) : (
+          <Badge mt="1">draft</Badge>
+        )}
       </Flex>
     </React.Fragment>
   );

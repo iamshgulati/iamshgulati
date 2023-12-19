@@ -16,7 +16,8 @@ import { Command, CommandGroup } from "cmdk";
 import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
-import type { AppPage, AppRoute } from "~/lib/routes";
+import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
@@ -141,7 +142,7 @@ export function CommandMenu({
                       key={section.label ?? index}
                       heading={section.label}
                     >
-                      {section.pages.map((page: AppPage) => {
+                      {section.pages.map((page: Frontmatter) => {
                         const ItemIcon: Icon | undefined =
                           page.icon && Icons[page.icon];
                         return (

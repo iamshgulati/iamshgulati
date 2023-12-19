@@ -3,8 +3,6 @@ import "./src/env.mjs";
 
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /**
  * Next.js redirects
@@ -65,12 +63,31 @@ const nextRedirects = async () => [
 ];
 
 /**
+ * Bundle analyzer configuration
+ */
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+/**
+ * Next.js MDX configuration
+ */
+/** @type {import('@next/mdx').NextMDXOptions} */
+const mdxConfig = {
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+};
+const withMDX = mdx(mdxConfig);
+
+/**
  * Next.js configuration
  */
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ["md", "mdx", "ts", "tsx"],
+  pageExtensions: ["ts", "tsx", "mdx"],
   redirects: nextRedirects,
   experimental: {
     webpackBuildWorker: true,
@@ -79,34 +96,5 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
 };
-
-/**
- * Remark MDX Frontmatter configuration
- */
-/** @type {import("remark-mdx-frontmatter").RemarkMdxFrontmatterOptions} */
-const remarkMdxFrontmatterOptions = {
-  name: "metadata",
-};
-
-/**
- * Next.js MDX configuration
- */
-/** @type {import('@next/mdx').NextMDXOptions} */
-const mdxConfig = {
-  options: {
-    remarkPlugins: [
-      remarkFrontmatter,
-      [remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
-    ],
-  },
-};
-const withMDX = mdx(mdxConfig);
-
-/**
- * Bundle analyzer configuration
- */
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
 
 export default withBundleAnalyzer(withMDX(nextConfig));

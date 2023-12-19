@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 
 import { NextLink } from "~/lib/link";
-import type { AppPage, AppRoute } from "~/lib/routes";
+import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 import styles from "./header.module.css";
 
 interface HeaderProductLinksProps {
@@ -19,7 +20,7 @@ export const HeaderProductLinks = ({
 
   return (
     <React.Fragment>
-      {route.pages.map((page: AppPage): React.JSX.Element | null => {
+      {route.pages.map((page: Frontmatter): React.JSX.Element | null => {
         return page ? (
           <HeaderProductLink
             key={page.slug}

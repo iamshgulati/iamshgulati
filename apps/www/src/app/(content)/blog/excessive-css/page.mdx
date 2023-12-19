@@ -1,12 +1,9 @@
----
-title: Excessive CSS Bundle Size
-description: Is there a better way to reduce the css bundle size when using component libraries?
-publishedAt: 2023-11-29
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Excessive CSS Bundle Size",
+  description:
+    "Is there a better way to reduce the css bundle size when using component libraries?",
+  publishedAt: "2023-11-29",
+};
 
 I love the idea behind [RadixUI Themes](https://www.radix-ui.com/themes).
 
@@ -47,3 +44,7 @@ Update — three days later.
 Since the changes I needed in the css were inside `src` directory, I couldn't directly patch target css files. The exported css in dependency is compiled on build step. So, I had to build the package with my changes applied, and copy the output css from `dist` directory and apply the patch using `pnpm patch`.
 
 Still not ideal, but something that works and is better than not having it.
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

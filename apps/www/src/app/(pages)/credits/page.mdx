@@ -1,15 +1,7 @@
----
-title: Credits
-description: Credit where credit is due.
----
-
-import { Link } from "@radix-ui/themes";
-
-import { Table } from "~/components/mdx/table";
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Credits",
+  description: "Credit where credit is due.",
+};
 
 ## Open-source Community
 
@@ -17,31 +9,33 @@ I am most thankful to the following people whose work helped me develop my onlin
 
 <Table
   data={{
-    headers: ["Tool", "Link"],
+    header: ["Tool", "Link"],
     rows: [
-      ["Radix UI", <Link href="https://www.radix-ui.com">radix-ui.com</Link>],
-      ["Cmdk", <Link href="https://cmdk.paco.me">cmdk.paco.me</Link>],
-      ["Create T3 App", <Link href="https://create.t3.gg">create.t3.gg</Link>],
-      ["Next.js", <Link href="https://nextjs.org">nextjs.org</Link>],
-      ["React", <Link href="https://react.dev">react.dev</Link>],
-      ["MDX", <Link href="https://mdxjs.com">mdxjs.com</Link>],
+      ["Radix UI", <a href="https://www.radix-ui.com">radix-ui.com</a>],
+      ["Cmdk", <a href="https://cmdk.paco.me">cmdk.paco.me</a>],
+      ["Create T3 App", <a href="https://create.t3.gg">create.t3.gg</a>],
+      ["Next.js", <a href="https://nextjs.org">nextjs.org</a>],
+      ["React", <a href="https://react.dev">react.dev</a>],
+      ["MDX", <a href="https://mdxjs.com">mdxjs.com</a>],
       [
         "Typescript",
-        <Link href="https://www.typescriptlang.org">typescriptlang.org</Link>,
+        <a href="https://www.typescriptlang.org">typescriptlang.org</a>,
       ],
-      ["Inter", <Link href="https://rsms.me/inter">rsms.me/inter</Link>],
+      ["Inter", <a href="https://rsms.me/inter">rsms.me/inter</a>],
       [
         "Plus Jakarta Sans",
-        <Link href="https://tokotype.github.io/plusjakarta-sans">
+        <a href="https://tokotype.github.io/plusjakarta-sans">
           tokotype.github.io/plusjakarta-sans
-        </Link>,
+        </a>,
       ],
       [
         "JetBrains Mono",
-        <Link href="https://www.jetbrains.com/lp/mono">
-          jetbrains.com/lp/mono
-        </Link>,
+        <a href="https://www.jetbrains.com/lp/mono">jetbrains.com/lp/mono</a>,
       ],
     ],
   }}
 />
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

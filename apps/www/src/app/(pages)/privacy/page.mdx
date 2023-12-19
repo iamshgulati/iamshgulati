@@ -1,11 +1,8 @@
----
-title: Privacy Policy
-description: Privacy policy governing collection and usage of personal information.
----
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
+export const metadata = {
+  title: "Privacy Policy",
+  description:
+    "Privacy policy governing collection and usage of personal information.",
+};
 
 This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a
 purchase from gulati.sh (the “Site”).
@@ -32,3 +29,7 @@ other operational, legal or regulatory reasons.
 
 For more information about our privacy practices, if you have questions, or if you would like to make a complaint,
 please contact us through any of the [contact](/contact) channels.
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

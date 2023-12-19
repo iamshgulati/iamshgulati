@@ -1,13 +1,10 @@
----
-title: Contact
-description: Get in touch with me anytime, through social media, e-mail, or phone number.
----
+export const metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with me anytime, through social media, e-mail, or phone number.",
+};
 
 import { siteConfig } from "~/config/site";
-
-export default function ContentPage({ children }) {
-  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
-}
 
 In the past I have shared my email address in public, but it was misused by spammers to send me junk mails.
 So, I refrain from sharing my email address in the public anymore.
@@ -20,11 +17,20 @@ If you want to find me on social media, just search for `iamshgulati`. That's my
 
 For your convenience, I have also included my social media links below.
 
-| Social       | Link                                                      |
-| ------------ | --------------------------------------------------------- |
-| **GitHub**   | {<a href={siteConfig.links.github}>github.com</a>}        |
-| **LinkedIn** | {<a href={siteConfig.links.linkedin}>linkedin.com</a>}    |
-| **Twitter**  | {<a href={siteConfig.links.twitter}>twitter.com</a>}      |
-| **Threads**  | {<a href={siteConfig.links.threads}>threads.net</a>}      |
-| **Mastodon** | {<a href={siteConfig.links.mastodon}>mastodon.social</a>} |
-| **Bluesky**  | {<a href={siteConfig.links.bluesky}>bsky.app</a>}         |
+<Table
+  data={{
+    header: ["Social", "Link"],
+    rows: [
+      ["GitHub", <a href={siteConfig.links.github}>github.com</a>],
+      ["LinkedIn", <a href={siteConfig.links.linkedin}>linkedin.com</a>],
+      ["Twitter", <a href={siteConfig.links.twitter}>twitter.com</a>],
+      ["Threads", <a href={siteConfig.links.threads}>threads.net</a>],
+      ["Mastodon", <a href={siteConfig.links.mastodon}>mastodon.social</a>],
+      ["Bluesky", <a href={siteConfig.links.bluesky}>bsky.app</a>],
+    ],
+  }}
+/>
+
+export default function ContentPage({ children }) {
+  return <ContentLayout metadata={metadata}>{children}</ContentLayout>;
+}

@@ -2,12 +2,12 @@ import React from "react";
 import { Flex, IconButton, Link, Text } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
-import type { AppPage } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 interface FooterProps {
-  pages: AppPage[];
+  pages: Frontmatter[];
 }
 
 export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
@@ -22,7 +22,7 @@ export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
     >
       <footer>
         <Flex gap="5">
-          {pages.map((page: AppPage) => (
+          {pages.map((page: Frontmatter) => (
             <LinkSocialIconButton
               key={page.slug}
               href={page.slug}
