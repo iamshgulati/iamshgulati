@@ -18,7 +18,7 @@ const inter400 = fetch(
 
 const plusJakartaSans600 = fetch(
   new URL(
-    "../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff",
+    "../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.ttf",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer());
