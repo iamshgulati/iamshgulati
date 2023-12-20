@@ -3,11 +3,11 @@ import localFont from "next/font/local";
 const inter = localFont({
   src: [
     {
-      path: "Inter-4.0/InterVariable.woff2",
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
       style: "normal",
     },
     {
-      path: "Inter-4.0/InterVariable-Italic.woff2",
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
       style: "italic",
     },
   ],
@@ -23,7 +23,7 @@ const inter = localFont({
 });
 
 const jetBrainsMono = localFont({
-  src: "JetBrainsMono-2.304/JetBrainsMono-Variable.woff2",
+  src: "../assets/fonts/JetBrainsMono-2.304/JetBrainsMono-Variable.woff2",
   weight: "400",
   style: "normal",
   display: "swap",
@@ -37,7 +37,7 @@ const jetBrainsMono = localFont({
 });
 
 const playfairLogo = localFont({
-  src: "Playfair-2.1/Playfair-RegularBold-Logo.woff2",
+  src: "../assets/fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff2",
   weight: "700",
   style: "normal",
   display: "swap",
@@ -53,11 +53,11 @@ const playfairLogo = localFont({
 const playfair = localFont({
   src: [
     {
-      path: "Playfair-2.1/PlayfairRomanVF.woff2",
+      path: "../assets/fonts/Playfair-2.1/PlayfairRomanVF.woff2",
       style: "normal",
     },
     {
-      path: "Playfair-2.1/PlayfairItalicVF.woff2",
+      path: "../assets/fonts/Playfair-2.1/PlayfairItalicVF.woff2",
       style: "italic",
     },
   ],
@@ -73,7 +73,7 @@ const playfair = localFont({
 });
 
 const plusJakartaSans = localFont({
-  src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
+  src: "../assets/fonts/PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
   weight: "100 900",
   style: "normal",
   display: "swap",
@@ -87,7 +87,7 @@ const plusJakartaSans = localFont({
 });
 
 const _calSans = localFont({
-  src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
+  src: "../assets/fonts/CalSans-1.0.0/CalSans-SemiBold.woff2",
   weight: "700",
   style: "normal",
   display: "swap",
