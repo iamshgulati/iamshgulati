@@ -12,25 +12,25 @@ export const size = {
   height: 1080,
 };
 
-const inter400 = fetch(
-  new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
-).then((res) => res.arrayBuffer());
-
-const calsans600 = fetch(
-  new URL(
-    "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
-    import.meta.url,
-  ),
-).then((res) => res.arrayBuffer());
-
-const playfairLogo700 = fetch(
-  new URL(
-    "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
-    import.meta.url,
-  ),
-).then((res) => res.arrayBuffer());
-
 export async function GET(req: Request) {
+  const inter400 = fetch(
+    new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+  ).then((res) => res.arrayBuffer());
+
+  const calsans600 = fetch(
+    new URL(
+      "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
+  const playfairLogo700 = fetch(
+    new URL(
+      "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
   try {
     const { searchParams } = new URL(req.url);
     const { title, publishedAt } = ogImageSchema.parse(
