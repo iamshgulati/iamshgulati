@@ -8,9 +8,10 @@ const ROOT_DIR = process.cwd();
 
 export const getAllFrontmatter = async (
   dataDir: string,
-  contentDir: string,
+  contentDir = "",
 ): Promise<Frontmatter[]> => {
-  const mdxFilePaths = glob.sync(`${ROOT_DIR}${dataDir}${contentDir}/**/*.mdx`);
+  const mdxFilePathPattern = `${ROOT_DIR}${dataDir}${contentDir}/**/*.mdx`;
+  const mdxFilePaths = glob.sync(mdxFilePathPattern);
 
   // Resolve all frontmatter promises so we can perform filtering and sorting
   let allFrontmatter: Frontmatter[] = await Promise.all(
@@ -21,7 +22,7 @@ export const getAllFrontmatter = async (
         .replace("/page.mdx", "");
 
       const { metadata } = (await import(
-        `/src/app/(content)${modulePath}/page.mdx`
+        `/src/data${modulePath}/page.mdx`
       )) as MDXModule;
 
       return {

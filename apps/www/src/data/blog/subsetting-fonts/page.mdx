@@ -1,0 +1,39 @@
+export const metadata = {
+  title: "Subsetting Fonts",
+  description: "How to subset fonts for performance optimization?",
+  publishedAt: "2023-12-11",
+};
+
+## Generating a font subset
+
+Some fonts have hundreds or thousands of glyphs covering many languages. Font subsetting can make your font files as small as just 5% of the original font files depending on the subsets you choose to use for your website. Here's how I generated subsets for the [Inter 4](https://rsms.me/inter) font family.
+
+1. Install `fonttools` and `brotli`
+
+```sh
+pip install fonttools brotli
+```
+
+2. Run `pyftsubset` with desired options
+
+```sh
+pyftsubset \
+  InterVariable.ttf \
+  --output-file="InterVariable.woff2" \
+  --flavor="woff2" \
+  --layout-features="" \
+  --unicodes="U+0020-007F"
+```
+
+```sh
+pyftsubset \
+  InterVariable-Italic.ttf \
+  --output-file="InterVariable-Italic.woff2" \
+  --flavor="woff2" \
+  --layout-features="" \
+  --unicodes="U+0020-007F"
+```
+
+> For the two styles of Inter 4, size reduced from total 733KB to just 58KB. Thats... not bad at all.
+
+You can now load the woff2 font files using `@font-face`, or using `next/font/local` package as I have shared in [this post](/blog/var-local-fonts-nextjs).

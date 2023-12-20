@@ -35,7 +35,7 @@ export const allRoutes: AllRoutes = {
   projects: {
     label: "Projects",
     pages: [
-      ...(await getAllFrontmatter("/src/app/(content)", "/projects")).map(
+      ...(await getAllFrontmatter("/src/data", "/projects")).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;
@@ -46,7 +46,7 @@ export const allRoutes: AllRoutes = {
   blog: {
     label: "Blog Posts",
     pages: [
-      ...(await getAllFrontmatter("/src/app/(content)", "/blog")).map(
+      ...(await getAllFrontmatter("/src/data", "/blog")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -57,7 +57,7 @@ export const allRoutes: AllRoutes = {
   private: {
     label: "Private Pages",
     pages: [
-      ...(await getAllFrontmatter("/src/app/(content)", "/private")).map(
+      ...(await getAllFrontmatter("/src/data", "/private")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;

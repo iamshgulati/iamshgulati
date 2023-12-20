@@ -1,0 +1,47 @@
+export const metadata = {
+  title: "Variable Local Fonts With Next.js",
+  description:
+    "How to properly load variable local fonts with multiple style variants in Next.js?",
+  publishedAt: "2023-12-03",
+};
+
+Next.js has a font module load local and google fonts but their documentation isn't clear on how to load **variable local fonts** properly.
+
+I have tried to use [Inter 4](https://rsms.me/inter) variable font on my website and waned to share how I did it.
+
+```ts showLineNumbers {14} title="font.ts"
+import localFont from "next/font/local";
+
+export const fontSans = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Inter-4.0/InterVariable-Italic.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-sans",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+```
+
+{<Callout>
+Setting the <Code>{`weight: "100 900"`}</Code> was important here. This is
+not documented clearly in Next.js documentation, and without it all my
+font weights were being synthesized from single regular weight.
+
+</Callout>}
+
+From here, the documentation is pretty clear. You just add `fontSans.variable` to `className` on `body` tag, prepend `var(--font-sans)` to your `font-family` and you are set.
+
+> The code snippet in this post also uses a `unicode-range`. To read more about it you can read [this post](/blog/subsetting-fonts).
