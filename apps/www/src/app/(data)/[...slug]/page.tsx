@@ -34,6 +34,7 @@ export async function generateMetadata({
     ? `${siteConfig.url}${page.image}`
     : ogImageApi({
         title: page.title,
+        publishedAt: page.publishedAt,
       });
 
   return {

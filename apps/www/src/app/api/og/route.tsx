@@ -105,15 +105,13 @@ export async function GET(req: Request) {
             >
               {siteConfig.title}
             </div>
-            {publishedAt && (
-              <div
-                style={{
-                  marginRight: 190,
-                }}
-              >
-                {formatShortDate(publishedAt)}
-              </div>
-            )}
+            <div
+              style={{
+                marginRight: 190,
+              }}
+            >
+              {publishedAt && formatShortDate(publishedAt)}
+            </div>
           </div>
         </div>
       ),

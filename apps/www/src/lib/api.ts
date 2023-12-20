@@ -1,8 +1,13 @@
+import type { Frontmatter } from "~/types/frontmatter";
 import { getParams } from "./url";
 
-export const ogImageApi = ({ title }: { title: string }) =>
+export const ogImageApi = ({
+  title,
+  publishedAt = undefined,
+}: Pick<Frontmatter, "title" | "publishedAt">) =>
   encodeURI(
     `/api/og?${getParams({
       title,
+      publishedAt,
     })}`,
   );
