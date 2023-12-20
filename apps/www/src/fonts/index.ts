@@ -107,3 +107,38 @@ export const fonts = [
   jetBrainsMono.variable,
   plusJakartaSans.variable,
 ].join(" ");
+
+/**
+ * Font loader for open graph route
+ */
+export async function getOgFonts() {
+  const [inter400, calSans600, playfairLogo700] = await Promise.all([
+    fetch(new URL("Inter-4.0/Inter-Regular.woff", import.meta.url)).then(
+      (res) => res.arrayBuffer(),
+    ),
+    fetch(new URL("CalSans-1.0.0/CalSans-SemiBold.woff", import.meta.url)).then(
+      (res) => res.arrayBuffer(),
+    ),
+    fetch(
+      new URL("Playfair-2.1/Playfair-RegularBold-Logo.woff", import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+  ]);
+
+  return [
+    {
+      name: "Inter 400",
+      data: inter400,
+      style: "normal",
+    },
+    {
+      name: "CalSans 600",
+      data: calSans600,
+      style: "normal",
+    },
+    {
+      name: "Playfair 700",
+      data: playfairLogo700,
+      style: "normal",
+    },
+  ];
+}
