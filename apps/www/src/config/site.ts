@@ -12,9 +12,6 @@ export interface SiteConfig {
     mastodon: string;
     bluesky: string;
   };
-  openGraph: {
-    //
-  };
   handles: {
     twitter: string;
   };
@@ -25,7 +22,6 @@ export const siteConfig: SiteConfig = {
   description: "Software Engineer & Certified Cloud Architect.",
   url: "https://gulati.sh",
   locale: "en_US",
-  type: "website",
   links: {
     resume: "/files/ShubhamGulati_Resume.pdf",
     linkedin: "https://www.linkedin.com/in/iamshgulati/",
@@ -34,9 +30,6 @@ export const siteConfig: SiteConfig = {
     threads: "https://www.threads.net/@iamshgulati",
     mastodon: "https://mastodon.social/@iamshgulati",
     bluesky: "https://bsky.app/about/iamshgulati.bsky.social",
-  },
-  openGraph: {
-    //
   },
   handles: {
     twitter: "IAmShGulati",
