@@ -12,6 +12,10 @@ import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
 
+const ogImageUrl: string = ogImageApi({
+  title: "Hello! I'm Shubham Gulati.",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
@@ -26,9 +30,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: ogImageApi({
-          title: "Hello! I'm Shubham Gulati.",
-        }),
+        url: ogImageUrl,
         width: 1920,
         height: 1080,
       },
@@ -38,11 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      ogImageApi({
-        title: "Hello! I'm Shubham Gulati.",
-      }),
-    ],
+    images: [ogImageUrl],
   },
 };
 

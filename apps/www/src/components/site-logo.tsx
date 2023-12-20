@@ -1,30 +1,38 @@
 import React from "react";
-import { Box, Flex } from "@radix-ui/themes";
+import { Box, Flex, Text } from "@radix-ui/themes";
 
-import type { Icon } from "./icons";
-import { Icons } from "./icons";
+import { siteConfig } from "~/config/site";
 
-export const SiteLogoIcon = ({
-  ...props
-}: React.ComponentProps<Icon>): React.JSX.Element => {
+export const SiteLogoIcon = ({ style }: React.ComponentProps<typeof Box>) => {
   return (
-    <Flex asChild align="center">
-      <Icons.SiteLogoIcon width="22" height="22" {...props} />
-    </Flex>
+    <Text
+      style={{
+        display: "flex",
+        fontSize: 54,
+        fontFamily: "var(--font-logo)",
+        fontStyle: "normal",
+        color: "white",
+        lineHeight: "20px",
+        overflow: "hidden",
+        ...style,
+      }}
+    >
+      <span style={{ paddingTop: "2px", paddingBottom: "0px" }}>S</span>
+    </Text>
   );
 };
 
 export const SiteLogo = ({
   style = undefined,
   ...props
-}: React.ComponentProps<Icon>): React.JSX.Element => {
+}: React.ComponentProps<typeof SiteLogoIcon>): React.JSX.Element => {
   return (
-    <Box style={style}>
-      <Flex align="center" gap="1">
-        <Icons.SiteLogoIcon width="22" height="22" {...props} />
-        {/* <Text size="4" weight="medium">
-          {siteConfig.name}
-        </Text> */}
+    <Box>
+      <Flex align="center" gap="2">
+        <SiteLogoIcon {...props} style={style} />
+        <Text size="5" weight="medium">
+          {siteConfig.title}
+        </Text>
       </Flex>
     </Box>
   );

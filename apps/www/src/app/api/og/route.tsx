@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
+import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
@@ -15,10 +16,6 @@ const inter400 = fetch(
   new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-const inter600 = fetch(
-  new URL("../../../fonts/Inter-4.0/Inter-SemiBold.woff", import.meta.url),
-).then((res) => res.arrayBuffer());
-
 const plusJakartaSans600 = fetch(
   new URL(
     "../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff",
@@ -26,9 +23,9 @@ const plusJakartaSans600 = fetch(
   ),
 ).then((res) => res.arrayBuffer());
 
-const calSans600 = fetch(
+const playfairLogo700 = fetch(
   new URL(
-    "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+    "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer());
@@ -36,8 +33,9 @@ const calSans600 = fetch(
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
-    const values = ogImageSchema.parse(Object.fromEntries(searchParams));
-    const title = values.title;
+    const { title, publishedAt } = ogImageSchema.parse(
+      Object.fromEntries(searchParams),
+    );
 
     return new ImageResponse(
       (
@@ -51,40 +49,34 @@ export async function GET(req: Request) {
             alignItems: "flex-start",
             justifyContent: "center",
             backgroundImage: `url(${getBaseUrl()}/og-bg.jpg)`,
+            filter: "saturate(0.85)",
           }}
         >
           <div
             style={{
               position: "absolute",
-              top: 150,
+              top: 160,
               marginLeft: 190,
               marginRight: 190,
               display: "flex",
+              fontSize: 250,
+              fontFamily: "Playfair 700",
+              fontStyle: "normal",
+              color: "white",
+              lineHeight: "65px",
+              overflow: "hidden",
             }}
           >
-            <svg
-              width="80"
-              height="80"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="none"
-                stroke="white"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.25"
-                d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
-              />
-            </svg>
+            <span style={{ paddingTop: "0px", paddingBottom: "35px" }}>S</span>
           </div>
           <div
             style={{
               marginLeft: 190,
               marginRight: 190,
               display: "flex",
-              fontSize: 140,
-              fontFamily: "CalSans 600",
+              fontSize: 130,
+              fontFamily: "Plus Jakarta Sans 600",
+              letterSpacing: "-0.03em",
               fontStyle: "normal",
               color: "white",
               lineHeight: "150px",
@@ -100,30 +92,28 @@ export async function GET(req: Request) {
               display: "flex",
               width: "100%",
               justifyContent: "space-between",
+              fontSize: 50,
+              fontFamily: "Inter 400",
+              fontStyle: "normal",
+              color: "white",
             }}
           >
             <div
               style={{
                 marginLeft: 190,
-                fontSize: 60,
-                fontFamily: "Inter 400",
-                fontStyle: "normal",
-                color: "white",
               }}
             >
               {siteConfig.title}
             </div>
-            <div
-              style={{
-                marginRight: 190,
-                fontSize: 60,
-                fontFamily: "Inter 400",
-                fontStyle: "normal",
-                color: "white",
-              }}
-            >
-              {siteConfig.og.displayUrl}
-            </div>
+            {publishedAt && (
+              <div
+                style={{
+                  marginRight: 190,
+                }}
+              >
+                {formatShortDate(publishedAt)}
+              </div>
+            )}
           </div>
         </div>
       ),
@@ -136,18 +126,13 @@ export async function GET(req: Request) {
             style: "normal",
           },
           {
-            name: "Inter 600",
-            data: await inter600,
-            style: "normal",
-          },
-          {
             name: "Plus Jakarta Sans 600",
             data: await plusJakartaSans600,
             style: "normal",
           },
           {
-            name: "CalSans 600",
-            data: await calSans600,
+            name: "Playfair 700",
+            data: await playfairLogo700,
             style: "normal",
           },
         ],

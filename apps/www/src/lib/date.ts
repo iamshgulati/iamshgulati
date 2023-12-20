@@ -14,8 +14,32 @@ export const formatFullDate = (date: string | Date): string => {
 
   const targetDate = new Date(date);
 
-  return targetDate.toLocaleString("en-us", {
+  return targetDate.toLocaleString("en-US", {
     month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+};
+
+/**
+ * Formats a given date or string representation of a date into a short date string.
+ * @param {(string | Date)} date - The date or string representation of a date to format.
+ * @returns {string} - Returns the formatted full date string in "Month day, year" format (e.g., "Jan 1, 2023").
+ */
+export const formatShortDate = (date: string | Date): string => {
+  if (date instanceof Date) {
+    date = date.toISOString();
+  }
+
+  if (!date.includes("T")) {
+    date = `${date}T00:00:00`;
+  }
+
+  const targetDate = new Date(date);
+
+  return targetDate.toLocaleString("en-US", {
+    month: "short",
     day: "numeric",
     year: "numeric",
     timeZone: "UTC",

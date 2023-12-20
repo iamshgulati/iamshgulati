@@ -36,7 +36,43 @@ const jetBrainsMono = localFont({
   ],
 });
 
-const _plusJakartaSans = localFont({
+const playfairLogo = localFont({
+  src: "Playfair-2.1/Playfair-RegularBold-Logo.woff2",
+  weight: "700",
+  style: "normal",
+  display: "swap",
+  variable: "--font-logo",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0053",
+    },
+  ],
+});
+
+const playfair = localFont({
+  src: [
+    {
+      path: "Playfair-2.1/PlayfairRomanVF.woff2",
+      style: "normal",
+    },
+    {
+      path: "Playfair-2.1/PlayfairItalicVF.woff2",
+      style: "italic",
+    },
+  ],
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-serif",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0020-007F",
+    },
+  ],
+});
+
+const plusJakartaSans = localFont({
   src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
   weight: "100 900",
   style: "normal",
@@ -50,7 +86,7 @@ const _plusJakartaSans = localFont({
   ],
 });
 
-const calSans = localFont({
+const _calSans = localFont({
   src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
   weight: "700",
   style: "normal",
@@ -65,7 +101,9 @@ const calSans = localFont({
 });
 
 export const fonts = [
-  calSans.variable,
   inter.variable,
+  playfair.variable,
+  playfairLogo.variable,
   jetBrainsMono.variable,
+  plusJakartaSans.variable,
 ].join(" ");

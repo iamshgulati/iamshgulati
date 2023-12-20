@@ -25,7 +25,7 @@ export type Icon = React.ForwardRefExoticComponent<
   IconProps & React.RefAttributes<SVGSVGElement>
 >;
 
-const SiteLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+const CommandIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // BiCommand
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -48,7 +48,7 @@ const SiteLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
     );
   },
 );
-SiteLogoIcon.displayName = "SiteLogoIcon";
+CommandIcon.displayName = "CommandIcon";
 
 const HashIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // hi2/HiHashtag
@@ -495,7 +495,7 @@ export const Icons = {
   InfoCircledIcon,
   ArrowTopRightIcon,
   //
-  SiteLogoIcon,
+  CommandIcon,
   LinkedInLogoIcon,
   GitHubLogoIcon,
   TwitterLogoIcon,
