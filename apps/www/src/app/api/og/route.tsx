@@ -14,19 +14,22 @@ export const size = {
 
 export async function GET(req: Request) {
   const inter400 = fetch(
-    new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+    new URL(
+      "../../../../public/fonts/Inter-4.0/Inter-Regular.woff",
+      import.meta.url,
+    ),
   ).then((res) => res.arrayBuffer());
 
   const calsans600 = fetch(
     new URL(
-      "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+      "../../../../public/fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
 
   const playfairLogo700 = fetch(
     new URL(
-      "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
+      "../../../../public/fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
