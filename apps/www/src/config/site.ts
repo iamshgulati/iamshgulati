@@ -15,6 +15,9 @@ export interface SiteConfig {
   handles: {
     twitter: string;
   };
+  og: {
+    displayUrl: string;
+  };
 }
 
 export const siteConfig: SiteConfig = {
@@ -33,5 +36,8 @@ export const siteConfig: SiteConfig = {
   },
   handles: {
     twitter: "IAmShGulati",
+  },
+  og: {
+    displayUrl: "www.gulati.sh",
   },
 };

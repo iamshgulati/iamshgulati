@@ -10,6 +10,7 @@ import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { fonts } from "~/fonts";
 import { cn } from "~/lib/classnames";
+import { ogImageUrl } from "~/lib/url";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -23,10 +24,25 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     locale: siteConfig.locale,
     type: "website",
+    images: [
+      {
+        url: ogImageUrl({
+          title: "Hello! I'm Shubham Gulati.",
+        }),
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
   twitter: {
-    title: siteConfig.title,
     card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      ogImageUrl({
+        title: "Hello! I'm Shubham Gulati.",
+      }),
+    ],
   },
 };
 
