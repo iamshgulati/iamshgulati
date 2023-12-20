@@ -1,6 +1,7 @@
 export interface SiteConfig {
   name: string;
   description: string;
+  url: string;
   links: {
     resume: string;
     linkedin: string;
@@ -21,6 +22,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Shubham Gulati",
   description: "Software Engineer & Certified Cloud Architect.",
+  url: "https://gulati.sh",
   links: {
     resume: "/files/ShubhamGulati_Resume.pdf",
     linkedin: "https://www.linkedin.com/in/iamshgulati/",

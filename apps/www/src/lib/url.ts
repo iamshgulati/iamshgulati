@@ -5,4 +5,4 @@ export const getBaseUrl = (): string =>
 
 /*
 export const absoluteUrl = (path: string): string => `${getBaseUrl()}${path}`;
- */
+*/

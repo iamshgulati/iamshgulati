@@ -12,6 +12,7 @@ import { fonts } from "~/fonts";
 import { cn } from "~/lib/classnames";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   manifest: "/site.webmanifest",
