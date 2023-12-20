@@ -36,7 +36,7 @@ const jetBrainsMono = localFont({
   ],
 });
 
-const plusJakartaSans = localFont({
+const _plusJakartaSans = localFont({
   src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
   weight: "100 900",
   style: "normal",
@@ -50,7 +50,7 @@ const plusJakartaSans = localFont({
   ],
 });
 
-const _calSans = localFont({
+const calSans = localFont({
   src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
   weight: "700",
   style: "normal",
@@ -65,7 +65,7 @@ const _calSans = localFont({
 });
 
 export const fonts = [
-  plusJakartaSans.variable,
+  calSans.variable,
   inter.variable,
   jetBrainsMono.variable,
 ].join(" ");
