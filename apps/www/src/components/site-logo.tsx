@@ -1,23 +1,24 @@
 import React from "react";
 import { Box, Flex, Text } from "@radix-ui/themes";
 
-import { siteConfig } from "~/config/site";
-
-export const SiteLogoIcon = ({ style }: React.ComponentProps<typeof Box>) => {
+export const SiteLogoIcon = ({
+  style,
+  ...props
+}: Omit<React.ComponentPropsWithoutRef<typeof Text>, "as">) => {
   return (
     <Text
+      {...props}
+      size="9"
       style={{
         display: "flex",
-        fontSize: 54,
         fontFamily: "var(--font-logo)",
         fontStyle: "normal",
-        color: "white",
-        lineHeight: "20px",
+        lineHeight: "1.625rem",
         overflow: "hidden",
         ...style,
       }}
     >
-      <span style={{ paddingTop: "2px", paddingBottom: "0px" }}>S</span>
+      <span style={{ paddingTop: "0.125rem", paddingBottom: "0rem" }}>S</span>
     </Text>
   );
 };
@@ -30,9 +31,9 @@ export const SiteLogo = ({
     <Box>
       <Flex align="center" gap="2">
         <SiteLogoIcon {...props} style={style} />
-        <Text size="5" weight="medium">
+        {/* <Text {...props} size="4" weight="medium">
           {siteConfig.title}
-        </Text>
+        </Text> */}
       </Flex>
     </Box>
   );

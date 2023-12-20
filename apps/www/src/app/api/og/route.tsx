@@ -59,15 +59,15 @@ export async function GET(req: Request) {
               marginLeft: 190,
               marginRight: 190,
               display: "flex",
-              fontSize: 250,
+              fontSize: 220,
               fontFamily: "Playfair 700",
               fontStyle: "normal",
               color: "white",
-              lineHeight: "65px",
+              lineHeight: "70px",
               overflow: "hidden",
             }}
           >
-            <span style={{ paddingTop: "0px", paddingBottom: "35px" }}>S</span>
+            <span style={{ paddingTop: "2px", paddingBottom: "33px" }}>S</span>
           </div>
           <div
             style={{
