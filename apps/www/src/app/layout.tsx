@@ -13,9 +13,21 @@ import { cn } from "~/lib/classnames";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+  title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   manifest: "/site.webmanifest",
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.title,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    title: siteConfig.title,
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

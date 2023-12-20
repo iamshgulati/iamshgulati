@@ -32,7 +32,7 @@ export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
           ))}
         </Flex>
         <Text size="1" color="gray">
-          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+          &copy; {new Date().getFullYear()} {siteConfig.title}. All rights
           reserved.
         </Text>
       </footer>
