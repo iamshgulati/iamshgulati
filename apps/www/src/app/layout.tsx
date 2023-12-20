@@ -9,8 +9,8 @@ import type { Metadata } from "next";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { fonts } from "~/fonts";
+import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
-import { ogImageUrl } from "~/lib/url";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: ogImageUrl({
+        url: ogImageApi({
           title: "Hello! I'm Shubham Gulati.",
         }),
         width: 1920,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [
-      ogImageUrl({
+      ogImageApi({
         title: "Hello! I'm Shubham Gulati.",
       }),
     ],
