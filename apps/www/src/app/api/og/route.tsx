@@ -13,22 +13,19 @@ export const size = {
 };
 
 const inter400 = fetch(
-  new URL(
-    "../../../assets/fonts/Inter-4.0/Inter-Regular.woff",
-    import.meta.url,
-  ),
+  new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const calsans600 = fetch(
   new URL(
-    "../../../assets/fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+    "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer());
 
 const playfairLogo700 = fetch(
   new URL(
-    "../../../assets/fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
+    "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer());

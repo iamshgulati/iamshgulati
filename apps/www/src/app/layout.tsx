@@ -8,9 +8,9 @@ import type { Metadata } from "next";
 
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
+import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
-import { fonts } from "~/lib/fonts";
 
 const ogImageUrl: string = ogImageApi({
   title: "Hello! I'm Shubham Gulati.",
