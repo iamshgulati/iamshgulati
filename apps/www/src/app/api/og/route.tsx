@@ -16,9 +16,9 @@ const inter400 = fetch(
   new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-const plusJakartaSans600 = fetch(
+const calsans600 = fetch(
   new URL(
-    "../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff",
+    "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
     import.meta.url,
   ),
 ).then((res) => res.arrayBuffer());
@@ -75,8 +75,8 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "Plus Jakarta Sans 600",
-              letterSpacing: "-0.03em",
+              fontFamily: "CalSans 600",
+              letterSpacing: "0em",
               fontStyle: "normal",
               color: "white",
               lineHeight: "150px",
@@ -124,8 +124,8 @@ export async function GET(req: Request) {
             style: "normal",
           },
           {
-            name: "Plus Jakarta Sans 600",
-            data: await plusJakartaSans600,
+            name: "CalSans 600",
+            data: await calsans600,
             style: "normal",
           },
           {
