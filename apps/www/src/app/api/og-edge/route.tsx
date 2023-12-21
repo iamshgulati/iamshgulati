@@ -35,10 +35,8 @@ export async function GET(req: Request) {
   //   ),
   // ]);
 
-  const [inter400, calSans600] = await Promise.all([
-    inter400Font(),
-    calSans600Font(),
-  ]);
+  const inter400 = await inter400Font();
+  const calSans600 = await calSans600Font();
 
   try {
     const { searchParams } = new URL(req.url);
