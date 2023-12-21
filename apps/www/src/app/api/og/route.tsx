@@ -1,14 +1,36 @@
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
-import { getOgFonts } from "~/fonts";
 import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
 export const runtime = "edge";
 
+export const size = {
+  width: 1920,
+  height: 1080,
+};
+
 export async function GET(req: Request) {
+  const inter400 = fetch(
+    new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+  ).then((res) => res.arrayBuffer());
+
+  const calsans600 = fetch(
+    new URL(
+      "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
+  const playfairLogo700 = fetch(
+    new URL(
+      "../../../fonts/Playfair-2.1/Playfair-RegularBold-Logo.woff",
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
   try {
     const { searchParams } = new URL(req.url);
     const { title, publishedAt } = ogImageSchema.parse(
@@ -94,11 +116,24 @@ export async function GET(req: Request) {
         </div>
       ),
       {
-        width: 1920,
-        height: 1080,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        fonts: await getOgFonts(),
+        ...size,
+        fonts: [
+          {
+            name: "Inter 400",
+            data: await inter400,
+            style: "normal",
+          },
+          {
+            name: "CalSans 600",
+            data: await calsans600,
+            style: "normal",
+          },
+          {
+            name: "Playfair 700",
+            data: await playfairLogo700,
+            style: "normal",
+          },
+        ],
       },
     );
   } catch (error) {
