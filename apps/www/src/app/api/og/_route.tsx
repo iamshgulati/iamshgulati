@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
@@ -8,7 +5,7 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const contentType = "image/jpg";
 export const size = {
   width: 1920,
@@ -17,18 +14,15 @@ export const size = {
 
 export async function GET(req: Request) {
   const [inter400, calSans600] = await Promise.all([
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../fonts/Inter-4.0/Inter-Regular.woff`,
+    fetch(
+      new URL(`../../../fonts/Inter-4.0/Inter-Regular.woff`, import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+    fetch(
+      new URL(
+        `../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
+        import.meta.url,
       ),
-    ),
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
-      ),
-    ),
+    ).then((res) => res.arrayBuffer()),
   ]);
 
   try {
