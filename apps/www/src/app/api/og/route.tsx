@@ -5,9 +5,14 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
-export function GET(req: Request) {
+export async function GET(req: Request) {
+  const inter400Promise = fetch(
+    new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+  ).then((res) => res.arrayBuffer());
+  const inter400 = await inter400Promise;
+
   try {
     const { searchParams } = new URL(req.url);
     const { title, publishedAt } = ogImageSchema.parse(
@@ -59,7 +64,7 @@ export function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "CalSans 600",
+              fontFamily: "Inter 400",
               letterSpacing: "0em",
               fontStyle: "normal",
               color: "white",
@@ -102,6 +107,13 @@ export function GET(req: Request) {
       {
         width: 1920,
         height: 1080,
+        fonts: [
+          {
+            name: "Inter 400",
+            data: inter400,
+            style: "normal",
+          },
+        ],
       },
     );
   } catch (error) {
