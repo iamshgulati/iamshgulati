@@ -80,7 +80,8 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "CalSans 600",
+              fontFamily: "CalSans",
+              fontWeight: 600,
               letterSpacing: "0em",
               fontStyle: "normal",
               color: "white",
@@ -98,7 +99,8 @@ export async function GET(req: Request) {
               width: "100%",
               justifyContent: "space-between",
               fontSize: 50,
-              fontFamily: "Inter 400",
+              fontFamily: "Inter",
+              fontWeight: 400,
               fontStyle: "normal",
               color: "white",
             }}
@@ -124,14 +126,16 @@ export async function GET(req: Request) {
         ...size,
         fonts: [
           {
-            name: "Inter 400",
+            name: "Inter",
             data: inter400,
             style: "normal",
+            weight: 400,
           },
           {
-            name: "CalSans 600",
+            name: "CalSans",
             data: calSans600,
             style: "normal",
+            weight: 600,
           },
         ],
       },
