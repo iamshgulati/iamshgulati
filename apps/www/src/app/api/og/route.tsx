@@ -8,9 +8,12 @@ import { ogImageSchema } from "~/lib/validation";
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const [inter400] = await Promise.all([
+  const [inter400, calSans600] = await Promise.all([
     fetch(
       new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+    fetch(
+      new URL("~/fonts/CalSans-1.0.0/CalSans-SemiBold.woff", import.meta.url),
     ).then((res) => res.arrayBuffer()),
   ]);
 
@@ -112,6 +115,11 @@ export async function GET(req: Request) {
           {
             name: "Inter 400",
             data: inter400,
+            style: "normal",
+          },
+          {
+            name: "CalSans 600",
+            data: calSans600,
             style: "normal",
           },
         ],
