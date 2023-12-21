@@ -16,20 +16,33 @@ export const size = {
 };
 
 export async function GET(req: Request) {
-  const [inter400, calSans600] = await Promise.all([
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../../public/fonts/inter-regular.woff`,
-      ),
+  // const [inter400, calSans600] = await Promise.all([
+  //   fs.promises.readFile(
+  //     path.join(
+  //       fileURLToPath(import.meta.url),
+  //       `../../../../../public/fonts/inter-regular.woff`,
+  //     ),
+  //   ),
+  //   fs.promises.readFile(
+  //     path.join(
+  //       fileURLToPath(import.meta.url),
+  //       `../../../../../public/fonts/calsans-semibold.woff`,
+  //     ),
+  //   ),
+  // ]);
+
+  const inter400 = await fs.promises.readFile(
+    path.join(
+      fileURLToPath(import.meta.url),
+      `../../../../fonts/Inter-4.0/Inter-Regular.woff`,
     ),
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../../public/fonts/calsans-semibold.woff`,
-      ),
+  );
+  const calSans600 = await fs.promises.readFile(
+    path.join(
+      fileURLToPath(import.meta.url),
+      `../../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
     ),
-  ]);
+  );
 
   try {
     const { searchParams } = new URL(req.url);
