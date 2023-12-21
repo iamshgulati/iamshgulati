@@ -12,16 +12,6 @@ export const size = {
   height: 1080,
 };
 
-const inter400Font = async () =>
-  fetch(new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url)).then(
-    (res) => res.arrayBuffer(),
-  );
-
-const calSans600Font = async () =>
-  fetch(
-    new URL("~/fonts/CalSans-1.0.0/CalSans-SemiBold.woff", import.meta.url),
-  ).then((res) => res.arrayBuffer());
-
 export async function GET(req: Request) {
   // const [inter400, calSans600] = await Promise.all([
   //   fetch(`${getBaseUrl()}/fonts/Inter-4.0/Inter-Regular.woff`).then((res) =>
@@ -31,6 +21,16 @@ export async function GET(req: Request) {
   //     (res) => res.arrayBuffer(),
   //   ),
   // ]);
+
+  const inter400Font = async () =>
+    fetch(
+      new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+    ).then((res) => res.arrayBuffer());
+
+  const calSans600Font = async () =>
+    fetch(
+      new URL("~/fonts/CalSans-1.0.0/CalSans-SemiBold.woff", import.meta.url),
+    ).then((res) => res.arrayBuffer());
 
   const [inter400, calSans600] = await Promise.all([
     inter400Font(),
