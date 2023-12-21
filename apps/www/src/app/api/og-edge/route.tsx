@@ -14,10 +14,10 @@ export const size = {
 
 export async function GET(req: Request) {
   const [inter400, calSans600] = await Promise.all([
-    fetch(`${getBaseUrl()}/fonts/inter-regulat.ttf`).then((res) =>
+    fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then((res) =>
       res.arrayBuffer(),
     ),
-    fetch(`${getBaseUrl()}/fonts/calsans-semibold.ttf`).then((res) =>
+    fetch(`${getBaseUrl()}/fonts/calsans-semibold.woff`).then((res) =>
       res.arrayBuffer(),
     ),
   ]);

@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
@@ -16,18 +13,27 @@ export const size = {
 };
 
 export async function GET(req: Request) {
+  // const [inter400, calSans600] = await Promise.all([
+  //   fs.promises.readFile(
+  //     path.join(
+  //       fileURLToPath(import.meta.url),
+  //       `../../../../assets/fonts/Inter-4.0/Inter-Regular.ttf`,
+  //     ),
+  //   ),
+  //   fs.promises.readFile(
+  //     path.join(
+  //       fileURLToPath(import.meta.url),
+  //       `../../../../assets/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf`,
+  //     ),
+  //   ),
+  // ]);
+
   const [inter400, calSans600] = await Promise.all([
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../assets/fonts/Inter-4.0/Inter-Regular.ttf`,
-      ),
+    fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then((res) =>
+      res.arrayBuffer(),
     ),
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../assets/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf`,
-      ),
+    fetch(`${getBaseUrl()}/fonts/calsans-semibold.woff`).then((res) =>
+      res.arrayBuffer(),
     ),
   ]);
 
