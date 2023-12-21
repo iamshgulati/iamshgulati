@@ -4,13 +4,46 @@ import { Flex, Section } from "@radix-ui/themes";
 
 import { LinkCard } from "~/components/link-card";
 import { TitleAndDescription } from "~/components/title-and-description";
+import { siteConfig } from "~/config/site";
+import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
 import type { AppRoute } from "~/lib/routes";
+import { getBaseUrl } from "~/lib/url";
 import type { Frontmatter } from "~/types/frontmatter";
 
-export const metadata: Metadata = {
+const metadataProps = {
   title: "Blog",
   description: "Thoughts, stories, and ideas.",
+};
+
+const ogImageUrl: string = ogImageApi({
+  title: metadataProps.title,
+});
+
+export const metadata: Metadata = {
+  title: metadataProps.title,
+  description: metadataProps.description,
+  openGraph: {
+    title: metadataProps.title,
+    description: metadataProps.description,
+    url: `${getBaseUrl()}/blog`,
+    siteName: siteConfig.title,
+    locale: siteConfig.locale,
+    type: "website",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: metadataProps.title,
+    description: metadataProps.description,
+    images: [ogImageUrl],
+  },
 };
 
 export default function BlogPage(): React.JSX.Element {
