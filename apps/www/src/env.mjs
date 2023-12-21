@@ -4,7 +4,6 @@ import { z } from "zod";
 export const env = createEnv({
   shared: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    APP_URL: z.string().optional(),
     VERCEL_URL: z
       .string()
       .optional()
@@ -18,6 +17,10 @@ export const env = createEnv({
    */
   server: {
     // SERVERVAR: z.string(),
+    APP_URL: z
+      .string()
+      .optional()
+      .transform((v) => (v ? `https://${v}` : undefined)),
     USE_CUSTOM_FONTS: z
       .enum(["true", "false"])
       .optional()
@@ -38,10 +41,10 @@ export const env = createEnv({
   runtimeEnv: {
     // SHAREDVAR: process.env.SHAREDVAR,
     NODE_ENV: process.env.NODE_ENV,
-    APP_URL: process.env.APP_URL,
     VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
     // SERVERVAR: process.env.SERVERVAR,
+    APP_URL: process.env.APP_URL,
     USE_CUSTOM_FONTS: process.env.USE_CUSTOM_FONTS,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
