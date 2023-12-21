@@ -4,10 +4,10 @@ import { z } from "zod";
 export const env = createEnv({
   shared: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    APP_URL: z
-      .string()
-      .optional()
-      .transform((v) => (v ? `https://${v}` : undefined)),
+    APP_URL: z.preprocess(
+      (v) => (process.env.APP_URL ? `https://${process.env.APP_URL}` : v),
+      process.env.APP_URL ? z.string().min(1) : z.string().url(),
+    ),
     VERCEL_URL: z
       .string()
       .optional()
