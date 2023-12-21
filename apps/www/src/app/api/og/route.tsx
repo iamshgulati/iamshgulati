@@ -7,19 +7,19 @@ import { ogImageSchema } from "~/lib/validation";
 
 export const runtime = "edge";
 
-const inter400 = async () => {
-  const res = await fetch(
-    new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
-  );
-  return await res.arrayBuffer();
-};
-
 export async function GET(req: Request) {
   // const [inter400] = await Promise.all([
   //   fetch(
   //     new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
   //   ).then((res) => res.arrayBuffer()),
   // ]);
+
+  const inter400 = async () => {
+    const res = await fetch(
+      new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+    );
+    return await res.arrayBuffer();
+  };
 
   try {
     const { searchParams } = new URL(req.url);
