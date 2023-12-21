@@ -9,42 +9,46 @@ import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
 import type { AppRoute } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
-import type { Frontmatter } from "~/types/frontmatter";
+import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 
-const metadataProps = {
+const metadataProps: MetadataProps = {
   title: "Projects",
   description: "A showcase of my open source work.",
 };
 
-const ogImageUrl: string = ogImageApi({
-  title: metadataProps.title,
-});
+export function generateMetadata(): Metadata {
+  const ogImageUrl = metadataProps.image
+    ? `${getBaseUrl()}${metadataProps.image}`
+    : ogImageApi({
+        title: metadataProps.title,
+      });
 
-export const metadata: Metadata = {
-  title: metadataProps.title,
-  description: metadataProps.description,
-  openGraph: {
+  return {
     title: metadataProps.title,
     description: metadataProps.description,
-    url: `${getBaseUrl()}/blog`,
-    siteName: siteConfig.title,
-    locale: siteConfig.locale,
-    type: "website",
-    images: [
-      {
-        url: ogImageUrl,
-        width: 1920,
-        height: 1080,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: metadataProps.title,
-    description: metadataProps.description,
-    images: [ogImageUrl],
-  },
-};
+    openGraph: {
+      title: metadataProps.title,
+      description: metadataProps.description,
+      url: `${getBaseUrl()}/projects`,
+      siteName: siteConfig.title,
+      locale: siteConfig.locale,
+      type: "website",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1920,
+          height: 1080,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadataProps.title,
+      description: metadataProps.description,
+      images: [ogImageUrl],
+    },
+  };
+}
 
 export default function ProjectsPage(): React.JSX.Element {
   const route: AppRoute = allRoutes.projects;
@@ -53,8 +57,8 @@ export default function ProjectsPage(): React.JSX.Element {
     <React.Fragment>
       <Section size="1" pt="4">
         <TitleAndDescription
-          title={metadata.title as string}
-          description={metadata.description!}
+          title={metadataProps.title}
+          description={metadataProps.description}
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>

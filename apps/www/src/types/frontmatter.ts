@@ -1,5 +1,11 @@
 import type { Icons } from "~/components/icons";
 
+export interface MetadataProps {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
 export type PageLabel = "Soon" | "Preview" | "New";
 
 export type Frontmatter = {
