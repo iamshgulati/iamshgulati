@@ -6,7 +6,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     APP_URL: z.preprocess(
       (v) => (process.env.APP_URL ? `https://${process.env.APP_URL}` : v),
-      process.env.APP_URL ? z.string().min(1) : z.string().url(),
+      process.env.APP_URL ? z.string().min(1) : z.string().optional(),
     ),
     VERCEL_URL: z
       .string()
