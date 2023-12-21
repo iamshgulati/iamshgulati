@@ -20,13 +20,13 @@ export async function GET(req: Request) {
     fs.promises.readFile(
       path.join(
         fileURLToPath(import.meta.url),
-        `../../../../fonts/Inter-4.0/Inter-Regular.woff`,
+        `../../../../../public/fonts/Inter-4.0/Inter-Regular.woff`,
       ),
     ),
     fs.promises.readFile(
       path.join(
         fileURLToPath(import.meta.url),
-        `../../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
+        `../../../../../public/fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
       ),
     ),
   ]);

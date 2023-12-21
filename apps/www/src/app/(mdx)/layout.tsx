@@ -7,7 +7,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { allRoutes } from "~/lib/routes";
 
-export default function DataLayout({
+export default function MDXLayout({
   children,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
