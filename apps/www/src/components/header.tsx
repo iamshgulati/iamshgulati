@@ -61,7 +61,7 @@ export const Header = ({
           >
             <NextLink href="/" passHref legacyBehavior>
               <BoxLink ariaLabel="Homepage Link">
-                <SiteLogoIcon color="gray" aria-label="Site Logo Icon" />
+                <SiteLogoIcon aria-label="Site Logo Icon" />
               </BoxLink>
             </NextLink>
           </Flex>

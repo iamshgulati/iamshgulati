@@ -1,25 +1,16 @@
 import React from "react";
-import { Box, Flex, Text } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
+
+import type { Icon } from "./icons";
+import { Icons } from "./icons";
 
 export const SiteLogoIcon = ({
-  style,
   ...props
-}: Omit<React.ComponentPropsWithoutRef<typeof Text>, "as">) => {
+}: React.ComponentProps<Icon>): React.JSX.Element => {
   return (
-    <Text
-      {...props}
-      size="9"
-      style={{
-        display: "flex",
-        fontFamily: "var(--font-logo)",
-        fontStyle: "normal",
-        lineHeight: "1.625rem",
-        overflow: "hidden",
-        ...style,
-      }}
-    >
-      <span style={{ paddingTop: "0.125rem", paddingBottom: "0rem" }}>S</span>
-    </Text>
+    <Flex asChild align="center">
+      <Icons.CommandIcon width="22" height="22" {...props} />
+    </Flex>
   );
 };
 
@@ -28,13 +19,11 @@ export const SiteLogo = ({
   ...props
 }: React.ComponentProps<typeof SiteLogoIcon>): React.JSX.Element => {
   return (
-    <Box>
-      <Flex align="center" gap="2">
-        <SiteLogoIcon {...props} style={style} />
-        {/* <Text {...props} size="4" weight="medium">
-          {siteConfig.title}
-        </Text> */}
-      </Flex>
-    </Box>
+    <Flex align="center" gap="2">
+      <SiteLogoIcon {...props} style={style} />
+      {/* <Text {...props} size="4" weight="medium">
+        {siteConfig.title}
+      </Text> */}
+    </Flex>
   );
 };
