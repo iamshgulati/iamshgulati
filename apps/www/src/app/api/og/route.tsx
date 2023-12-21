@@ -9,7 +9,16 @@ export const runtime = "edge";
 
 export const contentType = "image/jpg";
 
-export function GET(req: Request) {
+export async function GET(req: Request) {
+  const [inter400, calSans600] = await Promise.all([
+    fetch(
+      new URL(`${getBaseUrl()}/fonts/Inter-Regular.woff`, import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+    fetch(
+      new URL(`${getBaseUrl()}/fonts/CalSans-SemiBold.woff`, import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+  ]);
+
   try {
     const { searchParams } = new URL(req.url);
     const { title, publishedAt } = ogImageSchema.parse(
@@ -104,6 +113,18 @@ export function GET(req: Request) {
       {
         width: 1920,
         height: 1080,
+        fonts: [
+          {
+            name: "Inter 400",
+            data: inter400,
+            style: "normal",
+          },
+          {
+            name: "CalSans 600",
+            data: calSans600,
+            style: "normal",
+          },
+        ],
       },
     );
   } catch (error) {
@@ -112,28 +133,6 @@ export function GET(req: Request) {
     });
   }
 }
-
-// fonts: [
-//   {
-//     name: "Inter 400",
-//     data: inter400,
-//     style: "normal",
-//   },
-//   {
-//     name: "CalSans 600",
-//     data: calSans600,
-//     style: "normal",
-//   },
-// ],
-
-// const [inter400, calSans600] = await Promise.all([
-//   fetch(
-//     new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
-//   ).then((res) => res.arrayBuffer()),
-//   fetch(
-//     new URL("~/fonts/CalSans-1.0.0/CalSans-SemiBold.woff", import.meta.url),
-//   ).then((res) => res.arrayBuffer()),
-// ]);
 
 // const [inter400, calSans600] = await Promise.all([
 //   fs.promises.readFile(
