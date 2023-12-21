@@ -5,7 +5,7 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export function GET(req: Request) {
   try {
