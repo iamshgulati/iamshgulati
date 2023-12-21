@@ -12,31 +12,15 @@ export const size = {
   height: 1080,
 };
 
-const inter400Font = async () =>
-  fetch(
-    new URL("~/assets/fonts/Inter-4.0/Inter-Regular.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
-
-const calSans600Font = async () =>
-  fetch(
-    new URL(
-      "~/assets/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf",
-      import.meta.url,
-    ),
-  ).then((res) => res.arrayBuffer());
-
 export async function GET(req: Request) {
-  // const [inter400, calSans600] = await Promise.all([
-  //   fetch(`${getBaseUrl()}/fonts/Inter-4.0/Inter-Regular.woff`).then((res) =>
-  //     res.arrayBuffer(),
-  //   ),
-  //   fetch(`${getBaseUrl()}/fonts/CalSans-1.0.0/CalSans-SemiBold.woff`).then(
-  //     (res) => res.arrayBuffer(),
-  //   ),
-  // ]);
-
-  const inter400 = await inter400Font();
-  const calSans600 = await calSans600Font();
+  const [inter400, calSans600] = await Promise.all([
+    fetch(`${getBaseUrl()}/fonts/inter-regulat.ttf`).then((res) =>
+      res.arrayBuffer(),
+    ),
+    fetch(`${getBaseUrl()}/fonts/calsans-semibold.ttf`).then((res) =>
+      res.arrayBuffer(),
+    ),
+  ]);
 
   try {
     const { searchParams } = new URL(req.url);
