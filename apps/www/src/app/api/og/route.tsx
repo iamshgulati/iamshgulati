@@ -12,14 +12,11 @@ export const contentType = "image/jpg";
 export async function GET(req: Request) {
   const [inter400, calSans600] = await Promise.all([
     fetch(
-      new URL(
-        "../../../../fonts/Inter-4.0/Inter-Regular.woff",
-        import.meta.url,
-      ),
+      new URL("../../../fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
     ).then((res) => res.arrayBuffer()),
     fetch(
       new URL(
-        "../../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
+        "../../../fonts/CalSans-1.0.0/CalSans-SemiBold.woff",
         import.meta.url,
       ),
     ).then((res) => res.arrayBuffer()),
