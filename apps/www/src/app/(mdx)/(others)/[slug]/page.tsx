@@ -13,17 +13,20 @@ import type { Frontmatter } from "~/types/frontmatter";
 
 interface PageProps {
   params: {
-    slug: string[];
+    slug: string;
   };
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata | undefined> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
+    "/src/data",
+    "/other",
+  );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
-    (page: Frontmatter) => page.slugAsParams === params?.slug?.join("/"),
+    (page: Frontmatter) => page.slugAsParams === params.slug,
   );
 
   if (!page) {
@@ -66,18 +69,24 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
+    "/src/data",
+    "/other",
+  );
 
   return allFrontmatter.map((page) => ({
-    slug: page.slugAsParams?.split("/") ?? [],
+    slug: page.slugAsParams ?? "",
   }));
 }
 
-export default async function DataPage({ params }: PageProps) {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
+export default async function OtherPage({ params }: PageProps) {
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
+    "/src/data",
+    "/other",
+  );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
-    (page: Frontmatter) => page.slugAsParams === params?.slug?.join("/"),
+    (page: Frontmatter) => page.slugAsParams === params.slug,
   );
 
   if (!page) {
@@ -85,7 +94,7 @@ export default async function DataPage({ params }: PageProps) {
   }
 
   const MDXPage: React.ComponentType = dynamic(
-    () => import(`/src/data${page.slug}/page.mdx`),
+    () => import(`/src/data/other/${page.slugAsParams}/page.mdx`),
   );
 
   return (
