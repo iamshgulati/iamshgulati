@@ -10,7 +10,7 @@ export const runtime = "edge";
 export async function GET(req: Request) {
   const inter400Promise = fetch(
     new URL(
-      "../../../../public/fonts/Inter-4.0/Inter-Regular.woff",
+      "../../../../public/fonts/Inter-4.0/Inter-Regular.ttf",
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
