@@ -7,10 +7,7 @@ export const env = createEnv({
     APP_URL: z
       .string()
       .optional()
-      .transform((v) => {
-        console.log(`Transforming APP_URL from ${v} to https://${v}`);
-        return v ? `https://${v}` : undefined;
-      }),
+      .transform((v) => (v ? `https://${v}` : undefined)),
     VERCEL_URL: z
       .string()
       .optional()
