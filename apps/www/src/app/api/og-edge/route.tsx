@@ -22,11 +22,11 @@ export async function GET(req: Request) {
   //   ),
   // ]);
 
-  const inter400 = await fetch(
-    `${getBaseUrl()}/fonts/Inter-4.0/Inter-Regular.woff`,
-  ).then((res) => res.arrayBuffer());
+  const inter400 = await fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then(
+    (res) => res.arrayBuffer(),
+  );
   const calSans600 = await fetch(
-    `${getBaseUrl()}/fonts/CalSans-1.0.0/CalSans-SemiBold.woff`,
+    `${getBaseUrl()}/fonts/calsans-semibold.woff`,
   ).then((res) => res.arrayBuffer());
 
   try {
@@ -80,8 +80,7 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "CalSans",
-              fontWeight: 600,
+              fontFamily: "CalSans 600",
               letterSpacing: "0em",
               fontStyle: "normal",
               color: "white",
@@ -99,8 +98,7 @@ export async function GET(req: Request) {
               width: "100%",
               justifyContent: "space-between",
               fontSize: 50,
-              fontFamily: "Inter",
-              fontWeight: 400,
+              fontFamily: "Inter 400",
               fontStyle: "normal",
               color: "white",
             }}
@@ -126,16 +124,14 @@ export async function GET(req: Request) {
         ...size,
         fonts: [
           {
-            name: "Inter",
+            name: "Inter 400",
             data: inter400,
             style: "normal",
-            weight: 400,
           },
           {
-            name: "CalSans",
+            name: "CalSans 600",
             data: calSans600,
             style: "normal",
-            weight: 600,
           },
         ],
       },
