@@ -1,7 +1,11 @@
 import { env } from "~/env.mjs";
 
-export const getBaseUrl = (): string =>
-  env.APP_URL ?? env.VERCEL_URL ?? `http://localhost:${env.PORT}`;
+export const getBaseUrl = (): string => {
+  const baseUrl =
+    env.APP_URL ?? env.VERCEL_URL ?? `http://localhost:${env.PORT}`;
+  console.log(`baseUrl - ${baseUrl}`);
+  return baseUrl;
+};
 
 export const getParams = (
   object: Record<string, string | string[] | undefined>,
