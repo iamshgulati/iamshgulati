@@ -18,7 +18,7 @@ const ogImageUrl: string = ogImageApi({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${siteConfig.url}`),
+  metadataBase: new URL(`${getBaseUrl()}`),
   title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   openGraph: {
