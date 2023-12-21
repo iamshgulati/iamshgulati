@@ -13,16 +13,16 @@ export const size = {
 };
 
 export async function GET(req: Request) {
-  const [inter400, calSans600] = await Promise.all([
+  const [inter400, plusJakartaSans600] = await Promise.all([
     fetch(`${siteConfig.url}/fonts/inter-regular.woff`).then((res) =>
       res.arrayBuffer(),
     ),
-    fetch(`${siteConfig.url}/fonts/calsans-semibold.woff`).then((res) =>
-      res.arrayBuffer(),
+    fetch(`${siteConfig.url}/fonts/plus-jakarta-sans-semibold.woff`).then(
+      (res) => res.arrayBuffer(),
     ),
   ]);
 
-  // const [inter400, calSans600] = await Promise.all([
+  // const [inter400, plusJakartaSans600] = await Promise.all([
   //   fs.promises.readFile(
   //     path.join(
   //       fileURLToPath(import.meta.url),
@@ -32,7 +32,7 @@ export async function GET(req: Request) {
   //   fs.promises.readFile(
   //     path.join(
   //       fileURLToPath(import.meta.url),
-  //       `../../../../assets/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf`,
+  //       `../../../../assets/fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff`,
   //     ),
   //   ),
   // ]);
@@ -88,8 +88,8 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "CalSans 600",
-              letterSpacing: "0em",
+              fontFamily: "Plus Jakarta Sans 600",
+              letterSpacing: "-0.03em",
               fontStyle: "normal",
               color: "white",
               lineHeight: "150px",
@@ -137,8 +137,8 @@ export async function GET(req: Request) {
             style: "normal",
           },
           {
-            name: "CalSans 600",
-            data: calSans600,
+            name: "Plus Jakarta Sans 600",
+            data: plusJakartaSans600,
             style: "normal",
           },
         ],
