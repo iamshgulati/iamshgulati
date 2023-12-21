@@ -6,8 +6,11 @@ import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
 export const runtime = "edge";
-
 export const contentType = "image/jpg";
+export const size = {
+  width: 1920,
+  height: 1080,
+};
 
 export async function GET(req: Request) {
   const [inter400, calSans600] = await Promise.all([
@@ -114,8 +117,7 @@ export async function GET(req: Request) {
         </div>
       ),
       {
-        width: 1920,
-        height: 1080,
+        ...size,
         fonts: [
           {
             name: "Inter 400",
