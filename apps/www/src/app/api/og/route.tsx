@@ -8,13 +8,11 @@ import { ogImageSchema } from "~/lib/validation";
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const inter400Promise = fetch(
-    new URL(
-      "../../../../public/fonts/Inter-4.0/Inter-Regular.ttf",
-      import.meta.url,
-    ),
-  ).then((res) => res.arrayBuffer());
-  const inter400 = await inter400Promise;
+  const [inter400] = await Promise.all([
+    fetch(
+      new URL("~/fonts/Inter-4.0/Inter-Regular.woff", import.meta.url),
+    ).then((res) => res.arrayBuffer()),
+  ]);
 
   try {
     const { searchParams } = new URL(req.url);
@@ -67,7 +65,7 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "Inter 400",
+              fontFamily: "CalSans 600",
               letterSpacing: "0em",
               fontStyle: "normal",
               color: "white",
