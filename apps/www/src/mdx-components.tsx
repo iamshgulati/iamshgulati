@@ -1,7 +1,6 @@
 import { Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 import type { MDXComponents } from "mdx/types";
 
-import { ContentLayout } from "~/components/content-layout";
 import { Icons } from "~/components/icons";
 import { A } from "~/components/mdx/a";
 import { BadgeWithIndicator } from "~/components/mdx/badge-with-indicator";
@@ -18,6 +17,7 @@ import { H6 } from "~/components/mdx/h6";
 import { Hr } from "~/components/mdx/hr";
 import { Img } from "~/components/mdx/img";
 import { Li } from "~/components/mdx/li";
+import { MDXWrapper } from "~/components/mdx/mdx-wrapper";
 import { Ol } from "~/components/mdx/ol";
 import { P } from "~/components/mdx/p";
 import { PreWithCopyButton } from "~/components/mdx/pre-with-copy-button";
@@ -47,7 +47,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   };
 
   const customComponents = {
-    ContentLayout,
+    MDXWrapper,
     Callout,
     Table,
     HStack,

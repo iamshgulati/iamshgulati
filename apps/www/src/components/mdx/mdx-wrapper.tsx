@@ -1,18 +1,18 @@
 import React from "react";
 import { Flex, Section } from "@radix-ui/themes";
 
+import { BackButton } from "~/components/back-button";
+import { TitleAndDescription } from "~/components/title-and-description";
 import type { Frontmatter } from "~/types/frontmatter";
-import { BackButton } from "./back-button";
-import { TitleAndDescription } from "./title-and-description";
 
-interface ContentLayoutProps {
+interface MDXWrapperProps {
   metadata: Frontmatter;
 }
 
-export const ContentLayout = ({
+export const MDXWrapper = ({
   metadata,
   children = undefined,
-}: React.PropsWithChildren<ContentLayoutProps>): React.JSX.Element => {
+}: React.PropsWithChildren<MDXWrapperProps>): React.JSX.Element => {
   return (
     <React.Fragment>
       <Section size="1" pt="4">
