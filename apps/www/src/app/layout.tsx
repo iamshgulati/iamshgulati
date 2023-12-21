@@ -11,19 +11,20 @@ import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
+import { getBaseUrl } from "~/lib/url";
 
 const ogImageUrl: string = ogImageApi({
   title: "Hello! I'm Shubham Gulati.",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(`${getBaseUrl()}`),
   title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
-    url: siteConfig.url,
+    url: `${getBaseUrl()}`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
     type: "website",

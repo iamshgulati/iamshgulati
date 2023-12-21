@@ -9,6 +9,7 @@ import { TitleAndDescription } from "~/components/title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
+import { getBaseUrl } from "~/lib/url";
 import type { Frontmatter } from "~/types/frontmatter";
 
 interface PageProps {
@@ -34,7 +35,7 @@ export async function generateMetadata({
   }
 
   const ogImageUrl = page.image
-    ? `${siteConfig.url}${page.image}`
+    ? `${getBaseUrl()}${page.image}`
     : ogImageApi({
         title: page.title,
         publishedAt: page.publishedAt,
@@ -46,7 +47,7 @@ export async function generateMetadata({
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `${siteConfig.url}${page.slug}`,
+      url: `${getBaseUrl()}${page.slug}`,
       siteName: siteConfig.title,
       locale: siteConfig.locale,
       type: "article",

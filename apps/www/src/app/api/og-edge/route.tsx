@@ -14,11 +14,11 @@ export const size = {
 
 export async function GET(req: Request) {
   const [inter400, plusJakartaSans600] = await Promise.all([
-    fetch(`${siteConfig.url}/fonts/inter-regular.woff`).then((res) =>
+    fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then((res) =>
       res.arrayBuffer(),
     ),
-    fetch(`${siteConfig.url}/fonts/plus-jakarta-sans-semibold.woff`).then(
-      (res) => res.arrayBuffer(),
+    fetch(`${getBaseUrl()}/fonts/plus-jakarta-sans-semibold.woff`).then((res) =>
+      res.arrayBuffer(),
     ),
   ]);
 
