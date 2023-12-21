@@ -16,39 +16,35 @@ const metadataProps: MetadataProps = {
   description: "Thoughts, stories, and ideas.",
 };
 
-export function generateMetadata(): Metadata {
-  const ogImageUrl = metadataProps.image
-    ? `${getBaseUrl()}${metadataProps.image}`
-    : ogImageApi({
-        title: metadataProps.title,
-      });
+const ogImageUrl: string = ogImageApi({
+  title: metadataProps.title,
+});
 
-  return {
+export const metadata: Metadata = {
+  title: metadataProps.title,
+  description: metadataProps.description,
+  openGraph: {
     title: metadataProps.title,
     description: metadataProps.description,
-    openGraph: {
-      title: metadataProps.title,
-      description: metadataProps.description,
-      url: `${getBaseUrl()}/blog`,
-      siteName: siteConfig.title,
-      locale: siteConfig.locale,
-      type: "website",
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1920,
-          height: 1080,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: metadataProps.title,
-      description: metadataProps.description,
-      images: [ogImageUrl],
-    },
-  };
-}
+    url: `${getBaseUrl()}/blog`,
+    siteName: siteConfig.title,
+    locale: siteConfig.locale,
+    type: "website",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: metadataProps.title,
+    description: metadataProps.description,
+    images: [ogImageUrl],
+  },
+};
 
 export default function BlogPage(): React.JSX.Element {
   const route: AppRoute = allRoutes.blog;
