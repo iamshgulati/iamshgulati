@@ -41,7 +41,7 @@ export const env = createEnv({
   runtimeEnv: {
     // SHAREDVAR: process.env.SHAREDVAR,
     NODE_ENV: process.env.NODE_ENV,
-    APP_URL: process.env.VERCEL_URL,
+    APP_URL: process.env.APP_URL,
     VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
     // SERVERVAR: process.env.SERVERVAR,
