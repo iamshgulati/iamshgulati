@@ -13,6 +13,15 @@ export const size = {
 };
 
 export async function GET(req: Request) {
+  const [inter400, calSans600] = await Promise.all([
+    fetch(`${siteConfig.url}/fonts/inter-regular.woff`).then((res) =>
+      res.arrayBuffer(),
+    ),
+    fetch(`${siteConfig.url}/fonts/calsans-semibold.woff`).then((res) =>
+      res.arrayBuffer(),
+    ),
+  ]);
+
   // const [inter400, calSans600] = await Promise.all([
   //   fs.promises.readFile(
   //     path.join(
@@ -27,15 +36,6 @@ export async function GET(req: Request) {
   //     ),
   //   ),
   // ]);
-
-  const [inter400, calSans600] = await Promise.all([
-    fetch(`${siteConfig.url}/fonts/inter-regular.woff`).then((res) =>
-      res.arrayBuffer(),
-    ),
-    fetch(`${siteConfig.url}/fonts/calsans-semibold.woff`).then((res) =>
-      res.arrayBuffer(),
-    ),
-  ]);
 
   try {
     const { searchParams } = new URL(req.url);
