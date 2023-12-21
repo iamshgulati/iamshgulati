@@ -13,21 +13,14 @@ export const size = {
 };
 
 export async function GET(req: Request) {
-  // const [inter400, calSans600] = await Promise.all([
-  //   fetch(`${getBaseUrl()}/fonts/Inter-4.0/Inter-Regular.woff`).then((res) =>
-  //     res.arrayBuffer(),
-  //   ),
-  //   fetch(`${getBaseUrl()}/fonts/CalSans-1.0.0/CalSans-SemiBold.woff`).then(
-  //     (res) => res.arrayBuffer(),
-  //   ),
-  // ]);
-
-  const inter400 = await fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then(
-    (res) => res.arrayBuffer(),
-  );
-  const calSans600 = await fetch(
-    `${getBaseUrl()}/fonts/calsans-semibold.woff`,
-  ).then((res) => res.arrayBuffer());
+  const [inter400, calSans600] = await Promise.all([
+    fetch(`${getBaseUrl()}/fonts/Inter-4.0/Inter-Regular.woff`).then((res) =>
+      res.arrayBuffer(),
+    ),
+    fetch(`${getBaseUrl()}/fonts/CalSans-1.0.0/CalSans-SemiBold.woff`).then(
+      (res) => res.arrayBuffer(),
+    ),
+  ]);
 
   try {
     const { searchParams } = new URL(req.url);
