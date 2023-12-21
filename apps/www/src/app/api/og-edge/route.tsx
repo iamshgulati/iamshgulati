@@ -13,13 +13,16 @@ export const size = {
 };
 
 const inter400Font = async () =>
-  fetch(new URL("~/fonts/Inter-4.0/Inter-Regular.ttf", import.meta.url)).then(
-    (res) => res.arrayBuffer(),
-  );
+  fetch(
+    new URL("~/assets/fonts/Inter-4.0/Inter-Regular.ttf", import.meta.url),
+  ).then((res) => res.arrayBuffer());
 
 const calSans600Font = async () =>
   fetch(
-    new URL("~/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf", import.meta.url),
+    new URL(
+      "~/assets/fonts/CalSans-1.0.0/CalSans-SemiBold.ttf",
+      import.meta.url,
+    ),
   ).then((res) => res.arrayBuffer());
 
 export async function GET(req: Request) {
