@@ -17,10 +17,10 @@ export const env = createEnv({
    */
   server: {
     // SERVERVAR: z.string(),
-    APP_URL: z
-      .string()
-      .optional()
-      .transform((v) => (v ? `https://${v}` : undefined)),
+    APP_URL: z.preprocess(
+      (str) => (process.env.APP_URL ? `https://${process.env.APP_URL}` : str),
+      process.env.APP_URL ? z.string().min(1) : z.string().url().optional(),
+    ),
     USE_CUSTOM_FONTS: z
       .enum(["true", "false"])
       .optional()
