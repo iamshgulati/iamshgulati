@@ -43,9 +43,11 @@ export const getAllFrontmatter = async (
     }),
   );
 
-  // Filter out items where slugAsParams starts with '_'
+  // Filter out items where any part of slug starts with '_'
+  // This behavior matches Next.js app dir where adding _ disables the route
   allFrontmatter = allFrontmatter.filter(
-    (frontmatter: Frontmatter) => !frontmatter.slugAsParams?.startsWith("_"),
+    (frontmatter: Frontmatter) =>
+      !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
   );
 
   // Filter out items where publishedAt is undefined
