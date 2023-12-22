@@ -46,7 +46,7 @@
         transition: transform 200ms ease-out;
       }
       &[data-delayed-scroll-state="scrolling-down"] > .HeaderInner {
-        transform: translateY(-102%);
+        transform: translateY(-110%);
         transition: transform 400ms ease-out;
       }
     }
