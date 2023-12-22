@@ -51,9 +51,8 @@ export default function RootLayout({
   children = undefined,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html id="top" lang="en" suppressHydrationWarning>
       <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
-        <div id="scroll-to-top" />
         <div id="root">
           <Providers>
             {children}

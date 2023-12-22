@@ -4,7 +4,7 @@ import { IconButton, Link } from "@radix-ui/themes";
 
 export const FloatingScrollToTopButton = (): React.JSX.Element => {
   return (
-    <Link href="#scroll-to-top">
+    <Link href="#top">
       <IconButton
         aria-label="Scroll To Top"
         size="3"
