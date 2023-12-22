@@ -14,6 +14,7 @@ export const ScreenSizeIndicator = (): React.JSX.Element => {
         bottom: "4px",
         left: "4px",
         zIndex: "999",
+        pointerEvents: "none",
       }}
     >
       <Text size="1">
