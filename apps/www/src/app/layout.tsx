@@ -51,7 +51,7 @@ export default function RootLayout({
   children = undefined,
 }: React.PropsWithChildren): React.JSX.Element {
   return (
-    <html id="top" lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
         <div id="root">
           <Providers>
