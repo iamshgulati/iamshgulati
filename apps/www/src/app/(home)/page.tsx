@@ -15,7 +15,7 @@ import {
   Text,
 } from "@radix-ui/themes";
 
-import { HeroHeading } from "~/components/heading";
+import { HeroHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 

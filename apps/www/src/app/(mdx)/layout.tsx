@@ -1,8 +1,6 @@
 import React from "react";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
 
-import { BackButton } from "~/components/back-button";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -38,14 +36,6 @@ export default function MDXLayout({
             <Box asChild width="100%" style={{ maxWidth: 858 }}>
               <Section size={{ initial: "2", xs: "3" }}>
                 <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                  <BackButton
-                    size="4"
-                    mb="6"
-                    color="gray"
-                    style={{ padding: "var(--space-3)" }}
-                  >
-                    <ArrowLeftIcon width="18" height="18" />
-                  </BackButton>
                   {children}
                 </Container>
               </Section>

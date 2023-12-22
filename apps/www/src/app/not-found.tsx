@@ -8,7 +8,7 @@ import {
 import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
-import { PageHeading } from "~/components/heading";
+import { PageHeading } from "~/components/page-heading";
 import { NextLink } from "~/lib/link";
 
 export const metadata: Metadata = {

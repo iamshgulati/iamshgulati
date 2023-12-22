@@ -2,10 +2,11 @@ import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { Flex, Section } from "@radix-ui/themes";
+import { Box, Flex, Section } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
-import { TitleAndDescription } from "~/components/title-and-description";
+import { PageMeta } from "~/components/page-meta";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
@@ -100,8 +101,11 @@ export default async function ProjectsPage({ params }: PageProps) {
 
   return (
     <React.Fragment>
-      <Section size="1" pt="4">
-        <TitleAndDescription
+      <Box position="relative" mb="4">
+        <PageMeta position="absolute" publishedAt={page.publishedAt} />
+      </Box>
+      <Section size="1">
+        <PageTitleAndDescription
           title={page.title}
           description={page.description}
         />

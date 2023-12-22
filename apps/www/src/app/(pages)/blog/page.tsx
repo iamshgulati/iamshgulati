@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Flex, Section } from "@radix-ui/themes";
+import { Box, Flex, Section } from "@radix-ui/themes";
 
 import { LinkCard } from "~/components/link-card";
-import { TitleAndDescription } from "~/components/title-and-description";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
@@ -51,14 +51,15 @@ export default function BlogPage(): React.JSX.Element {
 
   return (
     <React.Fragment>
-      <Section size="1" pt="4">
-        <TitleAndDescription
+      <Box position="relative" mb="4"></Box>
+      <Section size="1">
+        <PageTitleAndDescription
           title={metadataProps.title}
           description={metadataProps.description}
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
-        <Flex direction="column" gap="5">
+        <Flex direction="column" gap="8">
           <Previews route={route} />
         </Flex>
       </Section>

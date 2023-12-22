@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Card, Flex, Text } from "@radix-ui/themes";
+import { Badge, Box, Card, Flex, Text } from "@radix-ui/themes";
 
 import { formatFullDate, formatRelativeDate } from "~/lib/date";
 import { NextLink } from "~/lib/link";
@@ -24,36 +24,18 @@ export const LinkCard = ({
       <Text as="div" size="2" weight="bold" mb="1">
         {title}
       </Text>
-      <Text as="p" size="2" color="gray" mb="1">
+      <Text as="div" size="2" color="gray" mb="3">
         {description}
       </Text>
-      <Flex align="center" gap="2" style={{ color: "var(--gray-10)" }}>
-        {metadata?.publishedAt ? (
-          <React.Fragment>
-            <Text asChild size="1">
-              <time dateTime={metadata.publishedAt}>
-                {formatFullDate(metadata.publishedAt)}
-              </time>
-            </Text>
-            <Text as="p" size="1">
-              &middot;
-            </Text>
-            <Text as="p" size="1">
-              <time dateTime={metadata.publishedAt}>
-                {formatRelativeDate(metadata.publishedAt)}
-              </time>
-            </Text>
-          </React.Fragment>
-        ) : (
-          <Badge mt="1">draft</Badge>
-        )}
-      </Flex>
+      <Box position="relative" mb="6">
+        <Metadata position="absolute" publishedAt={metadata?.publishedAt} />
+      </Box>
     </React.Fragment>
   );
 
   return href ? (
     <NextLink href={href} passHref legacyBehavior>
-      <Card asChild size="2">
+      <Card asChild size="2" variant="ghost">
         <a href={href}>{cardContent}</a>
       </Card>
     </NextLink>
@@ -61,3 +43,34 @@ export const LinkCard = ({
     <Card size="2">{cardContent}</Card>
   );
 };
+
+const Metadata = ({
+  publishedAt = undefined,
+  ...props
+}: React.ComponentProps<typeof Flex> & {
+  publishedAt?: string;
+}): React.JSX.Element => (
+  <Flex
+    {...props}
+    width="100%"
+    align="center"
+    gap="2"
+    style={{ color: "var(--gray-10)" }}
+  >
+    {publishedAt ? (
+      <React.Fragment>
+        <Text asChild size="1">
+          <time dateTime={publishedAt}>{formatFullDate(publishedAt)}</time>
+        </Text>
+        <Text as="p" size="1">
+          &middot;
+        </Text>
+        <Text as="p" size="1">
+          <time dateTime={publishedAt}>{formatRelativeDate(publishedAt)}</time>
+        </Text>
+      </React.Fragment>
+    ) : (
+      <Badge variant="surface">draft</Badge>
+    )}
+  </Flex>
+);

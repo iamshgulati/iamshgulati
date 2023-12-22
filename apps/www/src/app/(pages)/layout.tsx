@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
 
-import { Breadcrumbs } from "~/components/breadcrumbs";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -37,7 +36,6 @@ export default function PagesLayout({
             <Box asChild width="100%" style={{ maxWidth: 858 }}>
               <Section size={{ initial: "2", xs: "3" }}>
                 <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                  <Breadcrumbs />
                   {children}
                 </Container>
               </Section>

@@ -4,14 +4,14 @@ import React, { Suspense } from "react";
 import { Flex, Section } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
-import { TitleAndDescription } from "~/components/title-and-description";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import MDXEditor, { metadata } from "./editor.mdx";
 
 export default function OtherPage() {
   return (
     <React.Fragment>
       <Section size="1" pt="4">
-        <TitleAndDescription
+        <PageTitleAndDescription
           title={metadata.title}
           description={metadata.description}
         />

@@ -1,16 +1,16 @@
 import React from "react";
 import { Text } from "@radix-ui/themes";
 
-import { PageHeading } from "./heading";
+import { PageHeading } from "./page-heading";
 
-interface TitleAndDescriptionProps {
+interface PageTitleAndDescriptionProps {
   title: string;
   description?: string;
 }
-export const TitleAndDescription = ({
+export const PageTitleAndDescription = ({
   title,
   description = undefined,
-}: TitleAndDescriptionProps): React.JSX.Element => (
+}: PageTitleAndDescriptionProps): React.JSX.Element => (
   <React.Fragment>
     <PageHeading as="h1" mb={{ initial: "3", xs: "5" }}>
       {title}
