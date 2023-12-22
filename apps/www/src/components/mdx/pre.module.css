@@ -1,4 +1,64 @@
 .Pre {
-  max-width: 100%;
-  overflow-x: auto;
+  box-sizing: border-box;
+  border-radius: var(--radius-4);
+  padding: var(--space-4) var(--space-5);
+  overflow: auto;
+  white-space: pre;
+  position: relative;
+  background-color: var(--background);
+  color: var(--gray-12);
+  box-shadow: var(--border);
+
+  --border: inset 0 0 0 1px var(--accent-a1), inset 0 0 0 1px var(--gray-a5);
+  --line-numbers: var(--gray-8);
+}
+
+.Pre.indigo {
+  --background: var(--accent-a2);
+  --text: var(--gray-12);
+
+  --syntax-accent: var(--accent-11);
+  --syntax-accent-subtle: var(--accent-12);
+  --syntax-complementary: var(--crimson-11);
+  --syntax-secondary: var(--violet-11);
+
+  --highlighted-line-bg: var(--accent-a3);
+  --highlighted-word-1-bg: var(--accent-a3);
+}
+
+.Pre.SugarHigh {
+  --sh-class: var(--syntax-accent);
+  --sh-identifier: var(--syntax-accent);
+  --sh-sign: var(--gray-12);
+  --sh-string: var(--syntax-accent-subtle);
+  --sh-keyword: var(--syntax-complementary);
+  --sh-comment: var(--gray-a11);
+  --sh-jsxliterals: var(--gray-12);
+}
+
+.Pre {
+  code {
+    display: inline-block;
+    min-width: 100%;
+    border-width: 0;
+
+    font-size: calc(var(--font-size-2) * var(--code-font-size-adjust));
+    font-family: var(--code-font-family);
+    line-height: 22px;
+    --letter-spacing: var(--letter-spacing-2);
+
+    counter-reset: line;
+
+    & > span:is(.sh__line) {
+      padding-left: var(--space-5);
+
+      &::before {
+        counter-increment: line;
+        content: counter(line);
+        margin-right: var(--space-5);
+        text-align: right;
+        color: var(--line-numbers);
+      }
+    }
+  }
 }

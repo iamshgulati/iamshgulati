@@ -3,7 +3,6 @@ import "./src/env.mjs";
 
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import rehypePrettyCode from "rehype-pretty-code";
 
 /**
  * Next.js redirects
@@ -71,22 +70,13 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 /**
- * Rehype Pretty Code configuration
- */
-/** @type {import("rehype-pretty-code").Options} */
-const rehypePrettyCodeOptions = {
-  theme: { dark: "github-dark", light: "github-light" },
-  keepBackground: false,
-};
-
-/**
  * Next.js MDX configuration
  */
 /** @type {import('@next/mdx').NextMDXOptions} */
 const mdxConfig = {
   options: {
     remarkPlugins: [],
-    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+    rehypePlugins: [],
   },
 };
 const withMDX = mdx(mdxConfig);
@@ -101,7 +91,7 @@ const nextConfig = {
   redirects: nextRedirects,
   experimental: {
     webpackBuildWorker: true,
-    // mdxRs: true,
+    mdxRs: true,
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
