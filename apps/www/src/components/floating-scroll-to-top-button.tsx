@@ -4,35 +4,24 @@ import React from "react";
 import { ChevronUpIcon } from "@radix-ui/react-icons";
 import { IconButton } from "@radix-ui/themes";
 
+import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-scroll-to-top-button.module.css";
 
 type FloatingScrollToTopButtonProps = React.ComponentProps<
   typeof IconButton
 > & {
-  scrollTopThreshold?: number;
   smoothScroll?: boolean;
+  scrollDistanceThreshold?: number;
 };
 
 export const FloatingScrollToTopButton = ({
-  scrollTopThreshold = 20,
   smoothScroll = false,
+  scrollDistanceThreshold = 20,
   ...props
 }: FloatingScrollToTopButtonProps): React.JSX.Element => {
-  const [scrollState, setScrollState] = React.useState<string>("at-top");
-
-  React.useEffect(() => {
-    const onScroll = () => {
-      setScrollState(
-        document.documentElement.scrollTop >= scrollTopThreshold
-          ? "scrolling"
-          : "at-top",
-      );
-    };
-    onScroll();
-    document.addEventListener("scroll", onScroll, { passive: true });
-    return () => document.removeEventListener("scroll", onScroll);
-  }, [scrollTopThreshold]);
-
+  const scrollState = useScrollState({
+    scrollDistanceThreshold,
+  });
   return (
     <IconButton
       {...props}

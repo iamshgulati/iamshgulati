@@ -12,12 +12,12 @@ interface ScrollStateProps {
  * Custom React hook to track the scroll state.
  * @param {ScrollStateProps} props - Configuration options for scroll state behavior.
  * @param {number} [props.viewportScrollFactorThreshold = 1] - Minimum height of the document as a factor of the viewport height.
- * @param {number} [props.scrollDistanceThreshold = 0] - The distance in pixels scrolled before considering a change in scroll direction.
+ * @param {number} [props.scrollDistanceThreshold = 20] - The distance in pixels scrolled before considering a change in scroll direction.
  * @returns {ScrollState} Returns the current scroll state: 'at-top', 'scrolling-up', or 'scrolling-down'.
  */
 export function useScrollState({
   viewportScrollFactorThreshold = 1,
-  scrollDistanceThreshold = 0,
+  scrollDistanceThreshold = 20,
 }: ScrollStateProps): ScrollState {
   const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
   const [previousScrollPosition, setPreviousScrollPosition] =
