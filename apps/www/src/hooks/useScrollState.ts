@@ -24,7 +24,7 @@ export function useScrollState({
     React.useState<number>(0);
   const pathname = usePathname();
 
-  const handleScroll = React.useCallback(() => {
+  const onScroll = React.useCallback(() => {
     const totalHeight = document.documentElement.scrollHeight;
     const viewportHeight = window.innerHeight;
 
@@ -57,14 +57,14 @@ export function useScrollState({
   ]);
 
   React.useEffect(() => {
-    document.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => document.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    onScroll();
+    document.addEventListener("scroll", onScroll, { passive: true });
+    return () => document.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
 
   React.useEffect(() => {
     setScrollState("at-top");
-    handleScroll();
+    onScroll();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
