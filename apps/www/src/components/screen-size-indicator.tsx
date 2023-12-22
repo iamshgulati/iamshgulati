@@ -11,9 +11,9 @@ export const ScreenSizeIndicator = (): React.JSX.Element => {
       radius="full"
       style={{
         position: "fixed",
-        bottom: "8px",
-        left: "8px",
-        zIndex: "999",
+        bottom: "2px",
+        left: "2px",
+        zIndex: "20",
         pointerEvents: "none",
       }}
     >

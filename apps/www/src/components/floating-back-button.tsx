@@ -28,12 +28,6 @@ export const FloatingBackButton = ({
       color="gray"
       radius="full"
       className={styles.FloatingBackButton}
-      style={{
-        position: "fixed",
-        bottom: "8px",
-        left: "8px",
-        zIndex: "999",
-      }}
       onClick={() => router.back()}
     >
       <ChevronLeftIcon width="20" height="20" />
