@@ -5,13 +5,14 @@
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
-    "dev": "pnpm with-env next dev",
+    "dev": "pnpm with-env next dev & pnpm watch-data",
     "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
     "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
     "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --",
-    "analyze": "dotenv -v ANALYZE=true pnpm with-env next build"
+    "analyze": "dotenv -v ANALYZE=true pnpm with-env next build",
+    "watch-data": "ts-node -O '{\"module\": \"nodenext\"}' ./src/scripts/watcher.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -40,6 +41,8 @@
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@types/ws": "^8.5.10",
+    "chokidar": "^3.5.3",
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
@@ -47,7 +50,9 @@
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
     "shikiji": "^0.9.11",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "ws": "^8.15.1"
   },
   "eslintConfig": {
     "root": true,

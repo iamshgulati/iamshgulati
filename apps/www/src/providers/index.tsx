@@ -1,6 +1,7 @@
 import React from "react";
 import { Slot } from "@radix-ui/themes";
 
+import AutoRefresh from "~/components/auto-refresh";
 import { CommandMenuProvider } from "~/components/command-menu";
 import { NextThemesProvider } from "./next-themes-provider";
 import { RadixThemesProvider } from "./radix-themes-provider";
@@ -14,7 +15,9 @@ export const Providers = ({
     <Component>
       <CommandMenuProvider>
         <NextThemesProvider>
-          <RadixThemesProvider>{children}</RadixThemesProvider>
+          <RadixThemesProvider>
+            <AutoRefresh>{children}</AutoRefresh>
+          </RadixThemesProvider>
         </NextThemesProvider>
       </CommandMenuProvider>
     </Component>
