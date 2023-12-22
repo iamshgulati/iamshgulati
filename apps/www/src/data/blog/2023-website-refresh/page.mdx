@@ -3,33 +3,22 @@ export const metadata = {
   description: "A satisfying year of updates.",
 };
 
-Its time to reflect upon the work that has gone in making 2023 a satisfying year of
-updates for this website.
+Its time to reflect upon the work that has gone in making 2023 a satisfying year of updates for this website.
 
 ## Content Management
 
-Last year, I started building my website using `contentlayer` to manage the mdx content.
-It was definitely great DX to manage content with full type safety. But, as of writing
-this, contentlayer is not maintained. And I was looking for tools that would be reliable
-and scalable.
-Then I found out that team behing Next.js has taken the opportunity to release `@next/mdx`
-which natively provides MDX support in Next.js.
+Last year, I started building my website using `contentlayer` to manage the mdx content. It was definitely great DX to manage content with full type safety. But, as of writing this, contentlayer is not maintained. And I was looking for tools that would be reliable and scalable. Then I found out that team behing Next.js has taken the opportunity to release `@next/mdx` which natively provides MDX support for Next.js.
 
-I was immediately interested in using it for my next blog refresh. While the documentation
-around `@next/mdx` could be better, but I don't mind getting my hands dirty and discovering
-the nitty-gritty details. I am sure my design isn't the best out there, but I am still happy
-with the amout of functions I could achieve with just this one package. No `contentlayer`,
-or `remark-frontmatter`, or `gray-matter`, just some copy pastable javascript code and node.js.
+I was immediately interested in using it for my next website refresh. While the documentation around `@next/mdx` could be better, but I don't mind getting my hands dirty and discovering the nitty-gritty details. I am sure my design isn't the best out there, but I am still happy with the amout of functions I could achieve with just this one package. No `contentlayer`, or `remark-frontmatter`, or `gray-matter`, just some copy pastable javascript code and node.js. Next.js has an experimental flag `mdxRs` which enables rust compiler for mdx files. Only catch is, it doesn't support remark or rehype plugins. And now that I did not have remark or rehype plugins, I was able to enable the rust compiler to add cherry on the top.
 
-I am excited to share how I leveraged `@next/mdx` to eliminate these dependencies.
+I am excited to share how I leveraged `@next/mdx` to eliminate these dependencies. Let's start by looking at some code. Feel free to copy to your own projects.
 
 ### contentlayer
 
 The first and possibly the biggest of the dependencies that I removed.
 
 I use `getAllFrontmatter` helper to parse all mdx files and then leverage `@next/mdx`
-to read the frontmatter. I have seen some devs read mdx source and parse the frontmatter
-line-by-line. It works, but I prefer to take this approach.
+to read the frontmatter. I have seen some devs read mdx source and parse the frontmatter line-by-line. It works, but I prefer to take this approach.
 
 ```ts
 import glob from "glob";
@@ -77,9 +66,11 @@ export const getAllFrontmatter = async (
     }),
   );
 
-  // Filter out items where slugAsParams starts with '_'
+  // Filter out items where any part of slug starts with '_'
+  // This behavior matches Next.js app dir where adding _ disables the route
   allFrontmatter = allFrontmatter.filter(
-    (frontmatter: Frontmatter) => !frontmatter.slugAsParams?.startsWith("_"),
+    (frontmatter: Frontmatter) =>
+      !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
   );
 
   // Sort items by publishedAt in descending order
@@ -136,9 +127,9 @@ export const allRoutes: AllRoutes = {
 };
 ```
 
-My MDX files are not as clean as I would prefer them to be, but I am okay with it for now.
+My MDX files are not as clean as I would prefer them to be, but I am okay with the results for now.
 
-Instead of looking like this:
+Instead of the markdown looking like this:
 
 ```mdx
 ---
@@ -150,9 +141,9 @@ Its time to reflect upon the work that has gone in making 2023 a satisfying year
 updates for this website.
 ```
 
-it looks like this.
+it looks more like this...
 
-```js
+```mdx
 export const metadata = {
   title: "2023 Website Refresh",
   description: "A satisfying year of updates.",
@@ -161,7 +152,5 @@ export const metadata = {
 Its time to reflect upon the work that has gone in making 2023 a satisfying year of
 updates for this website.
 ```
-
----
 
 to be continued...
