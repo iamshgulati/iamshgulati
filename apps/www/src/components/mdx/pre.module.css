@@ -5,38 +5,13 @@
   overflow: auto;
   white-space: pre;
   position: relative;
-  background-color: var(--background);
+  background-color: var(--accent-a2);
   color: var(--gray-12);
   box-shadow: var(--border);
 
   --border: inset 0 0 0 1px var(--accent-a1), inset 0 0 0 1px var(--gray-a5);
   --line-numbers: var(--gray-8);
-}
 
-.Pre.indigo {
-  --background: var(--accent-a2);
-  --text: var(--gray-12);
-
-  --syntax-accent: var(--accent-11);
-  --syntax-accent-subtle: var(--accent-12);
-  --syntax-complementary: var(--crimson-11);
-  --syntax-secondary: var(--violet-11);
-
-  --highlighted-line-bg: var(--accent-a3);
-  --highlighted-word-1-bg: var(--accent-a3);
-}
-
-.Pre.SugarHigh {
-  --sh-class: var(--syntax-accent);
-  --sh-identifier: var(--syntax-accent);
-  --sh-sign: var(--gray-12);
-  --sh-string: var(--syntax-accent-subtle);
-  --sh-keyword: var(--syntax-complementary);
-  --sh-comment: var(--gray-a11);
-  --sh-jsxliterals: var(--gray-12);
-}
-
-.Pre {
   code {
     display: inline-block;
     min-width: 100%;
@@ -49,7 +24,7 @@
 
     counter-reset: line;
 
-    & > span:is(.sh__line) {
+    & > span.line {
       padding-left: var(--space-5);
 
       &::before {
