@@ -5,7 +5,9 @@
   z-index: 10;
   opacity: 0;
   transform: translateY(110%);
-  transition: all 500ms ease;
+  transition:
+    opacity 500ms ease,
+    transform 500ms ease;
 
   &[data-scrolled-state="true"] {
     opacity: 1;
