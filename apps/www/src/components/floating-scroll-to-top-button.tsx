@@ -10,29 +10,29 @@ import styles from "./floating-scroll-to-top-button.module.css";
 type FloatingScrollToTopButtonProps = React.ComponentProps<
   typeof IconButton
 > & {
+  scrollTopThreshold?: number;
   smoothScroll?: boolean;
-  scrollDistanceThreshold?: number;
 };
 
 export const FloatingScrollToTopButton = ({
+  scrollTopThreshold = 20,
   smoothScroll = false,
-  scrollDistanceThreshold = 20,
   ...props
 }: FloatingScrollToTopButtonProps): React.JSX.Element => {
-  const scrollState = useScrollState({
-    scrollDistanceThreshold,
-  });
+  const scrolled = useScrollState({
+    scrollTopThreshold,
+  }).scrolled;
   return (
     <IconButton
       {...props}
+      data-scrolled-state={`${scrolled}`}
       aria-label="Scroll To Top"
       size="3"
       variant="soft"
       color="gray"
       radius="full"
-      className={styles.ScrollToTopButton}
+      className={styles.FloatingScrollToTopButton}
       onClick={() => scrollToTop({ smoothScroll })}
-      data-scroll-state={scrollState}
     >
       <ChevronUpIcon width="20" height="20" />
     </IconButton>

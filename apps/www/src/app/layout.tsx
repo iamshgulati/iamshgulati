@@ -57,11 +57,8 @@ export default function RootLayout({
           <Providers>
             {children}
             {!isProduction && <ScreenSizeIndicator />}
-            <FloatingBackButton />
-            <FloatingScrollToTopButton
-              smoothScroll
-              scrollDistanceThreshold={800}
-            />
+            <FloatingBackButton scrollTopThreshold={800} />
+            <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           </Providers>
         </div>
       </body>
