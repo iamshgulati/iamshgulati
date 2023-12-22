@@ -12,8 +12,7 @@ export const ScreenSizeIndicator = (): React.JSX.Element => {
       style={{
         position: "fixed",
         bottom: "8px",
-        left: "50%",
-        transform: "translateX(-50%)",
+        left: "8px",
         zIndex: "999",
         pointerEvents: "none",
       }}
