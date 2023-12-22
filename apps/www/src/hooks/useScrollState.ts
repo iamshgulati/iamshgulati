@@ -3,14 +3,14 @@ import { usePathname } from "next/navigation";
 
 type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
 
-interface HeaderProps {
+interface ScrollStateProps {
   viewportScrollFactorThreshold?: number;
   scrollDistanceThreshold?: number;
 }
 
 /**
  * Custom React hook to track the scroll state.
- * @param {HeaderProps} props - Configuration options for header behavior.
+ * @param {ScrollStateProps} props - Configuration options for scroll state behavior.
  * @param {number} [props.viewportScrollFactorThreshold = 1] - Minimum height of the document as a factor of the viewport height.
  * @param {number} [props.scrollDistanceThreshold = 0] - The distance in pixels scrolled before considering a change in scroll direction.
  * @returns {ScrollState} Returns the current scroll state: 'at-top', 'scrolling-up', or 'scrolling-down'.
@@ -18,7 +18,7 @@ interface HeaderProps {
 export function useScrollState({
   viewportScrollFactorThreshold = 1,
   scrollDistanceThreshold = 0,
-}: HeaderProps): ScrollState {
+}: ScrollStateProps): ScrollState {
   const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
   const [previousScrollPosition, setPreviousScrollPosition] =
     React.useState<number>(0);
