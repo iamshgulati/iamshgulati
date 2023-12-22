@@ -8,7 +8,7 @@ const watchCallbacks: (() => void)[] = [];
 
 watch(dataDir)
   .on("ready", () => {
-    console.log(`🔎 Watcher ready. Looking for changes in "${dataDir}"`);
+    console.log(` ✓ watcher is 🔎 looking for changes in "${dataDir}"`);
   })
   .on("all", (event) => {
     if (event === "change") {
