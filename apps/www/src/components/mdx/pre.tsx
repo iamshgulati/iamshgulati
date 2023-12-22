@@ -17,12 +17,7 @@ export const Pre = React.forwardRef<HTMLPreElement, PreProps>(function Pre(
       <ScrollArea size="1" type="scroll">
         <pre
           ref={forwardedRef}
-          className={cn(
-            styles.Pre,
-            styles.SugarHigh,
-            styles[scheme],
-            className,
-          )}
+          className={cn(styles.Pre, styles[scheme], className)}
         >
           {children}
         </pre>
