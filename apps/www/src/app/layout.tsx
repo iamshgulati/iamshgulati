@@ -1,4 +1,3 @@
-import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { Providers } from "~/providers";
 
 import "~/styles/globals.css";
@@ -7,6 +6,9 @@ import React from "react";
 import type { Metadata } from "next";
 
 import { fonts } from "~/assets/fonts";
+import { FloatingBackButton } from "~/components/floating-back-button";
+import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
+import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { ogImageApi } from "~/lib/api";
@@ -51,10 +53,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
+        <div id="scroll-to-top" />
         <div id="root">
           <Providers>
             {children}
             {!isProduction && <ScreenSizeIndicator />}
+            <FloatingBackButton />
+            <FloatingScrollToTopButton />
           </Providers>
         </div>
       </body>

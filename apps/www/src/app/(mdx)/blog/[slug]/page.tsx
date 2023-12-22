@@ -2,9 +2,8 @@ import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { Box, Flex, Section } from "@radix-ui/themes";
+import { Box, Section } from "@radix-ui/themes";
 
-import { BackButton } from "~/components/back-button";
 import { PageMeta } from "~/components/page-meta";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
@@ -114,11 +113,6 @@ export default async function BlogPage({ params }: PageProps) {
         <Suspense fallback={null}>
           <PageContent />
         </Suspense>
-      </Section>
-      <Section size={{ initial: "1", xs: "2" }} pb="0">
-        <Flex align="center" justify="center">
-          <BackButton size="3" />
-        </Flex>
       </Section>
     </React.Fragment>
   );
