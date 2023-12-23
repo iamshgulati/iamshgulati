@@ -3,6 +3,7 @@
 import React from "react";
 import { Box } from "@radix-ui/themes";
 
+import { removeDoubleLineBreaks, removeFinalBlankLine } from "~/lib/strings";
 import { CopyTextButton } from "./copy-text-button";
 import { Pre } from "./pre";
 import styles from "./pre-with-copy-button.module.css";
@@ -18,7 +19,11 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
         ref={(node: HTMLPreElement | null): void => {
           if (node) {
             const codeElement: HTMLElement | null = node.querySelector("code");
-            setCode(removeDoubleLineBreaks(codeElement?.innerText ?? ""));
+            setCode(
+              removeFinalBlankLine(
+                removeDoubleLineBreaks(codeElement?.innerText ?? ""),
+              ),
+            );
           }
         }}
       />
@@ -26,6 +31,3 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
     </Box>
   );
 };
-
-const removeDoubleLineBreaks = (text: string): string =>
-  text.replace(/\n{2}/g, "\n");

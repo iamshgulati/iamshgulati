@@ -7,6 +7,7 @@ import { BadgeWithIndicator } from "~/components/mdx/badge-with-indicator";
 import { Blockquote } from "~/components/mdx/blockquote";
 import { Callout } from "~/components/mdx/callout";
 import { Code } from "~/components/mdx/code";
+import { CodeBlock } from "~/components/mdx/code-block";
 import { Em } from "~/components/mdx/em";
 import { H1 } from "~/components/mdx/h1";
 import { H2 } from "~/components/mdx/h2";
@@ -52,6 +53,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     HStack,
     VStack,
     BadgeWithIndicator,
+    CodeBlock,
   };
 
   return {
