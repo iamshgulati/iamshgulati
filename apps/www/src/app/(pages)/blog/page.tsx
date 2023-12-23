@@ -59,28 +59,20 @@ export default function BlogPage(): React.JSX.Element {
         />
       </Section>
       <Section size={{ initial: "1", xs: "2" }}>
-        <Flex direction="column" gap="8">
-          <Previews route={route} />
+        <Flex direction="column" gap="5">
+          {route.pages.map((page: Frontmatter) => (
+            <LinkCard
+              key={page.slug}
+              href={page.slug}
+              title={page.title}
+              description={page.description}
+              metadata={{
+                publishedAt: page.publishedAt,
+              }}
+            />
+          ))}
         </Flex>
       </Section>
     </React.Fragment>
   );
 }
-
-const Previews = ({ route }: { route: AppRoute }): React.JSX.Element => {
-  return (
-    <React.Fragment>
-      {route.pages.map((page: Frontmatter) => (
-        <LinkCard
-          key={page.slug}
-          href={page.slug}
-          title={page.title}
-          description={page.description}
-          metadata={{
-            publishedAt: page.publishedAt,
-          }}
-        />
-      ))}
-    </React.Fragment>
-  );
-};

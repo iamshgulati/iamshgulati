@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Box, Card, Flex, Text } from "@radix-ui/themes";
+import { Badge, Card, Flex, Text } from "@radix-ui/themes";
 
 import { formatFullDate, formatRelativeDate } from "~/lib/date";
 import { NextLink } from "~/lib/link";
@@ -27,15 +27,13 @@ export const LinkCard = ({
       <Text as="div" size="2" color="gray" mb="3">
         {description}
       </Text>
-      <Box position="relative" mb="6">
-        <Metadata position="absolute" publishedAt={metadata?.publishedAt} />
-      </Box>
+      <Metadata publishedAt={metadata?.publishedAt} />
     </React.Fragment>
   );
 
   return href ? (
     <NextLink href={href} passHref legacyBehavior>
-      <Card asChild size="2" variant="ghost">
+      <Card asChild size="2">
         <a href={href}>{cardContent}</a>
       </Card>
     </NextLink>
