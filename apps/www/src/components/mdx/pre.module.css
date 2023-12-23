@@ -1,39 +1,4 @@
 .Pre {
-  box-sizing: border-box;
-  border-radius: var(--radius-4);
-  padding: var(--space-4) var(--space-5);
-  overflow: auto;
-  white-space: pre;
-  position: relative;
-  background-color: var(--accent-a2);
-  color: var(--gray-12);
-  box-shadow: var(--border);
-
-  --border: inset 0 0 0 1px var(--accent-a1), inset 0 0 0 1px var(--gray-a5);
-  --line-numbers: var(--gray-8);
-
-  code {
-    display: inline-block;
-    min-width: 100%;
-    border-width: 0;
-
-    font-size: calc(var(--font-size-2) * var(--code-font-size-adjust));
-    font-family: var(--code-font-family);
-    line-height: 22px;
-    --letter-spacing: var(--letter-spacing-2);
-
-    counter-reset: line;
-
-    & > span.line {
-      padding-left: var(--space-5);
-
-      &::before {
-        counter-increment: line;
-        content: counter(line);
-        margin-right: var(--space-5);
-        text-align: right;
-        color: var(--line-numbers);
-      }
-    }
-  }
+  max-width: 100%;
+  overflow-x: auto;
 }

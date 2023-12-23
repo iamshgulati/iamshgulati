@@ -27,4 +27,5 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
   );
 };
 
-const removeDoubleLineBreaks = (text: string) => text.replace(/\n{2}/g, "\n");
+const removeDoubleLineBreaks = (text: string): string =>
+  text.replace(/\n{2}/g, "\n");
