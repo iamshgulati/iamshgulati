@@ -6,12 +6,19 @@ import { highlight } from "~/lib/code-highlighter";
 export const Code = async ({ ...props }): Promise<React.JSX.Element> => {
   const className: string | undefined = props.className as string | undefined;
   if (className) {
-    const code: string = (props.children as string) ?? "";
-    const lang: string = className.replace("language-", "");
+    const children: string = (props.children as string) ?? "";
+    const language: string = className.replace("language-", "");
+    const preElementHtml = await highlight({
+      code: children,
+      language: language,
+    });
+
     return (
       <code
         className={className}
-        dangerouslySetInnerHTML={{ __html: await highlight({ code, lang }) }}
+        dangerouslySetInnerHTML={{
+          __html: preElementHtml,
+        }}
       />
     );
   } else {

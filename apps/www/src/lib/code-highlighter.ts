@@ -7,16 +7,16 @@ const highlighter: Highlighter = await getHighlighter({
 
 export const highlight = async ({
   code,
-  lang,
+  language,
 }: {
   code: string;
-  lang: string;
+  language: string;
 }): Promise<string> => {
-  if (lang && !highlighter.getLoadedLanguages().includes(lang)) {
-    await highlighter.loadLanguage(lang as BundledLanguage);
+  if (language && !highlighter.getLoadedLanguages().includes(language)) {
+    await highlighter.loadLanguage(language as BundledLanguage);
   }
   return highlighter.codeToHtml(code, {
     themes: { dark: "github-dark", light: "github-light" },
-    lang: lang,
+    lang: language,
   });
 };
