@@ -5,9 +5,7 @@ export const ogImageApi = ({
   title,
   publishedAt = undefined,
 }: Pick<Frontmatter, "title" | "publishedAt">) =>
-  encodeURI(
-    `${getBaseUrl()}/api/og?${getParams({
-      title,
-      publishedAt,
-    })}`,
-  );
+  `${getBaseUrl()}/api/og?${getParams({
+    title: title,
+    publishedAt: publishedAt,
+  })}`;

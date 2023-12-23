@@ -10,6 +10,8 @@ export const getParams = (
     .filter((entry) => entry[1])
     .map(
       ([key, value]) =>
-        `${key}=${Array.isArray(value) ? value.join(" ") : value}`,
+        `${key}=${encodeURIComponent(
+          (Array.isArray(value) ? value.join(" ") : value)!,
+        )}`,
     )
     .join("&");
