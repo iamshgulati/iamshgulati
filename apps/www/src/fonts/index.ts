@@ -22,11 +22,7 @@ const inter = localFont({
     {
       prop: "font-feature-settings",
       value:
-        "'liga' 1, 'calt' 1, 'tnum' 1, 'zero' 0, 'ss01' 1, 'ss02' 1, 'ss03' 1",
-    },
-    {
-      prop: "font-variant-numeric",
-      value: "normal",
+        "'liga' 1, 'calt' 1, 'tnum' 1, 'zero' 0, 'ss01' 1, 'ss02' 0, 'ss03' 1, 'cv05' 1, 'cv08' 1",
     },
   ],
 });
