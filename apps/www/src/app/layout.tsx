@@ -5,12 +5,12 @@ import "~/styles/globals.css";
 import React from "react";
 import type { Metadata } from "next";
 
-import { fonts } from "~/assets/fonts";
 import { FloatingBackButton } from "~/components/floating-back-button";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
+import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
 import { getBaseUrl } from "~/lib/url";

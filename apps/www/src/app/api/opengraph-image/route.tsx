@@ -13,29 +13,9 @@ export const size = {
 };
 
 export async function GET(req: Request) {
-  const [inter400, plusJakartaSans600] = await Promise.all([
-    fetch(`${getBaseUrl()}/fonts/inter-regular.woff`).then((res) =>
-      res.arrayBuffer(),
-    ),
-    fetch(`${getBaseUrl()}/fonts/plus-jakarta-sans-semibold.woff`).then((res) =>
-      res.arrayBuffer(),
-    ),
+  const [pjs600] = await Promise.all([
+    fetch(`${getBaseUrl()}/fonts/pjs600.woff`).then((res) => res.arrayBuffer()),
   ]);
-
-  // const [inter400, plusJakartaSans600] = await Promise.all([
-  //   fs.promises.readFile(
-  //     path.join(
-  //       fileURLToPath(import.meta.url),
-  //       `../../../../assets/fonts/Inter-4.0/Inter-Regular.ttf`,
-  //     ),
-  //   ),
-  //   fs.promises.readFile(
-  //     path.join(
-  //       fileURLToPath(import.meta.url),
-  //       `../../../../assets/fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff`,
-  //     ),
-  //   ),
-  // ]);
 
   try {
     const { searchParams } = new URL(req.url);
@@ -88,7 +68,7 @@ export async function GET(req: Request) {
               marginRight: 190,
               display: "flex",
               fontSize: 130,
-              fontFamily: "Plus Jakarta Sans 600",
+              fontFamily: "pjs600",
               letterSpacing: "-0.03em",
               fontStyle: "normal",
               color: "white",
@@ -106,7 +86,7 @@ export async function GET(req: Request) {
               width: "100%",
               justifyContent: "space-between",
               fontSize: 50,
-              fontFamily: "Inter 400",
+              fontFamily: "pjs600",
               fontStyle: "normal",
               color: "white",
             }}
@@ -132,13 +112,8 @@ export async function GET(req: Request) {
         ...size,
         fonts: [
           {
-            name: "Inter 400",
-            data: inter400,
-            style: "normal",
-          },
-          {
-            name: "Plus Jakarta Sans 600",
-            data: plusJakartaSans600,
+            name: "pjs600",
+            data: pjs600,
             style: "normal",
           },
         ],
@@ -150,3 +125,18 @@ export async function GET(req: Request) {
     });
   }
 }
+
+// const [inter400, plusJakartaSans600] = await Promise.all([
+//   fs.promises.readFile(
+//     path.join(
+//       fileURLToPath(import.meta.url),
+//       `../../../../fonts/Inter-4.0/Inter-Regular.ttf`,
+//     ),
+//   ),
+//   fs.promises.readFile(
+//     path.join(
+//       fileURLToPath(import.meta.url),
+//       `../../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff`,
+//     ),
+//   ),
+// ]);
