@@ -14,7 +14,9 @@ export const size = {
 
 export async function GET(req: Request) {
   const [pjs600] = await Promise.all([
-    fetch(`${getBaseUrl()}/fonts/pjs600.woff`).then((res) => res.arrayBuffer()),
+    fetch(`${getBaseUrl()}/fonts/PlusJakartaSans-SemiBold.woff`).then((res) =>
+      res.arrayBuffer(),
+    ),
   ]);
 
   try {
@@ -130,13 +132,13 @@ export async function GET(req: Request) {
 //   fs.promises.readFile(
 //     path.join(
 //       fileURLToPath(import.meta.url),
-//       `../../../../fonts/Inter-4.0/Inter-Regular.ttf`,
+//       `../../../../fonts/Inter-Regular.ttf`,
 //     ),
 //   ),
 //   fs.promises.readFile(
 //     path.join(
 //       fileURLToPath(import.meta.url),
-//       `../../../../fonts/PlusJakartaSans-2.7.1/PlusJakartaSans-SemiBold.woff`,
+//       `../../../../fonts/PlusJakartaSans-SemiBold.woff`,
 //     ),
 //   ),
 // ]);

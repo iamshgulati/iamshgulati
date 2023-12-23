@@ -14,7 +14,9 @@ export const size = {
 
 export async function GET(req: Request) {
   const [pjs600] = await Promise.all([
-    fetch(`${getBaseUrl()}/fonts/pjs600.woff`).then((res) => res.arrayBuffer()),
+    fetch(`${getBaseUrl()}/fonts/PlusJakartaSans-SemiBold.woff`).then((res) =>
+      res.arrayBuffer(),
+    ),
   ]);
 
   try {

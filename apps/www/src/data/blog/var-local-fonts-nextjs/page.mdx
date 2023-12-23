@@ -7,7 +7,7 @@ export const metadata = {
 
 Next.js has a font module load local and google fonts but their documentation isn't clear on how to load **variable local fonts** properly.
 
-I have tried to use [Inter 4](https://rsms.me/inter) variable font on my website and waned to share how I did it.
+I have tried to use [Inter](https://rsms.me/inter) variable font on my website and waned to share how I did it.
 
 ```ts showLineNumbers {14} title="font.ts"
 import localFont from "next/font/local";
@@ -36,7 +36,7 @@ export const fontSans = localFont({
 ```
 
 {<Callout>
-Setting the <Code>{`weight: "100 900"`}</Code> was important here. This is
+Setting the <code>{`weight: "100 900"`}</code> was important here. This is
 not documented clearly in Next.js documentation, and without it all my
 font weights were being synthesized from single regular weight.
 

@@ -3,11 +3,11 @@ import localFont from "next/font/local";
 const inter = localFont({
   src: [
     {
-      path: "Inter-4.0/InterVariable.woff2",
+      path: "./InterVariable[wght,opsz].woff2",
       style: "normal",
     },
     {
-      path: "Inter-4.0/InterVariable-Italic.woff2",
+      path: "./InterVariable-Italic[wght,opsz].woff2",
       style: "italic",
     },
   ],
@@ -17,35 +17,64 @@ const inter = localFont({
   declarations: [
     {
       prop: "unicode-range",
-      value: "U+0020-007F",
+      value: "U+0000-007F",
     },
-  ],
-});
-
-const jetBrainsMono = localFont({
-  src: "JetBrainsMono-2.304/JetBrainsMono-Variable.woff2",
-  weight: "400",
-  style: "normal",
-  display: "swap",
-  variable: "--font-mono",
-  declarations: [
     {
-      prop: "unicode-range",
-      value: "U+0020-007F",
+      prop: "font-feature-settings",
+      value:
+        "'liga' 1, 'calt' 1, 'tnum' 1, 'zero' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1",
     },
   ],
 });
 
 const plusJakartaSans = localFont({
-  src: "PlusJakartaSans-2.7.1/PlusJakartaSans.woff2",
-  weight: "100 900",
-  style: "normal",
+  src: [
+    {
+      path: "./PlusJakartaSans[wght].woff2",
+      style: "normal",
+    },
+    // {
+    //   path: "./PlusJakartaSans-Italic[wght].woff2",
+    //   style: "italic",
+    // },
+  ],
+  weight: "200 800",
   display: "swap",
   variable: "--font-heading",
   declarations: [
     {
       prop: "unicode-range",
-      value: "U+0020-007F",
+      value: "U+0000-007F",
+    },
+    {
+      prop: "font-feature-settings",
+      value: "'liga' 1, 'calt' 1",
+    },
+  ],
+});
+
+const jetBrainsMono = localFont({
+  src: [
+    {
+      path: "./JetBrainsMono[wght].woff2",
+      style: "normal",
+    },
+    // {
+    //   path: "./JetBrainsMono-Italic[wght].woff2",
+    //   style: "italic",
+    // },
+  ],
+  weight: "100 800",
+  display: "swap",
+  variable: "--font-mono",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0000-007F",
+    },
+    {
+      prop: "font-feature-settings",
+      value: "'liga' 1, 'calt' 1",
     },
   ],
 });
@@ -55,17 +84,3 @@ export const fonts = [
   jetBrainsMono.variable,
   plusJakartaSans.variable,
 ].join(" ");
-
-// const calSans = localFont({
-//   src: "CalSans-1.0.0/CalSans-SemiBold.woff2",
-//   weight: "700",
-//   style: "normal",
-//   display: "swap",
-//   variable: "--font-heading",
-//   declarations: [
-//     {
-//       prop: "unicode-range",
-//       value: "U+0020-007F",
-//     },
-//   ],
-// });

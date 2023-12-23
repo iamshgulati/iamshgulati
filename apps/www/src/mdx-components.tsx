@@ -38,7 +38,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   const themesComponents = {
     ...Icons,
     Link,
-    Code,
     Quote,
     Text,
     Button,

@@ -6,7 +6,7 @@ export const metadata = {
 
 ## Generating a font subset
 
-Some fonts have hundreds or thousands of glyphs covering many languages. Font subsetting can make your font files as small as just 5% of the original font files depending on the subsets you choose to use for your website. Here's how I generated subsets for the [Inter 4](https://rsms.me/inter) font family.
+Some fonts have hundreds or thousands of glyphs covering many languages. Font subsetting can make your font files as small as just 5% of the original font files depending on the subsets you choose to use for your website. Here's how I generated subsets for the [Inter](https://rsms.me/inter) font family.
 
 1. Install `fonttools` and `brotli`
 
@@ -16,24 +16,100 @@ pip install fonttools brotli
 
 2. Run `pyftsubset` with desired options
 
+### Subsets
+
+- Bare minimum Latin subset
+
+```plaintext
+U+0020-007F
+```
+
+- Latin subset with some extra characters
+
+```plaintext
+U+0000-007F, U+0080-00FF
+```
+
+> More information available [here](https://web.dev/articles/font-best-practices).
+
+#### Inter
+
+Supported features for Inter [here](https://rsms.me/inter#faq-technical-details).
+
 ```sh
 pyftsubset \
-  InterVariable.ttf \
-  --output-file="InterVariable.woff2" \
+  "InterVariable[wght,opsz].ttf" \
+  --output-file="InterVariable[wght,opsz].woff2" \
   --flavor="woff2" \
-  --layout-features="" \
-  --unicodes="U+0020-007F"
+  --layout-features="liga, calt, ss01, ss02, ss03, cv05, zero" \
+  --unicodes="U+0000-007F"
 ```
 
 ```sh
 pyftsubset \
-  InterVariable-Italic.ttf \
-  --output-file="InterVariable-Italic.woff2" \
+  "InterVariable-Italic[wght,opsz].ttf" \
+  --output-file="InterVariable-Italic[wght,opsz].woff2" \
   --flavor="woff2" \
-  --layout-features="" \
-  --unicodes="U+0020-007F"
+  --layout-features="liga, calt, ss01, ss02, ss03, cv05, zero" \
+  --unicodes="U+0000-007F"
 ```
 
-> For the two styles of Inter 4, size reduced from total 733KB to just 58KB. Thats... not bad at all.
+Size reduced from total **733KB** woff2 to just **72KB** woff2.
+
+#### Plus Jakarta Sans
+
+Supported features for Plus Jakarta Sans [here](https://tokotype.github.io/plusjakarta-sans/).
+
+```sh
+pyftsubset \
+  "PlusJakartaSans[wght].ttf" \
+  --output-file="PlusJakartaSans[wght].woff2" \
+  --flavor="woff2" \
+  --layout-features="liga, calt" \
+  --unicodes="U+0000-007F"
+```
+
+```sh
+pyftsubset \
+  "PlusJakartaSans-Italic[wght].ttf" \
+  --output-file="PlusJakartaSans-Italic[wght].woff2" \
+  --flavor="woff2" \
+  --layout-features="liga, calt" \
+  --unicodes="U+0000-007F"
+```
+
+And, a static font file for the opengraph image api.
+
+```sh
+pyftsubset \
+  "PlusJakartaSans-SemiBold.ttf" \
+  --output-file="PlusJakartaSans-SemiBold.woff" \
+  --flavor="woff" \
+  --unicodes="U+0000-007F"
+```
+
+#### JetBrains Mono
+
+Supported features for JetBrains Mono [here](https://www.jetbrains.com/lp/mono/).
+
+```sh
+pyftsubset \
+  "JetBrainsMono[wght].ttf" \
+  --output-file="JetBrainsMono[wght].woff2" \
+  --flavor="woff2" \
+  --layout-features="liga, calt" \
+  --unicodes="U+0000-007F"
+```
+
+```sh
+pyftsubset \
+  "JetBrainsMono-Italic[wght].ttf" \
+  --output-file="JetBrainsMono-Italic[wght].woff2" \
+  --flavor="woff2" \
+  --layout-features="liga, calt" \
+  --unicodes="U+0000-007F"
+```
+
+### Loading Fonts
 
 You can now load the woff2 font files using `@font-face`, or using `next/font/local` package as I have shared in [this post](/blog/var-local-fonts-nextjs).
