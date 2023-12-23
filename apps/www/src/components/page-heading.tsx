@@ -9,7 +9,7 @@ export const HeroHeading = ({
 }): React.JSX.Element => {
   let headingStyle: React.CSSProperties = {
     // fontWeight: "400",
-    fontWeight: "550",
+    fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
     "--heading-font-size-adjust": "1.1",
     // "--heading-letter-spacing": "0.02em",
@@ -44,7 +44,7 @@ export const PageHeading = ({
 }): React.JSX.Element => {
   let headingStyles: React.CSSProperties = {
     // fontWeight: "400",
-    fontWeight: "550",
+    fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
     // "--heading-font-size-adjust": "1.1",
     "--heading-font-size-adjust": "1",
