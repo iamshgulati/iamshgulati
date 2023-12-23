@@ -1,7 +1,6 @@
 @import "@radix-ui/themes/styles.css";
 @import "theme-config.css";
 @import "cmdk.css";
-@import "code-highlighter.css";
 
 /* -------------------------------------------------------------------- */
 
@@ -62,4 +61,11 @@ pre {
   --light-theme-icon-display: none;
   --dark-theme-icon-display: none;
   --system-theme-icon-display: block;
+}
+
+/* -------------------------------------------------------------------- */
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
 }

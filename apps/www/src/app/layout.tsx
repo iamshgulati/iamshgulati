@@ -1,6 +1,6 @@
 import { Providers } from "~/providers";
 
-import "~/styles/globals.css";
+import "~/styles/global.css";
 
 import React from "react";
 import type { Metadata } from "next";
