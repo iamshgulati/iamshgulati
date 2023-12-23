@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
 import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
