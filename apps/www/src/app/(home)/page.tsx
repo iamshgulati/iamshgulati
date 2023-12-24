@@ -59,6 +59,7 @@ export default function HomePage(): React.JSX.Element {
             <Flex
               direction={{ initial: "column", xs: "row" }}
               gap={{ initial: "3", xs: "5" }}
+              mt="2"
               className={styles.HeroCTAButtonsContainer}
               style={{
                 textAlign: "center",
