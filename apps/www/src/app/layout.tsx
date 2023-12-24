@@ -11,12 +11,13 @@ import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env.mjs";
 import { fonts } from "~/fonts";
+import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
 import { getBaseUrl } from "~/lib/url";
 
-// const ogImageUrl: string = ogImageApi({
-//   title: "Hello! I'm Shubham Gulati.",
-// });
+const ogImageUrl: string = ogImageApi({
+  title: "Hello! I'm Shubham Gulati.",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${getBaseUrl()}`),
@@ -29,19 +30,19 @@ export const metadata: Metadata = {
     siteName: siteConfig.title,
     locale: siteConfig.locale,
     type: "website",
-    // images: [
-    //   {
-    //     url: ogImageUrl,
-    //     width: 1920,
-    //     height: 1080,
-    //   },
-    // ],
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    // images: [ogImageUrl],
+    images: [ogImageUrl],
   },
   manifest: "/site.webmanifest",
 };
