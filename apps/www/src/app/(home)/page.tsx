@@ -35,7 +35,8 @@ const HeroContent = (): React.JSX.Element => (
     <Flex direction={{ initial: "column-reverse", md: "row" }} gap="6">
       <Box>
         <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }} mb="6">
-          A lot of useless facts about some less useless things that I can do.
+          Here&apos;s some useless facts about some less useless things that I
+          can do.
         </Text>
         <Flex direction="row" gap="6">
           <NextLink href="/about">
