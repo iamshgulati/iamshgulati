@@ -27,8 +27,9 @@ export default function HomePage(): React.JSX.Element {
             <Box className={styles.HeroPastExperienceContainer}>
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer ratio={0.4}>
-                  Past — Senior Technology Consultant @ Deloitte Consulting.
                   Software Engineer and Certified Cloud Architect.
+                  <br />
+                  Past — Senior Technology Consultant @ Deloitte Consulting.
                 </Balancer>
               </Text>
             </Box>
@@ -52,7 +53,7 @@ export default function HomePage(): React.JSX.Element {
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer>
                   Here&apos;s many useless facts about me and some{" "}
-                  <strong>less useless things</strong> I do.
+                  <strong>less useless things</strong> I can do.
                 </Balancer>
               </Text>
             </Box>
