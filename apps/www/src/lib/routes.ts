@@ -71,12 +71,17 @@ export const allRoutes: AllRoutes = {
       {
         title: "GitHub",
         slug: siteConfig.links.github,
-        icon: "GitHubLogoIcon",
+        icon: "GitHubAltLogoIcon",
       },
       {
         title: "LinkedIn",
         slug: siteConfig.links.linkedin,
-        icon: "LinkedInLogoIcon",
+        icon: "LinkedInAltLogoIcon",
+      },
+      {
+        title: "Bluesky",
+        slug: siteConfig.links.bluesky,
+        icon: "BlueskyLogoIcon",
       },
       {
         title: "Twitter",
@@ -84,19 +89,14 @@ export const allRoutes: AllRoutes = {
         icon: "TwitterLogoIcon",
       },
       {
-        title: "Threads",
-        slug: siteConfig.links.threads,
-        icon: "ThreadsLogoIcon",
-      },
-      {
         title: "Mastodon",
         slug: siteConfig.links.mastodon,
         icon: "MastodonLogoIcon",
       },
       {
-        title: "Bluesky",
-        slug: siteConfig.links.bluesky,
-        icon: "Link2Icon",
+        title: "Threads",
+        slug: siteConfig.links.threads,
+        icon: "ThreadsLogoIcon",
       },
     ],
   },

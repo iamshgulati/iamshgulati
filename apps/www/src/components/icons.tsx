@@ -103,7 +103,67 @@ const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 AtSymbolIcon.displayName = "AtSymbolIcon";
 
-const TwitterFilledLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+const GitHubAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  // VscGithubAlt
+  ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
+    return (
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        fill={color}
+        {...props}
+        ref={forwardedRef}
+      >
+        <path d="M21.035 5.257c.91 1.092 1.364 2.366 1.364 3.822 0 5.277-3.002 6.824-5.823 7.279.364.637.455 1.365.455 2.093v3.73c0 .455-.273.728-.637.728a.718.718 0 0 1-.728-.728v-3.73a2.497 2.497 0 0 0-.728-2.093l.455-1.183c2.821-.364 5.733-1.274 5.733-6.187 0-1.183-.455-2.275-1.274-3.185l-.182-.727a4.04 4.04 0 0 0 .09-2.73c-.454.09-1.364.273-2.91 1.365l-.547.09a13.307 13.307 0 0 0-6.55 0l-.547-.09C7.57 2.71 6.66 2.437 6.204 2.437c-.273.91-.273 1.91.09 2.73l-.181.727c-.91.91-1.365 2.093-1.365 3.185 0 4.822 2.73 5.823 5.732 6.187l.364 1.183c-.546.546-.819 1.274-.728 2.002v3.821a.718.718 0 0 1-.728.728.718.718 0 0 1-.728-.728V20.18c-3.002.637-4.185-.91-5.095-2.092-.455-.546-.819-1.001-1.274-1.092-.09-.091-.364-.455-.273-.819.091-.364.455-.637.82-.455.91.182 1.455.91 2 1.547.82 1.092 1.639 2.092 4.095 1.547v-.364c-.09-.728.091-1.456.455-2.093-2.73-.546-5.914-2.093-5.914-7.279 0-1.456.455-2.73 1.365-3.822-.273-1.273-.182-2.638.273-3.73l.455-.364C5.749 1.073 7.023.8 9.66 2.437a13.673 13.673 0 0 1 6.642 0C18.851.708 20.216.98 20.398 1.072l.455.364c.455 1.274.546 2.548.182 3.821z" />
+      </svg>
+    );
+  },
+);
+GitHubAltLogoIcon.displayName = "GitHubAltLogoIcon";
+
+const LinkedInAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  // PiLinkedinLogoIcon
+  ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
+    return (
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 256 256"
+        xmlns="http://www.w3.org/2000/svg"
+        fill={color}
+        {...props}
+        ref={forwardedRef}
+      >
+        <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z" />
+      </svg>
+    );
+  },
+);
+LinkedInAltLogoIcon.displayName = "LinkedInAltLogoIcon";
+
+const BlueskyLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  // PiButterflyIcon
+  ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
+    return (
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 256 256"
+        xmlns="http://www.w3.org/2000/svg"
+        fill={color}
+        {...props}
+        ref={forwardedRef}
+      >
+        <path d="M232.7,50.48C229,45.7,221.84,40,209,40c-16.85,0-38.46,11.28-57.81,30.16A140.07,140.07,0,0,0,136,87.53V56a8,8,0,0,0-16,0V87.53a140.07,140.07,0,0,0-15.15-17.37C85.49,51.28,63.88,40,47,40,34.16,40,27,45.7,23.3,50.48c-6.82,8.77-12.18,24.08-.21,71.2,6.05,23.83,19.51,33,30.63,36.42A44,44,0,0,0,128,205.27a44,44,0,0,0,74.28-47.17c11.12-3.4,24.57-12.59,30.63-36.42C239.63,95.24,244.85,66.1,232.7,50.48ZM92,208A28.12,28.12,0,0,1,88.86,152a8,8,0,1,0-1.76-15.9A43.64,43.64,0,0,0,66.36,144c-8.43.09-22-3.57-27.76-26.26C35.72,106.39,27,71.86,35.94,60.3,37.37,58.46,40.09,56,47,56c27.27,0,73,44.88,73,71.67V180A28,28,0,0,1,92,208ZM217.4,117.74c-5.77,22.69-19.33,26.34-27.77,26.26a43.6,43.6,0,0,0-20.74-7.95,8,8,0,1,0-1.76,15.9A28.11,28.11,0,1,1,136,180V127.67C136,100.88,181.69,56,209,56c6.95,0,9.66,2.46,11.1,4.3C229.05,71.86,220.28,106.39,217.4,117.74Z" />
+      </svg>
+    );
+  },
+);
+BlueskyLogoIcon.displayName = "BlueskyLogoIcon";
+
+const TwitterAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // RxTwitterLogoIcon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -121,7 +181,7 @@ const TwitterFilledLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
     );
   },
 );
-TwitterFilledLogoIcon.displayName = "TwitterFilledLogoIcon";
+TwitterAltLogoIcon.displayName = "TwitterAltLogoIcon";
 
 const ThreadsLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // si/SiThreads
@@ -498,9 +558,12 @@ export const Icons = {
   //
   CommandIcon,
   LinkedInLogoIcon,
+  LinkedInAltLogoIcon,
   GitHubLogoIcon,
+  GitHubAltLogoIcon,
+  BlueskyLogoIcon,
   TwitterLogoIcon,
-  TwitterFilledLogoIcon,
+  TwitterAltLogoIcon,
   ThreadsLogoIcon,
   MastodonLogoIcon,
   SpringFrameworkIcon,
