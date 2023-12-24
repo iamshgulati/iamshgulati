@@ -10,7 +10,7 @@ export const HeroHeading = ({
   let headingStyle: React.CSSProperties = {
     fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-font-size-adjust": "2.8",
+    "--heading-font-size-adjust": "2.5",
     "--heading-letter-spacing": "-0.01em",
     lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
     ...props.style,
@@ -20,7 +20,7 @@ export const HeroHeading = ({
     headingStyle = {
       fontWeight: "600",
       "--heading-font-family": "var(--font-serif), var(--em-font-family)",
-      "--heading-font-size-adjust": "2.8",
+      "--heading-font-size-adjust": "2.5",
       "--heading-letter-spacing": "0.01em",
       lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
       ...props.style,
