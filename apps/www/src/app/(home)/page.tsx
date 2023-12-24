@@ -76,7 +76,7 @@ const HeroContent = (): React.JSX.Element => (
         </Text>
         <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
           I love tinkering with code. Currently, I am{" "}
-          <Text style={{ color: "var(--gray-10)" }}>
+          <Text color="gray">
             <s>
               learning the craft of designing high-performance cloud
               architectures and minimalistic front-end interfaces
