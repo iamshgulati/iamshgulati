@@ -16,9 +16,6 @@ export default function HomeLayout({
         <Header
           sticky
           ghost
-          autoHide
-          viewportScrollFactorThreshold={2}
-          scrollDistanceThreshold={100}
           backdropExtended
           productLinkRoute={allRoutes.productLinks}
           commandMenuRoutes={[
