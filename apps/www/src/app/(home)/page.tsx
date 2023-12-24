@@ -51,7 +51,7 @@ export default function HomePage(): React.JSX.Element {
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer>
                   Here&apos;s many useless facts about me and some{" "}
-                  <strong>less useless things</strong> I can do.
+                  <strong>less useless things</strong> that I can do.
                 </Balancer>
               </Text>
             </Box>
