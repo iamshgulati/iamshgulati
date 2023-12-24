@@ -18,6 +18,7 @@ import {
   MixIcon,
   PersonIcon,
   QuoteIcon,
+  TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 import type { IconProps } from "@radix-ui/react-icons/dist/types";
 
@@ -102,7 +103,7 @@ const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 AtSymbolIcon.displayName = "AtSymbolIcon";
 
-const TwitterLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+const TwitterFilledLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // RxTwitterLogoIcon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -120,7 +121,7 @@ const TwitterLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
     );
   },
 );
-TwitterLogoIcon.displayName = "TwitterLogoIcon";
+TwitterFilledLogoIcon.displayName = "TwitterFilledLogoIcon";
 
 const ThreadsLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // si/SiThreads
@@ -499,6 +500,7 @@ export const Icons = {
   LinkedInLogoIcon,
   GitHubLogoIcon,
   TwitterLogoIcon,
+  TwitterFilledLogoIcon,
   ThreadsLogoIcon,
   MastodonLogoIcon,
   SpringFrameworkIcon,
