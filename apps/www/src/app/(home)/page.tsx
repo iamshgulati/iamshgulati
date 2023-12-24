@@ -51,8 +51,8 @@ export default function HomePage(): React.JSX.Element {
             <Box className={styles.HeroCTADescription}>
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer>
-                  Here&apos;s many useless facts about some{" "}
-                  <strong>less useless things</strong> that I do.
+                  Here&apos;s many useless facts about me and some{" "}
+                  <strong>less useless things</strong> I do.
                 </Balancer>
               </Text>
             </Box>
