@@ -25,16 +25,16 @@ export default function HomePage(): React.JSX.Element {
               </HeroHeading>
             </Box>
             <Box className={styles.HeroPastExperienceContainer}>
-              <Balancer ratio={0.4}>
-                <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+                <Balancer ratio={0.4}>
                   Past — Senior Technology Consultant @ Deloitte Consulting.
                   Software Engineer and Certified Cloud Architect.
-                </Text>
-              </Balancer>
+                </Balancer>
+              </Text>
             </Box>
             <Box className={styles.HeroCurrentlyContainer}>
-              <Balancer ratio={0.6}>
-                <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+                <Balancer ratio={0.6}>
                   I love tinkering with code. And, currently I am{" "}
                   <Text color="gray">
                     <s>
@@ -45,16 +45,16 @@ export default function HomePage(): React.JSX.Element {
                   <Text>
                     just trying to figure out what do I want to do with my life.
                   </Text>
-                </Text>
-              </Balancer>
+                </Balancer>
+              </Text>
             </Box>
             <Box className={styles.HeroCTADescription}>
-              <Balancer>
-                <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+                <Balancer>
                   Here&apos;s many useless facts about some{" "}
                   <strong>less useless things</strong> that I do.
-                </Text>
-              </Balancer>
+                </Balancer>
+              </Text>
             </Box>
             <Flex
               direction={{ initial: "column", xs: "row" }}
