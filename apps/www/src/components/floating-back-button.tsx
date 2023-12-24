@@ -23,7 +23,7 @@ export const FloatingBackButton = ({
     <IconButton
       data-scrolled-state={`${scrolled}`}
       aria-label="Navigate Back"
-      size="3"
+      size="4"
       variant="surface"
       color="gray"
       radius="full"

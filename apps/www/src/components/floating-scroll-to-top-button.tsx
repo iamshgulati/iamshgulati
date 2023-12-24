@@ -27,7 +27,7 @@ export const FloatingScrollToTopButton = ({
       {...props}
       data-scrolled-state={`${scrolled}`}
       aria-label="Scroll To Top"
-      size="3"
+      size="4"
       variant="surface"
       color="gray"
       radius="full"
