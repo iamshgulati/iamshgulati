@@ -1,4 +1,4 @@
-import { Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
+import { Badge, Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 import type { MDXComponents } from "mdx/types";
 
 import { Icons } from "~/components/icons";
@@ -44,6 +44,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Button,
     Flex,
     Grid,
+    Badge,
   };
 
   const customComponents = {
