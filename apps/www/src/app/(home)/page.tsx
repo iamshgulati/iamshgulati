@@ -11,14 +11,14 @@ import styles from "./page.module.css";
 export default function HomePage(): React.JSX.Element {
   return (
     <React.Fragment>
-      <Section size={{ initial: "2", xs: "3" }}>
+      <Section size={{ initial: "2", xs: "3" }} pb="7">
         <Box
           mx={{ initial: "4", xs: "5", sm: "6", md: "9", xl: "auto" }}
           style={{ maxWidth: "1400px" }}
         >
           <Grid gapX="9" gapY="4" className={styles.HeroGridContainer}>
-            <Box my="4" className={styles.HeroHeadingContainer}>
-              <HeroHeading as="h1">
+            <Box className={styles.HeroHeadingContainer}>
+              <HeroHeading as="h1" trim="both">
                 Hello! I&apos;m
                 <br />
                 Shubham Gulati,
@@ -51,7 +51,7 @@ export default function HomePage(): React.JSX.Element {
             <Box className={styles.HeroCTADescription}>
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer>
-                  Here&apos;s many useless facts about me and few{" "}
+                  Here&apos;s many useless facts about me and a few{" "}
                   <strong>less useless things</strong> that I can do.
                 </Balancer>
               </Text>
