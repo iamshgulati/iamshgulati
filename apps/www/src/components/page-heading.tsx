@@ -10,9 +10,7 @@ export const HeroHeading = ({
   let headingStyle: React.CSSProperties = {
     fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-font-size-adjust": "2.5",
     "--heading-letter-spacing": "-0.01em",
-    lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
     ...props.style,
   } as React.CSSProperties;
 
@@ -20,9 +18,7 @@ export const HeroHeading = ({
     headingStyle = {
       fontWeight: "600",
       "--heading-font-family": "var(--font-serif), var(--em-font-family)",
-      "--heading-font-size-adjust": "2.5",
       "--heading-letter-spacing": "0.01em",
-      lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
       ...props.style,
     } as React.CSSProperties;
   }
@@ -30,8 +26,15 @@ export const HeroHeading = ({
   return (
     <Heading
       {...props}
-      size={{ initial: "4", xs: "5", sm: "7", md: "8", lg: "9" }}
-      style={{ ...headingStyle }}
+      size={{ initial: "4", xs: "6", sm: "7", md: "8", lg: "9" }}
+      style={
+        {
+          "--heading-font-size-adjust": "2.5",
+          lineHeight:
+            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+          ...headingStyle,
+        } as React.CSSProperties
+      }
     />
   );
 };
@@ -43,11 +46,9 @@ export const PageHeading = ({
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
   let headingStyles: React.CSSProperties = {
-    fontWeight: "600",
+    fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-font-size-adjust": "1.2",
     "--heading-letter-spacing": "-0.01em",
-    lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
     ...props.style,
   } as React.CSSProperties;
 
@@ -55,9 +56,7 @@ export const PageHeading = ({
     headingStyles = {
       fontWeight: "600",
       "--heading-font-family": "var(--font-serif), var(--em-font-family)",
-      "--heading-font-size-adjust": "1.2",
       "--heading-letter-spacing": "0.01em",
-      lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
       ...props.style,
     } as React.CSSProperties;
   }
@@ -66,7 +65,14 @@ export const PageHeading = ({
     <Heading
       {...props}
       size={{ initial: "8", xs: "9" }}
-      style={{ ...headingStyles }}
+      style={
+        {
+          "--heading-font-size-adjust": "1.2",
+          lineHeight:
+            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+          ...headingStyles,
+        } as React.CSSProperties
+      }
     />
   );
 };
