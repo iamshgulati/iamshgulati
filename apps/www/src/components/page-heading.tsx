@@ -30,7 +30,7 @@ export const HeroHeading = ({
   return (
     <Heading
       {...props}
-      size={{ initial: "2", xs: "5", sm: "7", md: "8", lg: "9" }}
+      size={{ initial: "4", xs: "5", sm: "7", md: "8", lg: "9" }}
       style={{ ...headingStyle }}
     />
   );
