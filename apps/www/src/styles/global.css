@@ -3,14 +3,25 @@
 @import "cmdk.css";
 
 /* -------------------------------------------------------------------- */
+/* CSS RESET                                                            */
+/* -------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 0;
+  margin: 0;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   min-width: 320px;
+  min-height: 100dvh;
   color: var(--gray-12);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,12 +42,15 @@ pre {
   margin: 0;
 }
 
-/* -------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+p {
+  text-wrap: pretty;
 }
 
 /* -------------------------------------------------------------------- */
