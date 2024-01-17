@@ -17,9 +17,9 @@ export const Providers = ({
       <CommandMenuProvider>
         <NextThemesProvider>
           <RadixThemesProvider>
-            <AutoRefresh>
-              <WrapBalancerProvider>{children}</WrapBalancerProvider>
-            </AutoRefresh>
+            <WrapBalancerProvider>
+              <AutoRefresh>{children}</AutoRefresh>
+            </WrapBalancerProvider>
           </RadixThemesProvider>
         </NextThemesProvider>
       </CommandMenuProvider>
