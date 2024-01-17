@@ -2,9 +2,9 @@
   "name": "shgulati",
   "private": true,
   "engines": {
-    "node": ">=18.17.1"
+    "node": ">=20.9"
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.14.1",
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules dist .next",
