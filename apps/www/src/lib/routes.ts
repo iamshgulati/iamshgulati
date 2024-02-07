@@ -71,12 +71,12 @@ export const allRoutes: AllRoutes = {
       {
         title: "GitHub",
         slug: siteConfig.links.github,
-        icon: "GitHubAltLogoIcon",
+        icon: "GitHubLogoIcon",
       },
       {
         title: "LinkedIn",
         slug: siteConfig.links.linkedin,
-        icon: "LinkedInAltLogoIcon",
+        icon: "LinkedInLogoIcon",
       },
       {
         title: "Bluesky",
