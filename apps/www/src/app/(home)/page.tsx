@@ -27,8 +27,8 @@ export default function HomePage(): React.JSX.Element {
             <Box className={styles.HeroPastExperienceContainer}>
               <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 <Balancer ratio={0.4}>
-                  Software Engineer and Certified Cloud Architect. Past — Senior
-                  Technology Consultant @ Deloitte Consulting.
+                  Senior Software Engineer and Certified Cloud Architect. Past —
+                  Senior Technology Consultant @ Deloitte Consulting.
                 </Balancer>
               </Text>
             </Box>
