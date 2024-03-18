@@ -1,1 +1,1 @@
-# gulati.sh
+# shubhamgulati.com

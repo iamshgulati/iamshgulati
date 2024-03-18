@@ -23,7 +23,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   title: "Shubham Gulati",
   description: "Software Engineer & Certified Cloud Architect.",
-  url: "https://gulati.sh",
+  url: "https://shubhamgulati.com",
   locale: "en_US",
   links: {
     resume: "/files/ShubhamGulati_Resume.pdf",
@@ -38,6 +38,6 @@ export const siteConfig: SiteConfig = {
     twitter: "IAmShGulati",
   },
   og: {
-    displayUrl: "www.gulati.sh",
+    displayUrl: "www.shubhamgulati.com",
   },
 };
