@@ -8,7 +8,7 @@ Past — Senior Technology Consultant @ Deloitte Consulting.
 
 I love tinkering with code. Currently, I am learning the craft of designing high-performance cloud architectures and minimalistic front-end interfaces.
 
-Feel free to check what I've been rambling about on [my digital space](https://gulati.sh).
+Feel free to check what I've been rambling about on [my digital space](https://shubhamgulati.com).
 
 - Back-End Web Developer
 - Tech Enthusiast
