@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 export default function HomePage(): React.JSX.Element {
   return (
     <React.Fragment>
-      <Section size={{ initial: "2", xs: "3" }} pb="7">
+      <Section size={{ initial: "2", xs: "4" }} pb="7">
         <Box
           mx={{ initial: "4", xs: "5", sm: "6", md: "9", xl: "auto" }}
           style={{ maxWidth: "1400px" }}

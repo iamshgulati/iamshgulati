@@ -33,6 +33,8 @@ export const FloatingScrollToTopButton = ({
       radius="full"
       className={styles.FloatingScrollToTopButton}
       onClick={() => scrollToTop({ smoothScroll })}
+      // TODO - fix radix-theme css reset overriding the css for this button
+      style={{ display: "none" }}
     >
       <ChevronUpIcon width="20" height="20" />
     </IconButton>

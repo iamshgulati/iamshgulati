@@ -16,11 +16,13 @@ type FloatingFloatingBackButtonProps = React.ComponentProps<
 
 export const FloatingBackButton = ({
   scrollTopThreshold = 20,
+  ...props
 }: FloatingFloatingBackButtonProps): React.JSX.Element => {
   const scrolled = useScrollState({ scrollTopThreshold }).scrolled;
   const router = useRouter();
   return (
     <IconButton
+      {...props}
       data-scrolled-state={`${scrolled}`}
       aria-label="Navigate Back"
       size="4"
@@ -29,6 +31,8 @@ export const FloatingBackButton = ({
       radius="full"
       className={styles.FloatingBackButton}
       onClick={() => router.back()}
+      // TODO - fix radix-theme css reset overriding the css for this button
+      style={{ display: "none" }}
     >
       <ChevronLeftIcon width="20" height="20" />
     </IconButton>

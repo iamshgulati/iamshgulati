@@ -34,7 +34,7 @@ export default function MDXLayout({
         <Layout.Main>
           <Layout.Content>
             <Box asChild width="100%" style={{ maxWidth: 858 }}>
-              <Section size={{ initial: "2", xs: "3" }}>
+              <Section size={{ initial: "2", xs: "4" }}>
                 <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
                   {children}
                 </Container>

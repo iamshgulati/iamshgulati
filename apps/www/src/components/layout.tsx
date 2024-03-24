@@ -79,8 +79,8 @@ const LayoutMain = ({
       {...props}
       asChild
       direction="column"
-      grow="1"
-      shrink="0"
+      flexGrow="1"
+      flexShrink="0"
       position="relative"
       style={{
         zIndex: "0",
@@ -101,7 +101,7 @@ const LayoutContent = ({
       {...props}
       asChild
       direction="column"
-      grow="1"
+      flexGrow="1"
       align="center"
       style={{
         maxWidth: "100%",
