@@ -49,7 +49,7 @@ export default function NotFound(): React.JSX.Element {
       >
         <BackButton
           size="3"
-          variant="solid"
+          variant="ghost"
           style={{
             paddingLeft: "var(--space-5)",
             paddingRight: "var(--space-5)",
@@ -62,7 +62,7 @@ export default function NotFound(): React.JSX.Element {
         <NextLink href="/">
           <Button
             size="3"
-            variant="soft"
+            variant="ghost"
             style={{
               paddingLeft: "var(--space-5)",
               paddingRight: "var(--space-5)",
