@@ -1,6 +1,5 @@
 import React from "react";
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
-import { CalloutIcon, CalloutRoot, CalloutText } from "@radix-ui/themes";
+import { Callout as RTCallout } from "@radix-ui/themes";
 
 import type { Icon } from "~/components/icons";
 import { Icons } from "~/components/icons";
@@ -8,7 +7,7 @@ import { Icons } from "~/components/icons";
 type CalloutProps = React.PropsWithChildren<{
   icon?: keyof typeof Icons;
 }> &
-  PropsWithoutRefOrColor<typeof CalloutRoot>;
+  React.ComponentPropsWithoutRef<typeof RTCallout.Root>;
 
 export const Callout = ({
   icon = "InfoCircledIcon",
@@ -16,11 +15,11 @@ export const Callout = ({
 }: CalloutProps): React.JSX.Element => {
   const ComputedIcon: Icon = Icons[icon];
   return (
-    <CalloutRoot variant="surface" mt="5" mb="5">
-      <CalloutIcon>
+    <RTCallout.Root variant="surface" mt="5" mb="5">
+      <RTCallout.Icon>
         <ComputedIcon />
-      </CalloutIcon>
-      <CalloutText>{children}</CalloutText>
-    </CalloutRoot>
+      </RTCallout.Icon>
+      <RTCallout.Text>{children}</RTCallout.Text>
+    </RTCallout.Root>
   );
 };

@@ -2,13 +2,12 @@
 
 import React from "react";
 import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { IconButton } from "@radix-ui/themes";
 
 export const CopyTextButton = ({
   textToCopy = undefined,
   ...props
-}: PropsWithoutRefOrColor<typeof IconButton> & {
+}: React.ComponentPropsWithoutRef<typeof IconButton> & {
   textToCopy?: string;
 }): React.JSX.Element => {
   const [copied, setCopied] = React.useState(false);

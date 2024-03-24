@@ -1,5 +1,4 @@
 import React from "react";
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Table as RTTable } from "@radix-ui/themes";
 
 export const TableRoot = ({ ...props }): React.JSX.Element => (
@@ -29,7 +28,7 @@ export const TableCell = ({ ...props }): React.JSX.Element => (
 type TableProps = {
   header: string[];
   rows: (string | React.ReactNode)[][];
-} & PropsWithoutRefOrColor<typeof RTTable.Root>;
+} & React.ComponentPropsWithoutRef<typeof RTTable.Root>;
 
 export const Table = ({
   header = [],

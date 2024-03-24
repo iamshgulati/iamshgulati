@@ -23,23 +23,20 @@
     "prepare": "is-ci || husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@shgulati/prettier-config": "workspace:^0.1.0",
-    "@turbo/gen": "^1.11.2",
-    "husky": "^8.0.3",
+    "@turbo/gen": "^1.13.0",
+    "husky": "^9.0.11",
     "is-ci": "^3.0.1",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
-    "turbo": "^1.11.2",
-    "typescript": "^5.3.3"
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.0",
+    "typescript": "^5.4.3"
   },
   "pnpm": {
     "overrides": {
       "esbuild": "^0.19.8"
-    },
-    "patchedDependencies": {
-      "next-themes@0.2.1": "patches/next-themes@0.2.1.patch"
     }
   },
   "prettier": "@shgulati/prettier-config"

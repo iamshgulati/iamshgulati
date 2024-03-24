@@ -1,9 +1,8 @@
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Grid } from "@radix-ui/themes";
 
 export const CeritificationBadgesGrid = ({
   ...props
-}: PropsWithoutRefOrColor<typeof Grid>) => (
+}: React.ComponentPropsWithoutRef<typeof Grid>) => (
   <Grid
     {...props}
     align="center"

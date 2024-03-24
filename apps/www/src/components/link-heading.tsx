@@ -1,5 +1,4 @@
 import React from "react";
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 import { Link } from "@radix-ui/themes";
 
 import { cn } from "~/lib/classnames";
@@ -12,7 +11,7 @@ export const LinkHeading = ({
   children = undefined,
   className = undefined,
   ...props
-}: PropsWithoutRefOrColor<"a">): React.JSX.Element => {
+}: Omit<React.ComponentPropsWithoutRef<"a">, "color">): React.JSX.Element => {
   const slug = slugify(extractTextFromChildren(children) ?? "");
   return (
     <Link

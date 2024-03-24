@@ -2,7 +2,6 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import type { PropsWithoutRefOrColor } from "@radix-ui/themes";
 
 import { NextLink } from "~/lib/link";
 import type { AppRoute } from "~/lib/routes";
@@ -43,7 +42,7 @@ const HeaderProductLink = ({
   active = false,
   children = undefined,
   ...props
-}: PropsWithoutRefOrColor<"a"> & {
+}: React.ComponentPropsWithoutRef<"a"> & {
   active?: boolean;
 }): React.JSX.Element => (
   <NextLink href={href!} passHref legacyBehavior>
