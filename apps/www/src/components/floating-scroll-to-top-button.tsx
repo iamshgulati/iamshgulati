@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ChevronUpIcon } from "@radix-ui/react-icons";
-import { IconButton } from "@radix-ui/themes";
+import { Box, IconButton } from "@radix-ui/themes";
 
 import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-scroll-to-top-button.module.css";
@@ -23,21 +23,22 @@ export const FloatingScrollToTopButton = ({
     scrollTopThreshold,
   }).scrolled;
   return (
-    <IconButton
-      {...props}
+    <Box
       data-scrolled-state={`${scrolled}`}
-      aria-label="Scroll To Top"
-      size="4"
-      variant="surface"
-      color="gray"
-      radius="full"
-      className={styles.FloatingScrollToTopButton}
-      onClick={() => scrollToTop({ smoothScroll })}
-      // TODO - fix radix-theme css reset overriding the css for this button
-      style={{ display: "none" }}
+      className={styles.FloatingScrollToTopButtonContainer}
     >
-      <ChevronUpIcon width="20" height="20" />
-    </IconButton>
+      <IconButton
+        {...props}
+        aria-label="Scroll To Top"
+        size="4"
+        variant="surface"
+        color="gray"
+        radius="full"
+        onClick={() => scrollToTop({ smoothScroll })}
+      >
+        <ChevronUpIcon width="20" height="20" />
+      </IconButton>
+    </Box>
   );
 };
 

@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import { IconButton } from "@radix-ui/themes";
+import { Box, IconButton } from "@radix-ui/themes";
 
 import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-back-button.module.css";
@@ -21,20 +21,21 @@ export const FloatingBackButton = ({
   const scrolled = useScrollState({ scrollTopThreshold }).scrolled;
   const router = useRouter();
   return (
-    <IconButton
-      {...props}
+    <Box
       data-scrolled-state={`${scrolled}`}
-      aria-label="Navigate Back"
-      size="4"
-      variant="surface"
-      color="gray"
-      radius="full"
-      className={styles.FloatingBackButton}
-      onClick={() => router.back()}
-      // TODO - fix radix-theme css reset overriding the css for this button
-      style={{ display: "none" }}
+      className={styles.FloatingBackButtonContainer}
     >
-      <ChevronLeftIcon width="20" height="20" />
-    </IconButton>
+      <IconButton
+        {...props}
+        aria-label="Navigate Back"
+        size="4"
+        variant="surface"
+        color="gray"
+        radius="full"
+        onClick={() => router.back()}
+      >
+        <ChevronLeftIcon width="20" height="20" />
+      </IconButton>
+    </Box>
   );
 };
