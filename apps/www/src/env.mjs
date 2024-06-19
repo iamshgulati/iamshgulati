@@ -18,10 +18,7 @@ export const env = createEnv({
    */
   server: {
     // SERVERVAR: z.string(),
-    USE_CUSTOM_FONTS: z
-      .enum(["true", "false"])
-      .optional()
-      .transform((v) => v === "true"),
+    USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
   },
 
   /**
