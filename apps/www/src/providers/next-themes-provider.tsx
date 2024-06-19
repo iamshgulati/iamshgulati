@@ -10,7 +10,7 @@ export const NextThemesProvider = ({
   <ThemeProvider
     {...props}
     attribute="class"
-    defaultTheme="dark"
+    defaultTheme="system"
     enableSystem
     enableColorScheme
     disableTransitionOnChange
