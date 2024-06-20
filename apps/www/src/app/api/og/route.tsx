@@ -64,27 +64,51 @@ export async function GET(req: Request) {
               />
             </svg>
           </div>
-          <div
-            style={{
-              marginLeft: 190,
-              marginRight: 190,
-              display: "flex",
-              fontSize: 130,
-              fontFamily: "pjs600",
-              letterSpacing: "-0.03em",
-              fontStyle: "normal",
-              color: "white",
-              lineHeight: "150px",
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            {title}
-          </div>
+          {title ? (
+            <div
+              style={{
+                marginLeft: 190,
+                marginRight: 190,
+                display: "flex",
+                flexDirection: "column",
+                fontSize: 130,
+                fontFamily: "pjs600",
+                letterSpacing: "-0.03em",
+                fontStyle: "normal",
+                color: "white",
+                lineHeight: "150px",
+                whiteSpace: "pre-wrap",
+              }}
+            >
+              {title}
+            </div>
+          ) : (
+            <div
+              style={{
+                marginLeft: 190,
+                marginRight: 190,
+                display: "flex",
+                flexDirection: "column",
+                fontSize: 130,
+                fontFamily: "pjs600",
+                letterSpacing: "-0.03em",
+                fontStyle: "normal",
+                color: "white",
+                lineHeight: "150px",
+                whiteSpace: "pre-wrap",
+              }}
+            >
+              Hello! I&apos;m
+              <br />
+              Shubham Gulati,
+            </div>
+          )}
           <div
             style={{
               position: "absolute",
               top: 860,
               display: "flex",
+              flexDirection: "row",
               width: "100%",
               justifyContent: "space-between",
               fontSize: 50,
@@ -122,8 +146,11 @@ export async function GET(req: Request) {
       },
     );
   } catch (error) {
-    return new Response(`Failed to generate image. Error - ${JSON.stringify(error)}`, {
-      status: 500,
-    });
+    return new Response(
+      `Failed to generate image. Error - ${JSON.stringify(error)}`,
+      {
+        status: 500,
+      },
+    );
   }
 }
