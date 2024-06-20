@@ -15,8 +15,8 @@ export const Img = ({
   <Image
     src={src}
     alt={alt}
-    width={width as number}
-    height={height as number}
+    width={width ? width as number : 0}
+    height={height ? height as number : 0}
     sizes="100vw"
     loading="lazy"
     style={{
