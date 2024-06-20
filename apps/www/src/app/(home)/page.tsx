@@ -22,8 +22,9 @@ export default function HomePage(): React.JSX.Element {
           >
             <Box className={styles.HeroHeadingContainer}>
               <HeroHeading as="h1">
-                <Box>Hello! I&apos;m</Box>
-                <Box>Shubham Gulati,</Box>
+                Hello! I&apos;m
+                <br />
+                Shubham Gulati,
               </HeroHeading>
             </Box>
             <Box className={styles.HeroPastExperienceContainer}>
