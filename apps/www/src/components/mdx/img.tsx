@@ -2,30 +2,31 @@ import React from "react";
 import Image from "next/image";
 
 export const Img = ({
-  src,
-  alt,
+  src = undefined,
+  alt = undefined,
   width = undefined,
   height = undefined,
 }: {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   width?: string | number;
   height?: string | number;
-}): React.JSX.Element => (
-  <Image
-    src={src}
-    alt={alt}
-    width={width ? width as number : 0}
-    height={height ? height as number : 0}
-    sizes="100vw"
-    loading="lazy"
-    style={{
-      width: "100%",
-      height: "auto",
-      borderRadius: "var(--radius-4)",
-    }}
-  />
-);
+}): React.JSX.Element | null =>
+  src && alt ? (
+    <Image
+      src={src}
+      alt={alt}
+      width={width ? (width as number) : 0}
+      height={height ? (height as number) : 0}
+      sizes="100vw"
+      loading="lazy"
+      style={{
+        width: "100%",
+        height: "auto",
+        borderRadius: "var(--radius-4)",
+      }}
+    />
+  ) : null;
 
 /*
 
