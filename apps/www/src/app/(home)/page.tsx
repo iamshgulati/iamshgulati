@@ -1,7 +1,6 @@
 import React from "react";
 import { ArrowTopRightIcon, PersonIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Link, Section, Text } from "@radix-ui/themes";
-import Balancer from "react-wrap-balancer";
 
 import { HeroHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
@@ -16,44 +15,49 @@ export default function HomePage(): React.JSX.Element {
           mx={{ initial: "4", xs: "5", sm: "6", md: "9", xl: "auto" }}
           style={{ maxWidth: "1400px" }}
         >
-          <Grid gapX="9" gapY="4" className={styles.HeroGridContainer}>
+          <Grid gapX="9" gapY="5" className={styles.HeroGridContainer}>
             <Box className={styles.HeroHeadingContainer}>
-              <HeroHeading as="h1" trim="both">
-                Hello! I&apos;m
-                <br />
-                Shubham Gulati,
+              <HeroHeading as="h1">
+                <Box pb={{ initial: "0", md: "3" }}>Hello! I&apos;m</Box>
+                <Box pb={{ initial: "0", md: "3" }}>Shubham Gulati,</Box>
               </HeroHeading>
             </Box>
             <Box className={styles.HeroPastExperienceContainer}>
-              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
-                <Balancer ratio={0.4}>
-                  Senior Software Engineer and Certified Cloud Architect. Past —
-                  Senior Technology Consultant @ Deloitte Consulting.
-                </Balancer>
+              <Text
+                as="p"
+                size={{ initial: "3", xs: "4", sm: "5" }}
+                wrap="balance"
+              >
+                Senior Software Engineer and Certified Cloud Architect. Past —
+                Senior Technology Consultant @ Deloitte Consulting.
               </Text>
             </Box>
             <Box className={styles.HeroCurrentlyContainer}>
-              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
-                <Balancer ratio={0.6}>
-                  I love tinkering with code. And, currently I am{" "}
-                  <Text color="gray">
-                    <s>
-                      learning the craft of designing high-performance cloud
-                      architectures and minimalistic front-end interfaces
-                    </s>
-                  </Text>{" "}
-                  <Text>
-                    just trying to figure out what do I want to do with my life.
-                  </Text>
-                </Balancer>
+              <Text
+                as="p"
+                size={{ initial: "3", xs: "4", sm: "5" }}
+                wrap="balance"
+              >
+                I love tinkering with code. And, currently I am{" "}
+                <Text color="gray">
+                  <s>
+                    learning the craft of designing high-performance cloud
+                    architectures and minimalistic front-end interfaces
+                  </s>
+                </Text>{" "}
+                <Text>
+                  just trying to figure out what do I want to do with my life.
+                </Text>
               </Text>
             </Box>
             <Box className={styles.HeroCTADescription}>
-              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
-                <Balancer>
-                  Here&apos;s many useless facts about me and a few{" "}
-                  <strong>less useless things</strong> that I can do.
-                </Balancer>
+              <Text
+                as="p"
+                size={{ initial: "3", xs: "4", sm: "5" }}
+                wrap="balance"
+              >
+                Here&apos;s many useless facts about me and a few{" "}
+                <strong>less useless things</strong> that I can do.
               </Text>
             </Box>
             <Flex

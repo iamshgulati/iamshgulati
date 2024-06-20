@@ -1,6 +1,5 @@
 import React from "react";
 import { Slot } from "@radix-ui/themes";
-import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 
 import AutoRefresh from "~/components/auto-refresh";
 import { CommandMenuProvider } from "~/components/command-menu";
@@ -17,9 +16,7 @@ export const Providers = ({
       <CommandMenuProvider>
         <NextThemesProvider>
           <RadixThemesProvider>
-            <WrapBalancerProvider>
-              <AutoRefresh>{children}</AutoRefresh>
-            </WrapBalancerProvider>
+            <AutoRefresh>{children}</AutoRefresh>
           </RadixThemesProvider>
         </NextThemesProvider>
       </CommandMenuProvider>
