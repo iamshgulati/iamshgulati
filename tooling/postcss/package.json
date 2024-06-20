@@ -16,15 +16,15 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-discard-comments": "^7.0.0",
+    "postcss-discard-comments": "^7.0.1",
     "postcss-discard-empty": "^7.0.0",
     "postcss-import": "^16.1.0",
-    "postcss-nesting": "^12.1.2"
+    "postcss-nesting": "^12.1.5"
   },
   "devDependencies": {
     "@shgulati/prettier-config": "workspace:^0.1.0",
     "@shgulati/tsconfig": "workspace:^0.1.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.2",
     "typescript": "^5.4.5"
   },
   "prettier": "@shgulati/prettier-config"
