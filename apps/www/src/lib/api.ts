@@ -1,10 +1,12 @@
-import type { Frontmatter } from "~/types/frontmatter";
 import { getBaseUrl, getParams } from "./url";
 
 export const ogImageApi = ({
-  title,
+  title = undefined,
   publishedAt = undefined,
-}: Pick<Frontmatter, "title" | "publishedAt">) =>
+}: {
+  title?: string;
+  publishedAt?: string;
+}) =>
   `${getBaseUrl()}/api/og?${getParams({
     title: title,
     publishedAt: publishedAt,

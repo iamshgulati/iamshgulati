@@ -15,15 +15,15 @@ import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
 import { getBaseUrl } from "~/lib/url";
 
-const ogImageUrl: string = ogImageApi({
-  title: "Hello! I'm Shubham Gulati.",
-});
+const ogImageUrl: string = ogImageApi({});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${getBaseUrl()}`),
   title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
     url: `${getBaseUrl()}`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
