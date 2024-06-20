@@ -3,9 +3,9 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 
-import { NextLink } from "~/lib/link";
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
+import { NextLink } from "~/lib/link";
 import styles from "./header.module.css";
 
 interface HeaderProductLinksProps {

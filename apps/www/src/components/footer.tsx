@@ -1,9 +1,9 @@
 import React from "react";
 import { Flex, IconButton, Link, Text } from "@radix-ui/themes";
 
-import { siteConfig } from "~/config/site";
-import type { Frontmatter } from "~/types/frontmatter";
 import type { Icon } from "./icons";
+import type { Frontmatter } from "~/types/frontmatter";
+import { siteConfig } from "~/config/site";
 import { Icons } from "./icons";
 
 interface FooterProps {

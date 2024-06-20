@@ -1,5 +1,5 @@
-import glob from "glob";
 import type { MDXModule } from "mdx/types";
+import glob from "glob";
 
 import type { Frontmatter } from "~/types/frontmatter";
 

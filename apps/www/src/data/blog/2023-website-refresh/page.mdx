@@ -22,8 +22,8 @@ I use `getAllFrontmatter` helper to parse all mdx files and then leverage `@next
 to read the frontmatter. I have seen some devs read mdx source and parse the frontmatter line-by-line. It works, but I prefer to take this approach.
 
 ```ts
-import glob from "glob";
 import type { MDXModule } from "mdx/types";
+import glob from "glob";
 
 import type { Frontmatter } from "~/types/frontmatter";
 

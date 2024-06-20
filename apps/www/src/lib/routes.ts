@@ -1,5 +1,5 @@
-import { siteConfig } from "~/config/site";
 import type { Frontmatter } from "~/types/frontmatter";
+import { siteConfig } from "~/config/site";
 import { getAllFrontmatter } from "./mdx";
 
 export interface AppRoute {

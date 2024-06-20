@@ -1,3 +1,4 @@
+import type { IconProps } from "@radix-ui/react-icons/dist/types";
 import React from "react";
 import {
   ArrowTopRightIcon,
@@ -20,7 +21,6 @@ import {
   QuoteIcon,
   TwitterLogoIcon as TwitterAltLogoIcon,
 } from "@radix-ui/react-icons";
-import type { IconProps } from "@radix-ui/react-icons/dist/types";
 
 export type Icon = React.ForwardRefExoticComponent<
   IconProps & React.RefAttributes<SVGSVGElement>

@@ -13,12 +13,12 @@ import {
 import { Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command, CommandGroup } from "cmdk";
 
+import type { Icon } from "./icons";
+import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
-import type { AppRoute } from "~/lib/routes";
-import type { Frontmatter } from "~/types/frontmatter";
-import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
 const [MenuProvider, useMenuContext] = createContext<{
@@ -135,35 +135,31 @@ export function CommandMenu({
                 </Command.Item>
               </CommandGroup>
 
-              {routes?.map(
-                (section: AppRoute): React.JSX.Element | null =>
-                  section.pages.length > 0 ? (
-                    <Command.Group
-                      key={section.label}
-                      heading={section.label}
-                    >
-                      {section.pages.map((page: Frontmatter) => {
-                        const ItemIcon: Icon | undefined =
-                          page.icon && Icons[page.icon];
-                        return (
-                          <Command.Item
-                            key={page.slug}
-                            value={`${section.label}: ${page.title}`}
-                            data-disabled={page.disabled}
-                            onSelect={(): void => {
-                              runCommand(() => router.push(page.slug));
-                            }}
-                          >
-                            {ItemIcon && <ItemIcon />}
-                            {page.title}
-                            {page.slug.startsWith("http") && (
-                              <ArrowTopRightIcon />
-                            )}
-                          </Command.Item>
-                        );
-                      })}
-                    </Command.Group>
-                  ) : null,
+              {routes?.map((section: AppRoute): React.JSX.Element | null =>
+                section.pages.length > 0 ? (
+                  <Command.Group key={section.label} heading={section.label}>
+                    {section.pages.map((page: Frontmatter) => {
+                      const ItemIcon: Icon | undefined =
+                        page.icon && Icons[page.icon];
+                      return (
+                        <Command.Item
+                          key={page.slug}
+                          value={`${section.label}: ${page.title}`}
+                          data-disabled={page.disabled}
+                          onSelect={(): void => {
+                            runCommand(() => router.push(page.slug));
+                          }}
+                        >
+                          {ItemIcon && <ItemIcon />}
+                          {page.title}
+                          {page.slug.startsWith("http") && (
+                            <ArrowTopRightIcon />
+                          )}
+                        </Command.Item>
+                      );
+                    })}
+                  </Command.Group>
+                ) : null,
               )}
             </Command.List>
           </Command>

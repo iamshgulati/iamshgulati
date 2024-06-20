@@ -19,10 +19,10 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "rc",
     "eslint-plugin-turbo": "^2.0.4",
     "eslint-plugin-unused-imports": "^4.0.0",
-    "typescript-eslint": "^7.13.1"
+    "typescript-eslint": "rc-v8"
   },
   "devDependencies": {
     "@shgulati/prettier-config": "workspace:^0.1.0",

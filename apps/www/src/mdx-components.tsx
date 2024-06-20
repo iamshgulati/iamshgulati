@@ -1,5 +1,5 @@
-import { Badge, Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 import type { MDXComponents } from "mdx/types";
+import { Badge, Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
 
 import { Icons } from "~/components/icons";
 import { A } from "~/components/mdx/a";

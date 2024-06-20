@@ -1,16 +1,16 @@
-import React, { Suspense } from "react";
 import type { Metadata } from "next";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { Box, Section } from "@radix-ui/themes";
 
+import type { Frontmatter } from "~/types/frontmatter";
 import { PageMeta } from "~/components/page-meta";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
 import { getBaseUrl } from "~/lib/url";
-import type { Frontmatter } from "~/types/frontmatter";
 
 interface PageProps {
   params: {

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
+import type { AppRoute } from "~/lib/routes";
 import { cn } from "~/lib/classnames";
 import { NextLink } from "~/lib/link";
-import type { AppRoute } from "~/lib/routes";
 import { BoxLink } from "./box-link";
 import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";

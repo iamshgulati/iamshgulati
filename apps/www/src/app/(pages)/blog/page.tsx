@@ -1,15 +1,15 @@
-import React from "react";
 import type { Metadata } from "next";
+import React from "react";
 import { Box, Flex, Section } from "@radix-ui/themes";
 
+import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { LinkCard } from "~/components/link-card";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
-import type { AppRoute } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
-import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 
 const metadataProps: MetadataProps = {
   title: "Blog",

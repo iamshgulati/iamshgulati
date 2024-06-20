@@ -1,8 +1,8 @@
 import React from "react";
 import { Section } from "@radix-ui/themes";
 
-import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import type { Frontmatter } from "~/types/frontmatter";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 
 interface MDXWrapperProps {
   metadata: Frontmatter;
