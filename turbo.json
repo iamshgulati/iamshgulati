@@ -37,7 +37,7 @@
       "cache": false
     }
   },
-  "globalEnv": ["PORT", "APP_URL"],
+  "globalEnv": ["PORT", "APP_URL", "USE_CUSTOM_FONTS"],
   "globalPassThroughEnv": [
     "NODE_ENV",
     "CI",
