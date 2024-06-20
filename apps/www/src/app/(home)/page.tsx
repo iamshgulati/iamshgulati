@@ -15,11 +15,15 @@ export default function HomePage(): React.JSX.Element {
           mx={{ initial: "4", xs: "5", sm: "6", md: "9", xl: "auto" }}
           style={{ maxWidth: "1400px" }}
         >
-          <Grid gapX="9" gapY="5" className={styles.HeroGridContainer}>
+          <Grid
+            gapX="9"
+            gapY={{ initial: "4", lg: "6" }}
+            className={styles.HeroGridContainer}
+          >
             <Box className={styles.HeroHeadingContainer}>
               <HeroHeading as="h1">
-                <Box pb={{ initial: "0", md: "3" }}>Hello! I&apos;m</Box>
-                <Box pb={{ initial: "0", md: "3" }}>Shubham Gulati,</Box>
+                <Box>Hello! I&apos;m</Box>
+                <Box>Shubham Gulati,</Box>
               </HeroHeading>
             </Box>
             <Box className={styles.HeroPastExperienceContainer}>
@@ -61,7 +65,7 @@ export default function HomePage(): React.JSX.Element {
               </Text>
             </Box>
             <Flex
-              direction={{ initial: "column", xs: "row" }}
+              direction={{ initial: "column", lg: "row" }}
               gap={{ initial: "3", xs: "5" }}
               mt="2"
               className={styles.HeroCTAButtonsContainer}
