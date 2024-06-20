@@ -136,10 +136,10 @@ export function CommandMenu({
               </CommandGroup>
 
               {routes?.map(
-                (section: AppRoute, index: number): React.JSX.Element | null =>
+                (section: AppRoute): React.JSX.Element | null =>
                   section.pages.length > 0 ? (
                     <Command.Group
-                      key={section.label ?? index}
+                      key={section.label}
                       heading={section.label}
                     >
                       {section.pages.map((page: Frontmatter) => {

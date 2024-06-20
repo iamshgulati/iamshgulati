@@ -14,7 +14,6 @@ export const useThemeToggle = () => {
   const handleSpecificThemeToggle = React.useCallback(() => {
     const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
     if (
-      nextThemes.theme !== null &&
       nextThemes.theme !== "system" &&
       nextThemes.systemTheme === nextThemes.resolvedTheme
     ) {

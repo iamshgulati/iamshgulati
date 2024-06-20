@@ -19,8 +19,8 @@ export const HeaderProductLinks = ({
 
   return (
     <React.Fragment>
-      {route.pages.map((page: Frontmatter): React.JSX.Element | null => {
-        return page ? (
+      {route.pages.map((page: Frontmatter): React.JSX.Element => {
+        return (
           <HeaderProductLink
             key={page.slug}
             href={page.slug}
@@ -31,7 +31,7 @@ export const HeaderProductLinks = ({
           >
             {page.title}
           </HeaderProductLink>
-        ) : null;
+        );
       })}
     </React.Fragment>
   );
@@ -45,7 +45,7 @@ const HeaderProductLink = ({
 }: React.ComponentPropsWithoutRef<"a"> & {
   active?: boolean;
 }): React.JSX.Element => (
-  <NextLink href={href!} passHref legacyBehavior>
+  <NextLink href={href ? href : "#"} passHref legacyBehavior>
     <a
       data-state={active ? "active" : "inactive"}
       className={styles.HeaderProductLink}

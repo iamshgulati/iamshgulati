@@ -5,7 +5,7 @@ export const extractTextFromChildren = (
 ): string | null => {
   if (React.isValidElement(node)) {
     const { children } =
-      node?.props as React.PropsWithChildren<React.ReactElement>;
+      node.props as React.PropsWithChildren<React.ReactElement>;
     return extractTextFromChildren(children);
   }
 

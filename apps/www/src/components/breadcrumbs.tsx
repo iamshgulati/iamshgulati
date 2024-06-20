@@ -28,7 +28,7 @@ export const Breadcrumbs = ({
   const pathname: string = usePathname();
   const paths: string[] = pathname.split("/");
   paths.shift();
-  omitCurrentLabel && paths.pop();
+  const _currentPage = omitCurrentLabel && paths.pop();
   const breadcrumbs: BreadcrumbProps[] = paths.map(
     (path: string, index: number): BreadcrumbProps => {
       return {

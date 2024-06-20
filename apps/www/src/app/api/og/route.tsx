@@ -122,7 +122,7 @@ export async function GET(req: Request) {
       },
     );
   } catch (error) {
-    return new Response("Failed to generate image", {
+    return new Response(`Failed to generate image. Error - ${JSON.stringify(error)}`, {
       status: 500,
     });
   }

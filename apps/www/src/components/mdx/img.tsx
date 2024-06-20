@@ -2,21 +2,21 @@ import React from "react";
 import Image from "next/image";
 
 export const Img = ({
-  src = undefined,
-  alt = undefined,
+  src,
+  alt,
   width = undefined,
   height = undefined,
 }: {
-  src?: string;
-  alt?: string;
+  src: string;
+  alt: string;
   width?: string | number;
   height?: string | number;
 }): React.JSX.Element => (
   <Image
-    src={src!}
-    alt={alt!}
-    width={(width as number) ?? 0}
-    height={(height as number) ?? 0}
+    src={src}
+    alt={alt}
+    width={width as number}
+    height={height as number}
     sizes="100vw"
     loading="lazy"
     style={{

@@ -38,7 +38,7 @@ export default function NotFound(): React.JSX.Element {
       />
       <TitleAndDescription
         title={metadata.title as string}
-        description={metadata.description!}
+        description={metadata.description ? metadata.description : ""}
       />
       <Flex
         direction={{ initial: "column", md: "row" }}

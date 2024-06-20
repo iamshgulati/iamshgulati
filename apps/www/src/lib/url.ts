@@ -11,7 +11,7 @@ export const getParams = (
     .map(
       ([key, value]) =>
         `${key}=${encodeURIComponent(
-          (Array.isArray(value) ? value.join(" ") : value)!,
+          value ? (Array.isArray(value) ? value.join(" ") : value) : "",
         )}`,
     )
     .join("&");

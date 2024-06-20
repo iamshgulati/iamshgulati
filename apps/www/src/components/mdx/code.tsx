@@ -8,7 +8,7 @@ export const Code = async ({ ...props }): Promise<React.JSX.Element> => {
   const className: string | undefined = props.className as string | undefined;
   if (className) {
     const children: string = removeFinalBlankLine(
-      (props.children as string) ?? "",
+      props.children ? (props.children as string) : "",
     );
     const language: string = className.replace("language-", "");
     const html = await codeToHtml({
