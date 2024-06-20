@@ -1,4 +1,4 @@
-import { env } from "~/env.mjs";
+import { env } from "~/env";
 
 export const getBaseUrl = (): string =>
   env.APP_URL ?? env.VERCEL_URL ?? `http://localhost:${env.PORT}`;

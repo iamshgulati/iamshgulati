@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env";
 
 let AutoRefresh = ({ children }: React.PropsWithChildren) => {
   return children;

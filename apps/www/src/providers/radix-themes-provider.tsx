@@ -1,7 +1,7 @@
 import React from "react";
 import { Theme } from "@radix-ui/themes";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env";
 import { cn } from "~/lib/classnames";
 
 export const RadixThemesProvider = ({

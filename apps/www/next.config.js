@@ -1,8 +1,10 @@
-/** Importing env files here to validate on build */
-import "./src/env.mjs";
-
+import { fileURLToPath } from "url";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
+import createJiti from "jiti";
+
+// Import env files to validate at build time. Use jiti so we can load .ts files in here.
+createJiti(fileURLToPath(import.meta.url))("./src/env");
 
 /**
  * Next.js redirects
@@ -54,12 +56,6 @@ const nextRedirects = async () => [
     destination: "https://bsky.app/about/iamshgulati.bsky.social",
     permanent: true,
   },
-  // Temporary — To be removed after April 30, 2024.
-  {
-    source: "/33",
-    destination: "/private/33",
-    permanent: false,
-  },
 ];
 
 /**
@@ -90,7 +86,6 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   redirects: nextRedirects,
   experimental: {
-    webpackBuildWorker: true,
     mdxRs: true,
   },
   eslint: { ignoreDuringBuilds: true },

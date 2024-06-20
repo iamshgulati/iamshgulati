@@ -2,23 +2,21 @@
   "name": "shgulati",
   "private": true,
   "engines": {
-    "node": ">=20.9"
+    "node": ">=20.12.0"
   },
-  "packageManager": "pnpm@8.14.1",
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo run build",
     "clean": "git clean -xdf node_modules dist .next",
-    "clean:workspaces": "turbo clean",
-    "postinstall": "pnpm lint:ws",
-    "db:push": "pnpm -F db push",
-    "db:studio": "pnpm -F db studio",
-    "dev": "turbo dev --parallel",
-    "dev:web": "turbo dev --parallel --filter !@shgulati/db",
-    "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
-    "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
-    "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'",
-    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "clean:workspaces": "turbo run clean",
+    "dev": "turbo watch dev",
+    "dev:web": "turbo watch dev -F @shgulati/www...",
+    "format": "turbo run format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "lint": "turbo run lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
     "lint:ws": "pnpm dlx sherif@latest",
+    "postinstall": "pnpm lint:ws",
     "typecheck": "turbo typecheck",
     "prepare": "husky"
   },
@@ -31,7 +29,7 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "turbo": "^1.13.3",
+    "turbo": "^2.0.4",
     "typescript": "^5.4.5"
   },
   "pnpm": {

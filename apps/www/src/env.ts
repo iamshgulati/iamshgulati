@@ -1,15 +1,16 @@
+/* eslint-disable no-restricted-properties */
 import { createEnv } from "@t3-oss/env-nextjs";
+import { vercel } from "@t3-oss/env-nextjs/presets";
 import { z } from "zod";
 
 export const env = createEnv({
+  extends: [vercel()],
   shared: {
-    NODE_ENV: z.enum(["development", "test", "production"]),
-    APP_URL: z.string().optional(),
-    VERCEL_URL: z
-      .string()
-      .optional()
-      .transform((v) => (v ? `https://${v}` : undefined)),
+    NODE_ENV: z
+      .enum(["development", "test", "production"])
+      .default("development"),
     PORT: z.coerce.number().default(3000),
+    APP_URL: z.string().optional(),
   },
 
   /**
@@ -32,21 +33,19 @@ export const env = createEnv({
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
    */
-  runtimeEnv: {
+  experimental__runtimeEnv: {
     // SHAREDVAR: process.env.SHAREDVAR,
     NODE_ENV: process.env.NODE_ENV,
-    APP_URL: process.env.APP_URL,
-    VERCEL_URL: process.env.VERCEL_URL,
     PORT: process.env.PORT,
+    APP_URL: process.env.APP_URL,
+
     // SERVERVAR: process.env.SERVERVAR,
-    USE_CUSTOM_FONTS: process.env.USE_CUSTOM_FONTS,
+
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 
   skipValidation:
-    !!process.env.CI ||
-    !!process.env.SKIP_ENV_VALIDATION ||
-    process.env.npm_lifecycle_event === "lint",
+    !!process.env.CI || process.env.npm_lifecycle_event === "lint",
 });
 
 export const isProduction = env.NODE_ENV === "production";

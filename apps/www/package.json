@@ -2,17 +2,18 @@
   "name": "@shgulati/www",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
     "dev": "pnpm with-env next dev & pnpm watch-data",
-    "lint": "dotenv -v SKIP_ENV_VALIDATION=1 next lint",
-    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json}\"",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
     "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --",
     "analyze": "dotenv -v ANALYZE=true pnpm with-env next build",
-    "watch-data": "ts-node -O '{\"module\": \"nodenext\"}' ./src/scripts/watcher.ts"
+    "watch-data": "jiti ./src/scripts/watcher.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
@@ -33,7 +34,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@next/bundle-analyzer": "^14.2.3",
-    "@shgulati/eslint-config": "workspace:^0.2.0",
+    "@shgulati/eslint-config": "workspace:^0.3.0",
     "@shgulati/postcss-config": "workspace:^0.1.0",
     "@shgulati/prettier-config": "workspace:^0.1.0",
     "@shgulati/tsconfig": "workspace:^0.1.0",
@@ -50,17 +51,9 @@
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "shikiji": "^0.10.2",
-    "ts-node": "^10.9.2",
+    "jiti": "^1.21.0",
     "typescript": "^5.4.5",
     "ws": "^8.17.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@shgulati/eslint-config/base",
-      "@shgulati/eslint-config/nextjs",
-      "@shgulati/eslint-config/react"
-    ]
   },
   "prettier": "@shgulati/prettier-config"
 }
