@@ -40,7 +40,7 @@ export default function HomeLayout({
               <Separator size="3" />
             </Flex>
             <Section size="2" pb="0">
-              <Footer pages={allRoutes.social.pages.slice(0, 4)} />
+              <Footer pages={allRoutes.social.pages.slice(0, 5)} />
             </Section>
           </Container>
         </Layout.Footer>

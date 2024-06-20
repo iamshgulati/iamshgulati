@@ -79,14 +79,14 @@ export const allRoutes: AllRoutes = {
         icon: "LinkedInLogoIcon",
       },
       {
-        title: "Bluesky",
-        slug: siteConfig.links.bluesky,
-        icon: "BlueskyLogoIcon",
-      },
-      {
         title: "Twitter",
         slug: siteConfig.links.twitter,
         icon: "TwitterLogoIcon",
+      },
+      {
+        title: "Bluesky",
+        slug: siteConfig.links.bluesky,
+        icon: "BlueskyLogoIcon",
       },
       {
         title: "Mastodon",
