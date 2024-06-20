@@ -2,8 +2,8 @@ import { Providers } from "~/providers";
 
 import "~/styles/global.css";
 
-import React from "react";
 import type { Metadata } from "next";
+import React from "react";
 
 import { FloatingBackButton } from "~/components/floating-back-button";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
@@ -24,8 +24,6 @@ export const metadata: Metadata = {
   title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   openGraph: {
-    title: siteConfig.title,
-    description: siteConfig.description,
     url: `${getBaseUrl()}`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
