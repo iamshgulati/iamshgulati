@@ -96,6 +96,19 @@ export function CommandMenu({
 
               <CommandGroup heading="Keyboard Shortcuts">
                 <Command.Item
+                  value="CmdK Command Menu Keyboard Shortcut: Toggle CmdK Command Menu"
+                  onSelect={() =>
+                    runCommand((): void => {
+                      // do nothing
+                    })
+                  }
+                >
+                  <MagnifyingGlassIcon />
+                  Toggle Search
+                  <CommandShortcut>⌘&thinsp;K</CommandShortcut>
+                </Command.Item>
+
+                <Command.Item
                   value="Theme Keyboard Shortcut: Toggle Theme System Light Dark"
                   onSelect={() => runCommand(() => handleGeneralThemeToggle())}
                 >
@@ -119,19 +132,6 @@ export function CommandMenu({
                   />
                   Toggle Theme
                   <CommandShortcut>⌘&thinsp;D</CommandShortcut>
-                </Command.Item>
-
-                <Command.Item
-                  value="CmdK Command Menu Keyboard Shortcut: Toggle CmdK Command Menu"
-                  onSelect={() =>
-                    runCommand((): void => {
-                      // do nothing
-                    })
-                  }
-                >
-                  <MagnifyingGlassIcon />
-                  Toggle Search
-                  <CommandShortcut>⌘&thinsp;K</CommandShortcut>
                 </Command.Item>
               </CommandGroup>
 

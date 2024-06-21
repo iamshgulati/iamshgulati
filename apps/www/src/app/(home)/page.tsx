@@ -1,7 +1,8 @@
 import React from "react";
-import { ArrowTopRightIcon, PersonIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Link, Section, Text } from "@radix-ui/themes";
 
+import { Icons } from "~/components/icons";
 import { HeroHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
@@ -74,7 +75,7 @@ export default function HomePage(): React.JSX.Element {
                 textAlign: "center",
               }}
             >
-              <NextLink href="/about">
+              <NextLink href="/work">
                 <Button
                   size="3"
                   style={{
@@ -83,8 +84,8 @@ export default function HomePage(): React.JSX.Element {
                     paddingRight: "var(--space-5)",
                   }}
                 >
-                  <PersonIcon width="18" height="18" aria-hidden />
-                  <Text>ABOUT</Text>
+                  <Icons.HammerIcon width="18" height="18" aria-hidden />
+                  <Text>WORK</Text>
                 </Button>
               </NextLink>
               <Link

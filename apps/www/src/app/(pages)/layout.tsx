@@ -23,9 +23,9 @@ export default function PagesLayout({
             productLinkRoute={allRoutes.productLinks}
             commandMenuRoutes={[
               allRoutes.productLinks,
-              allRoutes.personal,
-              allRoutes.projects,
               allRoutes.blog,
+              allRoutes.projects,
+              allRoutes.personal,
               allRoutes.social,
               allRoutes.legal,
             ]}

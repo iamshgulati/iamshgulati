@@ -23,24 +23,9 @@ export const allRoutes: AllRoutes = {
     label: "Most Visited",
     pages: [
       { title: "Home", slug: "/", icon: "HomeIcon" },
-      { title: "About", slug: "/about", icon: "PersonIcon" },
-      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
+      { title: "Work", slug: "/work", icon: "HammerIcon" },
       { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
-    ],
-  },
-  personal: {
-    label: "Personal",
-    pages: [{ title: "Quotes", slug: "/quotes", icon: "QuoteIcon" }],
-  },
-  projects: {
-    label: "Projects",
-    pages: [
-      ...(await getAllFrontmatter("/src/data", "/projects")).map(
-        (page: Frontmatter) => {
-          page.icon = "CubeIcon";
-          return page;
-        },
-      ),
+      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
     ],
   },
   blog: {
@@ -53,6 +38,21 @@ export const allRoutes: AllRoutes = {
         },
       ),
     ],
+  },
+  projects: {
+    label: "Projects",
+    pages: [
+      ...(await getAllFrontmatter("/src/data", "/projects")).map(
+        (page: Frontmatter) => {
+          page.icon = "CubeIcon";
+          return page;
+        },
+      ),
+    ],
+  },
+  personal: {
+    label: "Personal",
+    pages: [{ title: "Quotes", slug: "/quotes", icon: "QuoteIcon" }],
   },
   private: {
     label: "Private Pages",
