@@ -10,29 +10,33 @@ import styles from "./header.module.css";
 
 interface HeaderProductLinksProps {
   route: AppRoute;
+  limit?: number;
 }
 
 export const HeaderProductLinks = ({
   route,
+  limit,
 }: HeaderProductLinksProps): React.JSX.Element => {
   const pathname: string = usePathname();
 
   return (
     <React.Fragment>
-      {route.pages.map((page: Frontmatter): React.JSX.Element => {
-        return (
-          <HeaderProductLink
-            key={page.slug}
-            href={page.slug}
-            active={
-              (page.slug === "/" && pathname === page.slug) ||
-              (page.slug !== "/" && pathname.startsWith(page.slug))
-            }
-          >
-            {page.title}
-          </HeaderProductLink>
-        );
-      })}
+      {route.pages
+        .slice(0, limit ?? route.pages.length)
+        .map((page: Frontmatter): React.JSX.Element => {
+          return (
+            <HeaderProductLink
+              key={page.slug}
+              href={page.slug}
+              active={
+                (page.slug === "/" && pathname === page.slug) ||
+                (page.slug !== "/" && pathname.startsWith(page.slug))
+              }
+            >
+              {page.title}
+            </HeaderProductLink>
+          );
+        })}
     </React.Fragment>
   );
 };

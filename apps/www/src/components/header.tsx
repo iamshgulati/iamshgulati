@@ -10,7 +10,6 @@ import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
-import { ThemeClasses } from "./theme-effect";
 import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
@@ -86,7 +85,7 @@ export const Header = ({
 
           {productLinkRoute && (
             <Box className={styles.HeaderProductLinksContainer}>
-              <HeaderProductLinks route={productLinkRoute} />
+              <HeaderProductLinks route={productLinkRoute} limit={3} />
             </Box>
           )}
 
@@ -110,7 +109,6 @@ export const Header = ({
             <Flex align="center" gap="4">
               <CommandMenu routes={commandMenuRoutes} />
               <ThemeToggle />
-              <ThemeClasses />
             </Flex>
           </Flex>
         </Box>
