@@ -10,6 +10,8 @@ import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
+import { ThemeClasses } from "./theme-effect";
+import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
   sticky?: boolean;
@@ -105,8 +107,10 @@ export const Header = ({
               {children}
             </Flex>
 
-            <Flex align="center">
+            <Flex align="center" gap="4">
               <CommandMenu routes={commandMenuRoutes} />
+              <ThemeToggle />
+              <ThemeClasses />
             </Flex>
           </Flex>
         </Box>

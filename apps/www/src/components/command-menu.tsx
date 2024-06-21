@@ -51,11 +51,11 @@ export function CommandMenu({
   const router = useRouter();
 
   const { handleCommandMenuToggle } = useCommandMenuToggle();
-  const { handleGeneralThemeToggle } = useThemeToggle();
+  const { handleThemeToggle } = useThemeToggle();
 
   useKeyboardShortcuts({
     handleCommandMenuToggle,
-    handleThemeToggle: handleGeneralThemeToggle,
+    handleThemeToggle,
   });
 
   const runCommand = React.useCallback(
@@ -110,7 +110,7 @@ export function CommandMenu({
 
                 <Command.Item
                   value="Theme Keyboard Shortcut: Toggle Theme System Light Dark"
-                  onSelect={() => runCommand(() => handleGeneralThemeToggle())}
+                  onSelect={() => runCommand(() => handleThemeToggle())}
                 >
                   <Half2Icon
                     width="16"

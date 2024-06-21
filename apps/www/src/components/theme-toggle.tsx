@@ -7,14 +7,14 @@ import { IconButton } from "@radix-ui/themes";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
 
 export const ThemeToggle = (): React.JSX.Element => {
-  const { handleGeneralThemeToggle } = useThemeToggle();
+  const { handleThemeToggle } = useThemeToggle();
 
   return (
     <IconButton
       size="3"
       variant="ghost"
       color="gray"
-      onClick={() => handleGeneralThemeToggle()}
+      onClick={() => handleThemeToggle()}
     >
       <Half2Icon
         aria-label="System theme"
