@@ -5,7 +5,6 @@ import "~/styles/global.css";
 import type { Metadata } from "next";
 import React from "react";
 
-import { FloatingBackButton } from "~/components/floating-back-button";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
@@ -55,7 +54,7 @@ export default function RootLayout({
           <Providers>
             {children}
             {!isProduction && <ScreenSizeIndicator />}
-            <FloatingBackButton scrollTopThreshold={800} />
+            {/* <FloatingBackButton scrollTopThreshold={800} /> */}
             <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           </Providers>
         </div>
