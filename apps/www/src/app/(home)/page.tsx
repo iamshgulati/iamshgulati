@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { Box, Button, Flex, Grid, Link, Section, Text } from "@radix-ui/themes";
+import { Box, Button, Flex, Grid, Section, Text } from "@radix-ui/themes";
 
 import { HeroHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";

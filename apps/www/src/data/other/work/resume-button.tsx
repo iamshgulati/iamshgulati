@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Button, Flex, Text } from "@radix-ui/themes";
 
