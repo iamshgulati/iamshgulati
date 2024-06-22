@@ -3,13 +3,10 @@ import { Box, Flex } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
 import { cn } from "~/lib/classnames";
-import { NextLink } from "~/lib/link";
-import { BoxLink } from "./box-link";
 import { CommandMenu } from "./command-menu";
 import { HeaderProductLinks } from "./header-product-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
-import { SiteLogo, SiteLogoIcon } from "./site-logo";
 import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
@@ -52,6 +49,18 @@ export const Header = ({
       <nav className={styles.HeaderInner}>
         <Box className={styles.HeaderContainer}>
           <Flex
+            align="center"
+            pl={{ initial: "5", sm: "6" }}
+            position="absolute"
+            top="0"
+            bottom="0"
+            left="0"
+          >
+            <ThemeToggle />
+          </Flex>
+
+          {/* 
+          <Flex
             display={{ initial: "flex", md: "none" }}
             align="center"
             pl={{ initial: "5", sm: "6" }}
@@ -82,6 +91,7 @@ export const Header = ({
               </BoxLink>
             </NextLink>
           </Flex>
+          */}
 
           {productLinkRoute && (
             <Box className={styles.HeaderProductLinksContainer}>
@@ -108,7 +118,6 @@ export const Header = ({
 
             <Flex align="center" gap={{ initial: "4", md: "5" }}>
               <CommandMenu routes={commandMenuRoutes} />
-              <ThemeToggle />
             </Flex>
           </Flex>
         </Box>
