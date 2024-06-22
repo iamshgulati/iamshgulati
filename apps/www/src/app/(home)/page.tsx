@@ -89,7 +89,7 @@ export default function HomePage(): React.JSX.Element {
                 </Button>
               </NextLink>
               */}
-              <Link
+              <a
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
@@ -106,8 +106,8 @@ export default function HomePage(): React.JSX.Element {
                   <LinkedInLogoIcon width="18" height="18" aria-hidden />
                   <Text>LinkedIn</Text>
                 </Button>
-              </Link>
-              <Link
+              </a>
+              <a
                 href={siteConfig.links.resume}
                 target="_blank"
                 rel="noreferrer"
@@ -125,7 +125,7 @@ export default function HomePage(): React.JSX.Element {
                   <ArrowTopRightIcon width="18" height="18" aria-hidden />
                   <Text>RESUME</Text>
                 </Button>
-              </Link>
+              </a>
             </Flex>
           </Grid>
         </Box>

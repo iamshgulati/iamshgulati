@@ -12,7 +12,7 @@ export const ResumeButton = () => (
       textAlign: "center",
     }}
   >
-    <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
+    <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
       <Button
         size="3"
         style={{
@@ -25,6 +25,6 @@ export const ResumeButton = () => (
         <ArrowTopRightIcon width="18" height="18" aria-hidden />
         <Text>RESUME</Text>
       </Button>
-    </Link>
+    </a>
   </Flex>
 );
