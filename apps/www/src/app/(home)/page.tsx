@@ -81,6 +81,7 @@ export default function HomePage(): React.JSX.Element {
                     width: "100%",
                     paddingLeft: "var(--space-5)",
                     paddingRight: "var(--space-5)",
+                    gap: "var(--space-2)",
                   }}
                 >
                   <Icons.HammerIcon width="18" height="18" aria-hidden />
@@ -99,6 +100,7 @@ export default function HomePage(): React.JSX.Element {
                     width: "100%",
                     paddingLeft: "var(--space-5)",
                     paddingRight: "var(--space-5)",
+                    gap: "var(--space-2)",
                   }}
                 >
                   <LinkedInLogoIcon width="18" height="18" aria-hidden />
@@ -117,6 +119,7 @@ export default function HomePage(): React.JSX.Element {
                     width: "100%",
                     paddingLeft: "var(--space-5)",
                     paddingRight: "var(--space-5)",
+                    gap: "var(--space-2)",
                   }}
                 >
                   <ArrowTopRightIcon width="18" height="18" aria-hidden />

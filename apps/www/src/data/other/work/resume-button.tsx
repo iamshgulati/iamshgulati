@@ -22,7 +22,7 @@ export const ResumeButton = () => (
           gap: "var(--space-2)",
         }}
       >
-        <ArrowTopRightIcon width="18" height="18" />
+        <ArrowTopRightIcon width="18" height="18" aria-hidden />
         <Text>RESUME</Text>
       </Button>
     </Link>
