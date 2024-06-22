@@ -1,10 +1,9 @@
 import React from "react";
-import { Flex, IconButton, Link, Text } from "@radix-ui/themes";
+import { Flex, Text } from "@radix-ui/themes";
 
-import type { Icon } from "./icons";
 import type { Frontmatter } from "~/types/frontmatter";
 import { siteConfig } from "~/config/site";
-import { Icons } from "./icons";
+import { LinkSocialIconButton } from "./link-social-icon-button";
 
 interface FooterProps {
   pages: Frontmatter[];
@@ -37,33 +36,5 @@ export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
         </Text>
       </footer>
     </Flex>
-  );
-};
-
-const LinkSocialIconButton = ({
-  href,
-  icon = "Link2Icon",
-  ariaLabel,
-}: {
-  href: string;
-  icon?: keyof typeof Icons;
-  ariaLabel: string;
-}): React.JSX.Element => {
-  const SocialIcon: Icon = Icons[icon];
-
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-      }}
-    >
-      <IconButton size="3" variant="ghost" color="gray">
-        <SocialIcon aria-label={ariaLabel} width="16" height="16" />
-      </IconButton>
-    </Link>
   );
 };

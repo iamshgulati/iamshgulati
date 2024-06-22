@@ -40,12 +40,15 @@ export const CommandMenuProvider = ({
 
 export const useCommandMenu = () => useMenuContext("CommandMenu");
 
-interface CommandMenuProps {
+type CommandMenuProps = React.ComponentProps<typeof IconButton> & {
   routes?: AppRoute[];
-}
+  iconProps?: React.ComponentProps<Icon>;
+};
 
 export function CommandMenu({
   routes = undefined,
+  iconProps = { width: "16", height: "16" },
+  ...props
 }: CommandMenuProps): React.JSX.Element {
   const commandMenu = useCommandMenu();
   const router = useRouter();
@@ -69,12 +72,8 @@ export function CommandMenu({
   return (
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
-        <IconButton size="3" variant="ghost" color="gray">
-          <MagnifyingGlassIcon
-            aria-label="Open Command Menu"
-            width="16"
-            height="16"
-          />
+        <IconButton {...props} size="3" variant="ghost" color="gray">
+          <MagnifyingGlassIcon {...iconProps} aria-label="Open Command Menu" />
         </IconButton>
       </Dialog.Trigger>
       {/* Inline styles necessary here to override styles defined by Radix Themes */}

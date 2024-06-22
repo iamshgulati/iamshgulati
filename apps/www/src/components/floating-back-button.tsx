@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Box, IconButton } from "@radix-ui/themes";
 
+import type { Icon } from "./icons";
 import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-back-button.module.css";
 
@@ -12,10 +13,12 @@ type FloatingFloatingBackButtonProps = React.ComponentProps<
   typeof IconButton
 > & {
   scrollTopThreshold?: number;
+  iconProps?: React.ComponentProps<Icon>;
 };
 
 export const FloatingBackButton = ({
   scrollTopThreshold = 20,
+  iconProps = { width: "20", height: "20" },
   ...props
 }: FloatingFloatingBackButtonProps): React.JSX.Element => {
   const scrolled = useScrollState({ scrollTopThreshold }).scrolled;
@@ -29,12 +32,12 @@ export const FloatingBackButton = ({
         {...props}
         aria-label="Navigate Back"
         size="4"
-        variant="surface"
-        color="gray"
+        variant="solid"
+        highContrast
         radius="full"
         onClick={() => router.back()}
       >
-        <ChevronLeftIcon width="20" height="20" />
+        <ChevronLeftIcon {...iconProps} />
       </IconButton>
     </Box>
   );

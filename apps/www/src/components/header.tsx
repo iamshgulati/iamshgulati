@@ -56,7 +56,7 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <ThemeToggle />
+            <ThemeToggle iconProps={{ width: "20", height: "20" }} />
           </Flex>
 
           {/* 
@@ -117,7 +117,10 @@ export const Header = ({
             </Flex>
 
             <Flex align="center" gap={{ initial: "4", md: "5" }}>
-              <CommandMenu routes={commandMenuRoutes} />
+              <CommandMenu
+                routes={commandMenuRoutes}
+                iconProps={{ width: "20", height: "20" }}
+              />
             </Flex>
           </Flex>
         </Box>
@@ -125,33 +128,3 @@ export const Header = ({
     </HeaderShell>
   );
 };
-
-/*
-const _LinkSocialIconButton = ({
-  href,
-  icon = "Link2Icon",
-  ariaLabel,
-}: {
-  href: string;
-  icon?: keyof typeof Icons;
-  ariaLabel: string;
-}): React.JSX.Element => {
-  const SocialIcon: Icon = Icons[icon];
-
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-      }}
-    >
-      <IconButton size="3" variant="ghost" color="gray">
-          <SocialIcon aria-label={ariaLabel} width="16" height="16" />
-      </IconButton>
-    </Link>
-  );
-};
- */

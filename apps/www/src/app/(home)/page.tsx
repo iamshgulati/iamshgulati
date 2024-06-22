@@ -2,10 +2,8 @@ import React from "react";
 import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Link, Section, Text } from "@radix-ui/themes";
 
-import { Icons } from "~/components/icons";
 import { HeroHeading } from "~/components/page-heading";
 import { siteConfig } from "~/config/site";
-import { NextLink } from "~/lib/link";
 import styles from "./page.module.css";
 
 export default function HomePage(): React.JSX.Element {
