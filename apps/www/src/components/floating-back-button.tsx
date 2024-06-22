@@ -32,7 +32,6 @@ export const FloatingBackButton = ({
         {...props}
         aria-label="Navigate Back"
         size="4"
-        variant="solid"
         highContrast
         radius="full"
         onClick={() => router.back()}

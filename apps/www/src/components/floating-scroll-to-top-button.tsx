@@ -34,7 +34,6 @@ export const FloatingScrollToTopButton = ({
         {...props}
         aria-label="Scroll To Top"
         size="4"
-        variant="solid"
         highContrast
         radius="full"
         onClick={() => scrollToTop({ smoothScroll })}

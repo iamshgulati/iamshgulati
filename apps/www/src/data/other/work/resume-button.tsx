@@ -14,7 +14,6 @@ export const ResumeButton = () => (
   >
     <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
       <Button
-        variant="solid"
         size="3"
         style={{
           width: "100%",
