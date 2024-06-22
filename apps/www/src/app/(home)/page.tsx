@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Link, Section, Text } from "@radix-ui/themes";
 
 import { Icons } from "~/components/icons";
@@ -75,6 +75,7 @@ export default function HomePage(): React.JSX.Element {
                 textAlign: "center",
               }}
             >
+              {/* 
               <NextLink href="/work">
                 <Button
                   size="3"
@@ -88,6 +89,24 @@ export default function HomePage(): React.JSX.Element {
                   <Text>WORK</Text>
                 </Button>
               </NextLink>
+              */}
+              <Link
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button
+                  size="3"
+                  style={{
+                    width: "100%",
+                    paddingLeft: "var(--space-5)",
+                    paddingRight: "var(--space-5)",
+                  }}
+                >
+                  <LinkedInLogoIcon width="18" height="18" aria-hidden />
+                  <Text>LinkedIn</Text>
+                </Button>
+              </Link>
               <Link
                 href={siteConfig.links.resume}
                 target="_blank"
