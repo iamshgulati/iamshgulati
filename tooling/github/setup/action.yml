@@ -1,10 +1,10 @@
 name: "Setup and install"
-description: "Common setup steps for Actions"
+description: "Common setup steps for all actions"
 
 runs:
   using: composite
   steps:
-    - uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 20

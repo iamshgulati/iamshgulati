@@ -9,6 +9,7 @@
     "build": "turbo run build",
     "clean": "git clean -xdf node_modules dist .next",
     "clean:workspaces": "turbo run clean",
+    "deploy": "turbo run deploy",
     "dev": "turbo watch dev",
     "dev:web": "turbo watch dev -F @shgulati/www...",
     "format": "turbo run format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",

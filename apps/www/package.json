@@ -6,10 +6,12 @@
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
+    "deploy": "gh-pages -d out --nojekyll",
     "dev": "pnpm with-env next dev & pnpm watch-data",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "start": "pnpm with-env next start",
+    "serve": "pnpm dlx serve@latest out",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --",
     "analyze": "dotenv -v ANALYZE=true pnpm with-env next build",

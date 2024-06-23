@@ -11,8 +11,13 @@
         "!.next/cache/**",
         "next-env.d.ts",
         ".output/**",
-        ".vercel/output/**"
+        ".vercel/output/**",
+        "out/**"
       ]
+    },
+    "deploy": {
+      "dependsOn": ["^build"],
+      "outputs": []
     },
     "dev": {
       "persistent": true,

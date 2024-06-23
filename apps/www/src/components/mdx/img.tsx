@@ -1,6 +1,9 @@
 import React from "react";
-import Image from "next/image";
 
+/**
+ * Image element for Next.js
+ */
+/*
 export const Img = ({
   src = undefined,
   alt = undefined,
@@ -27,9 +30,11 @@ export const Img = ({
       }}
     />
   ) : null;
+*/
 
-/*
-
+/**
+ * Image element for static site export
+ */
 export const Img = ({ alt = "", ...props }): React.JSX.Element => (
   // eslint-disable-next-line @next/next/no-img-element
   <img
@@ -42,4 +47,3 @@ export const Img = ({ alt = "", ...props }): React.JSX.Element => (
     }}
   />
 );
-*/
