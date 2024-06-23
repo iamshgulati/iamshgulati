@@ -55,3 +55,11 @@ jobs:
 
       - name: Typecheck
         run: turbo typecheck
+
+  deploy-www:
+    - name: Deploy www with gh-pages
+      run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/iamshgulati.github.io.git
+        npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
