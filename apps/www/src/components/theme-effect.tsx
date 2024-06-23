@@ -3,15 +3,30 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-import { useThemeEffect } from "~/hooks/useThemeEffect";
-
 export function ThemeClasses(): React.JSX.Element {
   const theme = useTheme();
-  const { updateThemeClasses } = useThemeEffect();
+
+  const updateThemeClasses = function () {
+    try {
+      const system = "system";
+      const currentTheme = localStorage.getItem("theme");
+      const rootClassList = document.documentElement.classList;
+
+      if (!currentTheme || currentTheme === system) {
+        rootClassList.add(system);
+      } else {
+        rootClassList.remove(system);
+      }
+    } catch (error) {
+      console.error(
+        `Failed to update theme classes. Error - ${JSON.stringify(error)}`,
+      );
+    }
+  };
 
   const onMediaChange = React.useCallback(() => {
     updateThemeClasses();
-  }, [updateThemeClasses]);
+  }, []);
 
   React.useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
@@ -19,14 +34,11 @@ export function ThemeClasses(): React.JSX.Element {
     return () => matchMedia.removeEventListener("change", onMediaChange);
   }, [onMediaChange]);
 
-  const onStorageChange = React.useCallback(
-    (event: StorageEvent) => {
-      if (event.key === "theme") {
-        updateThemeClasses();
-      }
-    },
-    [updateThemeClasses],
-  );
+  const onStorageChange = React.useCallback((event: StorageEvent) => {
+    if (event.key === "theme") {
+      updateThemeClasses();
+    }
+  }, []);
 
   React.useEffect(() => {
     window.addEventListener("storage", onStorageChange);
@@ -35,7 +47,7 @@ export function ThemeClasses(): React.JSX.Element {
 
   React.useEffect(() => {
     updateThemeClasses();
-  }, [updateThemeClasses, theme]);
+  }, [theme]);
 
   return (
     <script
@@ -48,14 +60,55 @@ export function ThemeClasses(): React.JSX.Element {
 
 /**
  * @deprecated The method should not be used. Use themeColor property in next-themes instead.
+ * themeColor.light and themeColor.dark must remain in sync with var(--color-background)
  */
 export function ThemeMetaColor(): React.JSX.Element {
   const theme = useTheme();
-  const { updateMetaColor } = useThemeEffect();
+  const updateMetaColor = function () {
+    try {
+      const themeColor: Record<string, string> = {
+        light: "white",
+        dark: "color(display-p3 0.067 0.067 0.074)",
+      };
+      const light = "light";
+      const dark = "dark";
+      const system = "system";
+      const currentTheme = localStorage.getItem("theme");
+      const documentHead = document.head;
+
+      const setMetaThemeColor = (theme: string) => {
+        let metaElement: HTMLMetaElement | null = documentHead.querySelector(
+          'meta[name="theme-color"]',
+        );
+        if (!metaElement) {
+          metaElement = document.createElement("meta");
+          metaElement.name = "theme-color";
+          documentHead.appendChild(metaElement);
+        }
+        metaElement.content = themeColor[theme] ?? "";
+      };
+
+      if (currentTheme && currentTheme !== system) {
+        setMetaThemeColor(currentTheme);
+      } else {
+        const prefersDarkScheme = "(prefers-color-scheme: dark)";
+        const windowMedia = window.matchMedia(prefersDarkScheme);
+        if (windowMedia.media !== prefersDarkScheme || windowMedia.matches) {
+          setMetaThemeColor(dark);
+        } else {
+          setMetaThemeColor(light);
+        }
+      }
+    } catch (error) {
+      console.error(
+        `Failed to update meta color. Error - ${JSON.stringify(error)}`,
+      );
+    }
+  };
 
   const onMediaChange = React.useCallback(() => {
     updateMetaColor();
-  }, [updateMetaColor]);
+  }, []);
 
   React.useEffect(() => {
     const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
@@ -63,14 +116,11 @@ export function ThemeMetaColor(): React.JSX.Element {
     return () => matchMedia.removeEventListener("change", onMediaChange);
   }, [onMediaChange]);
 
-  const onStorageChange = React.useCallback(
-    (event: StorageEvent) => {
-      if (event.key === "theme") {
-        updateMetaColor();
-      }
-    },
-    [updateMetaColor],
-  );
+  const onStorageChange = React.useCallback((event: StorageEvent) => {
+    if (event.key === "theme") {
+      updateMetaColor();
+    }
+  }, []);
 
   React.useEffect(() => {
     window.addEventListener("storage", onStorageChange);
@@ -79,7 +129,7 @@ export function ThemeMetaColor(): React.JSX.Element {
 
   React.useEffect(() => {
     updateMetaColor();
-  }, [theme, updateMetaColor]);
+  }, [theme]);
 
   return (
     <script
