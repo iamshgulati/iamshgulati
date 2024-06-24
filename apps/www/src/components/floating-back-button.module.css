@@ -1,7 +1,7 @@
 .FloatingBackButtonContainer {
   position: fixed;
   bottom: 32px;
-  left: 16px;
+  right: 16px;
   z-index: 10;
   opacity: 0;
   transform: translateY(110%);
