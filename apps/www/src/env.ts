@@ -7,7 +7,7 @@ export const env = createEnv({
   extends: [vercel()],
   shared: {
     NODE_ENV: z
-      .enum(["development", "test", "production"])
+      .enum(["development", "test", "production", "ci"])
       .default("development"),
     PORT: z.coerce.number().default(3000),
   },
@@ -47,4 +47,5 @@ export const env = createEnv({
     !!process.env.CI || process.env.npm_lifecycle_event === "lint",
 });
 
-export const IS_PRODUCTION = process.env.NODE_ENV === "production";
+export const IS_PRODUCTION =
+  env.NODE_ENV === "production" || env.NODE_ENV === "ci";
