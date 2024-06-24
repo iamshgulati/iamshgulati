@@ -13,7 +13,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
-import { env, isProduction } from "~/env";
+import { env } from "~/env";
 import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
