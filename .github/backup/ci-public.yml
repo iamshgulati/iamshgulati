@@ -67,16 +67,9 @@ jobs:
       name: github-pages
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup
         uses: ./tooling/github/setup
-
-      - name: Cache Dependencies
-        id: cache_dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('pnpm-lock.json') }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -88,7 +81,7 @@ jobs:
           APP_URL: ${{ vars.APP_URL }}
           USE_CUSTOM_FONTS: ${{ vars.USE_CUSTOM_FONTS }}
         run: pnpm build
-      
+
       - name: Disable Jekyll
         run: touch ./${{ vars.ROOT_DIR }}/out/.nojekyll
 
