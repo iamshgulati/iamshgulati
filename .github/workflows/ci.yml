@@ -47,10 +47,10 @@ jobs:
         run: pnpm build
 
       - name: Deploy www with gh-pages
-         run: |
-           git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
-           pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
-  
+        run: |
+          git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
+          pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
+
   typecheck:
     runs-on: ubuntu-latest
     steps:
