@@ -18,28 +18,6 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ vars.WWW_APP_URL }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup
-        uses: ./tooling/github/setup
-
-      - name: Build artifacts
-        env:
-          WWW_APP_URL: ${{ vars.WWW_APP_URL }}
-          WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
-        run: pnpm build
-
-      - name: Deploy artifacts
-        run: |
-          git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
-          pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
-
   typecheck:
     runs-on: ubuntu-latest
     steps:
