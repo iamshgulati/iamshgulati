@@ -6,13 +6,12 @@ on:
   push:
     branches: ["main"]
   merge_group:
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
-# You can leverage Vercel Remote Caching with Turbo to speed up your builds
-# @link https://turborepo.org/docs/core-concepts/remote-caching#remote-caching-on-vercel-builds
 env:
   FORCE_COLOR: 3
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -47,28 +46,11 @@ jobs:
           WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
         run: pnpm build
 
-      - name: Disable Jekyll
-        run: touch ./${{ vars.WWW_ROOT_DIR }}/out/.nojekyll
-
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./${{ vars.ROOT_DIR }}/out
-
-  deploy:
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Publish to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
+      - name: Deploy www with gh-pages
+         run: |
+           git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
+           pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
+  
   typecheck:
     runs-on: ubuntu-latest
     steps:
