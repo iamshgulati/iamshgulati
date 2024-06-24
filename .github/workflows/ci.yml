@@ -40,7 +40,7 @@ jobs:
         run: pnpm build
 
       - name: Disable Jekyll
-        run: touch ./${{ vars.ROOT_DIR }}/out/.nojekyll
+        run: touch ./${{ vars.WWW_ROOT_DIR }}/out/.nojekyll
 
       # - name: Switch to ${{ vars.WWW_APP_REPO }} repository
       #   run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
