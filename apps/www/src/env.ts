@@ -22,7 +22,6 @@ export const env = createEnv({
     WWW_USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
     IS_PRODUCTION: z
       .boolean()
-      .optional()
       .default(false)
       .transform(() => process.env.NODE_ENV === "production"),
   },
