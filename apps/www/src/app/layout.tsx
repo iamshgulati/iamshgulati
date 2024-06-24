@@ -13,7 +13,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
-import { env } from "~/env";
+import { IS_PRODUCTION } from "~/env";
 import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
@@ -100,7 +100,7 @@ export default function RootLayout({
               </Layout.Root>
             </Layout.Background>
 
-            {!env.IS_PRODUCTION && <ScreenSizeIndicator />}
+            {!IS_PRODUCTION && <ScreenSizeIndicator />}
             <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           </Providers>
         </div>
