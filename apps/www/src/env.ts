@@ -10,7 +10,6 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     PORT: z.coerce.number().default(3000),
-    APP_URL: z.string().optional(),
   },
 
   /**
@@ -19,7 +18,8 @@ export const env = createEnv({
    */
   server: {
     // SERVERVAR: z.string(),
-    USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
+    WWW_APP_URL: z.string().optional(),
+    WWW_USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
   },
 
   /**
@@ -37,7 +37,6 @@ export const env = createEnv({
     // SHAREDVAR: process.env.SHAREDVAR,
     NODE_ENV: process.env.NODE_ENV,
     PORT: process.env.PORT,
-    APP_URL: process.env.APP_URL,
 
     // SERVERVAR: process.env.SERVERVAR,
 

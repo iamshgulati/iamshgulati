@@ -16,6 +16,6 @@ export const RadixThemesProvider = ({
     scaling="100%"
     radius="medium"
     appearance="inherit"
-    className={cn(env.USE_CUSTOM_FONTS && "radix-themes-custom-fonts")}
+    className={cn(env.WWW_USE_CUSTOM_FONTS && "radix-themes-custom-fonts")}
   />
 );

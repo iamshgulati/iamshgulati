@@ -55,7 +55,7 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
+      <body className={cn(env.WWW_USE_CUSTOM_FONTS && fonts)}>
         <div id="root">
           <Providers>
             <Layout.Background style={backgroundStyle}>

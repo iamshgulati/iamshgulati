@@ -42,9 +42,10 @@
       "cache": false
     }
   },
-  "globalEnv": ["PORT", "APP_URL", "USE_CUSTOM_FONTS"],
+  "globalEnv": ["WWW_APP_URL", "WWW_USE_CUSTOM_FONTS"],
   "globalPassThroughEnv": [
     "NODE_ENV",
+    "PORT",
     "CI",
     "VERCEL",
     "VERCEL_ENV",

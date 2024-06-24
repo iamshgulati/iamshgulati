@@ -78,8 +78,8 @@ jobs:
 
       - name: Build with Next.js
         env:
-          APP_URL: ${{ vars.APP_URL }}
-          USE_CUSTOM_FONTS: ${{ vars.USE_CUSTOM_FONTS }}
+          WWW_APP_URL: ${{ vars.WWW_APP_URL }}
+          WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
         run: pnpm build
 
       - name: Disable Jekyll

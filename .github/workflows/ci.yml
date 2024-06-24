@@ -19,27 +19,48 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  deploy:
+  build:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ vars.APP_URL }}
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup
         uses: ./tooling/github/setup
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
+
       - name: Build with Next.js
         env:
-          APP_URL: ${{ vars.APP_URL }}
-          USE_CUSTOM_FONTS: ${{ vars.USE_CUSTOM_FONTS }}
+          WWW_APP_URL: ${{ vars.WWW_APP_URL }}
+          WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
         run: pnpm build
 
-      - name: Deploy www with gh-pages
-        run: |
-          git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.APP_REPO}}.git
-          pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
+      - name: Disable Jekyll
+        run: touch ./${{ vars.ROOT_DIR }}/out/.nojekyll
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./${{ vars.ROOT_DIR }}/out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
+        run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
+
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   typecheck:
     runs-on: ubuntu-latest
