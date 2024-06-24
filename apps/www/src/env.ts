@@ -47,4 +47,5 @@ export const env = createEnv({
     !!process.env.CI || process.env.npm_lifecycle_event === "lint",
 });
 
-export const IS_PRODUCTION = env.NODE_ENV === "production";
+export const IS_PRODUCTION =
+  env.NODE_ENV === "production" || env.NODE_ENV === "ci";
