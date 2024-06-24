@@ -53,7 +53,7 @@ export const getAllFrontmatter = async (
   // Filter out items where publishedAt is undefined
   // allFrontmatter = allFrontmatter.filter(
   //   (frontmatter: Frontmatter) =>
-  //     frontmatter?.publishedAt ?? (!frontmatter.publishedAt && !isProduction),
+  //     frontmatter?.publishedAt ?? (!frontmatter.publishedAt && !env.IS_PRODUCTION),
   // );
 
   // Sort items by publishedAt in descending order

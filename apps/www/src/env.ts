@@ -20,6 +20,11 @@ export const env = createEnv({
     // SERVERVAR: z.string(),
     WWW_APP_URL: z.string().optional(),
     WWW_USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
+    IS_PRODUCTION: z
+      .boolean()
+      .optional()
+      .default(false)
+      .transform(() => process.env.NODE_ENV === "production"),
   },
 
   /**
@@ -46,5 +51,3 @@ export const env = createEnv({
   skipValidation:
     !!process.env.CI || process.env.npm_lifecycle_event === "lint",
 });
-
-export const isProduction = env.NODE_ENV === "production";

@@ -100,9 +100,7 @@ export default function RootLayout({
               </Layout.Root>
             </Layout.Background>
 
-            {/* {!isProduction &&  */}
-            <ScreenSizeIndicator />
-            {/* } */}
+            {!env.IS_PRODUCTION && <ScreenSizeIndicator />}
             <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           </Providers>
         </div>
