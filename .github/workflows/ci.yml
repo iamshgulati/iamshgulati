@@ -7,11 +7,6 @@ on:
     branches: ["main"]
   merge_group:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
@@ -25,22 +20,18 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup
         uses: ./tooling/github/setup
-
-      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
-        run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
 
       - name: Build with Next.js
         env:
@@ -51,12 +42,23 @@ jobs:
       - name: Disable Jekyll
         run: touch ./${{ vars.ROOT_DIR }}/out/.nojekyll
 
+      # - name: Switch to ${{ vars.WWW_APP_REPO }} repository
+      #   run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
+
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v4
+      #   with:
+      #     static_site_generator: next
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./${{ vars.ROOT_DIR }}/out
 
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
