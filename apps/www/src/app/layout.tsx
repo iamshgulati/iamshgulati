@@ -4,7 +4,7 @@ import "~/styles/global.css";
 
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
+import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
 import { BackgroundImage } from "~/components/background-image";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
