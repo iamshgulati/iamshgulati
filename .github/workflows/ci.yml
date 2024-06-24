@@ -19,10 +19,6 @@ env:
 
 jobs:
   deploy:
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     environment:
       name: github-pages
     runs-on: ubuntu-latest
@@ -32,24 +28,16 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
-      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
-        run: git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
-
-      - name: Build with Next.js
+      - name: Build artifacts
         env:
           WWW_APP_URL: ${{ vars.WWW_APP_URL }}
           WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
         run: pnpm build
 
-      - name: Deploy www with gh-pages
+      - name: Deploy "www"
         run: |
           git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
-          pnpm run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
+          pnpm -F @shgulati/www run deploy -- --cname www.shubhamgulati.com -u "github-actions-bot <support+actions@github.com>" -m "feat(www): deploy"
 
   typecheck:
     runs-on: ubuntu-latest
