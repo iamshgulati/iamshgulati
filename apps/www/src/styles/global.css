@@ -56,8 +56,10 @@ p {
 /* -------------------------------------------------------------------- */
 
 :root {
-  --header-max-width: 1400px;
   --header-height: 52px;
+  --header-max-width: 1400px;
+  --home-page-max-width: 1200px;
+  --default-page-max-width: 860px;
 }
 
 :root,

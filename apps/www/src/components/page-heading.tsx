@@ -10,7 +10,7 @@ export const HeroHeading = ({
   let headingStyle: React.CSSProperties = {
     fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-letter-spacing": "-0.01em",
+    "--heading-letter-spacing": "-0.00em",
     ...props.style,
   } as React.CSSProperties;
 
@@ -26,12 +26,13 @@ export const HeroHeading = ({
   return (
     <Heading
       {...props}
-      size={{ initial: "4", xs: "6", sm: "7", md: "8", lg: "9" }}
+      size={{ initial: "1", xs: "5", sm: "7", md: "8" }}
+      trim="both"
       style={
         {
-          "--heading-font-size-adjust": "2.5",
+          "--heading-font-size-adjust": "3.5",
           lineHeight:
-            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+            "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
           ...headingStyle,
         } as React.CSSProperties
       }
@@ -48,7 +49,7 @@ export const PageHeading = ({
   let headingStyles: React.CSSProperties = {
     fontWeight: "650",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-letter-spacing": "-0.01em",
+    "--heading-letter-spacing": "-0.00em",
     ...props.style,
   } as React.CSSProperties;
 
@@ -64,12 +65,13 @@ export const PageHeading = ({
   return (
     <Heading
       {...props}
-      size={{ initial: "8", xs: "9" }}
+      size={{ initial: "7", xs: "8" }}
+      trim="both"
       style={
         {
-          "--heading-font-size-adjust": "1.2",
+          "--heading-font-size-adjust": "1.5",
           lineHeight:
-            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+            "calc(var(--line-height) * var(--heading-font-size-adjust) * 1.0)",
           ...headingStyles,
         } as React.CSSProperties
       }

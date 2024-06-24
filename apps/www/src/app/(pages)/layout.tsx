@@ -33,7 +33,11 @@ export default function PagesLayout({
         </Layout.Header>
         <Layout.Main>
           <Layout.Content>
-            <Box asChild width="100%" style={{ maxWidth: 858 }}>
+            <Box
+              asChild
+              width="100%"
+              style={{ maxWidth: "var(--default-page-max-width)" }}
+            >
               <Section size={{ initial: "2", xs: "4" }}>
                 <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
                   {children}

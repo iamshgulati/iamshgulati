@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Flex, Section, Separator } from "@radix-ui/themes";
+import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
 
 import { BackgroundImage } from "~/components/background-image";
 import { Footer } from "~/components/footer";
@@ -33,7 +33,22 @@ export default function HomeLayout({
         <Layout.BackgroundImage>
           <BackgroundImage style={backgroundImageStyle} id="1" />
         </Layout.BackgroundImage>
-        <Layout.Main>{children}</Layout.Main>
+
+        <Layout.Main>
+          <Layout.Content>
+            <Box
+              asChild
+              width="100%"
+              style={{ maxWidth: "var(--home-page-max-width)" }}
+            >
+              <Section size={{ initial: "2", xs: "4" }}>
+                <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+                  {children}
+                </Container>
+              </Section>
+            </Box>
+          </Layout.Content>
+        </Layout.Main>
         <Layout.Footer>
           <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
             <Flex align="center" justify="center">
@@ -49,6 +64,18 @@ export default function HomeLayout({
   );
 }
 
+const backgroundStyle: React.CSSProperties = {
+  backgroundRepeat: "no-repeat",
+  backgroundImage: `
+              radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
+              radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
+              radial-gradient(circle 800px at right center, var(--sky-3), transparent),
+              radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
+              radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
+            `,
+  opacity: "0.005",
+} as React.CSSProperties;
+
 const backgroundImageStyle = {
   "--color-background-image-base": "var(--color-background)",
   "--color-background-image-accent-1": "var(--indigo-a7)",
@@ -60,17 +87,5 @@ const backgroundImageStyle = {
   "--color-background-image-accent-7": "var(--indigo-5)",
   transformOrigin: "center center",
   transform: "scaleX(-1) rotate(160deg)",
-  opacity: "0.005",
-} as React.CSSProperties;
-
-const backgroundStyle: React.CSSProperties = {
-  backgroundRepeat: "no-repeat",
-  backgroundImage: `
-              radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
-              radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
-              radial-gradient(circle 800px at right center, var(--sky-3), transparent),
-              radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
-              radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
-            `,
   opacity: "0.005",
 } as React.CSSProperties;
