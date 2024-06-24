@@ -29,6 +29,9 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
+      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
+        run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -55,9 +58,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
-        run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
-
       - name: Publish to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
