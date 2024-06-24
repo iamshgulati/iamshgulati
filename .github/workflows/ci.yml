@@ -21,6 +21,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
+      url: ${{ vars.WWW_APP_URL }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
