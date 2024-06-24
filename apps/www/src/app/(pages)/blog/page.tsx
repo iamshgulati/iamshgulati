@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Flex, Section } from "@radix-ui/themes";
+import { Box, Container, Flex, Section } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
@@ -50,29 +50,37 @@ export default function BlogPage(): React.JSX.Element {
   const route: AppRoute = allRoutes.blog;
 
   return (
-    <React.Fragment>
-      <Box position="relative" mb="4"></Box>
-      <Section size="1">
-        <PageTitleAndDescription
-          title={metadataProps.title}
-          description={metadataProps.description}
-        />
-      </Section>
-      <Section size={{ initial: "1", xs: "2" }}>
-        <Flex direction="column" gap="5">
-          {route.pages.map((page: Frontmatter) => (
-            <LinkCard
-              key={page.slug}
-              href={page.slug}
-              title={page.title}
-              description={page.description}
-              metadata={{
-                publishedAt: page.publishedAt,
-              }}
+    <Box
+      asChild
+      width="100%"
+      style={{ maxWidth: "var(--default-page-max-width)" }}
+    >
+      <Section size={{ initial: "2", xs: "4" }}>
+        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+          <Box position="relative" mb="4"></Box>
+          <Section size="1">
+            <PageTitleAndDescription
+              title={metadataProps.title}
+              description={metadataProps.description}
             />
-          ))}
-        </Flex>
+          </Section>
+          <Section size={{ initial: "1", xs: "2" }}>
+            <Flex direction="column" gap="5">
+              {route.pages.map((page: Frontmatter) => (
+                <LinkCard
+                  key={page.slug}
+                  href={page.slug}
+                  title={page.title}
+                  description={page.description}
+                  metadata={{
+                    publishedAt: page.publishedAt,
+                  }}
+                />
+              ))}
+            </Flex>
+          </Section>
+        </Container>
       </Section>
-    </React.Fragment>
+    </Box>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { Box, Section } from "@radix-ui/themes";
+import { Box, Container, Section } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
@@ -98,19 +98,27 @@ export default async function OtherPage({ params }: PageProps) {
   );
 
   return (
-    <React.Fragment>
-      <Box position="relative" mb="4"></Box>
-      <Section size="1">
-        <PageTitleAndDescription
-          title={page.title}
-          description={page.description}
-        />
+    <Box
+      asChild
+      width="100%"
+      style={{ maxWidth: "var(--default-page-max-width)" }}
+    >
+      <Section size={{ initial: "2", xs: "4" }}>
+        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+          <Box position="relative" mb="4"></Box>
+          <Section size="1">
+            <PageTitleAndDescription
+              title={page.title}
+              description={page.description}
+            />
+          </Section>
+          <Section size={{ initial: "1", xs: "2" }}>
+            <Suspense fallback={null}>
+              <MDXPage />
+            </Suspense>
+          </Section>
+        </Container>
       </Section>
-      <Section size={{ initial: "1", xs: "2" }}>
-        <Suspense fallback={null}>
-          <MDXPage />
-        </Suspense>
-      </Section>
-    </React.Fragment>
+    </Box>
   );
 }

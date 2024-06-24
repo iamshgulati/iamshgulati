@@ -4,14 +4,20 @@ import "~/styles/global.css";
 
 import type { Metadata } from "next";
 import React from "react";
+import { Box, Container, Flex, Section, Separator } from "@radix-ui/themes";
 
+import { BackgroundImage } from "~/components/background-image";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
+import { Footer } from "~/components/footer";
+import { Header } from "~/components/header";
+import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, isProduction } from "~/env";
 import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
+import { allRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
 const ogImageUrl: string = ogImageApi({});
@@ -52,9 +58,49 @@ export default function RootLayout({
       <body className={cn(env.USE_CUSTOM_FONTS && fonts)}>
         <div id="root">
           <Providers>
-            {children}
+            <Layout.Background style={backgroundStyle}>
+              <Layout.Root>
+                <Layout.Header>
+                  <Header
+                    sticky
+                    ghost
+                    autoHide
+                    viewportScrollFactorThreshold={2}
+                    scrollDistanceThreshold={100}
+                    backdropExtended
+                    productLinkRoute={allRoutes.productLinks}
+                    commandMenuRoutes={[
+                      allRoutes.productLinks,
+                      allRoutes.blog,
+                      allRoutes.projects,
+                      allRoutes.personal,
+                      allRoutes.social,
+                      allRoutes.legal,
+                    ]}
+                  />
+                </Layout.Header>
+
+                <Layout.BackgroundImage>
+                  <BackgroundImage style={backgroundImageStyle} id="1" />
+                </Layout.BackgroundImage>
+
+                <Layout.Main>
+                  <Layout.Content>{children}</Layout.Content>
+                </Layout.Main>
+                <Layout.Footer>
+                  <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+                    <Flex align="center" justify="center">
+                      <Separator size="3" />
+                    </Flex>
+                    <Section size="2" pb="0">
+                      <Footer pages={allRoutes.social.pages.slice(0, 5)} />
+                    </Section>
+                  </Container>
+                </Layout.Footer>
+              </Layout.Root>
+            </Layout.Background>
+
             {!isProduction && <ScreenSizeIndicator />}
-            {/* <FloatingBackButton scrollTopThreshold={800} /> */}
             <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           </Providers>
         </div>
@@ -62,3 +108,29 @@ export default function RootLayout({
     </html>
   );
 }
+
+const backgroundStyle: React.CSSProperties = {
+  backgroundRepeat: "no-repeat",
+  backgroundImage: `
+              radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
+              radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
+              radial-gradient(circle 800px at right center, var(--sky-3), transparent),
+              radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
+              radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
+            `,
+  opacity: "0.005",
+} as React.CSSProperties;
+
+const backgroundImageStyle = {
+  "--color-background-image-base": "var(--color-background)",
+  "--color-background-image-accent-1": "var(--indigo-a7)",
+  "--color-background-image-accent-2": "var(--violet-6)",
+  "--color-background-image-accent-3": "var(--purple-9)",
+  "--color-background-image-accent-4": "var(--blue-5)",
+  "--color-background-image-accent-5": "var(--slate-1)",
+  "--color-background-image-accent-6": "var(--crimson-a5)",
+  "--color-background-image-accent-7": "var(--indigo-5)",
+  transformOrigin: "center center",
+  transform: "scaleX(-1) rotate(160deg)",
+  opacity: "0.005",
+} as React.CSSProperties;
