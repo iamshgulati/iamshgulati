@@ -33,6 +33,14 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
+      - name: Switch to ${{ vars.WWW_APP_REPO }} repository
+        run: git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: next
+
       - name: Build with Next.js
         env:
           WWW_APP_URL: ${{ vars.WWW_APP_URL }}
@@ -41,14 +49,6 @@ jobs:
 
       - name: Disable Jekyll
         run: touch ./${{ vars.WWW_ROOT_DIR }}/out/.nojekyll
-
-      # - name: Switch to ${{ vars.WWW_APP_REPO }} repository
-      #   run: git remote set-url origin https://git:${{github.token}}@github.com/${{vars.WWW_APP_REPO}}.git
-
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v4
-      #   with:
-      #     static_site_generator: next
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
