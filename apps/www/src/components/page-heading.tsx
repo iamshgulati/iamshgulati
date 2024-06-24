@@ -26,7 +26,7 @@ export const HeroHeading = ({
   return (
     <Heading
       {...props}
-      size={{ initial: "1", xs: "5", sm: "7", md: "8" }}
+      size={{ initial: "1", xs: "5", sm: "6", md: "7", lg: "8" }}
       style={
         {
           "--heading-font-size-adjust": "3.5",
