@@ -85,7 +85,7 @@ const LayoutMain = ({
       style={{
         zIndex: "0",
         boxSizing: "content-box",
-        paddingTop: "var(--header-height)",
+        marginTop: "var(--header-height)",
       }}
     >
       <main>{props.children}</main>
