@@ -65,9 +65,7 @@ export default function BlogPage(): React.JSX.Element {
             title={page.title}
             description={page.description}
             image={page.image}
-            metadata={{
-              publishedAt: page.publishedAt,
-            }}
+            publishedAt={page.publishedAt}
           />
         ))}
       </Flex>

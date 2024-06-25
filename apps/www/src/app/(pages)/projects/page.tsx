@@ -64,9 +64,8 @@ export default function ProjectsPage(): React.JSX.Element {
             href={page.slug}
             title={page.title}
             description={page.description}
-            metadata={{
-              publishedAt: page.publishedAt,
-            }}
+            image={page.image}
+            publishedAt={page.publishedAt}
           />
         ))}
       </Flex>

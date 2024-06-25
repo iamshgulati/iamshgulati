@@ -20,9 +20,7 @@ interface LinkCardProp {
   title: string;
   description?: string;
   image?: string;
-  metadata?: {
-    publishedAt?: string;
-  };
+  publishedAt?: string;
 }
 
 export const LinkCard = ({
@@ -30,9 +28,9 @@ export const LinkCard = ({
   title,
   description = undefined,
   image = undefined,
-  metadata = undefined,
+  publishedAt = undefined,
 }: LinkCardProp): React.JSX.Element => (
-  <Card asChild size="3">
+  <Card asChild size="3" variant="surface">
     <NextLink href={href}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">
         {image ? (
@@ -60,44 +58,39 @@ export const LinkCard = ({
         ) : null}
         <Flex justify="between" direction="column">
           <Box>
-            <Metadata publishedAt={metadata?.publishedAt} mb="2" />
-            <Heading size="6" mb="4" wrap="balance">
+            <Flex width="100%" align="center" gap="2" mb="2">
+              {publishedAt ? (
+                <React.Fragment>
+                  <Text asChild size="1" color="gray">
+                    <time dateTime={publishedAt}>
+                      {formatFullDate(publishedAt)}
+                    </time>
+                  </Text>
+                  <Text as="p" size="1" color="gray">
+                    &middot;
+                  </Text>
+                  <Text as="p" size="1" color="gray">
+                    <time dateTime={publishedAt}>
+                      {formatRelativeDate(publishedAt)}
+                    </time>
+                  </Text>
+                </React.Fragment>
+              ) : (
+                <Badge variant="surface">draft</Badge>
+              )}
+            </Flex>
+            <Heading size={{ initial: "5", sm: "6" }} mb="2">
               {title}
             </Heading>
-            <Text as="p" mb="6" color="gray">
+            <Text as="p" size="3" mb="3" color="gray">
               {description}
             </Text>
           </Box>
           <Link asChild>
-            <Box>Read more →</Box>
+            <Text size="2">Read more →</Text>
           </Link>
         </Flex>
       </Grid>
     </NextLink>
   </Card>
-);
-
-const Metadata = ({
-  publishedAt = undefined,
-  ...props
-}: React.ComponentProps<typeof Flex> & {
-  publishedAt?: string;
-}): React.JSX.Element => (
-  <Flex {...props} width="100%" align="center" gap="2">
-    {publishedAt ? (
-      <React.Fragment>
-        <Text asChild size="2" color="gray">
-          <time dateTime={publishedAt}>{formatFullDate(publishedAt)}</time>
-        </Text>
-        <Text as="p" size="2" color="gray">
-          &middot;
-        </Text>
-        <Text as="p" size="2" color="gray">
-          <time dateTime={publishedAt}>{formatRelativeDate(publishedAt)}</time>
-        </Text>
-      </React.Fragment>
-    ) : (
-      <Badge variant="surface">draft</Badge>
-    )}
-  </Flex>
 );
