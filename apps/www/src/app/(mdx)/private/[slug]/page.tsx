@@ -102,7 +102,7 @@ export default async function PrivatePage({ params }: PageProps) {
     <Box
       asChild
       width="100%"
-      style={{ maxWidth: "var(--default-page-max-width)" }}
+      style={{ maxWidth: "var(--docs-page-max-width)" }}
     >
       <Section size={{ initial: "2", xs: "4" }}>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
