@@ -59,7 +59,7 @@ p {
   --header-height: 52px;
   --header-max-width: 1400px;
   --home-page-max-width: 1200px;
-  --default-page-max-width: 860px;
+  --docs-page-max-width: 858px;
 }
 
 :root,
