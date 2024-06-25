@@ -12,13 +12,13 @@ export const PageMeta = ({
   <Flex {...props} width="100%" align="center" gap="2">
     {publishedAt ? (
       <React.Fragment>
-        <Text asChild size="3" color="gray">
+        <Text asChild size="2" color="gray" trim="start">
           <time dateTime={publishedAt}>{formatFullDate(publishedAt)}</time>
         </Text>
-        <Text size="3" color="gray">
+        <Text size="2" color="gray" trim="start">
           &middot;
         </Text>
-        <Text asChild size="3" color="gray">
+        <Text asChild size="2" color="gray" trim="start">
           <time dateTime={publishedAt}>{formatRelativeDate(publishedAt)}</time>
         </Text>
       </React.Fragment>
