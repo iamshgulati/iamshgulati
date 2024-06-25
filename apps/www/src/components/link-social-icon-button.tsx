@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, Link } from "@radix-ui/themes";
+import { IconButton } from "@radix-ui/themes";
 
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
@@ -21,18 +21,19 @@ export const LinkSocialIconButton = ({
   const SocialIcon: Icon = Icons[icon];
 
   return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-      }}
-    >
-      <IconButton {...props} size="3" variant="ghost" color="gray">
+    <IconButton {...props} asChild size="3" variant="ghost" color="gray">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        color="gray"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+        }}
+      >
         <SocialIcon {...iconProps} aria-label={ariaLabel} />
-      </IconButton>
-    </Link>
+      </a>
+    </IconButton>
   );
 };

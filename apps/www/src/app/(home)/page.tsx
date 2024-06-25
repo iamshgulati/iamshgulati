@@ -39,21 +39,13 @@ export default function HomePage(): React.JSX.Element {
               </HeroHeading>
             </Box>
             <Box className={styles.HeroPastExperienceContainer}>
-              <Text
-                as="p"
-                size={{ initial: "3", xs: "4", sm: "5" }}
-                wrap="balance"
-              >
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 Senior Software Engineer and Certified Cloud Architect. Past —
                 Senior Technology Consultant @ Deloitte Consulting.
               </Text>
             </Box>
             <Box className={styles.HeroCurrentlyContainer}>
-              <Text
-                as="p"
-                size={{ initial: "3", xs: "4", sm: "5" }}
-                wrap="balance"
-              >
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 I love tinkering with code. And, currently I am{" "}
                 <Text color="gray">
                   <s>
@@ -67,17 +59,12 @@ export default function HomePage(): React.JSX.Element {
               </Text>
             </Box>
             <Box className={styles.HeroCTADescription}>
-              <Text
-                as="p"
-                size={{ initial: "3", xs: "4", sm: "5" }}
-                wrap="balance"
-              >
+              <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
                 Here&apos;s many useless facts about me and a few{" "}
                 <strong>less useless things</strong> that I can do.
               </Text>
             </Box>
             <Flex
-              direction={{ initial: "column", lg: "row" }}
               gap={{ initial: "3", xs: "5" }}
               mt="2"
               className={styles.HeroCTAButtonsContainer}
@@ -101,43 +88,26 @@ export default function HomePage(): React.JSX.Element {
                 </Button>
               </NextLink>
               */}
-              <a
-                href={siteConfig.links.linkedin}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  size="3"
-                  style={{
-                    width: "100%",
-                    paddingLeft: "var(--space-5)",
-                    paddingRight: "var(--space-5)",
-                    gap: "var(--space-2)",
-                  }}
+              <Button asChild size="3" style={{ flexGrow: 1 }}>
+                <a
+                  href={siteConfig.links.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <LinkedInLogoIcon width="18" height="18" aria-hidden />
-                  <Text>LinkedIn</Text>
-                </Button>
-              </a>
-              <a
-                href={siteConfig.links.resume}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  variant="soft"
-                  size="3"
-                  style={{
-                    width: "100%",
-                    paddingLeft: "var(--space-5)",
-                    paddingRight: "var(--space-5)",
-                    gap: "var(--space-2)",
-                  }}
+                  <Text style={{ textDecorationLine: "none" }}>LinkedIn</Text>
+                </a>
+              </Button>
+              <Button asChild variant="soft" size="3" style={{ flexGrow: 1 }}>
+                <a
+                  href={siteConfig.links.resume}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <ArrowTopRightIcon width="18" height="18" aria-hidden />
-                  <Text>RESUME</Text>
-                </Button>
-              </a>
+                  <Text style={{ textDecorationLine: "none" }}>RESUME</Text>
+                </a>
+              </Button>
             </Flex>
           </Grid>
         </Container>
