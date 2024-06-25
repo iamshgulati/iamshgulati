@@ -95,7 +95,7 @@ export const Header = ({
 
           {productLinkRoute && (
             <Box className={styles.HeaderProductLinksContainer}>
-              <HeaderProductLinks route={productLinkRoute} limit={3} />
+              <HeaderProductLinks route={productLinkRoute} limit={4} />
             </Box>
           )}
 

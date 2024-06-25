@@ -45,7 +45,7 @@ export const LinkCard = ({
               alt={title}
               style={{
                 display: "block",
-                objectFit: "fill",
+                objectFit: "cover",
                 objectPosition: "left top",
                 height: "100%",
                 width: "100%",

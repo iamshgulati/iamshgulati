@@ -57,7 +57,7 @@ export default function BlogPage(): React.JSX.Element {
         title={metadataProps.title}
         description={metadataProps.description}
       />
-      <Flex direction="column" gap="5">
+      <Flex direction="column" gap="6">
         {route.pages.map((page: Frontmatter) => (
           <LinkCard
             key={page.slug}
