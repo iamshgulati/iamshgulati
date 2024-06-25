@@ -5,25 +5,24 @@ import { siteConfig } from "~/config/site";
 
 export const ResumeButton = () => (
   <Flex
-    direction={{ initial: "column", xs: "row" }}
+    direction="row"
     justify="center"
     style={{
       textAlign: "center",
     }}
   >
-    <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-      <Button
-        size="3"
-        style={{
-          width: "100%",
-          paddingLeft: "var(--space-5)",
-          paddingRight: "var(--space-5)",
-          gap: "var(--space-2)",
-        }}
-      >
+    <Button
+      asChild
+      size="3"
+      style={{
+        paddingLeft: "var(--space-6)",
+        paddingRight: "var(--space-6)",
+      }}
+    >
+      <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
         <ArrowTopRightIcon width="18" height="18" aria-hidden />
         <Text>RESUME</Text>
-      </Button>
-    </a>
+      </a>
+    </Button>
   </Flex>
 );

@@ -73,18 +73,18 @@ export default function HomePage(): React.JSX.Element {
               }}
             >
               {/* 
-              <NextLink href="/work">
+              <NextLink href="/work" passHref legacyBehavior>
                 <Button
+                  asChild
                   size="3"
                   style={{
-                    width: "100%",
-                    paddingLeft: "var(--space-5)",
-                    paddingRight: "var(--space-5)",
-                    gap: "var(--space-2)",
+                    flexGrow: 1
                   }}
                 >
-                  <Icons.HammerIcon width="18" height="18" aria-hidden />
-                  <Text>WORK</Text>
+                  <a>
+                    <Icons.HammerIcon width="18" height="18" aria-hidden />
+                    <Text>WORK</Text>
+                  </a>
                 </Button>
               </NextLink>
               */}
@@ -98,7 +98,7 @@ export default function HomePage(): React.JSX.Element {
                   <Text style={{ textDecorationLine: "none" }}>LinkedIn</Text>
                 </a>
               </Button>
-              <Button asChild variant="soft" size="3" style={{ flexGrow: 1 }}>
+              <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
                 <a
                   href={siteConfig.links.resume}
                   target="_blank"
