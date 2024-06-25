@@ -12,11 +12,11 @@ export const PageTitleAndDescription = ({
   description = undefined,
 }: PageTitleAndDescriptionProps): React.JSX.Element => (
   <React.Fragment>
-    <PageHeading as="h1" mb={{ initial: "3", xs: "5" }}>
+    <PageHeading as="h1" mt="7" mb="2">
       {title}
     </PageHeading>
     {description && (
-      <Text as="p" color="gray" size={{ initial: "4", xs: "6" }}>
+      <Text as="p" size="4" color="gray" mt="2" mb="7">
         {description}
       </Text>
     )}

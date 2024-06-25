@@ -106,17 +106,13 @@ export default async function OtherPage({ params }: PageProps) {
       <Section size={{ initial: "2", xs: "4" }}>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Box position="relative" mb="4"></Box>
-          <Section size="1">
-            <PageTitleAndDescription
-              title={page.title}
-              description={page.description}
-            />
-          </Section>
-          <Section size={{ initial: "1", xs: "2" }}>
-            <Suspense fallback={null}>
-              <MDXPage />
-            </Suspense>
-          </Section>
+          <PageTitleAndDescription
+            title={page.title}
+            description={page.description}
+          />
+          <Suspense fallback={null}>
+            <MDXPage />
+          </Suspense>
         </Container>
       </Section>
     </Box>

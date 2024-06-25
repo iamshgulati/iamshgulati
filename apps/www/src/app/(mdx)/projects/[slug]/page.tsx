@@ -109,17 +109,13 @@ export default async function ProjectsPage({ params }: PageProps) {
           <Box position="relative" mb="4">
             <PageMeta position="absolute" publishedAt={page.publishedAt} />
           </Box>
-          <Section size="1">
-            <PageTitleAndDescription
-              title={page.title}
-              description={page.description}
-            />
-          </Section>
-          <Section size={{ initial: "1", xs: "2" }}>
-            <Suspense fallback={null}>
-              <MDXPage />
-            </Suspense>
-          </Section>
+          <PageTitleAndDescription
+            title={page.title}
+            description={page.description}
+          />
+          <Suspense fallback={null}>
+            <MDXPage />
+          </Suspense>
         </Container>
       </Section>
     </Box>

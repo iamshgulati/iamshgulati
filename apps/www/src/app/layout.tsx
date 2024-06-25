@@ -92,7 +92,7 @@ export default function RootLayout({
                     <Flex align="center" justify="center">
                       <Separator size="3" />
                     </Flex>
-                    <Section size="2" pb="0">
+                    <Section size={{ initial: "2", xs: "4" }}>
                       <Footer pages={allRoutes.social.pages.slice(0, 5)} />
                     </Section>
                   </Container>

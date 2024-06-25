@@ -58,27 +58,23 @@ export default function ProjectsPage(): React.JSX.Element {
       <Section size={{ initial: "2", xs: "4" }}>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <Box position="relative" mb="4"></Box>
-          <Section size="1">
-            <PageTitleAndDescription
-              title={metadataProps.title}
-              description={metadataProps.description}
-            />
-          </Section>
-          <Section size={{ initial: "1", xs: "2" }}>
-            <Flex direction="column" gap="5">
-              {route.pages.map((page: Frontmatter) => (
-                <LinkCard
-                  key={page.slug}
-                  href={page.slug}
-                  title={page.title}
-                  description={page.description}
-                  metadata={{
-                    publishedAt: page.publishedAt,
-                  }}
-                />
-              ))}
-            </Flex>
-          </Section>
+          <PageTitleAndDescription
+            title={metadataProps.title}
+            description={metadataProps.description}
+          />
+          <Flex direction="column" gap="5">
+            {route.pages.map((page: Frontmatter) => (
+              <LinkCard
+                key={page.slug}
+                href={page.slug}
+                title={page.title}
+                description={page.description}
+                metadata={{
+                  publishedAt: page.publishedAt,
+                }}
+              />
+            ))}
+          </Flex>
         </Container>
       </Section>
     </Box>

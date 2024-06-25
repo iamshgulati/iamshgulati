@@ -7,6 +7,7 @@ export const ResumeButton = () => (
   <Flex
     direction="row"
     justify="center"
+    mt="9"
     style={{
       textAlign: "center",
     }}
