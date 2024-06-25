@@ -9,7 +9,7 @@ export const BackButton = ({
   children = undefined,
   style = undefined,
   ...props
-}: React.ComponentProps<typeof Button>) => {
+}: React.ComponentProps<typeof Button>): React.JSX.Element => {
   const router = useRouter();
 
   return (
