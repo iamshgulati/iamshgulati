@@ -57,22 +57,18 @@ export default function HomePage(): React.JSX.Element {
             textAlign: "center",
           }}
         >
-          {/* 
-              <NextLink href="/work" passHref legacyBehavior>
-                <Button
-                  asChild
-                  size="3"
-                  style={{
-                    flexGrow: 1
-                  }}
-                >
-                  <a>
-                    <Icons.HammerIcon width="18" height="18" aria-hidden />
-                    <Text>WORK</Text>
-                  </a>
-                </Button>
-              </NextLink>
-              */}
+          {/* <Button
+            asChild
+            size="3"
+            style={{
+              flexGrow: 1,
+            }}
+          >
+            <NextLink href="/work">
+              <Icons.HammerIcon width="18" height="18" aria-hidden />
+              <Text>WORK</Text>
+            </NextLink>
+          </Button> */}
           <Button asChild size="3" style={{ flexGrow: 1 }}>
             <a
               href={siteConfig.links.linkedin}

@@ -24,8 +24,8 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
       value,
       _line = "0",
       className = "",
-      style,
-      showLineNumbers,
+      style = undefined,
+      showLineNumbers = undefined,
       showCopyCodeButton = true,
       ...props
     } = _props;

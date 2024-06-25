@@ -9,14 +9,18 @@ export const Img = ({
   alt = undefined,
   width = undefined,
   height = undefined,
+  style = undefined,
+  ...props
 }: {
   src?: string;
   alt?: string;
   width?: string | number;
   height?: string | number;
+  style?: React.CSSProperties;
 }): React.JSX.Element | null =>
   src && alt ? (
     <Image
+      {...props}
       src={src}
       alt={alt}
       width={width ? (width as number) : 0}
@@ -27,6 +31,7 @@ export const Img = ({
         width: "100%",
         height: "auto",
         borderRadius: "var(--radius-4)",
+        ...style,
       }}
     />
   ) : null;
@@ -35,15 +40,32 @@ export const Img = ({
 /**
  * Image element for static site export
  */
-export const Img = ({ alt = "", ...props }): React.JSX.Element => (
+export const Img = ({
+  src = undefined,
+  alt = undefined,
+  width = undefined,
+  height = undefined,
+  style = undefined,
+  ...props
+}: {
+  src?: string;
+  alt?: string;
+  width?: string | number;
+  height?: string | number;
+  style?: React.CSSProperties;
+}): React.JSX.Element => (
   // eslint-disable-next-line @next/next/no-img-element
   <img
     {...props}
+    src={src}
     alt={alt}
+    width={width ? (width as number) : 0}
+    height={height ? (height as number) : 0}
     style={{
       width: "100%",
       height: "auto",
       borderRadius: "var(--radius-4)",
+      ...style,
     }}
   />
 );

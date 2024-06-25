@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
 const LayoutBackground = ({
-  style = {},
+  style = undefined,
   children = undefined,
 }: React.ComponentProps<typeof Box>): React.JSX.Element => {
   return (

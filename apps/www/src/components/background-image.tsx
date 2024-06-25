@@ -1,7 +1,7 @@
 import React from "react";
 
 export const BackgroundImage = ({
-  style,
+  style = undefined,
   id = "0",
   ...props
 }: React.ComponentProps<"svg"> & { id: string }) => (
