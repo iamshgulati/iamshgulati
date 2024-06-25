@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Container, Flex, Section } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { LinkCard } from "~/components/link-card";
+import { PageSectionWrapper } from "~/components/page-section-wrapper";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -50,33 +51,25 @@ export default function ProjectsPage(): React.JSX.Element {
   const route: AppRoute = allRoutes.projects;
 
   return (
-    <Box
-      asChild
-      width="100%"
-      style={{ maxWidth: "var(--docs-page-max-width)" }}
-    >
-      <Section size={{ initial: "2", xs: "4" }}>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-          <Box position="relative" mb="4"></Box>
-          <PageTitleAndDescription
-            title={metadataProps.title}
-            description={metadataProps.description}
+    <PageSectionWrapper>
+      <Box position="relative" mb="4"></Box>
+      <PageTitleAndDescription
+        title={metadataProps.title}
+        description={metadataProps.description}
+      />
+      <Flex direction="column" gap="5">
+        {route.pages.map((page: Frontmatter) => (
+          <LinkCard
+            key={page.slug}
+            href={page.slug}
+            title={page.title}
+            description={page.description}
+            metadata={{
+              publishedAt: page.publishedAt,
+            }}
           />
-          <Flex direction="column" gap="5">
-            {route.pages.map((page: Frontmatter) => (
-              <LinkCard
-                key={page.slug}
-                href={page.slug}
-                title={page.title}
-                description={page.description}
-                metadata={{
-                  publishedAt: page.publishedAt,
-                }}
-              />
-            ))}
-          </Flex>
-        </Container>
-      </Section>
-    </Box>
+        ))}
+      </Flex>
+    </PageSectionWrapper>
   );
 }

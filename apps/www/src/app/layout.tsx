@@ -4,13 +4,14 @@ import "~/styles/global.css";
 
 import type { Metadata } from "next";
 import React from "react";
-import { Container, Flex, Section, Separator } from "@radix-ui/themes";
+import { Flex, Separator } from "@radix-ui/themes";
 
 import { BackgroundImage } from "~/components/background-image";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
+import { PageSectionWrapper } from "~/components/page-section-wrapper";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, IS_PRODUCTION } from "~/env";
@@ -88,14 +89,12 @@ export default function RootLayout({
                   <Layout.Content>{children}</Layout.Content>
                 </Layout.Main>
                 <Layout.Footer>
-                  <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-                    <Flex align="center" justify="center">
-                      <Separator size="3" />
-                    </Flex>
-                    <Section size={{ initial: "2", xs: "4" }}>
-                      <Footer pages={allRoutes.social.pages.slice(0, 5)} />
-                    </Section>
-                  </Container>
+                  <Flex align="center" justify="center">
+                    <Separator size="3" />
+                  </Flex>
+                  <PageSectionWrapper style={{ maxWidth: "100%" }}>
+                    <Footer pages={allRoutes.social.pages.slice(0, 5)} />
+                  </PageSectionWrapper>
                 </Layout.Footer>
               </Layout.Root>
             </Layout.Background>

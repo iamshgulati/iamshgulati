@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
-import { Box, Container, Section } from "@radix-ui/themes";
+import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
+import { PageSectionWrapper } from "~/components/page-section-wrapper";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -98,23 +99,15 @@ export default async function OtherPage({ params }: PageProps) {
   );
 
   return (
-    <Box
-      asChild
-      width="100%"
-      style={{ maxWidth: "var(--docs-page-max-width)" }}
-    >
-      <Section size={{ initial: "2", xs: "4" }}>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-          <Box position="relative" mb="4"></Box>
-          <PageTitleAndDescription
-            title={page.title}
-            description={page.description}
-          />
-          <Suspense fallback={null}>
-            <MDXPage />
-          </Suspense>
-        </Container>
-      </Section>
-    </Box>
+    <PageSectionWrapper>
+      <Box position="relative" mb="4"></Box>
+      <PageTitleAndDescription
+        title={page.title}
+        description={page.description}
+      />
+      <Suspense fallback={null}>
+        <MDXPage />
+      </Suspense>
+    </PageSectionWrapper>
   );
 }
