@@ -6,8 +6,8 @@ import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageMeta } from "~/components/page-meta";
-import { PageSectionWrapper } from "~/components/page-section-wrapper";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
+import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
@@ -100,7 +100,7 @@ export default async function ProjectsPage({ params }: PageProps) {
   );
 
   return (
-    <PageSectionWrapper>
+    <PageWrapper maxWidth="var(--docs-page-max-width)">
       <Box position="relative" mb="4">
         <PageMeta position="absolute" publishedAt={page.publishedAt} />
       </Box>
@@ -111,6 +111,6 @@ export default async function ProjectsPage({ params }: PageProps) {
       <Suspense fallback={null}>
         <MDXPage />
       </Suspense>
-    </PageSectionWrapper>
+    </PageWrapper>
   );
 }

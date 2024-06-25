@@ -11,7 +11,7 @@ import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-b
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
-import { PageSectionWrapper } from "~/components/page-section-wrapper";
+import { PageWrapper } from "~/components/page-wrapper";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env, IS_PRODUCTION } from "~/env";
@@ -92,9 +92,9 @@ export default function RootLayout({
                   <Flex align="center" justify="center">
                     <Separator size="3" />
                   </Flex>
-                  <PageSectionWrapper style={{ maxWidth: "100%" }}>
+                  <PageWrapper>
                     <Footer pages={allRoutes.social.pages.slice(0, 5)} />
-                  </PageSectionWrapper>
+                  </PageWrapper>
                 </Layout.Footer>
               </Layout.Root>
             </Layout.Background>

@@ -3,13 +3,13 @@ import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { HeroHeading } from "~/components/page-heading";
-import { PageSectionWrapper } from "~/components/page-section-wrapper";
+import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import styles from "./page.module.css";
 
 export default function HomePage(): React.JSX.Element {
   return (
-    <PageSectionWrapper style={{ maxWidth: "var(--home-page-max-width)" }}>
+    <PageWrapper>
       <Box position="relative" mb="7"></Box>
       <Grid
         gapX="6"
@@ -91,6 +91,6 @@ export default function HomePage(): React.JSX.Element {
           </Button>
         </Flex>
       </Grid>
-    </PageSectionWrapper>
+    </PageWrapper>
   );
 }

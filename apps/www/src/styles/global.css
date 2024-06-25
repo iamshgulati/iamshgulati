@@ -58,7 +58,6 @@ p {
 :root {
   --header-height: 52px;
   --header-max-width: 1440px;
-  --home-page-max-width: 1200px;
   --docs-page-max-width: 858px;
 }
 

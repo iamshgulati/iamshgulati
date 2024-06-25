@@ -5,8 +5,8 @@ import { Box, Flex } from "@radix-ui/themes";
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { LinkCard } from "~/components/link-card";
-import { PageSectionWrapper } from "~/components/page-section-wrapper";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
+import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
@@ -51,7 +51,7 @@ export default function BlogPage(): React.JSX.Element {
   const route: AppRoute = allRoutes.blog;
 
   return (
-    <PageSectionWrapper>
+    <PageWrapper>
       <Box position="relative" mb="4"></Box>
       <PageTitleAndDescription
         title={metadataProps.title}
@@ -70,6 +70,6 @@ export default function BlogPage(): React.JSX.Element {
           />
         ))}
       </Flex>
-    </PageSectionWrapper>
+    </PageWrapper>
   );
 }
