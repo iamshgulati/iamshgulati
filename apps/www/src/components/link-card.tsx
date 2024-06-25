@@ -32,7 +32,7 @@ export const LinkCard = ({
   image = undefined,
   metadata = undefined,
 }: LinkCardProp): React.JSX.Element => (
-  <Card asChild size="3" variant="classic">
+  <Card asChild size="3">
     <NextLink href={href}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">
         {image ? (
@@ -60,11 +60,11 @@ export const LinkCard = ({
         ) : null}
         <Flex justify="between" direction="column">
           <Box>
-            <Metadata publishedAt={metadata?.publishedAt} mb="1" />
-            <Heading size="6" mb="3" wrap="balance">
+            <Metadata publishedAt={metadata?.publishedAt} mb="2" />
+            <Heading size="6" mb="4" wrap="balance">
               {title}
             </Heading>
-            <Text as="p" mb="5" color="gray">
+            <Text as="p" mb="6" color="gray">
               {description}
             </Text>
           </Box>
