@@ -8,15 +8,15 @@ export const HeroHeading = ({
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
   let headingStyle: React.CSSProperties = {
-    fontWeight: "650",
+    fontWeight: "700",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-letter-spacing": "-0.00em",
+    "--heading-letter-spacing": "-0.025em",
     ...props.style,
   } as React.CSSProperties;
 
   if (variant === "serif") {
     headingStyle = {
-      fontWeight: "600",
+      fontWeight: "650",
       "--heading-font-family": "var(--font-serif), var(--em-font-family)",
       "--heading-letter-spacing": "0.01em",
       ...props.style,
@@ -46,15 +46,15 @@ export const PageHeading = ({
   variant?: "sans" | "serif";
 }): React.JSX.Element => {
   let headingStyles: React.CSSProperties = {
-    fontWeight: "650",
+    fontWeight: "700",
     "--heading-font-family": "var(--font-heading), var(--default-font-family)",
-    "--heading-letter-spacing": "-0.00em",
+    "--heading-letter-spacing": "-0.025em",
     ...props.style,
   } as React.CSSProperties;
 
   if (variant === "serif") {
     headingStyles = {
-      fontWeight: "600",
+      fontWeight: "650",
       "--heading-font-family": "var(--font-serif), var(--em-font-family)",
       "--heading-letter-spacing": "0.01em",
       ...props.style,
