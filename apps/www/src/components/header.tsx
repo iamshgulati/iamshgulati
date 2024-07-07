@@ -2,9 +2,10 @@ import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
+import type { Frontmatter } from "~/types/frontmatter";
 import { cn } from "~/lib/classnames";
 import { CommandMenu } from "./command-menu";
-import { HeaderProductLinks } from "./header-product-links";
+import { HeaderNavLinks } from "./header-nav-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { ThemeToggle } from "./theme-toggle";
@@ -17,7 +18,7 @@ export interface HeaderProps {
   scrollDistanceThreshold?: number;
   backdrop?: boolean;
   backdropExtended?: boolean;
-  productLinkRoute?: AppRoute;
+  navLinks?: Frontmatter[];
   commandMenuRoutes?: AppRoute[];
 }
 
@@ -29,7 +30,7 @@ export const Header = ({
   scrollDistanceThreshold = undefined,
   backdrop = false,
   backdropExtended = false,
-  productLinkRoute = undefined,
+  navLinks = undefined,
   commandMenuRoutes = undefined,
   children = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
@@ -93,9 +94,9 @@ export const Header = ({
           </Flex>
           */}
 
-          {productLinkRoute && (
-            <Box className={styles.HeaderProductLinksContainer}>
-              <HeaderProductLinks route={productLinkRoute} limit={4} />
+          {navLinks && (
+            <Box className={styles.HeaderNavLinksContainer}>
+              <HeaderNavLinks pages={navLinks} />
             </Box>
           )}
 

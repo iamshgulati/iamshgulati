@@ -8,7 +8,7 @@ export interface AppRoute {
 }
 
 export type AllRoutes = Record<
-  | "productLinks"
+  | "navLinks"
   | "personal"
   | "projects"
   | "blog"
@@ -19,7 +19,7 @@ export type AllRoutes = Record<
 >;
 
 export const allRoutes: AllRoutes = {
-  productLinks: {
+  navLinks: {
     label: "Most Visited",
     pages: [
       { title: "Home", slug: "/", icon: "HomeIcon" },
