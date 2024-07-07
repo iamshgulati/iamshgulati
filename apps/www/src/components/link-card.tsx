@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  AspectRatio,
   Badge,
   Box,
   Card,
@@ -8,6 +9,7 @@ import {
   Heading,
   Inset,
   Link,
+  Skeleton,
   Text,
 } from "@radix-ui/themes";
 
@@ -19,16 +21,20 @@ interface LinkCardProp {
   href: string;
   title: string;
   description?: string;
-  image?: string;
   publishedAt?: string;
+  image?: string;
+  imageStyle?: {
+    width?: string | number;
+    height?: string | number;
+  };
 }
 
 export const LinkCard = ({
   href,
   title,
   description = undefined,
-  image = undefined,
   publishedAt = undefined,
+  image = undefined,
 }: LinkCardProp): React.JSX.Element => (
   <Card asChild size="3" variant="surface">
     <NextLink href={href}>
@@ -40,20 +46,24 @@ export const LinkCard = ({
             pb={{ initial: "current", sm: "0" }}
             pr={{ initial: "0", sm: "current" }}
           >
-            <Img
-              src={image}
-              alt={title}
-              style={{
-                display: "block",
-                objectFit: "cover",
-                objectPosition: "left top",
-                height: "100%",
-                width: "100%",
-                backgroundColor: "var(--gray-3)",
-                boxShadow: "0 0 0 1px var(--gray-3)",
-                borderRadius: "0",
-              }}
-            />
+            <Skeleton loading={true}>
+              <AspectRatio asChild ratio={16 / 9}>
+                <Img
+                  src={image}
+                  alt={title}
+                  style={{
+                    display: "block",
+                    objectFit: "cover",
+                    // width: "100%",
+                    // height: "100%",
+                    // objectPosition: "left top",
+                    backgroundColor: "var(--gray-3)",
+                    boxShadow: "0 0 0 1px var(--gray-3)",
+                    borderRadius: "0",
+                  }}
+                />
+              </AspectRatio>
+            </Skeleton>
           </Inset>
         ) : null}
         <Flex justify="between" direction="column">

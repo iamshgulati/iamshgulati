@@ -64,8 +64,8 @@ export default function ProjectsPage(): React.JSX.Element {
             href={page.slug}
             title={page.title}
             description={page.description}
-            image={page.image}
             publishedAt={page.publishedAt}
+            image={page.image}
           />
         ))}
       </Flex>
