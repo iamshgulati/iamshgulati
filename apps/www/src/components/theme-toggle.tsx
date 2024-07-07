@@ -31,7 +31,7 @@ export const ThemeToggle = ({
           aria-label="System theme"
           style={{
             display: "var(--system-theme-icon-display)",
-            transform: "rotate(45deg)",
+            // transform: "rotate(45deg)",
           }}
         />
         <SunIcon
