@@ -4,14 +4,14 @@ import { useTheme } from "next-themes";
 export const useThemeToggle = () => {
   const nextThemes = useTheme();
 
-  const _handleThemeToggleIn2Steps = React.useCallback(() => {
+  const handleThemeToggleIn2Steps = React.useCallback(() => {
     const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
     nextThemes.setTheme(
       newTheme === nextThemes.systemTheme ? "system" : newTheme,
     );
   }, [nextThemes]);
 
-  const handleThemeToggleIn3Steps = React.useCallback(() => {
+  const _handleThemeToggleIn3Steps = React.useCallback(() => {
     const newTheme = nextThemes.resolvedTheme === "dark" ? "light" : "dark";
     if (
       nextThemes.theme !== "system" &&
@@ -24,6 +24,6 @@ export const useThemeToggle = () => {
   }, [nextThemes]);
 
   return {
-    handleThemeToggle: handleThemeToggleIn3Steps,
+    handleThemeToggle: handleThemeToggleIn2Steps,
   };
 };

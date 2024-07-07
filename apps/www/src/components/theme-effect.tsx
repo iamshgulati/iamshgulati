@@ -3,7 +3,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-export function ThemeClasses(): React.JSX.Element {
+export function UpdateThemeClasses(): React.JSX.Element {
   const theme = useTheme();
 
   const updateThemeClasses = function () {
@@ -62,7 +62,7 @@ export function ThemeClasses(): React.JSX.Element {
  * @deprecated The method should not be used. Use themeColor property in next-themes instead.
  * themeColor.light and themeColor.dark must remain in sync with var(--color-background)
  */
-export function ThemeMetaColor(): React.JSX.Element {
+export function UpdateThemeMetaColor(): React.JSX.Element {
   const theme = useTheme();
   const updateMetaColor = function () {
     try {

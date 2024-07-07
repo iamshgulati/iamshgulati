@@ -6,7 +6,6 @@ import { IconButton } from "@radix-ui/themes";
 
 import type { Icon } from "./icons";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
-import { ThemeClasses } from "./theme-effect";
 
 type ThemeToggleProps = React.ComponentProps<typeof IconButton> & {
   iconProps?: React.ComponentProps<Icon>;
@@ -46,7 +45,7 @@ export const ThemeToggle = ({
           style={{ display: "var(--dark-theme-icon-display)" }}
         />
       </IconButton>
-      <ThemeClasses />
+      {/* <UpdateThemeClasses /> */}
     </React.Fragment>
   );
 };
