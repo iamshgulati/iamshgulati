@@ -54,9 +54,6 @@ export const LinkCard = ({
                   style={{
                     display: "block",
                     objectFit: "cover",
-                    // width: "100%",
-                    // height: "100%",
-                    // objectPosition: "left top",
                     backgroundColor: "var(--gray-3)",
                     boxShadow: "0 0 0 1px var(--gray-3)",
                     borderRadius: "0",

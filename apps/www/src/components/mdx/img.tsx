@@ -29,8 +29,7 @@ export const Img = ({
       loading="lazy"
       style={{
         width: "100%",
-        // height: "auto",
-        height: "100%",
+        height: "auto",
         borderRadius: "var(--radius-4)",
         ...style,
       }}
@@ -64,9 +63,8 @@ export const Img = ({
     height={height ? (height as number) : 0}
     style={{
       width: "100%",
-      // height: "auto",
-      height: "100%",
-      borderRadius: "var(--radius-4)",
+      height: "auto",
+      borderRadius: "var(--radius-5)",
       ...style,
     }}
   />

@@ -9,7 +9,7 @@ export const PageMeta = ({
 }: React.ComponentProps<typeof Flex> & {
   publishedAt?: string;
 }): React.JSX.Element => (
-  <Flex {...props} width="100%" align="center" gap="2">
+  <Flex {...props} width="100%" align="center" gap="2" mb="4">
     {publishedAt ? (
       <React.Fragment>
         <Text asChild size="2" color="gray" trim="start">

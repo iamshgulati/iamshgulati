@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
+import { PageCoverImage } from "~/components/page-cover-image";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
@@ -105,6 +106,7 @@ export default async function OtherPage({ params }: PageProps) {
         title={page.title}
         description={page.description}
       />
+      <PageCoverImage src={page.image} alt={page.title} />
       <Suspense fallback={null}>
         <MDXPage />
       </Suspense>
