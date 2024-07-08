@@ -108,7 +108,11 @@ export function CommandMenu({
                     })
                   }
                 >
-                  <MagnifyingGlassIcon />
+                  <MagnifyingGlassIcon
+                    style={{
+                      transform: "scale(1.2)",
+                    }}
+                  />
                   Toggle Search
                   <CommandShortcut>⌘&thinsp;K</CommandShortcut>
                 </Command.Item>

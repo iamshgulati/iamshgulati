@@ -107,7 +107,11 @@ export const Header = ({
               {children}
             </Flex>
 
-            <Flex align="center" gap={{ initial: "4", md: "5" }}>
+            <Flex
+              align="center"
+              // gap={{ initial: "4", md: "5" }}
+              gap="5"
+            >
               <CommandMenu routes={commandMenuRoutes} />
               <ThemeToggle />
             </Flex>
