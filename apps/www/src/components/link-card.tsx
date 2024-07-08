@@ -36,7 +36,7 @@ export const LinkCard = ({
   publishedAt = undefined,
   image = undefined,
 }: LinkCardProp): React.JSX.Element => (
-  <Card asChild size="3" variant="classic">
+  <Card asChild size="3" variant="ghost" m="5">
     <NextLink href={href}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">
         {image ? (

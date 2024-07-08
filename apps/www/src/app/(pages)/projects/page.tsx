@@ -57,7 +57,7 @@ export default function ProjectsPage(): React.JSX.Element {
         title={metadataProps.title}
         description={metadataProps.description}
       />
-      <Flex direction="column" gap="6">
+      <Flex direction="column" gap="9">
         {route.pages.map((page: Frontmatter) => (
           <LinkCard
             key={page.slug}
