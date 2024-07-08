@@ -108,11 +108,8 @@ export const Header = ({
             </Flex>
 
             <Flex align="center" gap={{ initial: "4", md: "5" }}>
-              <CommandMenu
-                routes={commandMenuRoutes}
-                iconProps={{ width: "20", height: "20" }}
-              />
-              <ThemeToggle iconProps={{ width: "16", height: "16" }} />
+              <CommandMenu routes={commandMenuRoutes} />
+              <ThemeToggle />
             </Flex>
           </Flex>
         </Box>

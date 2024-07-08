@@ -73,7 +73,13 @@ export function CommandMenu({
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
         <IconButton {...props} size="3" variant="ghost" color="gray">
-          <MagnifyingGlassIcon {...iconProps} aria-label="Open Command Menu" />
+          <MagnifyingGlassIcon
+            {...iconProps}
+            aria-label="Open Command Menu"
+            style={{
+              transform: "scale(1.2)",
+            }}
+          />
         </IconButton>
       </Dialog.Trigger>
       {/* Inline styles necessary here to override styles defined by Radix Themes */}
@@ -116,7 +122,7 @@ export function CommandMenu({
                     height="16"
                     style={{
                       display: "var(--system-theme-icon-display)",
-                      transform: "rotate(45deg)",
+                      // transform: "rotate(45deg)",
                     }}
                   />
                   <SunIcon
