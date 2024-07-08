@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 
-import { HeroHeading } from "~/components/page-heading";
+import { HeroHeading } from "~/components/page-headings";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import styles from "./page.module.css";

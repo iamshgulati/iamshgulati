@@ -6,7 +6,7 @@ import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
-import { PageTitleAndDescription } from "~/components/page-title-and-description";
+import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -102,7 +102,7 @@ export default async function OtherPage({ params }: PageProps) {
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
       <Box position="relative" mb="4"></Box>
-      <PageTitleAndDescription
+      <SectionTitleAndDescription
         title={page.title}
         description={page.description}
       />
