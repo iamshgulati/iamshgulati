@@ -4,10 +4,13 @@ import { Box, Flex } from "@radix-ui/themes";
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { cn } from "~/lib/classnames";
+import { NextLink } from "~/lib/link";
+import { BoxLink } from "./box-link";
 import { CommandMenu } from "./command-menu";
 import { HeaderNavLinks } from "./header-nav-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
+import { SiteLogo, SiteLogoIcon } from "./site-logo";
 import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
@@ -50,18 +53,6 @@ export const Header = ({
       <nav className={styles.HeaderInner}>
         <Box className={styles.HeaderContainer}>
           <Flex
-            align="center"
-            pl={{ initial: "5", sm: "6" }}
-            position="absolute"
-            top="0"
-            bottom="0"
-            left="0"
-          >
-            <ThemeToggle iconProps={{ width: "20", height: "20" }} />
-          </Flex>
-
-          {/* 
-          <Flex
             display={{ initial: "flex", md: "none" }}
             align="center"
             pl={{ initial: "5", sm: "6" }}
@@ -92,7 +83,6 @@ export const Header = ({
               </BoxLink>
             </NextLink>
           </Flex>
-          */}
 
           {navLinks && (
             <Box className={styles.HeaderNavLinksContainer}>
@@ -122,6 +112,7 @@ export const Header = ({
                 routes={commandMenuRoutes}
                 iconProps={{ width: "20", height: "20" }}
               />
+              <ThemeToggle iconProps={{ width: "16", height: "16" }} />
             </Flex>
           </Flex>
         </Box>

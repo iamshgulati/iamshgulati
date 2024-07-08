@@ -2,9 +2,11 @@ import React from "react";
 import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 
+import { Icons } from "~/components/icons";
 import { HeroHeading } from "~/components/page-headings";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
+import { NextLink } from "~/lib/link";
 import styles from "./page.module.css";
 
 export default function HomePage(): React.JSX.Element {
@@ -57,19 +59,19 @@ export default function HomePage(): React.JSX.Element {
             textAlign: "center",
           }}
         >
-          {/* <Button
+          <Button
             asChild
             size="3"
             style={{
               flexGrow: 1,
             }}
           >
-            <NextLink href="/work">
-              <Icons.HammerIcon width="18" height="18" aria-hidden />
-              <Text>WORK</Text>
+            <NextLink href="/about">
+              <Icons.PersonIcon width="18" height="18" aria-hidden />
+              <Text>ABOUT</Text>
             </NextLink>
-          </Button> */}
-          <Button asChild size="3" style={{ flexGrow: 1 }}>
+          </Button>
+          {/* <Button asChild size="3" style={{ flexGrow: 1 }}>
             <a
               href={siteConfig.links.linkedin}
               target="_blank"
@@ -78,7 +80,7 @@ export default function HomePage(): React.JSX.Element {
               <LinkedInLogoIcon width="18" height="18" aria-hidden />
               <Text style={{ textDecorationLine: "none" }}>LinkedIn</Text>
             </a>
-          </Button>
+          </Button> */}
           <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
             <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
               <ArrowTopRightIcon width="18" height="18" aria-hidden />
