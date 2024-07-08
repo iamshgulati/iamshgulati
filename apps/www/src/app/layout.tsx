@@ -69,7 +69,7 @@ export default function RootLayout({
                     viewportScrollFactorThreshold={2}
                     scrollDistanceThreshold={100}
                     backdropExtended
-                    navLinks={allRoutes.navLinks.pages.splice(0, 2)}
+                    navLinks={allRoutes.navLinks.pages.slice(2, 4)}
                     commandMenuRoutes={[
                       allRoutes.navLinks,
                       allRoutes.blog,
