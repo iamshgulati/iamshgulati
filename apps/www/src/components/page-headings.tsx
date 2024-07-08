@@ -77,10 +77,10 @@ export const PageHeading = ({
   return (
     <Heading
       {...props}
-      size="8"
+      size={{ initial: "6", xs: "7", sm: "8" }}
       style={
         {
-          "--heading-font-size-adjust": "1.0",
+          "--heading-font-size-adjust": "1.2",
           lineHeight:
             "calc(var(--line-height) * var(--heading-font-size-adjust) * 1.0)",
           ...headingStyle({ variant }),

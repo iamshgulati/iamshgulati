@@ -16,7 +16,13 @@ export const SectionTitleAndDescription = ({
       {title}
     </SectionHeading>
     {description && (
-      <Text as="p" size="6" color="gray" mt="2" mb="7">
+      <Text
+        as="p"
+        size={{ initial: "4", xs: "5", sm: "6" }}
+        color="gray"
+        mt="2"
+        mb="7"
+      >
         {description}
       </Text>
     )}
@@ -36,7 +42,7 @@ export const PageTitleAndDescription = ({
       {title}
     </PageHeading>
     {description && (
-      <Text as="p" size="4" color="gray" mt="2" mb="7">
+      <Text as="p" size={{ initial: "4", sm: "5" }} color="gray" mt="2" mb="7">
         {description}
       </Text>
     )}
