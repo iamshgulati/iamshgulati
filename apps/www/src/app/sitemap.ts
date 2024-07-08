@@ -9,21 +9,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://shubhamgulati.com/about",
+      url: "https://shubhamgulati.com/work",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://shubhamgulati.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
       url: "https://shubhamgulati.com/projects",
       lastModified: new Date(),
       changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: "https://shubhamgulati.com/blog",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
       priority: 0.5,
     },
   ];
