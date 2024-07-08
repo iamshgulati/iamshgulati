@@ -8,7 +8,6 @@ import {
 import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
-import { PageHeading } from "~/components/page-headings";
 import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
 

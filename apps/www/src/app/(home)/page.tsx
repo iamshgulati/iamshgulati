@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowTopRightIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { Icons } from "~/components/icons";
