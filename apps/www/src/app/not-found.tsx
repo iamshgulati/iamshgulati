@@ -9,10 +9,11 @@ import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
 import { PageHeading } from "~/components/page-headings";
+import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
 
 export const metadata: Metadata = {
-  title: "Page Not Found",
+  title: "Not Found",
   description:
     "Sorry, the page you are looking for has moved or doesn't exist.",
 };
@@ -33,10 +34,10 @@ export default function NotFound(): React.JSX.Element {
         height="52"
         style={{
           marginBottom: "var(--space-4)",
-          color: "var(--accent-10)",
+          color: "var(--yellow-10)",
         }}
       />
-      <TitleAndDescription
+      <SectionTitleAndDescription
         title={metadata.title as string}
         description={metadata.description ? metadata.description : ""}
       />
@@ -49,7 +50,7 @@ export default function NotFound(): React.JSX.Element {
       >
         <BackButton
           size="3"
-          variant="ghost"
+          variant="solid"
           style={{
             paddingLeft: "var(--space-5)",
             paddingRight: "var(--space-5)",
@@ -62,7 +63,7 @@ export default function NotFound(): React.JSX.Element {
         <NextLink href="/">
           <Button
             size="3"
-            variant="ghost"
+            variant="solid"
             style={{
               paddingLeft: "var(--space-5)",
               paddingRight: "var(--space-5)",
@@ -77,22 +78,3 @@ export default function NotFound(): React.JSX.Element {
     </Box>
   );
 }
-
-const TitleAndDescription = ({
-  title,
-  description = undefined,
-}: {
-  title: string;
-  description?: string;
-}): React.JSX.Element => (
-  <React.Fragment>
-    <PageHeading as="h1" mb={{ initial: "3", xs: "5" }}>
-      {title}
-    </PageHeading>
-    {description && (
-      <Text as="p" color="gray" size={{ initial: "3", xs: "5" }}>
-        {description}
-      </Text>
-    )}
-  </React.Fragment>
-);
