@@ -11,7 +11,6 @@ import { HeaderNavLinks } from "./header-nav-links";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
-import { ThemeToggle } from "./theme-toggle";
 
 export interface HeaderProps {
   sticky?: boolean;
@@ -107,13 +106,9 @@ export const Header = ({
               {children}
             </Flex>
 
-            <Flex
-              align="center"
-              // gap={{ initial: "4", md: "5" }}
-              gap="5"
-            >
+            <Flex align="center" gap="5">
               <CommandMenu routes={commandMenuRoutes} />
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </Flex>
           </Flex>
         </Box>
