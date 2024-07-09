@@ -25,7 +25,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata | undefined> {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/private",
+    "/projects",
   );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
@@ -74,7 +74,7 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/private",
+    "/projects",
   );
 
   return allFrontmatter.map((page) => ({
@@ -82,10 +82,10 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   }));
 }
 
-export default async function PrivatePage({ params }: PageProps) {
+export default async function ProjectsPage({ params }: PageProps) {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/private",
+    "/projects",
   );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
@@ -97,13 +97,17 @@ export default async function PrivatePage({ params }: PageProps) {
   }
 
   const MDXPage: React.ComponentType = dynamic(
-    () => import(`/src/data/private/${page.slugAsParams}/page.mdx`),
+    () => import(`/src/data/projects/${page.slugAsParams}/page.mdx`),
   );
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
       <Box position="relative" mb="4">
-        <PageMeta position="absolute" publishedAt={page.publishedAt} />
+        <PageMeta
+          position="absolute"
+          publishedAt={page.publishedAt}
+          category={page.category}
+        />
       </Box>
       <PageTitleAndDescription
         title={page.title}

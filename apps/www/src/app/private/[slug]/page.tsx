@@ -25,7 +25,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata | undefined> {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/blog",
+    "/private",
   );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
@@ -74,7 +74,7 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/blog",
+    "/private",
   );
 
   return allFrontmatter.map((page) => ({
@@ -82,10 +82,10 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   }));
 }
 
-export default async function BlogPage({ params }: PageProps) {
+export default async function PrivatePage({ params }: PageProps) {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
     "/src/data",
-    "/blog",
+    "/private",
   );
 
   const page: Frontmatter | undefined = allFrontmatter.find(
@@ -96,14 +96,18 @@ export default async function BlogPage({ params }: PageProps) {
     notFound();
   }
 
-  const PageContent: React.ComponentType = dynamic(
-    () => import(`/src/data/blog/${page.slugAsParams}/page.mdx`),
+  const MDXPage: React.ComponentType = dynamic(
+    () => import(`/src/data/private/${page.slugAsParams}/page.mdx`),
   );
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
       <Box position="relative" mb="4">
-        <PageMeta position="absolute" publishedAt={page.publishedAt} />
+        <PageMeta
+          position="absolute"
+          publishedAt={page.publishedAt}
+          category={page.category}
+        />
       </Box>
       <PageTitleAndDescription
         title={page.title}
@@ -111,7 +115,7 @@ export default async function BlogPage({ params }: PageProps) {
       />
       <PageCoverImage src={page.image} alt={page.title} />
       <Suspense fallback={null}>
-        <PageContent />
+        <MDXPage />
       </Suspense>
     </PageWrapper>
   );

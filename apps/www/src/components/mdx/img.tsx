@@ -64,7 +64,7 @@ export const Img = ({
     style={{
       width: "100%",
       height: "auto",
-      borderRadius: "var(--radius-5)",
+      borderRadius: "var(--radius-4)",
       ...style,
     }}
   />
