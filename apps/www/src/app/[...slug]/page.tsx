@@ -6,8 +6,7 @@ import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
-import { PageMeta } from "~/components/page-meta";
-import { PageTitleAndDescription } from "~/components/page-title-and-description";
+import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -16,20 +15,17 @@ import { getBaseUrl } from "~/lib/url";
 
 interface PageProps {
   params: {
-    slug: string;
+    slug: string[];
   };
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata | undefined> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
-    "/src/data",
-    "/blog",
-  );
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
-    (page: Frontmatter) => page.slugAsParams === params.slug,
+    (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
   );
 
   if (!page) {
@@ -72,50 +68,38 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
-    "/src/data",
-    "/blog",
-  );
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
 
   return allFrontmatter.map((page) => ({
-    slug: page.slugAsParams ?? "",
+    slug: page.slugAsParams?.split("/") ?? [],
   }));
 }
 
-export default async function BlogPage({ params }: PageProps) {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter(
-    "/src/data",
-    "/blog",
-  );
+export default async function CatchAllPage({ params }: PageProps) {
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
-    (page: Frontmatter) => page.slugAsParams === params.slug,
+    (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
   );
 
   if (!page) {
     notFound();
   }
 
-  const PageContent: React.ComponentType = dynamic(
-    () => import(`/src/data/blog/${page.slugAsParams}/page.mdx`),
+  const MDXPage: React.ComponentType = dynamic(
+    () => import(`/src/data/${page.slugAsParams}/page.mdx`),
   );
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
-      <Box position="relative" mb="4">
-        <PageMeta
-          position="absolute"
-          publishedAt={page.publishedAt}
-          category={page.category}
-        />
-      </Box>
-      <PageTitleAndDescription
+      <Box position="relative" mb="4"></Box>
+      <SectionTitleAndDescription
         title={page.title}
         description={page.description}
       />
       <PageCoverImage src={page.image} alt={page.title} />
       <Suspense fallback={null}>
-        <PageContent />
+        <MDXPage />
       </Suspense>
     </PageWrapper>
   );
