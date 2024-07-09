@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://shubhamgulati.com/about",
       lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    {
+      url: "https://shubhamgulati.com/work",
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },

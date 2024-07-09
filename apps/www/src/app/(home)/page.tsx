@@ -59,6 +59,18 @@ export default function HomePage(): React.JSX.Element {
             textAlign: "center",
           }}
         >
+          {/* <Button
+            asChild
+            size="3"
+            style={{
+              flexGrow: 1,
+            }}
+          >
+            <NextLink href="/work">
+              <Icons.HammerIcon width="18" height="18" aria-hidden />
+              <Text>WORK</Text>
+            </NextLink>
+          </Button> */}
           <Button
             asChild
             size="3"

@@ -23,7 +23,7 @@ export const allRoutes: AllRoutes = {
     label: "Most Visited",
     pages: [
       { title: "Home", slug: "/", icon: "HomeIcon" },
-      { title: "Work", slug: "/about", icon: "HammerIcon" },
+      { title: "Work", slug: "/work", icon: "HammerIcon" },
       { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
       { title: "Projects", slug: "/projects", icon: "CubeIcon" },
     ],
