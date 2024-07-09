@@ -25,7 +25,9 @@ export const allRoutes: AllRoutes = {
       { title: "Home", slug: "/", icon: "HomeIcon" },
       { title: "Work", slug: "/work", icon: "HammerIcon" },
       { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
-      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
+      // { title: "Projects", slug: "/projects", icon: "CubeIcon" },
+      { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
+      { title: "About Me", slug: "/about", icon: "PersonIcon" },
     ],
   },
   blog: {
@@ -42,17 +44,17 @@ export const allRoutes: AllRoutes = {
   projects: {
     label: "Projects",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/projects")).map(
-        (page: Frontmatter) => {
-          page.icon = "CubeIcon";
-          return page;
-        },
-      ),
+      // ...(await getAllFrontmatter("/src/data", "/projects")).map(
+      //   (page: Frontmatter) => {
+      //     page.icon = "CubeIcon";
+      //     return page;
+      //   },
+      // ),
     ],
   },
   personal: {
     label: "Personal",
-    pages: [{ title: "Quotes", slug: "/quotes", icon: "QuoteIcon" }],
+    pages: [],
   },
   private: {
     label: "Private Pages",

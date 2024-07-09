@@ -13,7 +13,7 @@ createJiti(fileURLToPath(import.meta.url))("./src/env");
 const _nextRedirects = async () => [
   {
     source: "/professional",
-    destination: "/projects",
+    destination: "/work",
     permanent: false,
   },
   {
@@ -42,8 +42,13 @@ const _nextRedirects = async () => [
     permanent: true,
   },
   {
-    source: "/threads",
-    destination: "https://www.threads.net/@iamshgulati",
+    source: "/x",
+    destination: "https://twitter.com/iamshgulati",
+    permanent: true,
+  },
+  {
+    source: "/bluesky",
+    destination: "https://bsky.app/about/iamshgulati.bsky.social",
     permanent: true,
   },
   {
@@ -52,8 +57,8 @@ const _nextRedirects = async () => [
     permanent: true,
   },
   {
-    source: "/bluesky",
-    destination: "https://bsky.app/about/iamshgulati.bsky.social",
+    source: "/threads",
+    destination: "https://www.threads.net/@iamshgulati",
     permanent: true,
   },
 ];
