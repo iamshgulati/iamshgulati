@@ -168,9 +168,9 @@
   }
 
   /*
-   * HeaderNavLinksContainer
+   * HeaderMainNavContainer
    */
-  .HeaderNavLinksContainer {
+  .HeaderMainNavContainer {
     position: absolute;
     display: flex;
     align-items: center;
@@ -180,7 +180,7 @@
     transform: translate(-50%, -50%);
   }
 
-  .HeaderNavLink {
+  .HeaderMainNavLink {
     cursor: var(--cursor-link);
     box-sizing: border-box;
     flex-shrink: 0;
@@ -214,8 +214,8 @@
       padding-right: var(--space-1);
     }
 
-    .HeaderNavLinkInner,
-    .HeaderNavLinkInnerHidden {
+    .HeaderMainNavLinkInner,
+    .HeaderMainNavLinkInnerHidden {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -228,40 +228,40 @@
       }
     }
 
-    .HeaderNavLinkInner {
+    .HeaderMainNavLinkInner {
       position: absolute;
       letter-spacing: 0.01em;
     }
 
-    .HeaderNavLinkInnerHidden {
+    .HeaderMainNavLinkInnerHidden {
       visibility: hidden;
       font-weight: bold;
       letter-spacing: -0.01em;
     }
 
     &[data-state="active"] {
-      .HeaderNavLinkInner,
-      .HeaderNavLinkInnerHidden {
+      .HeaderMainNavLinkInner,
+      .HeaderMainNavLinkInnerHidden {
         padding-left: var(--space-2);
         padding-right: var(--space-2);
       }
     }
 
     @media (hover: hover) {
-      &:hover .HeaderNavLinkInner {
+      &:hover .HeaderMainNavLinkInner {
         background-color: var(--gray-a3);
       }
-      &:focus-visible:where(:hover) .HeaderNavLinkInner {
+      &:focus-visible:where(:hover) .HeaderMainNavLinkInner {
         background-color: var(--accent-a3);
       }
     }
 
-    &:focus-visible .HeaderNavLinkInner {
+    &:focus-visible .HeaderMainNavLinkInner {
       box-shadow: 0 0 0 2px var(--accent-a8);
     }
 
     &[data-state="active"] {
-      .HeaderNavLinkInner {
+      .HeaderMainNavLinkInner {
         font-weight: bold;
         letter-spacing: -0.01em;
         background-color: var(--gray-12);

@@ -7,20 +7,20 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { NextLink } from "~/lib/link";
 import styles from "./header.module.css";
 
-interface HeaderNavLinksProps {
+interface HeaderMainNavProps {
   pages: Frontmatter[];
 }
 
-export const HeaderNavLinks = ({
+export const HeaderMainNav = ({
   pages,
-}: HeaderNavLinksProps): React.JSX.Element => {
+}: HeaderMainNavProps): React.JSX.Element => {
   const pathname: string = usePathname();
 
   return (
     <React.Fragment>
       {pages.map((page: Frontmatter): React.JSX.Element => {
         return (
-          <HeaderNavLink
+          <HeaderMainNavLink
             key={page.slug}
             href={page.slug}
             active={
@@ -29,14 +29,14 @@ export const HeaderNavLinks = ({
             }
           >
             {page.title}
-          </HeaderNavLink>
+          </HeaderMainNavLink>
         );
       })}
     </React.Fragment>
   );
 };
 
-const HeaderNavLink = ({
+const HeaderMainNavLink = ({
   href = undefined,
   active = false,
   children = undefined,
@@ -47,11 +47,11 @@ const HeaderNavLink = ({
   <NextLink href={href ? href : "#"} passHref legacyBehavior>
     <a
       data-state={active ? "active" : "inactive"}
-      className={styles.HeaderNavLink}
+      className={styles.HeaderMainNavLink}
       {...props}
     >
-      <span className={styles.HeaderNavLinkInner}>{children}</span>
-      <span className={styles.HeaderNavLinkInnerHidden}>{children}</span>
+      <span className={styles.HeaderMainNavLinkInner}>{children}</span>
+      <span className={styles.HeaderMainNavLinkInnerHidden}>{children}</span>
     </a>
   </NextLink>
 );

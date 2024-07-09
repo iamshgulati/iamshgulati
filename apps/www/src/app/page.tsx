@@ -7,6 +7,7 @@ import { HeroHeading } from "~/components/page-headings";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
+import { allRoutes } from "~/lib/routes";
 import styles from "./page.module.css";
 
 export default function HomePage(): React.JSX.Element {
@@ -66,7 +67,7 @@ export default function HomePage(): React.JSX.Element {
               flexGrow: 1,
             }}
           >
-            <NextLink href="/work">
+            <NextLink href={allRoutes.work.slug}>
               <Icons.HammerIcon width="18" height="18" aria-hidden />
               <Text>WORK</Text>
             </NextLink>
@@ -78,7 +79,7 @@ export default function HomePage(): React.JSX.Element {
               flexGrow: 1,
             }}
           >
-            <NextLink href="/about">
+            <NextLink href={allRoutes.about.slug}>
               <Icons.PersonIcon width="18" height="18" aria-hidden />
               <Text>ABOUT</Text>
             </NextLink>

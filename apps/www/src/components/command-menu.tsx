@@ -145,7 +145,7 @@ export function CommandMenu({
               </CommandGroup>
 
               {routes?.map((section: AppRoute): React.JSX.Element | null =>
-                section.pages.length > 0 ? (
+                section.pages ? (
                   <Command.Group key={section.label} heading={section.label}>
                     {section.pages.map((page: Frontmatter) => {
                       const ItemIcon: Icon | undefined =

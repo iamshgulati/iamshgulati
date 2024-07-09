@@ -5,10 +5,12 @@ import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { cn } from "~/lib/classnames";
 import { NextLink } from "~/lib/link";
+import { allRoutes } from "~/lib/routes";
 import { BoxLink } from "./box-link";
 import { CommandMenu } from "./command-menu";
-import { HeaderNavLinks } from "./header-nav-links";
+import { HeaderMainNav } from "./header-main-nav";
 import { HeaderShell } from "./header-shell";
+import { HeaderSideNav } from "./header-side-nav";
 import styles from "./header.module.css";
 import { SiteLogo, SiteLogoIcon } from "./site-logo";
 
@@ -20,7 +22,7 @@ export interface HeaderProps {
   scrollDistanceThreshold?: number;
   backdrop?: boolean;
   backdropExtended?: boolean;
-  navLinks?: Frontmatter[];
+  mainNavLinks?: Frontmatter[];
   commandMenuRoutes?: AppRoute[];
 }
 
@@ -32,7 +34,7 @@ export const Header = ({
   scrollDistanceThreshold = undefined,
   backdrop = false,
   backdropExtended = false,
-  navLinks = undefined,
+  mainNavLinks = undefined,
   commandMenuRoutes = undefined,
   children = undefined,
 }: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
@@ -60,7 +62,7 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <NextLink href="/" passHref legacyBehavior>
+            <NextLink href={allRoutes.home.slug} passHref legacyBehavior>
               <BoxLink ariaLabel="Homepage Link">
                 <SiteLogoIcon aria-label="Site Logo Icon" />
               </BoxLink>
@@ -76,16 +78,16 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <NextLink href="/" passHref legacyBehavior>
+            <NextLink href={allRoutes.home.slug} passHref legacyBehavior>
               <BoxLink ariaLabel="Homepage Link">
                 <SiteLogo aria-label="Site Logo" />
               </BoxLink>
             </NextLink>
           </Flex>
 
-          {navLinks && (
-            <Box className={styles.HeaderNavLinksContainer}>
-              <HeaderNavLinks pages={navLinks} />
+          {mainNavLinks && (
+            <Box className={styles.HeaderMainNavContainer}>
+              <HeaderMainNav pages={mainNavLinks} />
             </Box>
           )}
 
@@ -104,6 +106,7 @@ export const Header = ({
               gap="5"
             >
               {children}
+              <HeaderSideNav allRoutes={allRoutes} />
             </Flex>
 
             <Flex align="center" gap="5">

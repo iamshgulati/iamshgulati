@@ -4,36 +4,68 @@ import { getAllFrontmatter } from "./mdx";
 
 export interface AppRoute {
   label: string;
-  pages: Frontmatter[];
+  slug: string;
+  pages?: Frontmatter[];
 }
 
 export type AllRoutes = Record<
-  | "navLinks"
-  | "personal"
-  | "projects"
-  | "blog"
+  | "mainNavLinks"
+  | "home"
+  | "about"
+  | "contact"
+  | "credits"
+  | "privacy"
   | "private"
+  | "quotes"
+  | "terms"
+  | "work"
+  | "blog"
+  | "projects"
   | "social"
   | "legal",
   AppRoute
 >;
 
 export const allRoutes: AllRoutes = {
-  navLinks: {
+  mainNavLinks: {
     label: "Most Visited",
+    slug: "",
     pages: [
       { title: "Home", slug: "/", icon: "HomeIcon" },
       { title: "Work", slug: "/work", icon: "HammerIcon" },
-      { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
-      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
-      { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
-      { title: "About Me", slug: "/about", icon: "PersonIcon" },
     ],
   },
-  blog: {
-    label: "Blog Posts",
+
+  home: {
+    label: "Home",
+    slug: "/",
+  },
+
+  about: {
+    label: "About",
+    slug: "/home/about",
+  },
+
+  contact: {
+    label: "Contact",
+    slug: "/home/contact",
+  },
+
+  credits: {
+    label: "Credits",
+    slug: "/home/credits",
+  },
+
+  privacy: {
+    label: "Privacy Policy",
+    slug: "/home/privacy",
+  },
+
+  private: {
+    label: "Private",
+    slug: "",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/blog")).map(
+      ...(await getAllFrontmatter("/src/data", "/home/private")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -41,10 +73,40 @@ export const allRoutes: AllRoutes = {
       ),
     ],
   },
+
+  quotes: {
+    label: "Quotes",
+    slug: "/home/quotes",
+  },
+
+  terms: {
+    label: "Terms of Service",
+    slug: "/home/terms",
+  },
+
+  work: {
+    label: "Work",
+    slug: "/work",
+  },
+
+  blog: {
+    label: "Blog",
+    slug: "/work/blog",
+    pages: [
+      ...(await getAllFrontmatter("/src/data", "/work/blog")).map(
+        (page: Frontmatter) => {
+          page.icon = "FileTextIcon";
+          return page;
+        },
+      ),
+    ],
+  },
+
   projects: {
     label: "Projects",
+    slug: "/work/projects",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/projects")).map(
+      ...(await getAllFrontmatter("/src/data", "/work/projects")).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;
@@ -52,23 +114,10 @@ export const allRoutes: AllRoutes = {
       ),
     ],
   },
-  personal: {
-    label: "Personal",
-    pages: [],
-  },
-  private: {
-    label: "Private Pages",
-    pages: [
-      ...(await getAllFrontmatter("/src/data", "/private")).map(
-        (page: Frontmatter) => {
-          page.icon = "FileTextIcon";
-          return page;
-        },
-      ),
-    ],
-  },
+
   social: {
     label: "Social",
+    slug: "",
     pages: [
       {
         title: "GitHub",
@@ -102,22 +151,24 @@ export const allRoutes: AllRoutes = {
       },
     ],
   },
+
   legal: {
     label: "Legal",
+    slug: "",
     pages: [
       {
         title: "Credits",
-        slug: "/credits",
+        slug: "/home/credits",
         icon: "HeartIcon",
       },
       {
         title: "Privacy",
-        slug: "/privacy",
+        slug: "/home/privacy",
         icon: "LockClosedIcon",
       },
       {
         title: "Terms",
-        slug: "/terms",
+        slug: "/home/terms",
         icon: "InfoCircledIcon",
       },
     ],

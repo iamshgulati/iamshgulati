@@ -69,12 +69,11 @@ export default function RootLayout({
                     viewportScrollFactorThreshold={2}
                     scrollDistanceThreshold={100}
                     backdropExtended
-                    navLinks={allRoutes.navLinks.pages.slice(0, 3)}
+                    mainNavLinks={allRoutes.mainNavLinks.pages}
                     commandMenuRoutes={[
-                      allRoutes.navLinks,
+                      allRoutes.mainNavLinks,
                       allRoutes.blog,
                       allRoutes.projects,
-                      allRoutes.personal,
                       allRoutes.social,
                       allRoutes.legal,
                     ]}
@@ -93,7 +92,7 @@ export default function RootLayout({
                     <Separator size="3" />
                   </Flex>
                   <PageWrapper>
-                    <Footer pages={allRoutes.social.pages.slice(0, 5)} />
+                    <Footer pages={allRoutes.social.pages?.slice(0, 5) ?? []} />
                   </PageWrapper>
                 </Layout.Footer>
               </Layout.Root>

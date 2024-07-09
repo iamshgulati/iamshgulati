@@ -13,8 +13,8 @@ import { allRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
 const metadataProps: MetadataProps = {
-  title: "Projects",
-  description: "A showcase of my open source work.",
+  title: "Blog",
+  description: "Thoughts, stories, and ideas.",
 };
 
 const ogImageUrl: string = ogImageApi({
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: metadataProps.title,
     description: metadataProps.description,
-    url: `${getBaseUrl()}/projects`,
+    url: `${getBaseUrl()}/blog`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
     type: "website",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProjectsPage(): React.JSX.Element {
-  const route: AppRoute = allRoutes.projects;
+export default function BlogPage(): React.JSX.Element {
+  const route: AppRoute = allRoutes.blog;
 
   return (
     <PageWrapper>
@@ -58,7 +58,7 @@ export default function ProjectsPage(): React.JSX.Element {
         description={metadataProps.description}
       />
       <Flex direction="column" gap="9">
-        {route.pages.map((page: Frontmatter) => (
+        {route.pages?.map((page: Frontmatter) => (
           <LinkCard
             key={page.slug}
             href={page.slug}

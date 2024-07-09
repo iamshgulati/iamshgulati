@@ -14,12 +14,14 @@ interface BreadcrumbProps {
 }
 
 type BreadcrumbsProps = React.ComponentProps<typeof Flex> & {
+  rootSlug: string;
   rootLabel?: string;
   omitRootLabel?: boolean;
   omitCurrentLabel?: boolean;
 };
 
 export const Breadcrumbs = ({
+  rootSlug,
   rootLabel = "Home",
   omitRootLabel = false,
   omitCurrentLabel = false,
@@ -33,7 +35,7 @@ export const Breadcrumbs = ({
     (path: string, index: number): BreadcrumbProps => {
       return {
         label: path,
-        href: "/" + paths.slice(0, index + 1).join("/"),
+        href: rootSlug + paths.slice(0, index + 1).join("/"),
       };
     },
   );
@@ -48,7 +50,7 @@ export const Breadcrumbs = ({
       {...props}
     >
       {!omitRootLabel && (
-        <Breadcrumb href="/" noChevron>
+        <Breadcrumb href={rootSlug} noChevron>
           {rootLabel}
         </Breadcrumb>
       )}

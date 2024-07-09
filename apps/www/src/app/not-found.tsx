@@ -10,6 +10,7 @@ import { Box, Button, Flex, Text } from "@radix-ui/themes";
 import { BackButton } from "~/components/back-button";
 import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
+import { allRoutes } from "~/lib/routes";
 
 export const metadata: Metadata = {
   title: "Not Found",
@@ -59,7 +60,7 @@ export default function NotFound(): React.JSX.Element {
           <ChevronLeftIcon width="18" height="18" aria-hidden />
           <Text>GO BACK</Text>
         </BackButton>
-        <NextLink href="/">
+        <NextLink href={allRoutes.home.slug}>
           <Button
             size="3"
             variant="solid"
