@@ -91,7 +91,7 @@ export default function RootLayout({
                   <Flex align="center" justify="center">
                     <Separator size="3" />
                   </Flex>
-                  <PageWrapper>
+                  <PageWrapper size="2">
                     <Footer pages={allRoutes.social.pages?.slice(0, 5) ?? []} />
                   </PageWrapper>
                 </Layout.Footer>

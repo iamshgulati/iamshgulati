@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Link } from "@radix-ui/themes";
 
 import type { AllRoutes } from "~/lib/routes";
+import { NextLink } from "~/lib/link";
 
 export const HeaderSideNav = ({
   allRoutes,
@@ -15,22 +16,24 @@ export const HeaderSideNav = ({
 
   return (
     <React.Fragment>
-      <Link
-        size="2"
-        color="gray"
-        href={allRoutes.blog.slug}
-        highContrast={pathname.includes(allRoutes.blog.slug)}
-      >
-        Blog
-      </Link>
-      <Link
-        size="2"
-        color="gray"
-        href={allRoutes.projects.slug}
-        highContrast={pathname.includes(allRoutes.projects.slug)}
-      >
-        Projects
-      </Link>
+      <NextLink href={allRoutes.blog.slug} passHref legacyBehavior>
+        <Link
+          size="2"
+          color="gray"
+          highContrast={pathname.includes(allRoutes.blog.slug)}
+        >
+          Blog
+        </Link>
+      </NextLink>
+      <NextLink href={allRoutes.projects.slug} passHref legacyBehavior>
+        <Link
+          size="2"
+          color="gray"
+          highContrast={pathname.includes(allRoutes.projects.slug)}
+        >
+          Projects
+        </Link>
+      </NextLink>
     </React.Fragment>
   );
 };
