@@ -103,7 +103,7 @@ const HammerIcon = React.forwardRef<SVGSVGElement, IconProps>(
     );
   },
 );
-HashIcon.displayName = "HammerIcon";
+HammerIcon.displayName = "HammerIcon";
 
 const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // HiAtSymbol
