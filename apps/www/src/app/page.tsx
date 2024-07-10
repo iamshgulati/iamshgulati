@@ -60,18 +60,6 @@ export default function HomePage(): React.JSX.Element {
             textAlign: "center",
           }}
         >
-          {/* <Button
-            asChild
-            size="3"
-            style={{
-              flexGrow: 1,
-            }}
-          >
-            <NextLink href={allRoutes.work.slug}>
-              <Icons.HammerIcon width="18" height="18" aria-hidden />
-              <Text>WORK</Text>
-            </NextLink>
-          </Button> */}
           <Button
             asChild
             size="3"
@@ -79,21 +67,11 @@ export default function HomePage(): React.JSX.Element {
               flexGrow: 1,
             }}
           >
-            <NextLink href={allRoutes.about.slug}>
-              <Icons.PersonIcon width="18" height="18" aria-hidden />
-              <Text>ABOUT</Text>
+            <NextLink href="/work">
+              <Icons.HammerIcon width="18" height="18" aria-hidden />
+              <Text>WORK</Text>
             </NextLink>
           </Button>
-          {/* <Button asChild size="3" style={{ flexGrow: 1 }}>
-            <a
-              href={siteConfig.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <LinkedInLogoIcon width="18" height="18" aria-hidden />
-              <Text style={{ textDecorationLine: "none" }}>LinkedIn</Text>
-            </a>
-          </Button> */}
           <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
             <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
               <ArrowTopRightIcon width="18" height="18" aria-hidden />
