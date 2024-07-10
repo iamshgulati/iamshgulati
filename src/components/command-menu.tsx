@@ -3,12 +3,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { createContext } from "@radix-ui/react-context";
-import {
-  ArrowTopRightIcon,
-  Half2Icon,
-  MoonIcon,
-  SunIcon,
-} from "@radix-ui/react-icons";
 import { Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command, CommandGroup } from "cmdk";
 
@@ -19,6 +13,7 @@ import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
 import { Icons } from "./icons";
+import { ThemeIcon } from "./theme-icon";
 
 const [MenuProvider, useMenuContext] = createContext<{
   open: boolean;
@@ -122,24 +117,7 @@ export function CommandMenu({
                   value="Theme Keyboard Shortcut: Toggle Theme System Light Dark"
                   onSelect={() => runCommand(() => handleThemeToggle())}
                 >
-                  <Half2Icon
-                    width="16"
-                    height="16"
-                    style={{
-                      display: "var(--system-theme-icon-display)",
-                      // transform: "rotate(45deg)",
-                    }}
-                  />
-                  <SunIcon
-                    width="16"
-                    height="16"
-                    style={{ display: "var(--light-theme-icon-display)" }}
-                  />
-                  <MoonIcon
-                    width="16"
-                    height="16"
-                    style={{ display: "var(--dark-theme-icon-display)" }}
-                  />
+                  <ThemeIcon />
                   Theme
                   <CommandShortcut>⌘&thinsp;D</CommandShortcut>
                 </Command.Item>
@@ -163,7 +141,7 @@ export function CommandMenu({
                           {ItemIcon && <ItemIcon />}
                           {page.title}
                           {page.slug.startsWith("http") && (
-                            <ArrowTopRightIcon />
+                            <Icons.ArrowTopRightIcon />
                           )}
                         </Command.Item>
                       );

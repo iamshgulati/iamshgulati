@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { Icons } from "~/components/icons";
@@ -27,7 +26,7 @@ export default function HomePage(): React.JSX.Element {
         </Box>
         <Box className={styles.HeroPastExperienceContainer}>
           <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
-            Senior Software Engineer and Certified Cloud Architect. Past —
+            Senior Software Engineer and Certified Cloud Architect. Past –
             Senior Technology Consultant @ Deloitte Consulting.
           </Text>
         </Box>
@@ -67,13 +66,13 @@ export default function HomePage(): React.JSX.Element {
             }}
           >
             <NextLink href="/work">
-              <Icons.HammerIcon width="18" height="18" aria-hidden />
+              <Icons.CodeIcon width="18" height="18" aria-hidden />
               <Text>WORK</Text>
             </NextLink>
           </Button>
           <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
             <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-              <ArrowTopRightIcon width="18" height="18" aria-hidden />
+              <Icons.ArrowTopRightIcon width="18" height="18" aria-hidden />
               <Text style={{ textDecorationLine: "none" }}>RESUME</Text>
             </a>
           </Button>

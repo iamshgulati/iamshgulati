@@ -2,8 +2,9 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
+
+import { Icons } from "./icons";
 
 export const BackButton = ({
   children = undefined,
@@ -21,7 +22,7 @@ export const BackButton = ({
     >
       {children ?? (
         <React.Fragment>
-          <ChevronLeftIcon />
+          <Icons.ChevronLeftIcon />
           Back
         </React.Fragment>
       )}

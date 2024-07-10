@@ -2,12 +2,12 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Box, IconButton } from "@radix-ui/themes";
 
 import type { Icon } from "./icons";
 import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-back-button.module.css";
+import { Icons } from "./icons";
 
 type FloatingFloatingBackButtonProps = React.ComponentProps<
   typeof IconButton
@@ -37,7 +37,7 @@ export const FloatingBackButton = ({
         radius="full"
         onClick={() => router.back()}
       >
-        <ChevronLeftIcon {...iconProps} />
+        <Icons.ChevronLeftIcon {...iconProps} />
       </IconButton>
     </Box>
   );

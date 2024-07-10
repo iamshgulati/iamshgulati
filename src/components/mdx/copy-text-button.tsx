@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { CheckIcon, ClipboardIcon } from "@radix-ui/react-icons";
 import { IconButton } from "@radix-ui/themes";
+
+import { Icons } from "../icons";
 
 export const CopyTextButton = ({
   textToCopy = undefined,
@@ -45,7 +46,7 @@ export const CopyTextButton = ({
         right: "0",
       }}
     >
-      {copied ? <CheckIcon /> : <ClipboardIcon />}
+      {copied ? <Icons.CheckIcon /> : <Icons.ClipboardIcon />}
     </IconButton>
   );
 };

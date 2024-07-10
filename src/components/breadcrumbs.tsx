@@ -2,11 +2,11 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { Flex, Link, Text } from "@radix-ui/themes";
 
 import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
+import { Icons } from "./icons";
 
 interface BreadcrumbProps {
   label: string;
@@ -74,7 +74,7 @@ const Breadcrumb = ({
   NextLinkProps & { noChevron?: boolean }
 >): React.JSX.Element => (
   <React.Fragment>
-    {!noChevron && <ChevronRightIcon color="var(--gray-8)" />}
+    {!noChevron && <Icons.ChevronRightIcon color="var(--gray-8)" />}
     <NextLink href={href} passHref legacyBehavior>
       <Link>
         <Text
