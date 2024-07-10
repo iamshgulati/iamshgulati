@@ -7,7 +7,7 @@ import { Link } from "@radix-ui/themes";
 import type { AllRoutes } from "~/lib/routes";
 import { NextLink } from "~/lib/link";
 
-export const HeaderSideNav = ({
+export const HomeHeaderSideNav = ({
   allRoutes,
 }: {
   allRoutes: AllRoutes;
@@ -16,6 +16,15 @@ export const HeaderSideNav = ({
 
   return (
     <React.Fragment>
+      <NextLink href={allRoutes.work.slug} passHref legacyBehavior>
+        <Link
+          size="2"
+          color="gray"
+          highContrast={pathname.includes(allRoutes.work.slug)}
+        >
+          Work
+        </Link>
+      </NextLink>
       <NextLink href={allRoutes.blog.slug} passHref legacyBehavior>
         <Link
           size="2"

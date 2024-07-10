@@ -6,7 +6,6 @@ import { createContext } from "@radix-ui/react-context";
 import {
   ArrowTopRightIcon,
   Half2Icon,
-  MagnifyingGlassIcon,
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
@@ -72,12 +71,18 @@ export function CommandMenu({
   return (
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
-        <IconButton {...props} size="3" variant="ghost" color="gray">
-          <MagnifyingGlassIcon
+        <IconButton
+          {...props}
+          size="3"
+          variant="ghost"
+          color="gray"
+          highContrast
+        >
+          <Icons.CommandIcon
             {...iconProps}
             aria-label="Open Command Menu"
             style={{
-              transform: "scale(1.2)",
+              transform: "scale(1.4)",
             }}
           />
         </IconButton>
@@ -108,12 +113,8 @@ export function CommandMenu({
                     })
                   }
                 >
-                  <MagnifyingGlassIcon
-                    style={{
-                      transform: "scale(1.2)",
-                    }}
-                  />
-                  Toggle Search
+                  <Icons.CommandIcon />
+                  Command Menu
                   <CommandShortcut>⌘&thinsp;K</CommandShortcut>
                 </Command.Item>
 
@@ -139,7 +140,7 @@ export function CommandMenu({
                     height="16"
                     style={{ display: "var(--dark-theme-icon-display)" }}
                   />
-                  Toggle Theme
+                  Theme
                   <CommandShortcut>⌘&thinsp;D</CommandShortcut>
                 </Command.Item>
               </CommandGroup>

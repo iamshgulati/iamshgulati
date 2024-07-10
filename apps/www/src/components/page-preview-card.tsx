@@ -17,7 +17,7 @@ import { formatFullDate, formatRelativeDate } from "~/lib/date";
 import { NextLink } from "~/lib/link";
 import { Img } from "./mdx/img";
 
-interface LinkCardProp {
+interface PagePreviewCardProps {
   href: string;
   title: string;
   description?: string;
@@ -29,13 +29,13 @@ interface LinkCardProp {
   };
 }
 
-export const LinkCard = ({
+export const PagePreviewCard = ({
   href,
   title,
   description = undefined,
   publishedAt = undefined,
   image = undefined,
-}: LinkCardProp): React.JSX.Element => (
+}: PagePreviewCardProps): React.JSX.Element => (
   <Card asChild size="3" variant="ghost" m="5">
     <NextLink href={href}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">

@@ -8,9 +8,8 @@ export interface SiteConfig {
     linkedin: string;
     github: string;
     twitter: string;
-    threads: string;
-    mastodon: string;
     bluesky: string;
+    mastodon: string;
   };
   handles: {
     twitter: string;
@@ -30,9 +29,8 @@ export const siteConfig: SiteConfig = {
     linkedin: "https://www.linkedin.com/in/iamshgulati/",
     github: "https://github.com/iamshgulati",
     twitter: "https://twitter.com/iamshgulati",
-    threads: "https://www.threads.net/@iamshgulati",
-    mastodon: "https://mastodon.social/@iamshgulati",
     bluesky: "https://bsky.app/about/iamshgulati.bsky.social",
+    mastodon: "https://mastodon.social/@iamshgulati",
   },
   handles: {
     twitter: "IAmShGulati",

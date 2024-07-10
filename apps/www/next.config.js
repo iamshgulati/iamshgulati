@@ -12,16 +12,6 @@ createJiti(fileURLToPath(import.meta.url))("./src/env");
 // eslint-disable-next-line @typescript-eslint/require-await
 const _nextRedirects = async () => [
   {
-    source: "/professional",
-    destination: "/work",
-    permanent: false,
-  },
-  {
-    source: "/personal",
-    destination: "/blog",
-    permanent: false,
-  },
-  {
     source: "/get-resume",
     destination: "/files/ShubhamGulati_Resume.pdf",
     permanent: true,
@@ -42,11 +32,6 @@ const _nextRedirects = async () => [
     permanent: true,
   },
   {
-    source: "/x",
-    destination: "https://twitter.com/iamshgulati",
-    permanent: true,
-  },
-  {
     source: "/bluesky",
     destination: "https://bsky.app/about/iamshgulati.bsky.social",
     permanent: true,
@@ -54,11 +39,6 @@ const _nextRedirects = async () => [
   {
     source: "/mastodon",
     destination: "https://mastodon.social/@iamshgulati",
-    permanent: true,
-  },
-  {
-    source: "/threads",
-    destination: "https://www.threads.net/@iamshgulati",
     permanent: true,
   },
 ];

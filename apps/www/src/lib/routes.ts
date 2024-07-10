@@ -32,7 +32,11 @@ export const allRoutes: AllRoutes = {
     slug: "",
     pages: [
       { title: "Home", slug: "/", icon: "HomeIcon" },
+      { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
+      { title: "Projects", slug: "/projects", icon: "CubeIcon" },
       { title: "Work", slug: "/work", icon: "HammerIcon" },
+      { title: "About Me", slug: "/about", icon: "PersonIcon" },
+      { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
     ],
   },
 
@@ -43,29 +47,14 @@ export const allRoutes: AllRoutes = {
 
   about: {
     label: "About",
-    slug: "/home/about",
+    slug: "/about",
   },
 
-  contact: {
-    label: "Contact",
-    slug: "/home/contact",
-  },
-
-  credits: {
-    label: "Credits",
-    slug: "/home/credits",
-  },
-
-  privacy: {
-    label: "Privacy Policy",
-    slug: "/home/privacy",
-  },
-
-  private: {
-    label: "Private",
-    slug: "",
+  blog: {
+    label: "Blog",
+    slug: "/blog",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/home/private")).map(
+      ...(await getAllFrontmatter("/src/data", "/blog")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -74,26 +63,26 @@ export const allRoutes: AllRoutes = {
     ],
   },
 
-  quotes: {
-    label: "Quotes",
-    slug: "/home/quotes",
+  contact: {
+    label: "Contact",
+    slug: "/contact",
   },
 
-  terms: {
-    label: "Terms of Service",
-    slug: "/home/terms",
+  credits: {
+    label: "Credits",
+    slug: "/credits",
   },
 
-  work: {
-    label: "Work",
-    slug: "/work",
+  privacy: {
+    label: "Privacy Policy",
+    slug: "/privacy",
   },
 
-  blog: {
-    label: "Blog",
-    slug: "/work/blog",
+  private: {
+    label: "Private",
+    slug: "",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/work/blog")).map(
+      ...(await getAllFrontmatter("/src/data", "/private")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -104,15 +93,30 @@ export const allRoutes: AllRoutes = {
 
   projects: {
     label: "Projects",
-    slug: "/work/projects",
+    slug: "/projects",
     pages: [
-      ...(await getAllFrontmatter("/src/data", "/work/projects")).map(
+      ...(await getAllFrontmatter("/src/data", "/projects")).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;
         },
       ),
     ],
+  },
+
+  quotes: {
+    label: "Quotes",
+    slug: "/quotes",
+  },
+
+  terms: {
+    label: "Terms of Service",
+    slug: "/terms",
+  },
+
+  work: {
+    label: "Work",
+    slug: "/work",
   },
 
   social: {
@@ -144,11 +148,6 @@ export const allRoutes: AllRoutes = {
         slug: siteConfig.links.mastodon,
         icon: "MastodonLogoIcon",
       },
-      {
-        title: "Threads",
-        slug: siteConfig.links.threads,
-        icon: "ThreadsLogoIcon",
-      },
     ],
   },
 
@@ -158,17 +157,17 @@ export const allRoutes: AllRoutes = {
     pages: [
       {
         title: "Credits",
-        slug: "/home/credits",
+        slug: "/credits",
         icon: "HeartIcon",
       },
       {
         title: "Privacy",
-        slug: "/home/privacy",
+        slug: "/privacy",
         icon: "LockClosedIcon",
       },
       {
         title: "Terms",
-        slug: "/home/terms",
+        slug: "/terms",
         icon: "InfoCircledIcon",
       },
     ],

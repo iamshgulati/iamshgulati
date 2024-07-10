@@ -4,7 +4,7 @@ import { Box, Flex } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
-import { LinkCard } from "~/components/link-card";
+import { PagePreviewCard } from "~/components/page-preview-card";
 import { SectionTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
@@ -59,7 +59,7 @@ export default function BlogPage(): React.JSX.Element {
       />
       <Flex direction="column" gap="9">
         {route.pages?.map((page: Frontmatter) => (
-          <LinkCard
+          <PagePreviewCard
             key={page.slug}
             href={page.slug}
             title={page.title}

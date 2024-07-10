@@ -75,7 +75,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function MDXPage({ params }: PageProps) {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
@@ -86,7 +86,7 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  const MDXPage: React.ComponentType = dynamic(
+  const MDXComponent: React.ComponentType = dynamic(
     () => import(`/src/data/${page.slugAsParams}/page.mdx`),
   );
 
@@ -99,7 +99,7 @@ export default async function Page({ params }: PageProps) {
       />
       <PageCoverImage src={page.image} alt={page.title} />
       <Suspense fallback={null}>
-        <MDXPage />
+        <MDXComponent />
       </Suspense>
     </PageWrapper>
   );
