@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-properties */
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
@@ -12,16 +13,15 @@ export const env = createEnv({
     WWW_APP_URL: z.string().optional(),
     WWW_USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
   },
-  client: {
-  },
-  experimental__runtimeEnv: {
+  client: {},
+  runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     PORT: process.env.PORT,
+    WWW_APP_URL: process.env.WWW_APP_URL,
+    WWW_USE_CUSTOM_FONTS: process.env.WWW_USE_CUSTOM_FONTS,
   },
-  skipValidation:
-    !!process.env.SKIP_ENV_VALIDATION ||
-    !!process.env.CI ||
-    process.env.npm_lifecycle_event === "lint",
+  skipValidation: !!process.env.SKIP_ENV_VALIDATION,
+  emptyStringAsUndefined: true,
 });
 
 export const IS_PRODUCTION =

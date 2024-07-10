@@ -3,8 +3,49 @@ import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
 import createJiti from "jiti";
 
-// Import env files to validate at build time. Use jiti so we can load .ts files in here.
 createJiti(fileURLToPath(import.meta.url))("./src/env");
+
+/**
+ * Bundle analyzer configuration
+ */
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+/**
+ * Next.js MDX configuration
+ */
+/** @type {import('@next/mdx').NextMDXOptions} */
+const mdxConfig = {
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+};
+const withMDX = mdx(mdxConfig);
+
+/**
+ * Next.js configuration
+ * redirect and headers do not work with static site export
+ * redirects: nextRedirects,
+ * headers: nextHeaders,
+ */
+/** @type {import("next").NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  pageExtensions: ["ts", "tsx", "mdx"],
+  experimental: {
+    mdxRs: true,
+  },
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  basePath: "",
+  output: "export",
+};
+
+export default withBundleAnalyzer(withMDX(nextConfig));
+
+////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Next.js redirects
@@ -64,43 +105,3 @@ const _nextHeaders = async () => {
     },
   ]);
 };
-
-/**
- * Bundle analyzer configuration
- */
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
-
-/**
- * Next.js MDX configuration
- */
-/** @type {import('@next/mdx').NextMDXOptions} */
-const mdxConfig = {
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-};
-const withMDX = mdx(mdxConfig);
-
-/**
- * Next.js configuration
- * redirect and headers do not work with static site export
- * redirects: nextRedirects,
- * headers: nextHeaders,
- */
-/** @type {import("next").NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "mdx"],
-  experimental: {
-    mdxRs: true,
-  },
-  eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
-  basePath: "",
-  output: "export",
-};
-
-export default withBundleAnalyzer(withMDX(nextConfig));

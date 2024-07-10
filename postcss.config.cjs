@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   plugins: {
     "postcss-import": {},
     "postcss-nesting": {},
@@ -8,5 +8,3 @@ const config = {
     autoprefixer: {},
   },
 };
-
-module.exports = config;

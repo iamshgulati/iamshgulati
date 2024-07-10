@@ -10,9 +10,6 @@ const config = {
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
     "",
-    "<TYPES>^@shgulati",
-    "^@shgulati/(.*)$",
-    "",
     "<TYPES>^[.|..|~]",
     "^~/",
     "^[../]",
@@ -20,20 +17,6 @@ const config = {
   ],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   importOrderTypeScriptVersion: "4.4.0",
-  overrides: [
-    {
-      files: "*.json.hbs",
-      options: {
-        parser: "json",
-      },
-    },
-    {
-      files: "*.js.hbs",
-      options: {
-        parser: "babel",
-      },
-    },
-  ],
 };
 
 export default config;
