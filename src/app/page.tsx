@@ -66,14 +66,14 @@ export default function HomePage(): React.JSX.Element {
             }}
           >
             <NextLink href="/work">
-              <Icons.CodeIcon width="18" height="18" aria-hidden />
               <Text>WORK</Text>
+              <Icons.ArrowRightIcon width="18" height="18" aria-hidden />
             </NextLink>
           </Button>
           <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
             <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-              <Icons.ArrowTopRightIcon width="18" height="18" aria-hidden />
               <Text style={{ textDecorationLine: "none" }}>RESUME</Text>
+              <Icons.ArrowTopRightIcon width="18" height="18" aria-hidden />
             </a>
           </Button>
         </Flex>

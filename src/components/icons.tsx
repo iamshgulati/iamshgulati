@@ -1,6 +1,7 @@
 import type { IconProps } from "@radix-ui/react-icons/dist/types";
 import React from "react";
 import {
+  ArrowRightIcon,
   ArrowTopRightIcon,
   BackpackIcon,
   ChatBubbleIcon,
@@ -615,6 +616,7 @@ export const Icons = {
   MixIcon,
   HeartIcon,
   InfoCircledIcon,
+  ArrowRightIcon,
   ArrowTopRightIcon,
   CodeIcon,
   ChevronLeftIcon,
