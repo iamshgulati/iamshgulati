@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf node_modules dist out .next .turbo",
-    "deploy": "gh-pages -d out --nojekyll",
+    "deploy": "gh-pages --dist out --nojekyll",
     "dev": "pnpm with-env next dev & pnpm watch-data",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore",
