@@ -6,7 +6,11 @@ import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
-import { SectionTitleAndDescription } from "~/components/page-title-and-description";
+import { PageMeta } from "~/components/page-meta";
+import {
+  PageTitleAndDescription,
+  SectionTitleAndDescription,
+} from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -92,11 +96,25 @@ export default async function MDXPage({ params }: PageProps) {
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
-      <Box position="relative" mb="4"></Box>
-      <SectionTitleAndDescription
-        title={page.title}
-        description={page.description}
-      />
+      {page.publishedAt ? (
+        <React.Fragment>
+          <Box position="relative" mb="4">
+            <PageMeta position="absolute" publishedAt={page.publishedAt} />
+          </Box>
+          <PageTitleAndDescription
+            title={page.title}
+            description={page.description}
+          />
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Box position="relative" mb="4"></Box>
+          <SectionTitleAndDescription
+            title={page.title}
+            description={page.description}
+          />
+        </React.Fragment>
+      )}
       <PageCoverImage src={page.image} alt={page.title} />
       <Suspense fallback={null}>
         <MDXComponent />

@@ -35,7 +35,7 @@ export const allRoutes: AllRoutes = {
       { title: "Blog", slug: "/blog", icon: "FileTextIcon" },
       { title: "Projects", slug: "/projects", icon: "CubeIcon" },
       { title: "Work", slug: "/work", icon: "HammerIcon" },
-      { title: "About Me", slug: "/about", icon: "PersonIcon" },
+      { title: "About", slug: "/about", icon: "PersonIcon" },
       { title: "Quotes", slug: "/quotes", icon: "QuoteIcon" },
     ],
   },

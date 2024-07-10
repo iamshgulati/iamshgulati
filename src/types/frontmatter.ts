@@ -6,14 +6,11 @@ export interface MetadataProps {
   image?: string;
 }
 
-export type PageLabel = "Soon" | "Preview" | "New";
-
 export type Frontmatter = {
   slug: string;
   title: string;
   description?: string;
   icon?: keyof typeof Icons;
-  label?: PageLabel;
   disabled?: boolean;
 } & {
   slugAsParams?: string;
