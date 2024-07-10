@@ -7,7 +7,6 @@ import { HeroHeading } from "~/components/page-headings";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
-import { allRoutes } from "~/lib/routes";
 import styles from "./page.module.css";
 
 export default function HomePage(): React.JSX.Element {
