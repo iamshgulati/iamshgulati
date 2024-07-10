@@ -75,7 +75,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   }));
 }
 
-export default async function CatchAllPage({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/src/data");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
