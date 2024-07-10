@@ -63,6 +63,10 @@ export function CommandMenu({
     [commandMenu],
   );
 
+  const openInNewTab = (url: string) => {
+    window.open(url, "_blank", "noopener, noreferrer");
+  };
+
   return (
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
@@ -129,7 +133,20 @@ export function CommandMenu({
                     {section.pages.map((page: Frontmatter) => {
                       const ItemIcon: Icon | undefined =
                         page.icon && Icons[page.icon];
-                      return (
+                      return page.slug.startsWith("http") ? (
+                        <Command.Item
+                          key={page.slug}
+                          value={`${section.label}: ${page.title}`}
+                          data-disabled={page.disabled}
+                          onSelect={(): void => {
+                            runCommand(() => openInNewTab(page.slug));
+                          }}
+                        >
+                          {ItemIcon && <ItemIcon />}
+                          {page.title}
+                          <Icons.ArrowTopRightIcon />
+                        </Command.Item>
+                      ) : (
                         <Command.Item
                           key={page.slug}
                           value={`${section.label}: ${page.title}`}
@@ -140,9 +157,6 @@ export function CommandMenu({
                         >
                           {ItemIcon && <ItemIcon />}
                           {page.title}
-                          {page.slug.startsWith("http") && (
-                            <Icons.ArrowTopRightIcon />
-                          )}
                         </Command.Item>
                       );
                     })}
