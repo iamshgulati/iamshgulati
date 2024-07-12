@@ -6,16 +6,10 @@ import createJiti from "jiti";
 
 createJiti(fileURLToPath(import.meta.url))("./src/env");
 
-/**
- * Bundle analyzer configuration
- */
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-/**
- * Next.js MDX configuration
- */
 /** @type {import('@next/mdx').NextMDXOptions} */
 const mdxConfig = {
   options: {
@@ -25,12 +19,6 @@ const mdxConfig = {
 };
 const withMDX = mdx(mdxConfig);
 
-/**
- * Next.js configuration
- * redirect and headers do not work with static site export
- * redirects: nextRedirects,
- * headers: nextHeaders,
- */
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
@@ -40,7 +28,6 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
     mdxRs: true,
-    optimizePackageImports: ["@radix-ui/themes"],
   },
   //
   basePath: "",
