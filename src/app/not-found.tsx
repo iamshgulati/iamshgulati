@@ -4,7 +4,7 @@ import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
 import { Icons } from "~/components/icons";
-import { SectionTitleAndDescription } from "~/components/page-title-and-description";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
 import { allRoutes } from "~/lib/routes";
 
@@ -33,7 +33,7 @@ export default function NotFound(): React.JSX.Element {
           color: "var(--yellow-10)",
         }}
       />
-      <SectionTitleAndDescription
+      <PageTitleAndDescription
         title={metadata.title as string}
         description={metadata.description ? metadata.description : ""}
       />

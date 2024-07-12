@@ -5,7 +5,7 @@ import { Flex } from "@radix-ui/themes";
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { PagePreviewCard } from "~/components/page-preview-card";
-import { SectionTitleAndDescription } from "~/components/page-title-and-description";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -52,7 +52,7 @@ export default function ProjectsPage(): React.JSX.Element {
 
   return (
     <PageWrapper>
-      <SectionTitleAndDescription
+      <PageTitleAndDescription
         title={metadataProps.title}
         description={metadataProps.description}
         my="7"

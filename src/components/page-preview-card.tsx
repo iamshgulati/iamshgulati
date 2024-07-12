@@ -62,7 +62,7 @@ export const PagePreviewCard = ({
             <Flex width="100%" align="center" gap="2" mb="2">
               <PageMeta size="2" publishedAt={page.publishedAt} />
             </Flex>
-            <Heading size="6" mb="2">
+            <Heading size="5" mb="2">
               {page.title}
             </Heading>
             <Text as="p" size="3" mb="3" color="gray">

@@ -7,10 +7,7 @@ import { Box } from "@radix-ui/themes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
 import { PageMeta } from "~/components/page-meta";
-import {
-  PageTitleAndDescription,
-  SectionTitleAndDescription,
-} from "~/components/page-title-and-description";
+import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
@@ -97,7 +94,7 @@ export default async function MDXPage({ params }: PageProps) {
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
       {page.type === "page" ? (
-        <SectionTitleAndDescription
+        <PageTitleAndDescription
           title={page.title}
           description={page.description}
           my="7"
