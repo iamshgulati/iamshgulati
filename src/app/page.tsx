@@ -93,7 +93,7 @@ const HeroHeading = ({
         "--heading-font-family":
           "var(--font-heading), var(--default-font-family)",
         "--heading-letter-spacing": "-0.02em",
-        "--heading-font-size-adjust": "4.0",
+        "--heading-font-size-adjust": "3.8",
         lineHeight:
           "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
       } as React.CSSProperties
