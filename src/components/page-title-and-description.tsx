@@ -14,7 +14,7 @@ export const PageTitleAndDescription = ({
   <Box {...props}>
     <Heading
       as="h1"
-      size={{ initial: "7", sm: "8" }}
+      size={{ initial: "5", sm: "6" }}
       mb="2"
       style={
         {
@@ -31,7 +31,7 @@ export const PageTitleAndDescription = ({
       {title}
     </Heading>
     {description && (
-      <Text as="p" size={{ initial: "4", sm: "5" }} color="gray">
+      <Text as="p" size={{ initial: "3", sm: "4" }} color="gray">
         {description}
       </Text>
     )}

@@ -11,7 +11,7 @@ interface PageMetaProps {
 export const PageMeta = ({
   publishedAt = undefined,
   _category = undefined,
-  size = "3",
+  size = { initial: "2", sm: "3" },
   ...props
 }: React.ComponentProps<typeof Text> & PageMetaProps): React.JSX.Element => (
   <React.Fragment>
