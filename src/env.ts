@@ -11,7 +11,9 @@ export const env = createEnv({
   },
   server: {
     WWW_APP_URL: z.string().optional(),
-    WWW_USE_CUSTOM_FONTS: z.coerce.boolean().default(false),
+    WWW_USE_CUSTOM_FONTS: z
+      .enum(["true", "false"])
+      .transform((value) => value === "true"),
   },
   client: {},
   runtimeEnv: {

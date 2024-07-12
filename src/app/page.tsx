@@ -86,14 +86,14 @@ const HeroHeading = ({
 }: React.ComponentProps<typeof Heading>): React.JSX.Element => (
   <Heading
     {...props}
-    size={{ initial: "1", xs: "5", sm: "6", md: "8" }}
+    size={{ initial: "1", xs: "5", sm: "6", md: "7", lg: "8" }}
     style={
       {
         fontWeight: "600",
         "--heading-font-family":
           "var(--font-heading), var(--default-font-family)",
-        "--heading-letter-spacing": "-0.00em",
-        "--heading-font-size-adjust": "3.5",
+        "--heading-letter-spacing": "-0.02em",
+        "--heading-font-size-adjust": "4.0",
         lineHeight:
           "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
       } as React.CSSProperties
