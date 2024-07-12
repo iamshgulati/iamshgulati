@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-properties */
 import { fileURLToPath } from "url";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
@@ -32,13 +33,16 @@ const withMDX = mdx(mdxConfig);
  */
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  //
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
     mdxRs: true,
+    optimizePackageImports: ["@radix-ui/themes"],
   },
-  eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
+  //
   basePath: "",
   output: "export",
 };
