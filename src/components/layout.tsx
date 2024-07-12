@@ -39,12 +39,12 @@ const LayoutRoot = ({
 }: React.ComponentProps<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
-      {...props}
       position="relative"
       direction="column"
       style={{
         minHeight: "100vh",
       }}
+      {...props}
     />
   );
 };
@@ -68,7 +68,7 @@ const LayoutBackgroundImage = (
 const LayoutHeader = ({
   ...props
 }: React.ComponentProps<typeof Box>): React.JSX.Element => {
-  return <Box {...props} height="0" />;
+  return <Box height="0" {...props} />;
 };
 
 const LayoutMain = ({
@@ -76,7 +76,6 @@ const LayoutMain = ({
 }: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
   return (
     <Flex
-      {...props}
       asChild
       direction="column"
       flexGrow="1"
@@ -87,6 +86,7 @@ const LayoutMain = ({
         boxSizing: "content-box",
         marginTop: "var(--header-height)",
       }}
+      {...props}
     >
       <main>{props.children}</main>
     </Flex>
@@ -98,7 +98,6 @@ const LayoutContent = ({
 }: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
   return (
     <Flex
-      {...props}
       asChild
       direction="column"
       flexGrow="1"
@@ -106,6 +105,7 @@ const LayoutContent = ({
       style={{
         maxWidth: "100%",
       }}
+      {...props}
     >
       <article>{props.children}</article>
     </Flex>

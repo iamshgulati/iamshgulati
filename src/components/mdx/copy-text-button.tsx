@@ -30,7 +30,6 @@ export const CopyTextButton = ({
 
   return (
     <IconButton
-      {...props}
       aria-label="Copy code to clipboard"
       onClick={(): void => {
         copyToClipboard(textToCopy ?? "");
@@ -45,6 +44,7 @@ export const CopyTextButton = ({
         top: "0",
         right: "0",
       }}
+      {...props}
     >
       {copied ? <Icons.CheckIcon /> : <Icons.ClipboardIcon />}
     </IconButton>

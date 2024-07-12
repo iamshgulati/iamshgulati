@@ -6,7 +6,7 @@ export const H4 = ({
   ...props
 }: React.PropsWithChildren): React.JSX.Element => (
   <Heading asChild size="4" mt="6" mb="3">
-    <h4 {...props} style={{ scrollMarginTop: "var(--space-9)" }}>
+    <h4 style={{ scrollMarginTop: "var(--space-9)" }} {...props}>
       {children}
     </h4>
   </Heading>

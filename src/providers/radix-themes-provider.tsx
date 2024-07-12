@@ -8,7 +8,6 @@ export const RadixThemesProvider = ({
   ...props
 }: React.ComponentProps<typeof Theme>): React.JSX.Element => (
   <Theme
-    {...props}
     hasBackground
     accentColor="indigo"
     grayColor="auto"
@@ -17,5 +16,6 @@ export const RadixThemesProvider = ({
     radius="medium"
     appearance="inherit"
     className={cn(env.WWW_USE_CUSTOM_FONTS && "radix-themes-custom-fonts")}
+    {...props}
   />
 );

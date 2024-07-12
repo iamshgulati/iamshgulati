@@ -61,7 +61,7 @@ export const PagePreviewCard = ({
           <Box position="absolute">
             <PageMeta size="2" publishedAt={page.publishedAt} />
           </Box>
-          <Box my="6">
+          <Box my="7">
             <Heading size={{ initial: "5", sm: "7" }} mb="2">
               {page.title}
             </Heading>

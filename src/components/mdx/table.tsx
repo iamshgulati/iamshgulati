@@ -2,7 +2,7 @@ import React from "react";
 import { Table as RTTable } from "@radix-ui/themes";
 
 export const TableRoot = ({ ...props }): React.JSX.Element => (
-  <RTTable.Root {...props} variant="surface" my="5" />
+  <RTTable.Root variant="surface" my="5" {...props} />
 );
 
 export const TableHeader = ({ ...props }): React.JSX.Element => (
@@ -35,7 +35,7 @@ export const Table = ({
   rows = [],
   ...props
 }: TableProps): React.JSX.Element => (
-  <RTTable.Root {...props} variant="surface" my="5">
+  <RTTable.Root variant="surface" my="5" {...props}>
     <RTTable.Header>
       <RTTable.Row>
         {header.map((columnHeader, index) => (

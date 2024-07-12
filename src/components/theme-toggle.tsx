@@ -16,7 +16,7 @@ export const ThemeToggle = ({
   return (
     <React.Fragment>
       <ThemeToggleShell>
-        <IconButton {...props} size="3" variant="ghost" color="gray">
+        <IconButton size="3" variant="ghost" color="gray" {...props}>
           <ThemeIcon iconProps={iconProps} />
         </IconButton>
       </ThemeToggleShell>

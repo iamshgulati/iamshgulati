@@ -20,7 +20,6 @@ export const Img = ({
 }): React.JSX.Element | null =>
   src && alt ? (
     <Image
-      {...props}
       src={src}
       alt={alt}
       width={width ? (width as number) : 0}
@@ -28,11 +27,12 @@ export const Img = ({
       sizes="100vw"
       loading="lazy"
       style={{
-        width: "100%",
-        height: "auto",
-        borderRadius: "var(--radius-4)",
-        ...style,
+          width: "100%",
+          height: "auto",
+          borderRadius: "var(--radius-4)",
+          ...style,
       }}
+      {...props}
     />
   ) : null;
 */
@@ -56,7 +56,6 @@ export const Img = ({
 }): React.JSX.Element => (
   // eslint-disable-next-line @next/next/no-img-element
   <img
-    {...props}
     src={src}
     alt={alt}
     width={width ? (width as number) : 0}
@@ -67,5 +66,6 @@ export const Img = ({
       borderRadius: "var(--radius-4)",
       ...style,
     }}
+    {...props}
   />
 );

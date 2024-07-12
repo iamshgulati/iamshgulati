@@ -14,14 +14,14 @@ export const PreWithCopyButton = ({ ...props }): React.JSX.Element => {
   return (
     <Box className={styles.PreContainer}>
       <Pre
-        {...props}
-        my="5"
         ref={(node: HTMLPreElement | null): void => {
           if (node) {
             const codeElement: HTMLElement | null = node.querySelector("code");
             setCode(removeFinalBlankLine(codeElement?.innerText ?? ""));
           }
         }}
+        my="5"
+        {...props}
       />
       <CopyTextButton className={styles.CopyButton} textToCopy={code} />
     </Box>

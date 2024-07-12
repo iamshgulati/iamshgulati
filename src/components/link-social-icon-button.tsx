@@ -21,7 +21,7 @@ export const LinkSocialIconButton = ({
   const SocialIcon: Icon = Icons[icon];
 
   return (
-    <IconButton {...props} asChild size="3" variant="ghost" color="gray">
+    <IconButton asChild size="3" variant="ghost" color="gray" {...props}>
       <a
         href={href}
         target="_blank"
@@ -32,7 +32,7 @@ export const LinkSocialIconButton = ({
           alignItems: "center",
         }}
       >
-        <SocialIcon {...iconProps} aria-label={ariaLabel} />
+        <SocialIcon aria-label={ariaLabel} {...iconProps} />
       </a>
     </IconButton>
   );

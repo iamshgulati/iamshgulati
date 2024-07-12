@@ -31,13 +31,13 @@ export const FloatingScrollToTopButton = ({
       className={styles.FloatingScrollToTopButtonContainer}
     >
       <IconButton
-        {...props}
         aria-label="Scroll To Top"
         size="4"
         variant="surface"
         color="gray"
         radius="full"
         onClick={() => scrollToTop({ smoothScroll })}
+        {...props}
       >
         <Icons.ChevronUpIcon {...iconProps} />
       </IconButton>

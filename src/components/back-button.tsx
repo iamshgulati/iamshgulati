@@ -15,10 +15,10 @@ export const BackButton = ({
 
   return (
     <Button
-      {...props}
       variant="ghost"
       style={{ ...style }}
       onClick={() => router.back()}
+      {...props}
     >
       {children ?? (
         <React.Fragment>

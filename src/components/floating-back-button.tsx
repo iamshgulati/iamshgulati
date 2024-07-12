@@ -29,13 +29,13 @@ export const FloatingBackButton = ({
       className={styles.FloatingBackButtonContainer}
     >
       <IconButton
-        {...props}
         aria-label="Navigate Back"
         size="4"
         variant="surface"
         color="gray"
         radius="full"
         onClick={() => router.back()}
+        {...props}
       >
         <Icons.ChevronLeftIcon {...iconProps} />
       </IconButton>

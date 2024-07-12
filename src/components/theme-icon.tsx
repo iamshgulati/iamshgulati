@@ -10,22 +10,22 @@ export const ThemeIcon = ({
 }): React.JSX.Element => (
   <React.Fragment>
     <Icons.Half2Icon
-      {...iconProps}
       aria-label="System theme"
       style={{
         display: "var(--system-theme-icon-display)",
         // transform: "rotate(45deg)",
       }}
+      {...iconProps}
     />
     <Icons.SunIcon
-      {...iconProps}
       aria-label="Light theme"
       style={{ display: "var(--light-theme-icon-display)" }}
+      {...iconProps}
     />
     <Icons.MoonIcon
-      {...iconProps}
       aria-label="Dark theme"
       style={{ display: "var(--dark-theme-icon-display)" }}
+      {...iconProps}
     />
   </React.Fragment>
 );

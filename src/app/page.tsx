@@ -15,8 +15,8 @@ export default function HomePage(): React.JSX.Element {
         gapY={{ initial: "3", md: "4" }}
         className={styles.HeroGridContainer}
       >
-        <Box className={styles.HeroHeadingContainer}>
-          <HeroHeading as="h1">
+        <Box className={styles.HeroHeadingContainer} my="7" mb="0">
+          <HeroHeading>
             Hello! I&apos;m
             <br />
             Shubham Gulati,
@@ -84,7 +84,7 @@ const HeroHeading = ({
   ...props
 }: React.ComponentProps<typeof Heading>): React.JSX.Element => (
   <Heading
-    {...props}
+    as="h1"
     size={{ initial: "1", xs: "5", sm: "6", md: "7", lg: "8" }}
     style={
       {
@@ -97,6 +97,7 @@ const HeroHeading = ({
           "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
       } as React.CSSProperties
     }
+    {...props}
   />
 );
 

@@ -11,7 +11,7 @@ export const PageTitleAndDescription = ({
   ...props
 }: React.ComponentPropsWithoutRef<typeof Box> &
   PageTitleAndDescriptionProps): React.JSX.Element => (
-  <Box {...props} my="6">
+  <Box my="7" {...props}>
     <Heading
       as="h1"
       size={{ initial: "6", sm: "8" }}

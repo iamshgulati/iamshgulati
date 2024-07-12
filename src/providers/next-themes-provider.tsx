@@ -8,7 +8,6 @@ export const NextThemesProvider = ({
   ...props
 }: React.ComponentProps<typeof ThemeProvider>): React.JSX.Element => (
   <ThemeProvider
-    {...props}
     attribute="class"
     defaultTheme="system"
     enableSystem
@@ -18,5 +17,6 @@ export const NextThemesProvider = ({
       light: "white",
       dark: "color(display-p3 0.067 0.067 0.074)",
     }}
+    {...props}
   />
 );

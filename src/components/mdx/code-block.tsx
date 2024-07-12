@@ -37,11 +37,11 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
 
     return (
       <Pre
-        {...props}
         ref={forwardedRef}
         className={cn(styles.CodeBlockContainer, className)}
         style={{ ...style }}
         data-line-numbers={showLineNumbers}
+        {...props}
       >
         <code
           className={cn(`language-${language}`, className)}

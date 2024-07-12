@@ -15,10 +15,10 @@ export const LinkHeading = ({
   const slug = slugify(extractTextFromChildren(children) ?? "");
   return (
     <Link
-      {...props}
       id={slug}
       href={`#${slug}`}
       className={cn(className, styles.LinkHeading)}
+      {...props}
     >
       <Icons.HashIcon aria-hidden />
       {children}

@@ -71,18 +71,18 @@ export function CommandMenu({
     <Dialog.Root open={commandMenu.open} onOpenChange={commandMenu.setOpen}>
       <Dialog.Trigger>
         <IconButton
-          {...props}
           size="3"
           variant="ghost"
           color="gray"
           highContrast
+          {...props}
         >
           <Icons.CommandIcon
-            {...iconProps}
             aria-label="Open Command Menu"
             style={{
               transform: "scale(1.4)",
             }}
+            {...iconProps}
           />
         </IconButton>
       </Dialog.Trigger>

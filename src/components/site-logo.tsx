@@ -20,8 +20,8 @@ export const SiteLogo = ({
 }: React.ComponentProps<typeof SiteLogoIcon>): React.JSX.Element => {
   return (
     <Flex align="center" gap="2">
-      <SiteLogoIcon {...props} style={style} />
-      {/* <Text {...props} size="4" weight="medium">
+      <SiteLogoIcon style={style} {...props} />
+      {/* <Text size="4" weight="medium" {...props}>
         {siteConfig.title}
       </Text> */}
     </Flex>
