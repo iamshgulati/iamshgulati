@@ -1,7 +1,6 @@
 import React from "react";
 import {
   AspectRatio,
-  Badge,
   Box,
   Card,
   Flex,
@@ -13,16 +12,13 @@ import {
   Text,
 } from "@radix-ui/themes";
 
-import { formatFullDate, formatRelativeDate } from "~/lib/date";
+import type { Frontmatter } from "~/types/frontmatter";
 import { NextLink } from "~/lib/link";
 import { Img } from "./mdx/img";
+import { PageMeta } from "./page-meta";
 
 interface PagePreviewCardProps {
-  href: string;
-  title: string;
-  description?: string;
-  publishedAt?: string;
-  image?: string;
+  page: Frontmatter;
   imageStyle?: {
     width?: string | number;
     height?: string | number;
@@ -30,16 +26,12 @@ interface PagePreviewCardProps {
 }
 
 export const PagePreviewCard = ({
-  href,
-  title,
-  description = undefined,
-  publishedAt = undefined,
-  image = undefined,
+  page,
 }: PagePreviewCardProps): React.JSX.Element => (
-  <Card asChild size="3" variant="ghost" m="5">
-    <NextLink href={href}>
+  <Card asChild size="3" variant="classic">
+    <NextLink href={page.slug}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">
-        {image ? (
+        {page.image ? (
           <Inset
             clip="padding-box"
             side={{ initial: "top", sm: "left" }}
@@ -49,8 +41,8 @@ export const PagePreviewCard = ({
             <Skeleton loading={true}>
               <AspectRatio asChild ratio={16 / 9}>
                 <Img
-                  src={image}
-                  alt={title}
+                  src={page.image}
+                  alt={page.title}
                   style={{
                     display: "block",
                     objectFit: "cover",
@@ -68,31 +60,13 @@ export const PagePreviewCard = ({
         <Flex justify="between" direction="column">
           <Box>
             <Flex width="100%" align="center" gap="2" mb="2">
-              {publishedAt ? (
-                <React.Fragment>
-                  <Text asChild size="1" color="gray">
-                    <time dateTime={publishedAt}>
-                      {formatFullDate(publishedAt)}
-                    </time>
-                  </Text>
-                  <Text as="p" size="1" color="gray">
-                    &middot;
-                  </Text>
-                  <Text as="p" size="1" color="gray">
-                    <time dateTime={publishedAt}>
-                      {formatRelativeDate(publishedAt)}
-                    </time>
-                  </Text>
-                </React.Fragment>
-              ) : (
-                <Badge variant="surface">draft</Badge>
-              )}
+              <PageMeta size="2" publishedAt={page.publishedAt} />
             </Flex>
-            <Heading size={{ initial: "5", sm: "6" }} mb="2">
-              {title}
+            <Heading size="6" mb="2">
+              {page.title}
             </Heading>
             <Text as="p" size="3" mb="3" color="gray">
-              {description}
+              {page.description}
             </Text>
           </Box>
           <Link asChild>

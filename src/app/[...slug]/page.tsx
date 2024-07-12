@@ -96,22 +96,21 @@ export default async function MDXPage({ params }: PageProps) {
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
-      {page.publishedAt ? (
+      {page.type === "page" ? (
+        <SectionTitleAndDescription
+          title={page.title}
+          description={page.description}
+          my="7"
+        />
+      ) : (
         <React.Fragment>
-          <Box position="relative" mb="4">
-            <PageMeta position="absolute" publishedAt={page.publishedAt} />
+          <Box position="absolute">
+            <PageMeta publishedAt={page.publishedAt} />
           </Box>
           <PageTitleAndDescription
             title={page.title}
             description={page.description}
-          />
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Box position="relative" mb="4"></Box>
-          <SectionTitleAndDescription
-            title={page.title}
-            description={page.description}
+            my="7"
           />
         </React.Fragment>
       )}

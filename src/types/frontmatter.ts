@@ -12,6 +12,7 @@ export type Frontmatter = {
   description?: string;
   icon?: keyof typeof Icons;
   disabled?: boolean;
+  type?: "page" | "entry";
 } & {
   slugAsParams?: string;
   publishedAt?: string;

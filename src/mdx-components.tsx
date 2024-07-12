@@ -18,7 +18,6 @@ import { H6 } from "~/components/mdx/h6";
 import { Hr } from "~/components/mdx/hr";
 import { Img } from "~/components/mdx/img";
 import { Li } from "~/components/mdx/li";
-import { MDXWrapper } from "~/components/mdx/mdx-wrapper";
 import { Ol } from "~/components/mdx/ol";
 import { P } from "~/components/mdx/p";
 import { PreWithCopyButton } from "~/components/mdx/pre-with-copy-button";
@@ -48,7 +47,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   };
 
   const customComponents = {
-    MDXWrapper,
     Callout,
     Table,
     HStack,

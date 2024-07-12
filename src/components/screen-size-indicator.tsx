@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, IconButton, Text } from "@radix-ui/themes";
+import { Badge, Box, Text } from "@radix-ui/themes";
 
 export const ScreenSizeIndicator = (): React.JSX.Element => {
   return (
-    <IconButton
+    <Badge
       aria-label="Screen Size Indicator"
       size="1"
       variant="soft"
@@ -91,6 +91,6 @@ export const ScreenSizeIndicator = (): React.JSX.Element => {
           xl
         </Box>
       </Text>
-    </IconButton>
+    </Badge>
   );
 };

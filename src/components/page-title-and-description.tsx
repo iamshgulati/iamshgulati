@@ -1,7 +1,5 @@
 import React from "react";
-import { Text } from "@radix-ui/themes";
-
-import { PageHeading, SectionHeading } from "./page-headings";
+import { Box, Heading, Text } from "@radix-ui/themes";
 
 interface SectionTitleAndDescriptionProps {
   title: string;
@@ -10,23 +8,34 @@ interface SectionTitleAndDescriptionProps {
 export const SectionTitleAndDescription = ({
   title,
   description = undefined,
-}: SectionTitleAndDescriptionProps): React.JSX.Element => (
-  <React.Fragment>
-    <SectionHeading as="h1" mt="7" mb="2">
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Box> &
+  SectionTitleAndDescriptionProps): React.JSX.Element => (
+  <Box {...props}>
+    <Heading
+      as="h1"
+      size={{ initial: "7", sm: "8" }}
+      mb="2"
+      style={
+        {
+          fontWeight: "600",
+          "--heading-font-family":
+            "var(--font-heading), var(--default-font-family)",
+          "--heading-letter-spacing": "-0.02em",
+          "--heading-font-size-adjust": "1.8",
+          lineHeight:
+            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+        } as React.CSSProperties
+      }
+    >
       {title}
-    </SectionHeading>
+    </Heading>
     {description && (
-      <Text
-        as="p"
-        size={{ initial: "4", xs: "5", sm: "6" }}
-        color="gray"
-        mt="2"
-        mb="7"
-      >
+      <Text as="p" size={{ initial: "4", xs: "5", sm: "6" }} color="gray">
         {description}
       </Text>
     )}
-  </React.Fragment>
+  </Box>
 );
 
 interface PageTitleAndDescriptionProps {
@@ -36,15 +45,32 @@ interface PageTitleAndDescriptionProps {
 export const PageTitleAndDescription = ({
   title,
   description = undefined,
-}: PageTitleAndDescriptionProps): React.JSX.Element => (
-  <React.Fragment>
-    <PageHeading as="h1" mt="7" mb="2">
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Box> &
+  PageTitleAndDescriptionProps): React.JSX.Element => (
+  <Box {...props}>
+    <Heading
+      as="h1"
+      size={{ initial: "7", sm: "8" }}
+      mb="2"
+      style={
+        {
+          fontWeight: "700",
+          "--heading-font-family":
+            "var(--font-heading), var(--default-font-family)",
+          "--heading-letter-spacing": "-0.00em",
+          "--heading-font-size-adjust": "1.2",
+          lineHeight:
+            "calc(var(--line-height) * var(--heading-font-size-adjust))",
+        } as React.CSSProperties
+      }
+    >
       {title}
-    </PageHeading>
+    </Heading>
     {description && (
-      <Text as="p" size={{ initial: "4", sm: "5" }} color="gray" mt="2" mb="7">
+      <Text as="p" size="4" color="gray">
         {description}
       </Text>
     )}
-  </React.Fragment>
+  </Box>
 );

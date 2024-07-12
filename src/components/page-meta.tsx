@@ -5,39 +5,32 @@ import { formatFullDate, formatRelativeDate } from "~/lib/date";
 
 interface PageMetaProps {
   publishedAt?: string;
-  category?: string;
+  _category?: string;
 }
 
 export const PageMeta = ({
   publishedAt = undefined,
-  category = undefined,
+  _category = undefined,
+  size = "3",
   ...props
-}: React.ComponentProps<typeof Flex> & PageMetaProps): React.JSX.Element => (
-  <Flex {...props} width="100%" align="center" gap="2" mb="4">
+}: React.ComponentProps<typeof Text> & PageMetaProps): React.JSX.Element => (
+  <React.Fragment>
     {publishedAt ? (
-      <React.Fragment>
-        <Text asChild size="2" color="gray" trim="start">
+      <Flex asChild width="100%" align="center" gap="2" wrap="wrap">
+        <Text size={size} color="gray" {...props}>
           <time dateTime={publishedAt}>{formatFullDate(publishedAt)}</time>
-        </Text>
-        <Text size="2" color="gray" trim="start">
           &middot;
-        </Text>
-        <Text asChild size="2" color="gray" trim="start">
           <time dateTime={publishedAt}>{formatRelativeDate(publishedAt)}</time>
-        </Text>
-        {category ? (
-          <React.Fragment>
-            <Text size="2" color="gray" trim="start">
+          {_category ? (
+            <React.Fragment>
               &middot;
-            </Text>
-            <Text asChild size="2" color="gray" trim="start">
-              {category}
-            </Text>
-          </React.Fragment>
-        ) : null}
-      </React.Fragment>
+              <span>{_category}</span>
+            </React.Fragment>
+          ) : null}
+        </Text>
+      </Flex>
     ) : (
       <Badge variant="surface">draft</Badge>
     )}
-  </Flex>
+  </React.Fragment>
 );

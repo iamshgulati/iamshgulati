@@ -1,8 +1,7 @@
 import React from "react";
-import { Box, Button, Flex, Grid, Text } from "@radix-ui/themes";
+import { Box, Button, Flex, Grid, Heading, Text } from "@radix-ui/themes";
 
 import { Icons } from "~/components/icons";
-import { HeroHeading } from "~/components/page-headings";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
@@ -11,7 +10,7 @@ import styles from "./page.module.css";
 export default function HomePage(): React.JSX.Element {
   return (
     <PageWrapper>
-      <Box position="relative" mb="7"></Box>
+      <Box position="relative" mb="7" />
       <Grid
         gapX="6"
         gapY={{ initial: "3", md: "4" }}
@@ -25,13 +24,13 @@ export default function HomePage(): React.JSX.Element {
           </HeroHeading>
         </Box>
         <Box className={styles.HeroPastExperienceContainer}>
-          <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+          <StyledText>
             Senior Software Engineer and Certified Cloud Architect. Past –
             Senior Technology Consultant @ Deloitte Consulting.
-          </Text>
+          </StyledText>
         </Box>
         <Box className={styles.HeroCurrentlyContainer}>
-          <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+          <StyledText>
             I love tinkering with code. And, currently I am{" "}
             <Text color="gray">
               <s>
@@ -42,13 +41,13 @@ export default function HomePage(): React.JSX.Element {
             <Text>
               just trying to figure out what do I want to do with my life.
             </Text>
-          </Text>
+          </StyledText>
         </Box>
         <Box className={styles.HeroCTADescription}>
-          <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }}>
+          <StyledText>
             Here&apos;s many useless facts about me and a few{" "}
             <strong>less useless things</strong> that I can do.
-          </Text>
+          </StyledText>
         </Box>
         <Flex
           gap={{ initial: "3", xs: "5" }}
@@ -81,3 +80,27 @@ export default function HomePage(): React.JSX.Element {
     </PageWrapper>
   );
 }
+
+const HeroHeading = ({
+  ...props
+}: React.ComponentProps<typeof Heading>): React.JSX.Element => (
+  <Heading
+    {...props}
+    size={{ initial: "1", xs: "5", sm: "6", md: "8" }}
+    style={
+      {
+        fontWeight: "600",
+        "--heading-font-family":
+          "var(--font-heading), var(--default-font-family)",
+        "--heading-letter-spacing": "-0.02em",
+        "--heading-font-size-adjust": "3.7",
+        lineHeight:
+          "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
+      } as React.CSSProperties
+    }
+  />
+);
+
+const StyledText = ({ ...props }: React.PropsWithChildren) => (
+  <Text as="p" size={{ initial: "3", xs: "4", sm: "5" }} {...props} />
+);

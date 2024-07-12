@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Flex } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
 
 import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
@@ -52,21 +52,14 @@ export default function ProjectsPage(): React.JSX.Element {
 
   return (
     <PageWrapper>
-      <Box position="relative" mb="4"></Box>
       <SectionTitleAndDescription
         title={metadataProps.title}
         description={metadataProps.description}
+        my="7"
       />
       <Flex direction="column" gap="9">
         {route.pages?.map((page: Frontmatter) => (
-          <PagePreviewCard
-            key={page.slug}
-            href={page.slug}
-            title={page.title}
-            description={page.description}
-            publishedAt={page.publishedAt}
-            image={page.image}
-          />
+          <PagePreviewCard key={page.slug} page={page} />
         ))}
       </Flex>
     </PageWrapper>
