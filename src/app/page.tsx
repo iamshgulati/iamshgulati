@@ -10,7 +10,6 @@ import styles from "./page.module.css";
 export default function HomePage(): React.JSX.Element {
   return (
     <PageWrapper>
-      <Box position="relative" mb="7" />
       <Grid
         gapX="6"
         gapY={{ initial: "3", md: "4" }}

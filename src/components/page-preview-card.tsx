@@ -58,14 +58,14 @@ export const PagePreviewCard = ({
           </Inset>
         ) : null}
         <Flex justify="between" direction="column">
-          <Box>
-            <Flex width="100%" align="center" gap="2" mb="2">
-              <PageMeta size="2" publishedAt={page.publishedAt} />
-            </Flex>
-            <Heading size="6" mb="2">
+          <Box position="absolute">
+            <PageMeta size="2" publishedAt={page.publishedAt} />
+          </Box>
+          <Box my="6">
+            <Heading size={{ initial: "5", sm: "7" }} mb="2">
               {page.title}
             </Heading>
-            <Text as="p" size="3" mb="3" color="gray">
+            <Text as="p" size={{ initial: "3", sm: "4" }} color="gray">
               {page.description}
             </Text>
           </Box>

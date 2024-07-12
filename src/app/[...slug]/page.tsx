@@ -97,7 +97,6 @@ export default async function MDXPage({ params }: PageProps) {
         <PageTitleAndDescription
           title={page.title}
           description={page.description}
-          my="7"
         />
       ) : (
         <React.Fragment>
@@ -107,7 +106,6 @@ export default async function MDXPage({ params }: PageProps) {
           <PageTitleAndDescription
             title={page.title}
             description={page.description}
-            my="7"
           />
         </React.Fragment>
       )}

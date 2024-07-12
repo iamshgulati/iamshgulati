@@ -55,7 +55,6 @@ export default function BlogPage(): React.JSX.Element {
       <PageTitleAndDescription
         title={metadataProps.title}
         description={metadataProps.description}
-        my="7"
       />
       <Flex direction="column" gap="9">
         {route.pages?.map((page: Frontmatter) => (
