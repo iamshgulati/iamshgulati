@@ -33,10 +33,12 @@ export default function NotFound(): React.JSX.Element {
           color: "var(--yellow-10)",
         }}
       />
-      <PageTitleAndDescription
-        title={metadata.title as string}
-        description={metadata.description ? metadata.description : ""}
-      />
+      <Box my="7">
+        <PageTitleAndDescription
+          title={metadata.title as string}
+          description={metadata.description ? metadata.description : ""}
+        />
+      </Box>
       <Flex
         direction={{ initial: "column", md: "row" }}
         align="center"

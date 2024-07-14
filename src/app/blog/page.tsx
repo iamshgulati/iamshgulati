@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Flex } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 
-import type { AppRoute } from "~/lib/routes";
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { PagePreviewCard } from "~/components/page-preview-card";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
@@ -50,10 +49,12 @@ export const metadata: Metadata = {
 export default function BlogPage(): React.JSX.Element {
   return (
     <PageWrapper>
-      <PageTitleAndDescription
-        title={metadataProps.title}
-        description={metadataProps.description}
-      />
+      <Box my="7">
+        <PageTitleAndDescription
+          title={metadataProps.title}
+          description={metadataProps.description}
+        />
+      </Box>
       <Flex direction="column" gap="9">
         {allRoutes.blog.pages?.map((page: Frontmatter) => (
           <PagePreviewCard

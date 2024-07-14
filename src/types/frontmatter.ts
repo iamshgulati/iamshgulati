@@ -6,6 +6,7 @@ export type MetadataProps = {
   image?: string;
 };
 
+// TODO: Pick a better name for "type"
 export type Frontmatter = {
   slug: string;
   title: string;

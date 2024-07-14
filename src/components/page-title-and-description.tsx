@@ -1,15 +1,13 @@
 import React from "react";
-import { Box, Heading, Text } from "@radix-ui/themes";
+import { Heading, Text } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 
 export const PageTitleAndDescription = ({
   title,
   description = undefined,
-  ...props
-}: React.ComponentPropsWithoutRef<typeof Box> &
-  Pick<Frontmatter, "title" | "description">): React.JSX.Element => (
-  <Box my="7" {...props}>
+}: Pick<Frontmatter, "title" | "description">): React.JSX.Element => (
+  <React.Fragment>
     <Heading
       as="h1"
       size={{ initial: "6", sm: "8" }}
@@ -33,5 +31,5 @@ export const PageTitleAndDescription = ({
         {description}
       </Text>
     )}
-  </Box>
+  </React.Fragment>
 );

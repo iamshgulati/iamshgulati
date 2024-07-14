@@ -93,23 +93,21 @@ export default async function MDXPage({ params }: PageProps) {
 
   return (
     <PageWrapper maxWidth="var(--docs-page-max-width)">
-      {page.type === "page" ? (
+      {/* TODO: Pick a better name for "type" */}
+      {page.type !== "page" && (
+        <Box position="absolute">
+          <PageMetaText publishedAt={page.publishedAt} />
+        </Box>
+      )}
+      <Box my="7">
         <PageTitleAndDescription
           title={page.title}
           description={page.description}
         />
-      ) : (
-        <React.Fragment>
-          <Box position="absolute">
-            <PageMetaText publishedAt={page.publishedAt} />
-          </Box>
-          <PageTitleAndDescription
-            title={page.title}
-            description={page.description}
-          />
-        </React.Fragment>
-      )}
-      <PageCoverImage src={page.image} alt={page.title} />
+      </Box>
+      <Box mb="7">
+        <PageCoverImage src={page.image} alt={page.title} />
+      </Box>
       <Suspense fallback={null}>
         <MDXComponent />
       </Suspense>
