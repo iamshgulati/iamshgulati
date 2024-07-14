@@ -4,7 +4,7 @@ import { Box, Flex } from "@radix-ui/themes";
 const LayoutBackground = ({
   style = undefined,
   children = undefined,
-}: React.ComponentProps<typeof Box>): React.JSX.Element => {
+}: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
   return (
     <Box style={{ position: "relative", zIndex: 0 }}>
       <Box
@@ -36,7 +36,7 @@ const LayoutBackground = ({
 
 const LayoutRoot = ({
   ...props
-}: React.ComponentProps<typeof Flex>): React.JSX.Element => {
+}: React.ComponentPropsWithoutRef<typeof Flex>): React.JSX.Element => {
   return (
     <Flex
       position="relative"
@@ -50,7 +50,7 @@ const LayoutRoot = ({
 };
 
 const LayoutBackgroundImage = (
-  props: React.ComponentProps<typeof Flex>,
+  props: React.ComponentPropsWithoutRef<typeof Flex>,
 ): React.JSX.Element => (
   <Flex
     position="absolute"
@@ -67,13 +67,16 @@ const LayoutBackgroundImage = (
 
 const LayoutHeader = ({
   ...props
-}: React.ComponentProps<typeof Box>): React.JSX.Element => {
+}: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
   return <Box height="0" {...props} />;
 };
 
 const LayoutMain = ({
   ...props
-}: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
+}: Omit<
+  React.ComponentPropsWithoutRef<typeof Flex>,
+  "as"
+>): React.JSX.Element => {
   return (
     <Flex
       asChild
@@ -95,7 +98,10 @@ const LayoutMain = ({
 
 const LayoutContent = ({
   ...props
-}: Omit<React.ComponentProps<typeof Flex>, "as">): React.JSX.Element => {
+}: Omit<
+  React.ComponentPropsWithoutRef<typeof Flex>,
+  "as"
+>): React.JSX.Element => {
   return (
     <Flex
       asChild
@@ -114,7 +120,7 @@ const LayoutContent = ({
 
 const LayoutFooter = ({
   ...props
-}: React.ComponentProps<typeof Box>): React.JSX.Element => {
+}: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
   return <Box {...props} />;
 };
 

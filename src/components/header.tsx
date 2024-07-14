@@ -10,7 +10,7 @@ import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { ThemeToggle } from "./theme-toggle";
 
-export interface HeaderProps {
+interface HeaderProps extends React.PropsWithChildren {
   sticky?: boolean;
   ghost?: boolean;
   autoHide?: boolean;
@@ -33,7 +33,7 @@ export const Header = ({
   mainNavLinks = undefined,
   commandMenuRoutes = undefined,
   children = undefined,
-}: React.PropsWithChildren<HeaderProps>): React.JSX.Element => {
+}: HeaderProps): React.JSX.Element => {
   return (
     <HeaderShell
       viewportScrollFactorThreshold={viewportScrollFactorThreshold}

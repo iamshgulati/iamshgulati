@@ -6,7 +6,7 @@ import { Icons } from "./icons";
 export const ThemeIcon = ({
   iconProps = { width: "16", height: "16" },
 }: {
-  iconProps?: React.ComponentProps<Icon>;
+  iconProps?: React.ComponentPropsWithoutRef<Icon>;
 }): React.JSX.Element => (
   <React.Fragment>
     <Icons.Half2Icon

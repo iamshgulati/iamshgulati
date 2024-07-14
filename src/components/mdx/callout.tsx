@@ -4,10 +4,12 @@ import { Callout as RTCallout } from "@radix-ui/themes";
 import type { Icon } from "~/components/icons";
 import { Icons } from "~/components/icons";
 
-type CalloutProps = React.PropsWithChildren<{
+interface CalloutProps
+  extends React.PropsWithChildren<
+    React.ComponentPropsWithoutRef<typeof RTCallout.Root>
+  > {
   icon?: keyof typeof Icons;
-}> &
-  React.ComponentPropsWithoutRef<typeof RTCallout.Root>;
+}
 
 export const Callout = ({
   icon = "InfoCircledIcon",

@@ -8,12 +8,34 @@ import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
 import { Icons } from "./icons";
 
-interface BreadcrumbProps {
-  label: string;
+interface BreadcrumbProps extends React.PropsWithChildren<NextLinkProps> {
   href: string;
+  label?: string;
+  noChevron?: boolean;
 }
 
-type BreadcrumbsProps = React.ComponentProps<typeof Flex> & {
+const Breadcrumb = ({
+  href,
+  noChevron = false,
+  children = undefined,
+}: BreadcrumbProps): React.JSX.Element => (
+  <React.Fragment>
+    {!noChevron && <Icons.ChevronRightIcon color="var(--gray-8)" />}
+    <NextLink href={href} passHref legacyBehavior>
+      <Link>
+        <Text
+          size={{ initial: "2", xs: "3" }}
+          weight="medium"
+          style={{ textTransform: "capitalize" }}
+        >
+          {children}
+        </Text>
+      </Link>
+    </NextLink>
+  </React.Fragment>
+);
+
+type BreadcrumbsProps = React.ComponentPropsWithoutRef<typeof Flex> & {
   rootSlug: string;
   rootLabel?: string;
   omitRootLabel?: boolean;
@@ -65,26 +87,3 @@ export const Breadcrumbs = ({
     </Flex>
   );
 };
-
-const Breadcrumb = ({
-  href,
-  noChevron = false,
-  children = undefined,
-}: React.PropsWithChildren<
-  NextLinkProps & { noChevron?: boolean }
->): React.JSX.Element => (
-  <React.Fragment>
-    {!noChevron && <Icons.ChevronRightIcon color="var(--gray-8)" />}
-    <NextLink href={href} passHref legacyBehavior>
-      <Link>
-        <Text
-          size={{ initial: "2", xs: "3" }}
-          weight="medium"
-          style={{ textTransform: "capitalize" }}
-        >
-          {children}
-        </Text>
-      </Link>
-    </NextLink>
-  </React.Fragment>
-);

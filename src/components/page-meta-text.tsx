@@ -1,19 +1,15 @@
 import React from "react";
 import { Badge, Flex, Text } from "@radix-ui/themes";
 
+import type { Frontmatter } from "~/types/frontmatter";
 import { formatFullDate, formatRelativeDate } from "~/lib/date";
 
-interface PageMetaProps {
-  publishedAt?: string;
-  _category?: string;
-}
-
-export const PageMeta = ({
+export const PageMetaText = ({
   publishedAt = undefined,
-  _category = undefined,
   size = { initial: "2", sm: "3" },
   ...props
-}: React.ComponentProps<typeof Text> & PageMetaProps): React.JSX.Element => (
+}: React.ComponentPropsWithoutRef<typeof Text> &
+  Pick<Frontmatter, "publishedAt">): React.JSX.Element => (
   <React.Fragment>
     {publishedAt ? (
       <Flex asChild width="100%" align="center" gap="2" wrap="wrap">
@@ -21,12 +17,12 @@ export const PageMeta = ({
           <time dateTime={publishedAt}>{formatFullDate(publishedAt)}</time>
           &middot;
           <time dateTime={publishedAt}>{formatRelativeDate(publishedAt)}</time>
-          {_category ? (
+          {/* {category ? (
             <React.Fragment>
               &middot;
-              <span>{_category}</span>
+              <span>{category}</span>
             </React.Fragment>
-          ) : null}
+          ) : null} */}
         </Text>
       </Flex>
     ) : (

@@ -8,8 +8,8 @@ interface PageCoverImageProps {
   alt?: string;
 }
 export const PageCoverImage = ({
-  src,
-  alt,
+  src = undefined,
+  alt = undefined,
 }: PageCoverImageProps): React.JSX.Element | null =>
   src ? (
     <Box mb="7">

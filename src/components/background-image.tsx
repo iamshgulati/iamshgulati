@@ -1,10 +1,15 @@
 import React from "react";
 
+interface BackgroundImageProps extends React.ComponentProps<"svg"> {
+  style?: React.CSSProperties;
+  id?: string;
+}
+
 export const BackgroundImage = ({
   style = undefined,
   id = "0",
   ...props
-}: React.ComponentProps<"svg"> & { id: string }) => (
+}: BackgroundImageProps): React.JSX.Element => (
   <svg
     width="2560"
     height="1920"

@@ -6,7 +6,7 @@ import { Icons } from "./icons";
 
 export const SiteLogoIcon = ({
   ...props
-}: React.ComponentProps<Icon>): React.JSX.Element => {
+}: React.ComponentPropsWithoutRef<Icon>): React.JSX.Element => {
   return (
     <Flex asChild align="center">
       <Icons.CommandIcon width="22" height="22" {...props} />

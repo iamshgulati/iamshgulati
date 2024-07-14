@@ -5,12 +5,15 @@ import { IconButton } from "@radix-ui/themes";
 
 import { Icons } from "../icons";
 
+interface CopyTextButtonProps
+  extends React.ComponentPropsWithoutRef<typeof IconButton> {
+  textToCopy?: string;
+}
+
 export const CopyTextButton = ({
   textToCopy = undefined,
   ...props
-}: React.ComponentPropsWithoutRef<typeof IconButton> & {
-  textToCopy?: string;
-}): React.JSX.Element => {
+}: CopyTextButtonProps): React.JSX.Element => {
   const [copied, setCopied] = React.useState(false);
 
   React.useEffect((): void => {

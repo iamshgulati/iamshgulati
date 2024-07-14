@@ -6,7 +6,7 @@ import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
-import { PageMeta } from "~/components/page-meta";
+import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
@@ -101,7 +101,7 @@ export default async function MDXPage({ params }: PageProps) {
       ) : (
         <React.Fragment>
           <Box position="absolute">
-            <PageMeta publishedAt={page.publishedAt} />
+            <PageMetaText publishedAt={page.publishedAt} />
           </Box>
           <PageTitleAndDescription
             title={page.title}

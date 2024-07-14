@@ -36,14 +36,17 @@ export const HeaderMainNav = ({
   );
 };
 
+interface HeaderMainNavLinkProps
+  extends React.PropsWithChildren<React.ComponentProps<"a">> {
+  active?: boolean;
+}
+
 const HeaderMainNavLink = ({
   href = undefined,
   active = false,
   children = undefined,
   ...props
-}: React.ComponentPropsWithoutRef<"a"> & {
-  active?: boolean;
-}): React.JSX.Element => (
+}: HeaderMainNavLinkProps): React.JSX.Element => (
   <NextLink href={href ? href : "#"} passHref legacyBehavior>
     <a
       data-state={active ? "active" : "inactive"}

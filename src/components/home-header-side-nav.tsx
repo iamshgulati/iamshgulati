@@ -7,11 +7,13 @@ import { Link } from "@radix-ui/themes";
 import type { AllRoutes } from "~/lib/routes";
 import { NextLink } from "~/lib/link";
 
+interface HomeHeaderSideNavProps {
+  allRoutes: AllRoutes;
+}
+
 export const HomeHeaderSideNav = ({
   allRoutes,
-}: {
-  allRoutes: AllRoutes;
-}): React.JSX.Element => {
+}: HomeHeaderSideNavProps): React.JSX.Element => {
   const pathname: string = usePathname();
 
   return (

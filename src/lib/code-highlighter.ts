@@ -5,13 +5,15 @@ const highlighter: Highlighter = await getHighlighter({
   themes: ["github-dark", "github-light"],
 });
 
+interface codeToHtmlProps {
+  code: string;
+  language: string;
+}
+
 export const codeToHtml = async ({
   code,
   language,
-}: {
-  code: string;
-  language: string;
-}): Promise<string> => {
+}: codeToHtmlProps): Promise<string> => {
   if (language && !highlighter.getLoadedLanguages().includes(language)) {
     await highlighter.loadLanguage(language as BundledLanguage);
   }

@@ -8,11 +8,11 @@ export const A = ({ href = "", ...props }): React.JSX.Element => {
   if (href.startsWith("http")) {
     return (
       <Link
-        {...props}
         href={href}
         target="_blank"
         rel="noreferrer"
         className={styles.Link}
+        {...props}
       />
     );
   }

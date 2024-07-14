@@ -1,14 +1,14 @@
 import React from "react";
 import { Badge } from "@radix-ui/themes";
 
-interface BadgeWithIndicatorProps {
+type BadgeWithIndicatorProps = React.PropsWithChildren<{
   indicator: number;
-}
+}>;
 
 export function BadgeWithIndicator({
   indicator,
   children = undefined,
-}: React.PropsWithChildren<BadgeWithIndicatorProps>): React.JSX.Element {
+}: BadgeWithIndicatorProps): React.JSX.Element {
   const percentage = Math.min(100, Math.max(0, indicator));
 
   return (

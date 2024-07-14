@@ -14,7 +14,7 @@ import {
 import type { Frontmatter } from "~/types/frontmatter";
 import { NextLink } from "~/lib/link";
 import { Img } from "./mdx/img";
-import { PageMeta } from "./page-meta";
+import { PageMetaText } from "./page-meta-text";
 
 export const PagePreviewCard = ({
   slug,
@@ -55,7 +55,7 @@ export const PagePreviewCard = ({
         ) : null}
         <Flex justify="between" direction="column">
           <Box position="absolute">
-            <PageMeta size="2" publishedAt={publishedAt} />
+            <PageMetaText size="2" publishedAt={publishedAt} />
           </Box>
           <Box my="7">
             <Heading size={{ initial: "5", sm: "7" }} mb="2">

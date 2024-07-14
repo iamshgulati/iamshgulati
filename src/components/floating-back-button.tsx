@@ -9,12 +9,11 @@ import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-back-button.module.css";
 import { Icons } from "./icons";
 
-type FloatingFloatingBackButtonProps = React.ComponentProps<
-  typeof IconButton
-> & {
+interface FloatingFloatingBackButtonProps
+  extends React.ComponentPropsWithoutRef<typeof IconButton> {
   scrollTopThreshold?: number;
-  iconProps?: React.ComponentProps<Icon>;
-};
+  iconProps?: React.ComponentPropsWithoutRef<Icon>;
+}
 
 export const FloatingBackButton = ({
   scrollTopThreshold = 20,

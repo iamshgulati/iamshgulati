@@ -5,18 +5,19 @@ import { Box } from "@radix-ui/themes";
 
 import { useScrollState } from "~/hooks/useScrollState";
 
-export interface HeaderShellProps {
+type HeaderShellProps = React.PropsWithChildren<
+  React.ComponentPropsWithoutRef<typeof Box>
+> & {
   viewportScrollFactorThreshold?: number;
   scrollDistanceThreshold?: number;
-}
+};
 
 export const HeaderShell = ({
   viewportScrollFactorThreshold = undefined,
   scrollDistanceThreshold = undefined,
   children = undefined,
   className = undefined,
-}: React.PropsWithChildren<HeaderShellProps> &
-  React.ComponentProps<typeof Box>): React.JSX.Element => {
+}: HeaderShellProps): React.JSX.Element => {
   return (
     <Box
       data-scroll-state={

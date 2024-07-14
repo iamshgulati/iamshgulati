@@ -6,11 +6,18 @@ import { Button } from "@radix-ui/themes";
 
 import { Icons } from "./icons";
 
+interface BackButtonProps
+  extends React.PropsWithChildren<
+    React.ComponentPropsWithoutRef<typeof Button>
+  > {
+  style?: React.CSSProperties;
+}
+
 export const BackButton = ({
   children = undefined,
   style = undefined,
   ...props
-}: React.ComponentProps<typeof Button>): React.JSX.Element => {
+}: BackButtonProps): React.JSX.Element => {
   const router = useRouter();
 
   return (

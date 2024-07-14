@@ -5,9 +5,10 @@ import type { Icon } from "./icons";
 import { ThemeIcon } from "./theme-icon";
 import { ThemeToggleShell } from "./theme-toggle-shell";
 
-type ThemeToggleProps = React.ComponentProps<typeof IconButton> & {
+interface ThemeToggleProps
+  extends React.ComponentPropsWithoutRef<typeof IconButton> {
   iconProps?: React.ComponentProps<Icon>;
-};
+}
 
 export const ThemeToggle = ({
   iconProps = undefined,

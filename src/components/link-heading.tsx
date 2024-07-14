@@ -11,7 +11,9 @@ export const LinkHeading = ({
   children = undefined,
   className = undefined,
   ...props
-}: Omit<React.ComponentPropsWithoutRef<"a">, "color">): React.JSX.Element => {
+}: React.PropsWithChildren<
+  Omit<React.ComponentProps<"a">, "color">
+>): React.JSX.Element => {
   const slug = slugify(extractTextFromChildren(children) ?? "");
   return (
     <Link

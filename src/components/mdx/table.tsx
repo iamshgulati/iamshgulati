@@ -25,10 +25,11 @@ export const TableCell = ({ ...props }): React.JSX.Element => (
   <RTTable.Cell {...props} />
 );
 
-type TableProps = {
+interface TableProps
+  extends React.ComponentPropsWithoutRef<typeof RTTable.Root> {
   header: string[];
   rows: (string | React.ReactNode)[][];
-} & React.ComponentPropsWithoutRef<typeof RTTable.Root>;
+}
 
 export const Table = ({
   header = [],

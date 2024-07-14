@@ -82,7 +82,7 @@ export default function HomePage(): React.JSX.Element {
 
 const HeroHeading = ({
   ...props
-}: React.ComponentProps<typeof Heading>): React.JSX.Element => (
+}: React.ComponentPropsWithoutRef<typeof Heading>): React.JSX.Element => (
   <Heading
     as="h1"
     size={{ initial: "2", xs: "6", sm: "7", md: "8" }}

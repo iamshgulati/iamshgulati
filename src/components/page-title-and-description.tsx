@@ -1,16 +1,14 @@
 import React from "react";
 import { Box, Heading, Text } from "@radix-ui/themes";
 
-interface PageTitleAndDescriptionProps {
-  title: string;
-  description?: string;
-}
+import type { Frontmatter } from "~/types/frontmatter";
+
 export const PageTitleAndDescription = ({
   title,
   description = undefined,
   ...props
 }: React.ComponentPropsWithoutRef<typeof Box> &
-  PageTitleAndDescriptionProps): React.JSX.Element => (
+  Pick<Frontmatter, "title" | "description">): React.JSX.Element => (
   <Box my="7" {...props}>
     <Heading
       as="h1"

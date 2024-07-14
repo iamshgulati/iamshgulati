@@ -48,8 +48,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage(): React.JSX.Element {
-  const route: AppRoute = allRoutes.projects;
-
   return (
     <PageWrapper>
       <PageTitleAndDescription
@@ -57,7 +55,7 @@ export default function ProjectsPage(): React.JSX.Element {
         description={metadataProps.description}
       />
       <Flex direction="column" gap="9">
-        {route.pages?.map((page: Frontmatter) => (
+        {allRoutes.projects.pages?.map((page: Frontmatter) => (
           <PagePreviewCard
             key={page.slug}
             slug={page.slug}
