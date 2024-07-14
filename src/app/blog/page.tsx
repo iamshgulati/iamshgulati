@@ -58,7 +58,14 @@ export default function BlogPage(): React.JSX.Element {
       />
       <Flex direction="column" gap="9">
         {route.pages?.map((page: Frontmatter) => (
-          <PagePreviewCard key={page.slug} page={page} />
+          <PagePreviewCard
+            key={page.slug}
+            slug={page.slug}
+            title={page.title}
+            description={page.description}
+            publishedAt={page.publishedAt}
+            image={page.image}
+          />
         ))}
       </Flex>
     </PageWrapper>

@@ -16,21 +16,20 @@ import { NextLink } from "~/lib/link";
 import { Img } from "./mdx/img";
 import { PageMeta } from "./page-meta";
 
-interface PagePreviewCardProps {
-  page: Frontmatter;
-  imageStyle?: {
-    width?: string | number;
-    height?: string | number;
-  };
-}
-
 export const PagePreviewCard = ({
-  page,
-}: PagePreviewCardProps): React.JSX.Element => (
+  slug,
+  title,
+  description,
+  publishedAt,
+  image,
+}: Pick<
+  Frontmatter,
+  "slug" | "title" | "description" | "publishedAt" | "image"
+>): React.JSX.Element => (
   <Card asChild size="3" variant="classic">
-    <NextLink href={page.slug}>
+    <NextLink href={slug}>
       <Grid columns={{ initial: "1", sm: "2" }} width="100%">
-        {page.image ? (
+        {image ? (
           <Inset
             clip="padding-box"
             side={{ initial: "top", sm: "left" }}
@@ -39,8 +38,8 @@ export const PagePreviewCard = ({
           >
             <Skeleton loading={true}>
               <Img
-                src={page.image}
-                alt={page.title}
+                src={image}
+                alt={title}
                 style={{
                   display: "block",
                   objectFit: "cover",
@@ -56,14 +55,14 @@ export const PagePreviewCard = ({
         ) : null}
         <Flex justify="between" direction="column">
           <Box position="absolute">
-            <PageMeta size="2" publishedAt={page.publishedAt} />
+            <PageMeta size="2" publishedAt={publishedAt} />
           </Box>
           <Box my="7">
             <Heading size={{ initial: "5", sm: "7" }} mb="2">
-              {page.title}
+              {title}
             </Heading>
             <Text as="p" size={{ initial: "3", sm: "4" }} color="gray">
-              {page.description}
+              {description}
             </Text>
           </Box>
           <Link asChild>
