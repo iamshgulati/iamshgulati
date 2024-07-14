@@ -2,15 +2,15 @@ import React from "react";
 
 type KeyboardShortcutHandler = (event: KeyboardEvent) => void;
 
-interface KeyboardShortcutsProps {
+type KeyboardShortcutsProps = {
   handleCommandMenuToggle?: KeyboardShortcutHandler;
   handleThemeToggle?: KeyboardShortcutHandler;
-}
+};
 
 export const useKeyboardShortcuts = ({
   handleCommandMenuToggle,
   handleThemeToggle,
-}: KeyboardShortcutsProps) => {
+}: KeyboardShortcutsProps): void => {
   const onKeyboardShortcut = React.useCallback(
     (event: KeyboardEvent) => {
       const isCmdK = event.key === "k" && (event.metaKey || event.altKey);

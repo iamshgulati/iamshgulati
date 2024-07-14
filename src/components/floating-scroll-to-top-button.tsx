@@ -8,12 +8,13 @@ import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-scroll-to-top-button.module.css";
 import { Icons } from "./icons";
 
-interface FloatingScrollToTopButtonProps
-  extends React.ComponentPropsWithoutRef<typeof IconButton> {
+type FloatingScrollToTopButtonProps = React.ComponentPropsWithoutRef<
+  typeof IconButton
+> & {
   scrollTopThreshold?: number;
   smoothScroll?: boolean;
   iconProps?: React.ComponentPropsWithoutRef<Icon>;
-}
+};
 
 export const FloatingScrollToTopButton = ({
   scrollTopThreshold = 20,

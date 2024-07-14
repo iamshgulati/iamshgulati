@@ -5,10 +5,10 @@ const highlighter: Highlighter = await getHighlighter({
   themes: ["github-dark", "github-light"],
 });
 
-interface codeToHtmlProps {
+type codeToHtmlProps = {
   code: string;
   language: string;
-}
+};
 
 export const codeToHtml = async ({
   code,

@@ -10,7 +10,7 @@ import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
 import { ThemeToggle } from "./theme-toggle";
 
-interface HeaderProps extends React.PropsWithChildren {
+type HeaderProps = React.PropsWithChildren<{
   sticky?: boolean;
   ghost?: boolean;
   autoHide?: boolean;
@@ -20,7 +20,7 @@ interface HeaderProps extends React.PropsWithChildren {
   backdropExtended?: boolean;
   mainNavLinks?: Frontmatter[];
   commandMenuRoutes?: AppRoute[];
-}
+}>;
 
 export const Header = ({
   sticky = false,

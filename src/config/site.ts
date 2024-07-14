@@ -1,4 +1,4 @@
-export interface SiteConfig {
+export type SiteConfig = {
   title: string;
   description: string;
   url: string;
@@ -17,7 +17,7 @@ export interface SiteConfig {
   og: {
     displayUrl: string;
   };
-}
+};
 
 export const siteConfig: SiteConfig = {
   title: "Shubham Gulati",

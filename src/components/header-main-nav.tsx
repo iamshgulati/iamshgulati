@@ -7,9 +7,9 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { NextLink } from "~/lib/link";
 import styles from "./header.module.css";
 
-interface HeaderMainNavProps {
+type HeaderMainNavProps = {
   pages: Frontmatter[];
-}
+};
 
 export const HeaderMainNav = ({
   pages,
@@ -36,10 +36,11 @@ export const HeaderMainNav = ({
   );
 };
 
-interface HeaderMainNavLinkProps
-  extends React.PropsWithChildren<React.ComponentProps<"a">> {
+type HeaderMainNavLinkProps = React.PropsWithChildren<
+  React.ComponentProps<"a">
+> & {
   active?: boolean;
-}
+};
 
 const HeaderMainNavLink = ({
   href = undefined,

@@ -7,9 +7,9 @@ import { Link } from "@radix-ui/themes";
 import type { AllRoutes } from "~/lib/routes";
 import { NextLink } from "~/lib/link";
 
-interface HomeHeaderSideNavProps {
+type HomeHeaderSideNavProps = {
   allRoutes: AllRoutes;
-}
+};
 
 export const HomeHeaderSideNav = ({
   allRoutes,

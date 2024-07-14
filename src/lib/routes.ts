@@ -2,11 +2,11 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { siteConfig } from "~/config/site";
 import { getAllFrontmatter } from "./mdx";
 
-export interface AppRoute {
+export type AppRoute = {
   label: string;
   slug: string;
   pages?: Frontmatter[];
-}
+};
 
 export type AllRoutes = Record<
   | "mainNavLinks"

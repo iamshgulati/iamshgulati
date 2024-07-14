@@ -93,7 +93,7 @@ And `allRoutes` to use all frontmatter in the app, similar to how contentlayer p
 import type { Frontmatter } from "~/types/frontmatter";
 import { getAllFrontmatter } from "./mdx";
 
-export interface AppRoute {
+export type AppRoute = {
   label: string;
   pages: Frontmatter[];
 }

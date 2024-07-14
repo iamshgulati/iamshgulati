@@ -6,14 +6,14 @@ import styles from "./code-block.module.css";
 import { CopyTextButton } from "./copy-text-button";
 import { Pre } from "./pre";
 
-interface CodeBlockProps extends Omit<React.ComponentProps<typeof Pre>, "css"> {
+type CodeBlockProps = Omit<React.ComponentProps<typeof Pre>, "css"> & {
   language: string;
   value: string;
   _line?: string;
   isInteractive?: boolean;
   showLineNumbers?: boolean;
   showCopyCodeButton?: boolean;
-}
+};
 
 export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
   async (_props, forwardedRef): Promise<React.JSX.Element> => {
@@ -52,4 +52,5 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
     );
   },
 );
+
 CodeBlock.displayName = "CodeBlock";

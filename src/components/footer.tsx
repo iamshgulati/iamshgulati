@@ -5,9 +5,9 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { siteConfig } from "~/config/site";
 import { LinkSocialIconButton } from "./link-social-icon-button";
 
-interface FooterProps {
+type FooterProps = {
   pages: Frontmatter[];
-}
+};
 
 export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
   return (

@@ -34,11 +34,10 @@ export const CommandMenuProvider = ({
 
 export const useCommandMenu = () => useMenuContext("CommandMenu");
 
-interface CommandMenuProps
-  extends React.ComponentPropsWithoutRef<typeof IconButton> {
+type CommandMenuProps = React.ComponentPropsWithoutRef<typeof IconButton> & {
   routes?: AppRoute[];
   iconProps?: React.ComponentPropsWithoutRef<Icon>;
-}
+};
 
 export function CommandMenu({
   routes = undefined,

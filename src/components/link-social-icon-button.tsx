@@ -4,13 +4,14 @@ import { IconButton } from "@radix-ui/themes";
 import type { Icon } from "./icons";
 import { Icons } from "./icons";
 
-interface LinkSocialIconButtonProps
-  extends React.ComponentPropsWithoutRef<typeof IconButton> {
+type LinkSocialIconButtonProps = React.ComponentPropsWithoutRef<
+  typeof IconButton
+> & {
   href: string;
-  icon?: keyof typeof Icons;
   ariaLabel: string;
+  icon?: keyof typeof Icons;
   iconProps?: React.ComponentPropsWithoutRef<Icon>;
-}
+};
 
 export const LinkSocialIconButton = ({
   href,

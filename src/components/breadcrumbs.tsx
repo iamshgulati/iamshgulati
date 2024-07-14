@@ -8,11 +8,11 @@ import type { NextLinkProps } from "~/lib/link";
 import { NextLink } from "~/lib/link";
 import { Icons } from "./icons";
 
-interface BreadcrumbProps extends React.PropsWithChildren<NextLinkProps> {
+type BreadcrumbProps = React.PropsWithChildren<NextLinkProps> & {
   href: string;
   label?: string;
   noChevron?: boolean;
-}
+};
 
 const Breadcrumb = ({
   href,

@@ -1,10 +1,10 @@
 import type { Icons } from "~/components/icons";
 
-export interface MetadataProps {
+export type MetadataProps = {
   title: string;
   description?: string;
   image?: string;
-}
+};
 
 export type Frontmatter = {
   slug: string;

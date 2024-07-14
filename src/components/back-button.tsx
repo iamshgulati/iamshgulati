@@ -6,12 +6,9 @@ import { Button } from "@radix-ui/themes";
 
 import { Icons } from "./icons";
 
-interface BackButtonProps
-  extends React.PropsWithChildren<
-    React.ComponentPropsWithoutRef<typeof Button>
-  > {
-  style?: React.CSSProperties;
-}
+type BackButtonProps = React.PropsWithChildren<
+  React.ComponentPropsWithoutRef<typeof Button>
+>;
 
 export const BackButton = ({
   children = undefined,

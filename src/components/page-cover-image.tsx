@@ -3,10 +3,11 @@ import { AspectRatio, Box, Skeleton } from "@radix-ui/themes";
 
 import { Img } from "./mdx/img";
 
-interface PageCoverImageProps {
+type PageCoverImageProps = {
   src?: string;
   alt?: string;
-}
+};
+
 export const PageCoverImage = ({
   src = undefined,
   alt = undefined,

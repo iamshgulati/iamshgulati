@@ -14,11 +14,11 @@ import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
 import { getBaseUrl } from "~/lib/url";
 
-interface PageProps {
+type PageProps = {
   params: {
     slug: string[];
   };
-}
+};
 
 export async function generateMetadata({
   params,

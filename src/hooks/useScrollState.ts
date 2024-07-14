@@ -3,16 +3,16 @@ import { usePathname } from "next/navigation";
 
 type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
 
-interface ScrollStateProps {
+type ScrollStateProps = {
   viewportScrollFactorThreshold?: number;
   scrollDistanceThreshold?: number;
   scrollTopThreshold?: number;
-}
+};
 
-interface ScrollStateOutput {
+type ScrollStateOutput = {
   scrolled: boolean;
   scrollState: ScrollState;
-}
+};
 
 /**
  * Custom React hook to track the scroll state.
