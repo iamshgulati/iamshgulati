@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import React from "react";
 import { Flex, Separator } from "@radix-ui/themes";
 
-import { BackgroundImage } from "~/components/background-image";
+// import { BackgroundImage } from "~/components/background-image";
 import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
@@ -58,42 +58,42 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(env.WWW_USE_CUSTOM_FONTS && fonts)}>
         <Providers>
-          <Layout.Background style={backgroundStyle}>
-            <Layout.Root>
-              <Layout.Header>
-                <Header
-                  sticky
-                  ghost
-                  autoHide
-                  viewportScrollFactorThreshold={2}
-                  scrollDistanceThreshold={100}
-                  backdropExtended
-                  mainNavLinks={allRoutes.mainNavLinks.pages?.slice(0, 3)}
-                  commandMenuRoutes={[
-                    allRoutes.mainNavLinks,
-                    allRoutes.blog,
-                    allRoutes.projects,
-                    allRoutes.social,
-                    allRoutes.legal,
-                  ]}
-                />
-              </Layout.Header>
-              <Layout.BackgroundImage>
+          {/* <Layout.Background style={backgroundStyle}> */}
+          <Layout.Root>
+            <Layout.Header>
+              <Header
+                sticky
+                ghost
+                autoHide
+                viewportScrollFactorThreshold={2}
+                scrollDistanceThreshold={100}
+                backdropExtended
+                mainNavLinks={allRoutes.mainNavLinks.pages?.slice(0, 3)}
+                commandMenuRoutes={[
+                  allRoutes.mainNavLinks,
+                  allRoutes.blog,
+                  allRoutes.projects,
+                  allRoutes.social,
+                  allRoutes.legal,
+                ]}
+              />
+            </Layout.Header>
+            {/* <Layout.BackgroundImage>
                 <BackgroundImage style={backgroundImageStyle} id="1" />
-              </Layout.BackgroundImage>
-              <Layout.Main>
-                <Layout.Content>{children}</Layout.Content>
-              </Layout.Main>
-              <Layout.Footer>
-                <Flex align="center" justify="center">
-                  <Separator size="3" />
-                </Flex>
-                <PageWrapper size="2">
-                  <Footer pages={allRoutes.social.pages?.slice(0, 4) ?? []} />
-                </PageWrapper>
-              </Layout.Footer>
-            </Layout.Root>
-          </Layout.Background>
+              </Layout.BackgroundImage> */}
+            <Layout.Main>
+              <Layout.Content>{children}</Layout.Content>
+            </Layout.Main>
+            <Layout.Footer>
+              <Flex align="center" justify="center">
+                <Separator size="3" />
+              </Flex>
+              <PageWrapper size="2">
+                <Footer pages={allRoutes.social.pages?.slice(0, 4) ?? []} />
+              </PageWrapper>
+            </Layout.Footer>
+          </Layout.Root>
+          {/* </Layout.Background> */}
           <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           {!IS_PRODUCTION && <ScreenSizeIndicator />}
         </Providers>
@@ -102,28 +102,28 @@ export default function RootLayout({
   );
 }
 
-const backgroundStyle: React.CSSProperties = {
-  backgroundRepeat: "no-repeat",
-  backgroundImage: `
-              radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
-              radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
-              radial-gradient(circle 800px at right center, var(--sky-3), transparent),
-              radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
-              radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
-            `,
-  opacity: "0.005",
-} as React.CSSProperties;
+// const backgroundStyle: React.CSSProperties = {
+//   backgroundRepeat: "no-repeat",
+//   backgroundImage: `
+//               radial-gradient(circle 800px at 700px 200px, var(--purple-2), transparent),
+//               radial-gradient(circle 600px at calc(100% - 300px) 300px, var(--blue-3), transparent),
+//               radial-gradient(circle 800px at right center, var(--sky-3), transparent),
+//               radial-gradient(circle 800px at right bottom, var(--sky-1), transparent),
+//               radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px), var(--pink-3), var(--pink-1), transparent)
+//             `,
+//   opacity: "0.005",
+// } as React.CSSProperties;
 
-const backgroundImageStyle = {
-  "--color-background-image-base": "var(--color-background)",
-  "--color-background-image-accent-1": "var(--indigo-a7)",
-  "--color-background-image-accent-2": "var(--violet-6)",
-  "--color-background-image-accent-3": "var(--purple-9)",
-  "--color-background-image-accent-4": "var(--blue-5)",
-  "--color-background-image-accent-5": "var(--slate-1)",
-  "--color-background-image-accent-6": "var(--crimson-a5)",
-  "--color-background-image-accent-7": "var(--indigo-5)",
-  transformOrigin: "center center",
-  transform: "scaleX(-1) rotate(160deg)",
-  opacity: "0.005",
-} as React.CSSProperties;
+// const backgroundImageStyle = {
+//   "--color-background-image-base": "var(--color-background)",
+//   "--color-background-image-accent-1": "var(--indigo-a7)",
+//   "--color-background-image-accent-2": "var(--violet-6)",
+//   "--color-background-image-accent-3": "var(--purple-9)",
+//   "--color-background-image-accent-4": "var(--blue-5)",
+//   "--color-background-image-accent-5": "var(--slate-1)",
+//   "--color-background-image-accent-6": "var(--crimson-a5)",
+//   "--color-background-image-accent-7": "var(--indigo-5)",
+//   transformOrigin: "center center",
+//   transform: "scaleX(-1) rotate(160deg)",
+//   opacity: "0.005",
+// } as React.CSSProperties;
