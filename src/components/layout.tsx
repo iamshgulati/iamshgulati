@@ -72,10 +72,10 @@ const LayoutHeader = ({
 };
 
 const LayoutMain = ({
+  children = undefined,
   ...props
-}: Omit<
-  React.ComponentPropsWithoutRef<typeof Flex>,
-  "as"
+}: React.PropsWithChildren<
+  Omit<React.ComponentPropsWithoutRef<typeof Flex>, "as">
 >): React.JSX.Element => {
   return (
     <Flex
@@ -91,16 +91,16 @@ const LayoutMain = ({
       }}
       {...props}
     >
-      <main>{props.children}</main>
+      <main>{children}</main>
     </Flex>
   );
 };
 
 const LayoutContent = ({
+  children = undefined,
   ...props
-}: Omit<
-  React.ComponentPropsWithoutRef<typeof Flex>,
-  "as"
+}: React.PropsWithChildren<
+  Omit<React.ComponentPropsWithoutRef<typeof Flex>, "as">
 >): React.JSX.Element => {
   return (
     <Flex
@@ -113,7 +113,7 @@ const LayoutContent = ({
       }}
       {...props}
     >
-      <article>{props.children}</article>
+      <article>{children}</article>
     </Flex>
   );
 };
