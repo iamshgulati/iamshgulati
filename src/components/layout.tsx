@@ -42,7 +42,7 @@ const LayoutRoot = ({
       position="relative"
       direction="column"
       style={{
-        minHeight: "100vh",
+        minHeight: "100dvh",
       }}
       {...props}
     />
