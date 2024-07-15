@@ -96,28 +96,6 @@ const LayoutMain = ({
   );
 };
 
-const LayoutContent = ({
-  children = undefined,
-  ...props
-}: React.PropsWithChildren<
-  Omit<React.ComponentPropsWithoutRef<typeof Flex>, "as">
->): React.JSX.Element => {
-  return (
-    <Flex
-      asChild
-      direction="column"
-      flexGrow="1"
-      align="center"
-      style={{
-        maxWidth: "100%",
-      }}
-      {...props}
-    >
-      <article>{children}</article>
-    </Flex>
-  );
-};
-
 const LayoutFooter = ({
   ...props
 }: React.ComponentPropsWithoutRef<typeof Box>): React.JSX.Element => {
@@ -130,6 +108,5 @@ export const Layout = {
   BackgroundImage: LayoutBackgroundImage,
   Header: LayoutHeader,
   Main: LayoutMain,
-  Content: LayoutContent,
   Footer: LayoutFooter,
 } as const;

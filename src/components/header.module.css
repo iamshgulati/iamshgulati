@@ -160,7 +160,6 @@
    */
   .HeaderContainer {
     position: relative;
-    max-width: var(--header-max-width);
     height: inherit;
     margin: auto;
     display: flex;

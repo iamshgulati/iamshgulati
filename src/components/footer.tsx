@@ -11,7 +11,14 @@ type FooterProps = {
 
 export const Footer = ({ pages }: FooterProps): React.JSX.Element => {
   return (
-    <Flex asChild align="center" justify="center" direction="column" gap="5">
+    <Flex
+      asChild
+      align="center"
+      justify="center"
+      direction="column"
+      gap="5"
+      pb="9"
+    >
       <footer>
         <Flex gap="5">
           {pages.map((page: Frontmatter) => (

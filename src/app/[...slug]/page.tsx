@@ -92,7 +92,7 @@ export default async function MDXPage({ params }: PageProps) {
   );
 
   return (
-    <PageWrapper maxWidth="var(--docs-page-max-width)">
+    <PageWrapper>
       {/* TODO: Pick a better name for "type" */}
       {page.type !== "page" && (
         <Box position="absolute">

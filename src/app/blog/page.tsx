@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Flex } from "@radix-ui/themes";
+import { Box, Container, Flex, Section } from "@radix-ui/themes";
 
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { PagePreviewCard } from "~/components/page-preview-card";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
-import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { allRoutes } from "~/lib/routes";
@@ -48,25 +47,27 @@ export const metadata: Metadata = {
 
 export default function BlogPage(): React.JSX.Element {
   return (
-    <PageWrapper>
-      <Box my="7">
-        <PageTitleAndDescription
-          title={metadataProps.title}
-          description={metadataProps.description}
-        />
-      </Box>
-      <Flex direction="column" gap="9">
-        {allRoutes.blog.pages?.map((page: Frontmatter) => (
-          <PagePreviewCard
-            key={page.slug}
-            slug={page.slug}
-            title={page.title}
-            description={page.description}
-            publishedAt={page.publishedAt}
-            image={page.image}
+    <Section size={{ initial: "2", md: "4" }}>
+      <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+        <Box my="7">
+          <PageTitleAndDescription
+            title={metadataProps.title}
+            description={metadataProps.description}
           />
-        ))}
-      </Flex>
-    </PageWrapper>
+        </Box>
+        <Flex direction="column" gap="9">
+          {allRoutes.blog.pages?.map((page: Frontmatter) => (
+            <PagePreviewCard
+              key={page.slug}
+              slug={page.slug}
+              title={page.title}
+              description={page.description}
+              publishedAt={page.publishedAt}
+              image={page.image}
+            />
+          ))}
+        </Flex>
+      </Container>
+    </Section>
   );
 }
