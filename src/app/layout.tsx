@@ -57,51 +57,46 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(env.WWW_USE_CUSTOM_FONTS && fonts)}>
-        <div id="root">
-          <Providers>
-            <Layout.Background style={backgroundStyle}>
-              <Layout.Root>
-                <Layout.Header>
-                  <Header
-                    sticky
-                    ghost
-                    autoHide
-                    viewportScrollFactorThreshold={2}
-                    scrollDistanceThreshold={100}
-                    backdropExtended
-                    mainNavLinks={allRoutes.mainNavLinks.pages?.slice(0, 3)}
-                    commandMenuRoutes={[
-                      allRoutes.mainNavLinks,
-                      allRoutes.blog,
-                      allRoutes.projects,
-                      allRoutes.social,
-                      allRoutes.legal,
-                    ]}
-                  />
-                </Layout.Header>
-
-                <Layout.BackgroundImage>
-                  <BackgroundImage style={backgroundImageStyle} id="1" />
-                </Layout.BackgroundImage>
-
-                <Layout.Main>
-                  <Layout.Content>{children}</Layout.Content>
-                </Layout.Main>
-                <Layout.Footer>
-                  <Flex align="center" justify="center">
-                    <Separator size="3" />
-                  </Flex>
-                  <PageWrapper size="2">
-                    <Footer pages={allRoutes.social.pages?.slice(0, 4) ?? []} />
-                  </PageWrapper>
-                </Layout.Footer>
-              </Layout.Root>
-            </Layout.Background>
-
-            <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
-            {!IS_PRODUCTION && <ScreenSizeIndicator />}
-          </Providers>
-        </div>
+        <Providers>
+          <Layout.Background style={backgroundStyle}>
+            <Layout.Root>
+              <Layout.Header>
+                <Header
+                  sticky
+                  ghost
+                  autoHide
+                  viewportScrollFactorThreshold={2}
+                  scrollDistanceThreshold={100}
+                  backdropExtended
+                  mainNavLinks={allRoutes.mainNavLinks.pages?.slice(0, 3)}
+                  commandMenuRoutes={[
+                    allRoutes.mainNavLinks,
+                    allRoutes.blog,
+                    allRoutes.projects,
+                    allRoutes.social,
+                    allRoutes.legal,
+                  ]}
+                />
+              </Layout.Header>
+              <Layout.BackgroundImage>
+                <BackgroundImage style={backgroundImageStyle} id="1" />
+              </Layout.BackgroundImage>
+              <Layout.Main>
+                <Layout.Content>{children}</Layout.Content>
+              </Layout.Main>
+              <Layout.Footer>
+                <Flex align="center" justify="center">
+                  <Separator size="3" />
+                </Flex>
+                <PageWrapper size="2">
+                  <Footer pages={allRoutes.social.pages?.slice(0, 4) ?? []} />
+                </PageWrapper>
+              </Layout.Footer>
+            </Layout.Root>
+          </Layout.Background>
+          <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
+          {!IS_PRODUCTION && <ScreenSizeIndicator />}
+        </Providers>
       </body>
     </html>
   );

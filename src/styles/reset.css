@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100dvh;
+  color: var(--gray-12);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+}
+
+/*
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+*/
+
+p {
+  text-wrap: pretty;
+}
