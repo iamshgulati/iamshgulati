@@ -1,5 +1,3 @@
-// TODO: Change font file for pjs to 700
-
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
@@ -7,7 +5,7 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const contentType = "image/jpg";
 export const size = {
   width: 1920,
