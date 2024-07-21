@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex } from "@radix-ui/themes";
 
-import type { AppRoute } from "~/lib/routes";
+import type { Route } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { cn } from "~/lib/classnames";
 import { CommandMenu } from "./command-menu";
@@ -19,7 +19,7 @@ type HeaderProps = React.PropsWithChildren<{
   backdrop?: boolean;
   backdropExtended?: boolean;
   mainNavLinks?: Frontmatter[];
-  commandMenuRoutes?: AppRoute[];
+  commandMenuRoutes?: Route[];
 }>;
 
 export const Header = ({

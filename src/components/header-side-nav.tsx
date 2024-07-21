@@ -4,11 +4,11 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Link } from "@radix-ui/themes";
 
-import type { AppRoute } from "~/lib/routes";
+import type { Route } from "~/lib/routes";
 import { NextLink } from "~/lib/link";
 
 type HeaderSideNavProps = {
-  routes: AppRoute[];
+  routes: Route[];
 };
 
 export const HeaderSideNav = ({
@@ -18,7 +18,7 @@ export const HeaderSideNav = ({
 
   return (
     <React.Fragment>
-      {routes.map((route: AppRoute) => (
+      {routes.map((route: Route) => (
         <NextLink key={route.slug} href={route.slug} passHref legacyBehavior>
           <Link
             size="2"

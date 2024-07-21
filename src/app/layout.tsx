@@ -16,7 +16,7 @@ import { env, IS_PRODUCTION } from "~/env";
 import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
-import { allRoutes } from "~/lib/routes";
+import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
 const ogImageUrl: string = ogImageApi({});
@@ -65,13 +65,13 @@ export default function RootLayout({
                 viewportScrollFactorThreshold={2}
                 scrollDistanceThreshold={100}
                 backdropExtended
-                mainNavLinks={allRoutes.mainNavLinks.pages?.slice(0, 3)}
+                mainNavLinks={staticRoutes.mainNavLinks.pages?.slice(0, 3)}
                 commandMenuRoutes={[
-                  allRoutes.mainNavLinks,
-                  allRoutes.blog,
-                  allRoutes.projects,
-                  allRoutes.social,
-                  allRoutes.legal,
+                  staticRoutes.mainNavLinks,
+                  dynamicRoutes.blog,
+                  dynamicRoutes.projects,
+                  staticRoutes.social,
+                  staticRoutes.legal,
                 ]}
               />
             </Layout.Header>
@@ -84,7 +84,9 @@ export default function RootLayout({
                   <Separator size={{ initial: "2", md: "3" }} />
                 </Flex>
                 <Section size={{ initial: "2", md: "4" }} pb="0">
-                  <Footer pages={allRoutes.social.pages?.slice(0, 4) ?? []} />
+                  <Footer
+                    pages={staticRoutes.social.pages?.slice(0, 4) ?? []}
+                  />
                 </Section>
               </Container>
             </Layout.Footer>

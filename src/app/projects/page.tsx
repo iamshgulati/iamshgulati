@@ -7,19 +7,19 @@ import { PagePreviewCard } from "~/components/page-preview-card";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
-import { allRoutes } from "~/lib/routes";
+import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
 const ogImageUrl: string = ogImageApi({
-  title: allRoutes.projects.label,
+  title: staticRoutes.projects.label,
 });
 
 export const metadata: Metadata = {
-  title: allRoutes.projects.label,
-  description: allRoutes.projects.description,
+  title: staticRoutes.projects.label,
+  description: staticRoutes.projects.description,
   openGraph: {
-    title: allRoutes.projects.label,
-    description: allRoutes.projects.description,
+    title: staticRoutes.projects.label,
+    description: staticRoutes.projects.description,
     url: `${getBaseUrl()}/projects`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: allRoutes.projects.label,
-    description: allRoutes.projects.description,
+    title: staticRoutes.projects.label,
+    description: staticRoutes.projects.description,
     images: [ogImageUrl],
   },
 };
@@ -46,12 +46,12 @@ export default function ProjectsPage(): React.JSX.Element {
       <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
         <Box my="7">
           <PageTitleAndDescription
-            title={allRoutes.projects.label}
-            description={allRoutes.projects.description}
+            title={staticRoutes.projects.label}
+            description={staticRoutes.projects.description}
           />
         </Box>
         <Grid columns={{ initial: "1", sm: "2" }} gap="6">
-          {allRoutes.projects.pages?.map((page: Frontmatter) => (
+          {dynamicRoutes.projects.pages?.map((page: Frontmatter) => (
             <PagePreviewCard
               key={page.slug}
               slug={page.slug}

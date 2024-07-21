@@ -2,14 +2,14 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { siteConfig } from "~/config/site";
 import { getAllFrontmatter } from "./mdx";
 
-export type AppRoute = {
+export type Route = {
   slug: string;
   label: string;
   description?: string;
   pages?: Frontmatter[];
 };
 
-export type AllRoutes = Record<
+export type StaticRoutes = Record<
   | "mainNavLinks"
   | "home"
   | "about"
@@ -24,10 +24,10 @@ export type AllRoutes = Record<
   | "projects"
   | "social"
   | "legal",
-  AppRoute
+  Route
 >;
 
-export const allRoutes: AllRoutes = {
+export const staticRoutes: StaticRoutes = {
   mainNavLinks: {
     label: "Most Visited",
     slug: "",
@@ -55,14 +55,6 @@ export const allRoutes: AllRoutes = {
     label: "Blog",
     description: "Thoughts, stories, and ideas.",
     slug: "/blog",
-    pages: [
-      ...(await getAllFrontmatter("/src/data", "/blog")).map(
-        (page: Frontmatter) => {
-          page.icon = "FileTextIcon";
-          return page;
-        },
-      ),
-    ],
   },
 
   contact: {
@@ -83,28 +75,12 @@ export const allRoutes: AllRoutes = {
   private: {
     label: "Private",
     slug: "",
-    pages: [
-      ...(await getAllFrontmatter("/src/data", "/private")).map(
-        (page: Frontmatter) => {
-          page.icon = "FileTextIcon";
-          return page;
-        },
-      ),
-    ],
   },
 
   projects: {
     label: "Projects",
     description: "A showcase of my open source work.",
     slug: "/projects",
-    pages: [
-      ...(await getAllFrontmatter("/src/data", "/projects")).map(
-        (page: Frontmatter) => {
-          page.icon = "CubeIcon";
-          return page;
-        },
-      ),
-    ],
   },
 
   quotes: {
@@ -173,6 +149,46 @@ export const allRoutes: AllRoutes = {
         slug: "/terms",
         icon: "InfoCircledIcon",
       },
+    ],
+  },
+};
+
+export type DynamicRoutes = Pick<StaticRoutes, "blog" | "private" | "projects">;
+
+export const dynamicRoutes: DynamicRoutes = {
+  blog: {
+    ...staticRoutes.blog,
+    pages: [
+      ...(await getAllFrontmatter("/src/data", "/blog")).map(
+        (page: Frontmatter) => {
+          page.icon = "FileTextIcon";
+          return page;
+        },
+      ),
+    ],
+  },
+
+  private: {
+    ...staticRoutes.private,
+    pages: [
+      ...(await getAllFrontmatter("/src/data", "/private")).map(
+        (page: Frontmatter) => {
+          page.icon = "FileTextIcon";
+          return page;
+        },
+      ),
+    ],
+  },
+
+  projects: {
+    ...staticRoutes.projects,
+    pages: [
+      ...(await getAllFrontmatter("/src/data", "/projects")).map(
+        (page: Frontmatter) => {
+          page.icon = "CubeIcon";
+          return page;
+        },
+      ),
     ],
   },
 };

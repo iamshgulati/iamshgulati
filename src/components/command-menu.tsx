@@ -7,7 +7,7 @@ import { Box, Dialog, IconButton, Kbd } from "@radix-ui/themes";
 import { Command, CommandGroup } from "cmdk";
 
 import type { Icon } from "./icons";
-import type { AppRoute } from "~/lib/routes";
+import type { Route } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
@@ -35,7 +35,7 @@ export const CommandMenuProvider = ({
 export const useCommandMenu = () => useMenuContext("CommandMenu");
 
 type CommandMenuProps = React.ComponentPropsWithoutRef<typeof IconButton> & {
-  routes?: AppRoute[];
+  routes?: Route[];
   iconProps?: React.ComponentPropsWithoutRef<Icon>;
 };
 
@@ -127,7 +127,7 @@ export function CommandMenu({
                 </Command.Item>
               </CommandGroup>
 
-              {routes?.map((section: AppRoute): React.JSX.Element | null =>
+              {routes?.map((section: Route): React.JSX.Element | null =>
                 section.pages ? (
                   <Command.Group key={section.label} heading={section.label}>
                     {section.pages.map((page: Frontmatter) => {

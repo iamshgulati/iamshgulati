@@ -7,19 +7,19 @@ import { PagePreviewCard } from "~/components/page-preview-card";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
-import { allRoutes } from "~/lib/routes";
+import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
 const ogImageUrl: string = ogImageApi({
-  title: allRoutes.blog.label,
+  title: staticRoutes.blog.label,
 });
 
 export const metadata: Metadata = {
-  title: allRoutes.blog.label,
-  description: allRoutes.blog.description,
+  title: staticRoutes.blog.label,
+  description: staticRoutes.blog.description,
   openGraph: {
-    title: allRoutes.blog.label,
-    description: allRoutes.blog.description,
+    title: staticRoutes.blog.label,
+    description: staticRoutes.blog.description,
     url: `${getBaseUrl()}/blog`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: allRoutes.blog.label,
-    description: allRoutes.blog.description,
+    title: staticRoutes.blog.label,
+    description: staticRoutes.blog.description,
     images: [ogImageUrl],
   },
 };
@@ -46,12 +46,12 @@ export default function BlogPage(): React.JSX.Element {
       <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
         <Box my="7">
           <PageTitleAndDescription
-            title={allRoutes.blog.label}
-            description={allRoutes.blog.description}
+            title={staticRoutes.blog.label}
+            description={staticRoutes.blog.description}
           />
         </Box>
         <Grid columns={{ initial: "1", sm: "2" }} gap="6">
-          {allRoutes.blog.pages?.map((page: Frontmatter) => (
+          {dynamicRoutes.blog.pages?.map((page: Frontmatter) => (
             <PagePreviewCard
               key={page.slug}
               slug={page.slug}

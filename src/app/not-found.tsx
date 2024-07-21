@@ -6,7 +6,7 @@ import { BackButton } from "~/components/back-button";
 import { Icons } from "~/components/icons";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
-import { allRoutes } from "~/lib/routes";
+import { staticRoutes } from "~/lib/routes";
 
 export const metadata: Metadata = {
   title: "Not Found",
@@ -58,7 +58,7 @@ export default function NotFound(): React.JSX.Element {
           <Icons.ChevronLeftIcon width="18" height="18" aria-hidden />
           <Text>GO BACK</Text>
         </BackButton>
-        <NextLink href={allRoutes.home.slug}>
+        <NextLink href={staticRoutes.home.slug}>
           <Button
             size="3"
             variant="solid"
