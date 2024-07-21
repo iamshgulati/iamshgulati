@@ -5,7 +5,7 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { allRoutes } from "~/lib/routes";
 import { PagePreviewCard } from "../page-preview-card";
 
-export const BlogSection = () => (
+export const BlogSection = (): React.JSX.Element => (
   <React.Fragment>
     <Box mb="7">
       <Heading as="h2" size="7">

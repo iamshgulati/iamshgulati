@@ -6,7 +6,7 @@ import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import styles from "./hero-section.module.css";
 
-export const HeroSection = () => (
+export const HeroSection = (): React.JSX.Element => (
   <Grid
     gapX="6"
     gapY={{ initial: "3", md: "4" }}
