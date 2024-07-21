@@ -11,8 +11,9 @@ export const HeroSection = () => (
     gapX="6"
     gapY={{ initial: "3", md: "4" }}
     className={styles.HeroGridContainer}
+    mt="7"
   >
-    <Box className={styles.HeroHeadingContainer} my="7" mb="0">
+    <Box className={styles.HeroHeadingContainer}>
       <HeroHeading>
         Hello! I&apos;m
         <br />

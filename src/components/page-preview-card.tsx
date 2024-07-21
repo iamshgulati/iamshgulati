@@ -16,17 +16,19 @@ import { NextLink } from "~/lib/link";
 import { Img } from "./mdx/img";
 import { PageMetaText } from "./page-meta-text";
 
+type PagePreviewCardProps = React.ComponentPropsWithoutRef<typeof Card> &
+  Pick<Frontmatter, "slug" | "title" | "description" | "publishedAt" | "image">;
+
 export const PagePreviewCard = ({
   slug,
   title,
   description,
   publishedAt,
   image,
-}: Pick<
-  Frontmatter,
-  "slug" | "title" | "description" | "publishedAt" | "image"
->): React.JSX.Element => (
-  <Card asChild size="3" variant="surface">
+  variant = "surface",
+  ...props
+}: PagePreviewCardProps): React.JSX.Element => (
+  <Card asChild size="3" variant={variant} {...props}>
     <NextLink href={slug}>
       {image ? (
         <Grid columns={{ initial: "1", sm: "2" }} width="100%">

@@ -1,11 +1,5 @@
 import type { Icons } from "~/components/icons";
 
-export type MetadataProps = {
-  title: string;
-  description?: string;
-  image?: string;
-};
-
 // TODO: Pick a better name for "type"
 export type Frontmatter = {
   slug: string;

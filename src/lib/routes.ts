@@ -3,8 +3,9 @@ import { siteConfig } from "~/config/site";
 import { getAllFrontmatter } from "./mdx";
 
 export type AppRoute = {
-  label: string;
   slug: string;
+  label: string;
+  description?: string;
   pages?: Frontmatter[];
 };
 
@@ -52,6 +53,7 @@ export const allRoutes: AllRoutes = {
 
   blog: {
     label: "Blog",
+    description: "Thoughts, stories, and ideas.",
     slug: "/blog",
     pages: [
       ...(await getAllFrontmatter("/src/data", "/blog")).map(
@@ -93,6 +95,7 @@ export const allRoutes: AllRoutes = {
 
   projects: {
     label: "Projects",
+    description: "A showcase of my open source work.",
     slug: "/projects",
     pages: [
       ...(await getAllFrontmatter("/src/data", "/projects")).map(
