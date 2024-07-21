@@ -26,10 +26,10 @@ export const PagePreviewCard = ({
   Frontmatter,
   "slug" | "title" | "description" | "publishedAt" | "image"
 >): React.JSX.Element => (
-  <Card asChild size="3" variant="classic">
+  <Card asChild size="3" variant="surface">
     <NextLink href={slug}>
-      <Grid columns={{ initial: "1", sm: "2" }} width="100%">
-        {image ? (
+      {image ? (
+        <Grid columns={{ initial: "1", sm: "2" }} width="100%">
           <Inset
             clip="padding-box"
             side={{ initial: "top", sm: "left" }}
@@ -52,24 +52,49 @@ export const PagePreviewCard = ({
               />
             </Skeleton>
           </Inset>
-        ) : null}
-        <Flex justify="between" direction="column">
-          <Box position="absolute">
-            <PageMetaText size="2" publishedAt={publishedAt} />
-          </Box>
-          <Box my="7">
-            <Heading size={{ initial: "5", sm: "7" }} mb="2">
-              {title}
-            </Heading>
-            <Text as="p" size={{ initial: "3", sm: "4" }} color="gray">
-              {description}
-            </Text>
-          </Box>
-          <Link asChild>
-            <Text size="2">Read more →</Text>
-          </Link>
+          <Flex justify="between" direction="column" height="100%">
+            <PagePreview
+              title={title}
+              description={description}
+              publishedAt={publishedAt}
+            />
+          </Flex>
+        </Grid>
+      ) : (
+        <Flex justify="between" direction="column" height="100%">
+          <PagePreview
+            title={title}
+            description={description}
+            publishedAt={publishedAt}
+          />
         </Flex>
-      </Grid>
+      )}
     </NextLink>
   </Card>
+);
+
+const PagePreview = ({
+  title,
+  description,
+  publishedAt,
+}: Pick<
+  Frontmatter,
+  "title" | "description" | "publishedAt"
+>): React.JSX.Element => (
+  <React.Fragment>
+    <Box position="absolute">
+      <PageMetaText size="2" publishedAt={publishedAt} />
+    </Box>
+    <Box my="7">
+      <Heading size={{ initial: "5", sm: "6" }} mb="2">
+        {title}
+      </Heading>
+      <Text as="p" size={{ initial: "3", sm: "4" }} color="gray">
+        {description}
+      </Text>
+    </Box>
+    <Link asChild>
+      <Text size="2">Read more →</Text>
+    </Link>
+  </React.Fragment>
 );

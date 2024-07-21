@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Box, Container, Flex, Section } from "@radix-ui/themes";
+import { Box, Container, Grid, Section } from "@radix-ui/themes";
 
 import type { Frontmatter, MetadataProps } from "~/types/frontmatter";
 import { PagePreviewCard } from "~/components/page-preview-card";
@@ -55,7 +55,7 @@ export default function BlogPage(): React.JSX.Element {
             description={metadataProps.description}
           />
         </Box>
-        <Flex direction="column" gap="9">
+        <Grid columns={{ initial: "1", sm: "2" }} gap="6">
           {allRoutes.blog.pages?.map((page: Frontmatter) => (
             <PagePreviewCard
               key={page.slug}
@@ -63,10 +63,9 @@ export default function BlogPage(): React.JSX.Element {
               title={page.title}
               description={page.description}
               publishedAt={page.publishedAt}
-              image={page.image}
             />
           ))}
-        </Flex>
+        </Grid>
       </Container>
     </Section>
   );
