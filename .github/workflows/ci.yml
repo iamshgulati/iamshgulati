@@ -33,7 +33,7 @@ jobs:
       - name: Deploy artifacts
         run: |
           git remote set-url origin https://git:${{secrets.IAMSHGULATI_GITHUB_IO_TOKEN}}@github.com/${{vars.WWW_APP_REPO}}.git
-          pnpm run deploy --cname www.shubhamgulati.com --no-history --user "github-actions-bot <support+actions@github.com>" --message "feat(www): deploy"
+          pnpm run deploy --cname shubhamgulati.com --no-history --user "github-actions-bot <support+actions@github.com>" --message "feat(www): deploy"
 
   typecheck:
     runs-on: ubuntu-latest
