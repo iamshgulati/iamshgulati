@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "~/config/site";
@@ -8,7 +5,7 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 export const contentType = "image/jpg";
 export const size = {
   width: 1920,
@@ -17,11 +14,8 @@ export const size = {
 
 export async function GET(req: Request) {
   const [pjs600] = await Promise.all([
-    fs.promises.readFile(
-      path.join(
-        fileURLToPath(import.meta.url),
-        `../../../../../public/fonts/PlusJakartaSans-SemiBold.woff`,
-      ),
+    fetch(`${getBaseUrl()}/fonts/PlusJakartaSans-SemiBold.woff`).then((res) =>
+      res.arrayBuffer(),
     ),
   ]);
 

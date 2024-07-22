@@ -4,10 +4,13 @@ import { Box, Flex } from "@radix-ui/themes";
 import type { Route } from "~/lib/routes";
 import type { Frontmatter } from "~/types/frontmatter";
 import { cn } from "~/lib/classnames";
-import { CommandMenu } from "./command-menu";
+import { NextLink } from "~/lib/link";
+import { staticRoutes } from "~/lib/routes";
+import { BoxLink } from "./box-link";
 import { HeaderMainNav } from "./header-main-nav";
 import { HeaderShell } from "./header-shell";
 import styles from "./header.module.css";
+import { SiteLogo, SiteLogoIcon } from "./site-logo";
 import { ThemeToggle } from "./theme-toggle";
 
 type HeaderProps = React.PropsWithChildren<{
@@ -31,7 +34,7 @@ export const Header = ({
   backdrop = false,
   backdropExtended = false,
   mainNavLinks = undefined,
-  commandMenuRoutes = undefined,
+  // commandMenuRoutes = undefined,
   children = undefined,
 }: HeaderProps): React.JSX.Element => {
   return (
@@ -49,6 +52,7 @@ export const Header = ({
     >
       <nav className={styles.HeaderInner}>
         <Box className={styles.HeaderContainer}>
+          {/*
           <Flex
             align="center"
             pl={{ initial: "5", sm: "6" }}
@@ -57,10 +61,11 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <CommandMenu routes={commandMenuRoutes} />
+            <CommandMenu routes={commandMenuRoutes} /> 
           </Flex>
+          */}
 
-          {/* <Flex
+          <Flex
             display={{ initial: "flex", md: "none" }}
             align="center"
             pl={{ initial: "5", sm: "6" }}
@@ -69,7 +74,7 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <NextLink href={allRoutes.home.slug} passHref legacyBehavior>
+            <NextLink href={staticRoutes.home.slug} passHref legacyBehavior>
               <BoxLink ariaLabel="Homepage Link">
                 <SiteLogoIcon aria-label="Site Logo Icon" />
               </BoxLink>
@@ -85,12 +90,12 @@ export const Header = ({
             bottom="0"
             left="0"
           >
-            <NextLink href={allRoutes.home.slug} passHref legacyBehavior>
+            <NextLink href={staticRoutes.home.slug} passHref legacyBehavior>
               <BoxLink ariaLabel="Homepage Link">
                 <SiteLogo aria-label="Site Logo" />
               </BoxLink>
             </NextLink>
-          </Flex> */}
+          </Flex>
 
           {mainNavLinks && (
             <Box className={styles.HeaderMainNavContainer}>
