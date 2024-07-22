@@ -8,10 +8,11 @@ import styles from "./hero-section.module.css";
 
 export const HeroSection = (): React.JSX.Element => (
   <Grid
+    columns={{ initial: "1", md: "4" }}
     gapX="6"
     gapY={{ initial: "3", md: "4" }}
-    className={styles.HeroGridContainer}
     mt="7"
+    className={styles.HeroGridContainer}
   >
     <Box className={styles.HeroHeadingContainer}>
       <HeroHeading>
