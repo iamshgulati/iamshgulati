@@ -5,7 +5,7 @@ import { formatShortDate } from "~/lib/date";
 import { getBaseUrl } from "~/lib/url";
 import { ogImageSchema } from "~/lib/validation";
 
-export const runtime = "nodejs";
+// export const runtime = "nodejs";
 export const contentType = "image/jpg";
 export const size = {
   width: 1920,
