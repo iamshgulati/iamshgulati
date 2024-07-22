@@ -4,7 +4,7 @@ import { Link } from "@radix-ui/themes";
 import { cn } from "~/lib/classnames";
 import { extractTextFromChildren } from "~/lib/react";
 import { slugify } from "~/lib/slugify";
-import { Icons } from "./icons";
+import { HashIcon } from "./icons";
 import styles from "./link-heading.module.css";
 
 export const LinkHeading = ({
@@ -22,7 +22,7 @@ export const LinkHeading = ({
       className={cn(className, styles.LinkHeading)}
       {...props}
     >
-      <Icons.HashIcon aria-hidden />
+      <HashIcon aria-hidden />
       {children}
     </Link>
   );

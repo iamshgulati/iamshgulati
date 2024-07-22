@@ -1,6 +1,6 @@
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Button, Flex, Text } from "@radix-ui/themes";
 
-import { Icons } from "~/components/icons";
 import { siteConfig } from "~/config/site";
 
 export const ResumeButton = () => (
@@ -21,7 +21,7 @@ export const ResumeButton = () => (
       }}
     >
       <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-        <Icons.ArrowTopRightIcon width="18" height="18" aria-hidden />
+        <ArrowTopRightIcon width="18" height="18" aria-hidden />
         <Text>RESUME</Text>
       </a>
     </Button>

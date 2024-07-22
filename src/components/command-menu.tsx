@@ -12,7 +12,7 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { useCommandMenuToggle } from "~/hooks/useCommandMenuToggle";
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
-import { Icons } from "./icons";
+import { CommandIcon, Icons } from "./icons";
 import { ThemeIcon } from "./theme-icon";
 
 const [MenuProvider, useMenuContext] = createContext<{
@@ -77,7 +77,7 @@ export function CommandMenu({
           highContrast
           {...props}
         >
-          <Icons.CommandIcon
+          <CommandIcon
             aria-label="Open Command Menu"
             style={{
               transform: "scale(1.4)",

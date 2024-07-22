@@ -38,7 +38,7 @@ export type Icon = React.ForwardRefExoticComponent<
   IconProps & React.RefAttributes<SVGSVGElement>
 >;
 
-const CommandIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const CommandIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // BiCommand
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -63,7 +63,7 @@ const CommandIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 CommandIcon.displayName = "CommandIcon";
 
-const HashIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const HashIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // hi2/HiHashtag
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -89,7 +89,7 @@ const HashIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 HashIcon.displayName = "HashIcon";
 
-const HammerIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const HammerIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // io5/IoHammerOutline
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -117,7 +117,7 @@ const HammerIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 HammerIcon.displayName = "HammerIcon";
 
-const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // HiAtSymbol
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -143,7 +143,7 @@ const AtSymbolIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 AtSymbolIcon.displayName = "AtSymbolIcon";
 
-const GitHubAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const GitHubAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // PiGithubLogo
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -163,7 +163,7 @@ const GitHubAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 GitHubAltLogoIcon.displayName = "GitHubAltLogoIcon";
 
-const LinkedInAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const LinkedInAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // PiLinkedinLogoIcon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -183,7 +183,7 @@ const LinkedInAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 LinkedInAltLogoIcon.displayName = "LinkedInAltLogoIcon";
 
-const BlueskyLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const BlueskyLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // Official Bluesky Website
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -204,7 +204,7 @@ const BlueskyLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 BlueskyLogoIcon.displayName = "BlueskyLogoIcon";
 
-const BlueskyAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const BlueskyAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // PiButterflyIcon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -224,7 +224,7 @@ const BlueskyAltLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 BlueskyAltLogoIcon.displayName = "BlueskyAltLogoIcon";
 
-const TwitterLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const TwitterLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // RxTwitterLogoIcon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -244,7 +244,7 @@ const TwitterLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 TwitterLogoIcon.displayName = "TwitterLogoIcon";
 
-const ThreadsLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const ThreadsLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiThreads
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -264,7 +264,7 @@ const ThreadsLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 ThreadsLogoIcon.displayName = "ThreadsLogoIcon";
 
-const MastodonLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const MastodonLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiMastodon
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -284,7 +284,7 @@ const MastodonLogoIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 MastodonLogoIcon.displayName = "MastodonLogoIcon";
 
-const SpringFrameworkIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const SpringFrameworkIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiSpring
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -304,7 +304,7 @@ const SpringFrameworkIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 SpringFrameworkIcon.displayName = "SpringFrameworkIcon";
 
-const SpringBootIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const SpringBootIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiSpringboot
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -324,7 +324,7 @@ const SpringBootIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 SpringBootIcon.displayName = "SpringBootIcon";
 
-const JavaIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const JavaIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // FaJava
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -344,7 +344,7 @@ const JavaIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 JavaIcon.displayName = "JavaIcon";
 
-const TypescriptIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const TypescriptIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiTypescript
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -368,7 +368,7 @@ const TypescriptIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 TypescriptIcon.displayName = "TypescriptIcon";
 
-const ReactIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const ReactIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiReact
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -392,7 +392,7 @@ const ReactIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 ReactIcon.displayName = "ReactIcon";
 
-const TailwindCSSIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const TailwindCSSIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiTailwindcss
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -416,7 +416,7 @@ const TailwindCSSIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 TailwindCSSIcon.displayName = "TailwindCSSIcon";
 
-const FramerMotionIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const FramerMotionIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiFramer
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -440,7 +440,7 @@ const FramerMotionIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 FramerMotionIcon.displayName = "FramerMotionIcon";
 
-const NextJsIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const NextJsIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiNextdotjs
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -464,7 +464,7 @@ const NextJsIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 NextJsIcon.displayName = "NextJsIcon";
 
-const VisualStudioCodeIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const VisualStudioCodeIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiVisualstudiocode
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -488,7 +488,7 @@ const VisualStudioCodeIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 VisualStudioCodeIcon.displayName = "VisualStudioCodeIcon";
 
-const WebStormIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const WebStormIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiWebstorm
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -512,7 +512,7 @@ const WebStormIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 WebStormIcon.displayName = "WebStormIcon";
 
-const PostmanIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const PostmanIcon = React.forwardRef<SVGSVGElement, IconProps>(
   // SiWebstorm
   ({ color = "currentColor", ...props }, forwardedRef): React.JSX.Element => {
     return (
@@ -532,7 +532,7 @@ const PostmanIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 PostmanIcon.displayName = "PostmanIcon";
 
-const FlagOfCanadaIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const FlagOfCanadaIcon = React.forwardRef<SVGSVGElement, IconProps>(
   ({ ...props }, forwardedRef): React.JSX.Element => {
     return (
       <svg
@@ -557,7 +557,7 @@ const FlagOfCanadaIcon = React.forwardRef<SVGSVGElement, IconProps>(
 );
 FlagOfCanadaIcon.displayName = "FlagOfCanadaIcon";
 
-const FlagOfIndiaIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const FlagOfIndiaIcon = React.forwardRef<SVGSVGElement, IconProps>(
   ({ ...props }, forwardedRef): React.JSX.Element => {
     return (
       <svg

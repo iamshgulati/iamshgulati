@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import React from "react";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ExclamationTriangleIcon,
+} from "@radix-ui/react-icons";
 import { Box, Button, Flex, Text } from "@radix-ui/themes";
 
 import { BackButton } from "~/components/back-button";
-import { Icons } from "~/components/icons";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { NextLink } from "~/lib/link";
 import { staticRoutes } from "~/lib/routes";
@@ -24,7 +28,7 @@ export default function NotFound(): React.JSX.Element {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <Icons.ExclamationTriangleIcon
+      <ExclamationTriangleIcon
         aria-label="WarningIcon"
         width="52"
         height="52"
@@ -55,7 +59,7 @@ export default function NotFound(): React.JSX.Element {
             gap: "var(--space-2)",
           }}
         >
-          <Icons.ChevronLeftIcon width="18" height="18" aria-hidden />
+          <ChevronLeftIcon width="18" height="18" aria-hidden />
           <Text>GO BACK</Text>
         </BackButton>
         <NextLink href={staticRoutes.home.slug}>
@@ -69,7 +73,7 @@ export default function NotFound(): React.JSX.Element {
             }}
           >
             <Text>GO HOME</Text>
-            <Icons.ChevronRightIcon width="18" height="18" aria-hidden />
+            <ChevronRightIcon width="18" height="18" aria-hidden />
           </Button>
         </NextLink>
       </Flex>

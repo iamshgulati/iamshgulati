@@ -1,25 +1,22 @@
 "use client";
 
 import React from "react";
+import { ChevronUpIcon } from "@radix-ui/react-icons";
 import { Box, IconButton } from "@radix-ui/themes";
 
-import type { Icon } from "./icons";
 import { useScrollState } from "~/hooks/useScrollState";
 import styles from "./floating-scroll-to-top-button.module.css";
-import { Icons } from "./icons";
 
 type FloatingScrollToTopButtonProps = React.ComponentPropsWithoutRef<
   typeof IconButton
 > & {
   scrollTopThreshold?: number;
   smoothScroll?: boolean;
-  iconProps?: React.ComponentPropsWithoutRef<Icon>;
 };
 
 export const FloatingScrollToTopButton = ({
   scrollTopThreshold = 20,
   smoothScroll = false,
-  iconProps = { width: "20", height: "20" },
   ...props
 }: FloatingScrollToTopButtonProps): React.JSX.Element => {
   const scrolled = useScrollState({
@@ -39,7 +36,7 @@ export const FloatingScrollToTopButton = ({
         onClick={() => scrollToTop({ smoothScroll })}
         {...props}
       >
-        <Icons.ChevronUpIcon {...iconProps} />
+        <ChevronUpIcon width="20" height="20" />
       </IconButton>
     </Box>
   );

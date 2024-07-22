@@ -2,14 +2,14 @@ import React from "react";
 import { Flex } from "@radix-ui/themes";
 
 import type { Icon } from "./icons";
-import { Icons } from "./icons";
+import { CommandIcon } from "./icons";
 
 export const SiteLogoIcon = ({
   ...props
 }: React.ComponentPropsWithoutRef<Icon>): React.JSX.Element => {
   return (
     <Flex asChild align="center">
-      <Icons.CommandIcon width="22" height="22" {...props} />
+      <CommandIcon width="22" height="22" {...props} />
     </Flex>
   );
 };

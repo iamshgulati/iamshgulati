@@ -2,9 +2,8 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
-
-import { Icons } from "./icons";
 
 type BackButtonProps = React.PropsWithChildren<
   React.ComponentPropsWithoutRef<typeof Button>
@@ -26,7 +25,7 @@ export const BackButton = ({
     >
       {children ?? (
         <React.Fragment>
-          <Icons.ChevronLeftIcon />
+          <ChevronLeftIcon />
           Back
         </React.Fragment>
       )}

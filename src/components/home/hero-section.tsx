@@ -1,7 +1,7 @@
 import React from "react";
+import { ArrowRightIcon, ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Heading, Text } from "@radix-ui/themes";
 
-import { Icons } from "~/components/icons";
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
 import styles from "./hero-section.module.css";
@@ -63,13 +63,13 @@ export const HeroSection = (): React.JSX.Element => (
       >
         <NextLink href="/work">
           <Text>WORK</Text>
-          <Icons.ArrowRightIcon width="18" height="18" aria-hidden />
+          <ArrowRightIcon width="18" height="18" aria-hidden />
         </NextLink>
       </Button>
       <Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
         <a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
           <Text style={{ textDecorationLine: "none" }}>RESUME</Text>
-          <Icons.ArrowTopRightIcon width="18" height="18" aria-hidden />
+          <ArrowTopRightIcon width="18" height="18" aria-hidden />
         </a>
       </Button>
     </Flex>

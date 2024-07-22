@@ -1,7 +1,7 @@
 import React from "react";
+import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import type { Icon } from "./icons";
-import { Icons } from "./icons";
 
 export const ThemeIcon = ({
   iconProps = { width: "16", height: "16" },
@@ -9,7 +9,7 @@ export const ThemeIcon = ({
   iconProps?: React.ComponentPropsWithoutRef<Icon>;
 }): React.JSX.Element => (
   <React.Fragment>
-    <Icons.Half2Icon
+    <Half2Icon
       aria-label="System theme"
       style={{
         display: "var(--system-theme-icon-display)",
@@ -17,12 +17,12 @@ export const ThemeIcon = ({
       }}
       {...iconProps}
     />
-    <Icons.SunIcon
+    <SunIcon
       aria-label="Light theme"
       style={{ display: "var(--light-theme-icon-display)" }}
       {...iconProps}
     />
-    <Icons.MoonIcon
+    <MoonIcon
       aria-label="Dark theme"
       style={{ display: "var(--dark-theme-icon-display)" }}
       {...iconProps}
