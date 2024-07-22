@@ -1,12 +1,4 @@
-.HeroGridContainer {
-  grid-template-columns: 1fr;
-}
-
 @media (min-width: 1024px) {
-  .HeroGridContainer {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .HeroHeadingContainer {
     grid-row: 1;
     grid-column: 1 / 4;
@@ -17,14 +9,14 @@
     grid-column: 1 / 2;
   }
 
-  .HeroCTAButtonsContainer {
-    grid-row: 3;
-    grid-column: 1 / 2;
-  }
-
   .HeroPastExperienceContainer {
     grid-row: 2;
     grid-column: 2 / 4;
+  }
+
+  .HeroCTAButtonsContainer {
+    grid-row: 3;
+    grid-column: 1 / 2;
   }
 
   .HeroCurrentlyContainer {
