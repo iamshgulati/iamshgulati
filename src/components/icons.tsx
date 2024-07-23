@@ -6,6 +6,7 @@ import {
   BackpackIcon,
   ChatBubbleIcon,
   CheckIcon,
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
@@ -32,7 +33,6 @@ import {
   SunIcon,
   TwitterLogoIcon as TwitterAltLogoIcon,
 } from "@radix-ui/react-icons";
-import { ChevronDownIcon } from "@radix-ui/themes";
 
 export type Icon = React.ForwardRefExoticComponent<
   IconProps & React.RefAttributes<SVGSVGElement>
