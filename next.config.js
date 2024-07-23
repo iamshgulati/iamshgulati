@@ -1,10 +1,6 @@
 /* eslint-disable no-restricted-properties */
-import { fileURLToPath } from "url";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import mdx from "@next/mdx";
-import createJiti from "jiti";
-
-createJiti(fileURLToPath(import.meta.url))("./src/env");
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",

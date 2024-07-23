@@ -1,5 +1,5 @@
 .Link {
-  svg {
+  & > svg {
     margin-left: var(--space-1);
     color: var(--gray-9);
   }
