@@ -12,7 +12,7 @@ import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
-import { env, IS_PRODUCTION } from "~/env";
+import { env } from "~/env";
 import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { cn } from "~/lib/classnames";
@@ -90,7 +90,7 @@ export default function RootLayout({
             </Layout.Footer>
           </Layout.Root>
           <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
-          {!IS_PRODUCTION && <ScreenSizeIndicator />}
+          {!env.IS_PRODUCTION && <ScreenSizeIndicator />}
         </Providers>
       </body>
     </html>

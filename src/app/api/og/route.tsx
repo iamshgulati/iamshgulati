@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ImageResponse } from "next/og";
+import { parse } from "valibot";
 
 import { siteConfig } from "~/config/site";
 import { formatShortDate } from "~/lib/date";
@@ -27,7 +28,8 @@ export async function GET(req: Request) {
 
   try {
     const { searchParams } = new URL(req.url);
-    const { title, publishedAt } = ogImageSchema.parse(
+    const { title, publishedAt } = parse(
+      ogImageSchema,
       Object.fromEntries(searchParams),
     );
 

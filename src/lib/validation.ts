@@ -1,8 +1,9 @@
-import { object, string } from "zod";
+import { object, optional, pipe, string, transform } from "valibot";
 
 export const ogImageSchema = object({
-  title: string().optional(),
-  publishedAt: string()
-    .optional()
-    .transform((v) => (v ? decodeURIComponent(v) : undefined)),
+  title: optional(string()),
+  publishedAt: pipe(
+    optional(string()),
+    transform((v) => (v ? decodeURIComponent(v) : undefined)),
+  ),
 });
