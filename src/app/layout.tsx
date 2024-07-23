@@ -60,7 +60,7 @@ export default function RootLayout({
               <Header
                 sticky
                 ghost
-                autoHide
+                // autoHide
                 viewportScrollFactorThreshold={2}
                 scrollDistanceThreshold={100}
                 backdropExtended
