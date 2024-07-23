@@ -1,8 +1,9 @@
-import { object, string } from "zod";
+import { z } from "zod";
 
-export const ogImageSchema = object({
-  title: string().optional(),
-  publishedAt: string()
+export const ogImageSchema = z.object({
+  title: z.string().optional(),
+  publishedAt: z
+    .string()
     .optional()
     .transform((v) => (v ? decodeURIComponent(v) : undefined)),
 });

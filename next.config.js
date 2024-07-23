@@ -21,6 +21,14 @@ const withMDX = mdx(mdxConfig);
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  modularizeImports: {
+    "@radix-ui/themes": {
+      transform: "@radix-ui/themes/dist/esm/components/{{kebabCase member}}.js",
+      skipDefaultConversion: true,
+      preventFullImport: true,
+    },
+  },
+  //
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   //
@@ -28,7 +36,6 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
     mdxRs: true,
-    optimizePackageImports: ["@radix-ui/themes"],
   },
   //
   basePath: "",

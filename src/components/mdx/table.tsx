@@ -1,5 +1,5 @@
 import React from "react";
-import { Table as RTTable } from "@radix-ui/themes";
+import * as RTTable from "@radix-ui/themes/dist/esm/components/table.js";
 
 export const TableRoot = ({ ...props }): React.JSX.Element => (
   <RTTable.Root variant="surface" my="5" {...props} />

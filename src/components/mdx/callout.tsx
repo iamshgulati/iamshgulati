@@ -1,5 +1,5 @@
 import React from "react";
-import { Callout as RTCallout } from "@radix-ui/themes";
+import * as RTCallout from "@radix-ui/themes/dist/esm/components/callout.js";
 
 import type { Icon } from "~/components/icons";
 import { Icons } from "~/components/icons";
