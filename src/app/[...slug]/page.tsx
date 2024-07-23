@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
-import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { PageCoverImage } from "~/components/page-cover-image";
 import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
@@ -112,7 +111,6 @@ export default async function MDXPage({ params }: PageProps) {
       <Suspense fallback={null}>
         <MDXComponent />
       </Suspense>
-      <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
     </PageWrapper>
   );
 }
