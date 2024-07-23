@@ -16,7 +16,7 @@
     "format:fix": "pnpm run format --write",
     "serve": "pnpm dlx serve@latest out",
     "deploy": "gh-pages --dist out --nojekyll",
-    "watch": "npx tsx ./src/scripts/watcher.ts",
+    "watch": "jiti ./src/scripts/watcher.ts",
     "clean": "git clean -xdf node_modules dist out .next",
     "prepare": "husky"
   },
@@ -54,10 +54,10 @@
     "gh-pages": "^6.1.1",
     "glob": "^11.0.0",
     "husky": "^9.0.11",
+    "jiti": "^1.21.6",
     "prettier": "^3.3.2",
     "shikiji": "^0.10.2",
     "typescript": "^5.5.3",
-    "tsx": "^4.16.2",
     "ws": "^8.18.0"
   },
   "packageManager": "pnpm@9.4.0"
