@@ -7,7 +7,7 @@ export const RadixThemesProvider = ({
   <Theme
     hasBackground
     accentColor="indigo"
-    grayColor="auto"
+    grayColor="slate"
     panelBackground="translucent"
     scaling="100%"
     radius="medium"
