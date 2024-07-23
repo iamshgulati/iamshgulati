@@ -1,16 +1,17 @@
 /* eslint-disable no-restricted-properties */
 import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { coerce, string } from "zod";
+import * as z from "zod";
 
 export const env = createEnv({
   shared: {
     NODE_ENV: z
       .enum(["development", "test", "production", "ci"])
       .default("development"),
-    PORT: z.coerce.number().default(3000),
+    PORT: coerce.number().default(3000),
   },
   server: {
-    WWW_APP_URL: z.string().optional(),
+    WWW_APP_URL: string().optional(),
     WWW_USE_CUSTOM_FONTS: z
       .enum(["true", "false"])
       .transform((value) => value === "true"),
