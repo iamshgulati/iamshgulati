@@ -28,6 +28,7 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   experimental: {
     mdxRs: true,
+    optimizePackageImports: ["@radix-ui/themes"],
   },
   //
   basePath: "",
