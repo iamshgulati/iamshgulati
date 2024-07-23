@@ -1,5 +1,10 @@
 import { Providers } from "~/providers";
 
+import "@radix-ui/themes/styles.css";
+import "~/styles/radix-theme-config.css";
+// import "~/styles/cmdk.css";
+import "~/styles/shiki-code-highlighter.css";
+import "~/styles/reset.css";
 import "~/styles/global.css";
 
 import type { Metadata } from "next";
