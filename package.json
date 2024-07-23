@@ -2,6 +2,7 @@
   "name": "shubhamgulati.com",
   "version": "0.1.0",
   "type": "module",
+  "sideEffects": false,
   "private": true,
   "scripts": {
     "dev": "next dev & pnpm watch",
