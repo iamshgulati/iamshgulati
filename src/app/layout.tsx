@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import React from "react";
 import { Container, Flex, Section, Separator } from "@radix-ui/themes";
 
-import { FloatingScrollToTopButton } from "~/components/floating-scroll-to-top-button";
 import { Footer } from "~/components/footer";
 import { Header } from "~/components/header";
 import { Layout } from "~/components/layout";
@@ -75,9 +74,7 @@ export default function RootLayout({
                 ]}
               />
             </Layout.Header>
-
             <Layout.Main>{children}</Layout.Main>
-
             <Layout.Footer>
               <Container mx={{ initial: "5", xs: "6", sm: "7", md: "9" }}>
                 <Flex align="center" justify="center">
@@ -91,8 +88,6 @@ export default function RootLayout({
               </Container>
             </Layout.Footer>
           </Layout.Root>
-
-          <FloatingScrollToTopButton scrollTopThreshold={800} smoothScroll />
           {!IS_PRODUCTION && <ScreenSizeIndicator />}
         </Providers>
       </body>
