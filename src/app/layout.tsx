@@ -1,10 +1,5 @@
 import { Providers } from "~/providers";
 
-import "@radix-ui/themes/styles.css";
-import "~/styles/radix-theme-config.css";
-// import "~/styles/cmdk.css";
-import "~/styles/shiki-code-highlighter.css";
-import "~/styles/reset.css";
 import "~/styles/global.css";
 
 import type { Metadata } from "next";
@@ -18,9 +13,7 @@ import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env } from "~/env";
-import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
-import { cn } from "~/lib/classnames";
 import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
 
@@ -59,7 +52,9 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(env.WWW_USE_CUSTOM_FONTS && fonts)}>
+      <body
+      // className={fonts}
+      >
         <Providers>
           <Layout.Root>
             <Layout.Header>

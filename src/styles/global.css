@@ -1,8 +1,8 @@
-/* @import "@radix-ui/themes/styles.css"; */
-/* @import "radix-theme-config.css"; */
+@import "@radix-ui/themes/styles.css";
+@import "radix-theme-config.css";
 /* @import "cmdk.css"; */
-/* @import "shiki-code-highlighter.css"; */
-/* @import "reset.css"; */
+@import "shiki-code-highlighter.css";
+@import "reset.css";
 
 :root {
   --header-height: 52px;
