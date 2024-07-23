@@ -27,7 +27,6 @@ jobs:
       - name: Build artifacts
         env:
           WWW_APP_URL: ${{ vars.WWW_APP_URL }}
-          WWW_USE_CUSTOM_FONTS: ${{ vars.WWW_USE_CUSTOM_FONTS }}
         run: pnpm run build
 
       - name: Deploy artifacts

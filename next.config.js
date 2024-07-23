@@ -21,13 +21,8 @@ const withMDX = mdx(mdxConfig);
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  modularizeImports: {
-    "@radix-ui/themes": {
-      transform: "@radix-ui/themes/dist/esm/components/{{kebabCase member}}.js",
-      skipDefaultConversion: true,
-      preventFullImport: true,
-    },
-  },
+  basePath: "",
+  output: "export",
   //
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
@@ -38,8 +33,13 @@ const nextConfig = {
     mdxRs: true,
   },
   //
-  basePath: "",
-  output: "export",
+  modularizeImports: {
+    "@radix-ui/themes": {
+      transform: "@radix-ui/themes/dist/esm/components/{{kebabCase member}}.js",
+      skipDefaultConversion: true,
+      preventFullImport: true,
+    },
+  },
 };
 
 export default withBundleAnalyzer(withMDX(nextConfig));
