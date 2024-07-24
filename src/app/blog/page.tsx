@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: staticRoutes.blog.label,
     description: staticRoutes.blog.description,
-    url: `${getBaseUrl()}/blog`,
+    url: `${getBaseUrl()}${staticRoutes.blog.slug}`,
     siteName: siteConfig.title,
     locale: siteConfig.locale,
     type: "website",
