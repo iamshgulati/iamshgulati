@@ -52,7 +52,6 @@ export function CommandMenu({
 
   useKeyboardShortcuts({
     handleCommandMenuToggle,
-    handleThemeToggle,
   });
 
   const runCommand = React.useCallback(
