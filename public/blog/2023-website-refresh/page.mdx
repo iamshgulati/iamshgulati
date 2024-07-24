@@ -47,7 +47,7 @@ export const getAllFrontmatter = async (
         .replace("/page.mdx", "");
 
       const { metadata } = (await import(
-        `/data${modulePath}/page.mdx`
+        `/public${modulePath}/page.mdx`
       )) as MDXModule;
 
       return {
@@ -108,7 +108,7 @@ export const allRoutes: AllRoutes = {
   projects: {
     label: "Projects",
     pages: [
-      ...(await getAllFrontmatter("/data", "/projects")).map(
+      ...(await getAllFrontmatter("/public", "/projects")).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;
@@ -119,7 +119,7 @@ export const allRoutes: AllRoutes = {
   blog: {
     label: "Blog Posts",
     pages: [
-      ...(await getAllFrontmatter("/data", "/blog")).map(
+      ...(await getAllFrontmatter("/public", "/blog")).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;

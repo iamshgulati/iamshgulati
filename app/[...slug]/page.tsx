@@ -23,7 +23,7 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata | undefined> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/data");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
     (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
@@ -69,7 +69,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/data");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
 
   return allFrontmatter.map((page) => ({
     slug: page.slugAsParams?.split("/") ?? [],
@@ -77,7 +77,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 }
 
 export default async function MDXPage({ params }: PageProps) {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/data");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
 
   const page: Frontmatter | undefined = allFrontmatter.find(
     (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
@@ -88,7 +88,7 @@ export default async function MDXPage({ params }: PageProps) {
   }
 
   const MDXComponent: React.ComponentType = dynamic(
-    () => import(`../../data/${page.slugAsParams}/page.mdx`),
+    () => import(`../../public/${page.slugAsParams}/page.mdx`),
   );
 
   return (
