@@ -1,4 +1,4 @@
-import fs from "fs";
+import { readFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ImageResponse } from "next/og";
@@ -18,10 +18,10 @@ export const size = {
 
 export async function GET(req: Request) {
   const [pjs600] = await Promise.all([
-    fs.promises.readFile(
+    readFile(
       path.join(
         fileURLToPath(import.meta.url),
-        `../../../../../public/fonts/PlusJakartaSans-SemiBold.woff`,
+        `../../../../public/fonts/PlusJakartaSans-SemiBold.woff`,
       ),
     ),
   ]);

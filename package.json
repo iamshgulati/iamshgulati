@@ -16,7 +16,7 @@
     "format:fix": "pnpm run format --write",
     "serve": "pnpm dlx serve@latest out",
     "deploy": "gh-pages --dist out --nojekyll",
-    "watch": "jiti ./src/scripts/watcher.ts",
+    "watch": "jiti ./scripts/watcher.ts",
     "clean": "git clean -xdf node_modules dist out .next",
     "prepare": "husky"
   },

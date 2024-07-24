@@ -21,7 +21,7 @@ export const getAllFrontmatter = async (
         .replace("/page.mdx", "");
 
       const { metadata } = (await import(
-        `/src/data${modulePath}/page.mdx`
+        `../data${modulePath}/page.mdx`
       )) as MDXModule;
 
       return {

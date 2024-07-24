@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Flex, Heading } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
+import { PagePreviewCard } from "~/components/page-preview-card";
 import { dynamicRoutes } from "~/lib/routes";
-import { PagePreviewCard } from "../page-preview-card";
 
 export const BlogSection = (): React.JSX.Element => (
   <React.Fragment>

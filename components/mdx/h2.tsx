@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading } from "@radix-ui/themes";
 
-import { LinkHeading } from "../link-heading";
+import { LinkHeading } from "~/components/link-heading";
 import styles from "./h2.module.css";
 
 export const H2 = ({

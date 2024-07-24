@@ -1,7 +1,7 @@
 import { watch } from "chokidar";
 import { WebSocketServer } from "ws";
 
-const dataDir = "./src/data";
+const dataDir = "./data";
 
 const wss: WebSocketServer = new WebSocketServer({ port: 3001 });
 const watchCallbacks: (() => void)[] = [];
