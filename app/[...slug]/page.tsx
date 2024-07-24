@@ -88,7 +88,7 @@ export default async function MDXPage({ params }: PageProps) {
   }
 
   const MDXComponent: React.ComponentType = dynamic(
-    () => import(`../../public/${page.slugAsParams}/page.mdx`),
+    () => import(`../../public/${page.slugAsParams}/index.mdx`),
   );
 
   return (

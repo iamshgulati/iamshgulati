@@ -24,7 +24,7 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
   //
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "mdx"],
+  pageExtensions: ["ts", "tsx", "md", "mdx"],
   experimental: {
     mdxRs: true,
   },

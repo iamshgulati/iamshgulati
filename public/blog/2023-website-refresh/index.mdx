@@ -2,7 +2,7 @@ export const metadata = {
   title: "2023 Website Refresh",
   description: "A satisfying year of updates.",
   image:
-    "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=338&q=80",
+    "<https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=338&q=80>",
   publishedAt: "2023-12-21",
 };
 
@@ -44,10 +44,10 @@ export const getAllFrontmatter = async (
       const modulePath = mdxFilePath
         .replace(`${ROOT_DIR}`, "")
         .replace(`${dataDir}`, "")
-        .replace("/page.mdx", "");
+        .replace("/index.mdx", "");
 
       const { metadata } = (await import(
-        `/public${modulePath}/page.mdx`
+        `/public${modulePath}/index.mdx`
       )) as MDXModule;
 
       return {
@@ -56,12 +56,12 @@ export const getAllFrontmatter = async (
         slug: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
           .replace(`${dataDir}`, "")
-          .replace("/page.mdx", ""),
+          .replace("/index.mdx", ""),
         slugAsParams: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
           .replace(`${dataDir}`, "")
           .replace(`${contentDir}`, "")
-          .replace("/page.mdx", "")
+          .replace("/index.mdx", "")
           .split("/")
           .slice(1)
           .join("/"),

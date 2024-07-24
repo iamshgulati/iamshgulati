@@ -18,10 +18,10 @@ export const getAllFrontmatter = async (
       const modulePath = mdxFilePath
         .replace(`${ROOT_DIR}`, "")
         .replace(`${dataDir}`, "")
-        .replace("/page.mdx", "");
+        .replace("/index.mdx", "");
 
       const { metadata } = (await import(
-        `../public${modulePath}/page.mdx`
+        `../public${modulePath}/index.mdx`
       )) as MDXModule;
 
       return {
@@ -30,12 +30,12 @@ export const getAllFrontmatter = async (
         slug: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
           .replace(`${dataDir}`, "")
-          .replace("/page.mdx", ""),
+          .replace("/index.mdx", ""),
         slugAsParams: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
           .replace(`${dataDir}`, "")
           .replace(`${contentDir}`, "")
-          .replace("/page.mdx", "")
+          .replace("/index.mdx", "")
           .split("/")
           .slice(1)
           .join("/"),
