@@ -1,0 +1,35 @@
+.ScreenSizeIndicator {
+  &::after {
+    content: "in";
+  }
+
+  @media (min-width: 520px) {
+    &::after {
+      content: "xs";
+    }
+  }
+
+  @media (min-width: 768px) {
+    &::after {
+      content: "sm";
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &::after {
+      content: "md";
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &::after {
+      content: "lg";
+    }
+  }
+
+  @media (min-width: 1640px) {
+    &::after {
+      content: "xl";
+    }
+  }
+}
