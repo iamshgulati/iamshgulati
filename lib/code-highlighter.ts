@@ -24,13 +24,11 @@ export const codeToHtml = async ({
     transformers: [
       {
         pre(node) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-expect-error
+          // @ts-expect-error root is not assignable to type element
           node.type = "root";
         },
         code(node) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-expect-error
+          // @ts-expect-error root is not assignable to type element
           node.type = "root";
         },
       },

@@ -1,10 +1,9 @@
-export const metadata = {
-  title: "2023 Website Refresh",
-  description: "A satisfying year of updates.",
-  image:
-    "<https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=338&q=80>",
-  publishedAt: "2023-12-21",
-};
+---
+title: "2023 Website Refresh"
+description: "A satisfying year of updates."
+image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=338&q=80"
+publishedAt: "2023-12-21"
+---
 
 Its time to reflect upon the work that has gone in making 2023 a satisfying year of updates for this website.
 
@@ -108,7 +107,7 @@ export const allRoutes: AllRoutes = {
   projects: {
     label: "Projects",
     pages: [
-      ...(await getAllFrontmatter("/public", "/projects")).map(
+      ...(await getAllFrontmatter({ contentDir: "/projects" })).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;
@@ -119,7 +118,7 @@ export const allRoutes: AllRoutes = {
   blog: {
     label: "Blog Posts",
     pages: [
-      ...(await getAllFrontmatter("/public", "/blog")).map(
+      ...(await getAllFrontmatter({ contentDir: "/blog" })).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;

@@ -1,7 +1,20 @@
+import React from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-import { Button, Flex, Text } from "@radix-ui/themes";
+import { Button, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
+
+export const CeritificationBadgesGrid = ({
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Grid>): React.JSX.Element => (
+  <Grid
+    align="center"
+    columns={{ initial: "3", xs: "5" }}
+    gap="5"
+    pt="3"
+    {...props}
+  />
+);
 
 export const ResumeButton = () => (
   <Flex

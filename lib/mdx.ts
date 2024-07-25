@@ -1,39 +1,34 @@
-import type { MDXModule } from "mdx/types";
+import { readFile } from "fs/promises";
 import { glob } from "glob";
+import matter from "gray-matter";
 
 import type { Frontmatter } from "~/types/frontmatter";
 
 const ROOT_DIR = process.cwd();
+const SOURCE_DIR = "/public";
 
-export const getAllFrontmatter = async (
-  dataDir: string,
+export const getAllFrontmatter = async ({
   contentDir = "",
-): Promise<Frontmatter[]> => {
-  const mdxFilePathPattern = `${ROOT_DIR}${dataDir}${contentDir}/**/*.mdx`;
+}: {
+  contentDir?: string;
+}): Promise<Frontmatter[]> => {
+  const mdxFilePathPattern = `${ROOT_DIR}${SOURCE_DIR}${contentDir}/**/*.mdx`;
   const mdxFilePaths = glob.sync(mdxFilePathPattern);
 
   // Resolve all frontmatter promises so we can perform filtering and sorting
   let allFrontmatter: Frontmatter[] = await Promise.all(
     mdxFilePaths.map(async (mdxFilePath) => {
-      const modulePath = mdxFilePath
-        .replace(`${ROOT_DIR}`, "")
-        .replace(`${dataDir}`, "")
-        .replace("/index.mdx", "");
-
-      const { metadata } = (await import(
-        `../public${modulePath}/index.mdx`
-      )) as MDXModule;
-
+      const mdxFile = await readFile(mdxFilePath, "utf8");
+      const { data }: matter.GrayMatterFile<string> = matter(mdxFile);
       return {
-        ...(metadata as Frontmatter),
-        filePath: mdxFilePath.replace(`${ROOT_DIR}`, ""),
+        ...(data as Frontmatter),
         slug: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
-          .replace(`${dataDir}`, "")
+          .replace(`${SOURCE_DIR}`, "")
           .replace("/index.mdx", ""),
         slugAsParams: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
-          .replace(`${dataDir}`, "")
+          .replace(`${SOURCE_DIR}`, "")
           .replace(`${contentDir}`, "")
           .replace("/index.mdx", "")
           .split("/")
@@ -44,17 +39,10 @@ export const getAllFrontmatter = async (
   );
 
   // Filter out items where any part of slug starts with '_'
-  // This behavior matches Next.js app dir where adding _ disables the route
   allFrontmatter = allFrontmatter.filter(
     (frontmatter: Frontmatter) =>
       !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
   );
-
-  // Filter out items where publishedAt is undefined
-  // allFrontmatter = allFrontmatter.filter(
-  //   (frontmatter: Frontmatter) =>
-  //     frontmatter?.publishedAt ?? (!frontmatter.publishedAt && !IS_PRODUCTION),
-  // );
 
   // Sort items by publishedAt in descending order
   allFrontmatter = allFrontmatter.sort(
@@ -64,4 +52,14 @@ export const getAllFrontmatter = async (
   );
 
   return allFrontmatter;
+};
+
+export const getMatter = async ({
+  slug,
+}: {
+  slug: string;
+}): Promise<matter.GrayMatterFile<string>> => {
+  const filename = `./public${slug}/index.mdx`;
+  const mdxFile = await readFile(filename, "utf8");
+  return matter(mdxFile);
 };

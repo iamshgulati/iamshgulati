@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
+import { getMDXComponent } from "~/components/mdx-remote";
 import { PageCoverImage } from "~/components/page-cover-image";
 import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
@@ -23,7 +23,7 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata | undefined> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
 
   const page: Frontmatter | undefined = allFrontmatter.find(
     (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
@@ -69,7 +69,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
 
   return allFrontmatter.map((page) => ({
     slug: page.slugAsParams?.split("/") ?? [],
@@ -77,7 +77,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 }
 
 export default async function MDXPage({ params }: PageProps) {
-  const allFrontmatter: Frontmatter[] = await getAllFrontmatter("/public");
+  const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
 
   const page: Frontmatter | undefined = allFrontmatter.find(
     (page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
@@ -87,9 +87,7 @@ export default async function MDXPage({ params }: PageProps) {
     notFound();
   }
 
-  const MDXComponent: React.ComponentType = dynamic(
-    () => import(`../../public/${page.slugAsParams}/index.mdx`),
-  );
+  const mdxComponent = await getMDXComponent({ slug: page.slug });
 
   return (
     <PageWrapper>
@@ -108,9 +106,7 @@ export default async function MDXPage({ params }: PageProps) {
       <Box mb="7">
         <PageCoverImage src={page.image} alt={page.title} />
       </Box>
-      <Suspense fallback={null}>
-        <MDXComponent />
-      </Suspense>
+      <Suspense fallback={null}>{mdxComponent}</Suspense>
     </PageWrapper>
   );
 }

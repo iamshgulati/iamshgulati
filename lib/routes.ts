@@ -159,7 +159,7 @@ export const dynamicRoutes: DynamicRoutes = {
   blog: {
     ...staticRoutes.blog,
     pages: [
-      ...(await getAllFrontmatter("/public", "/blog")).map(
+      ...(await getAllFrontmatter({ contentDir: "/blog" })).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -171,7 +171,7 @@ export const dynamicRoutes: DynamicRoutes = {
   private: {
     ...staticRoutes.private,
     pages: [
-      ...(await getAllFrontmatter("/public", "/private")).map(
+      ...(await getAllFrontmatter({ contentDir: "/private" })).map(
         (page: Frontmatter) => {
           page.icon = "FileTextIcon";
           return page;
@@ -183,7 +183,7 @@ export const dynamicRoutes: DynamicRoutes = {
   projects: {
     ...staticRoutes.projects,
     pages: [
-      ...(await getAllFrontmatter("/public", "/projects")).map(
+      ...(await getAllFrontmatter({ contentDir: "/projects" })).map(
         (page: Frontmatter) => {
           page.icon = "CubeIcon";
           return page;

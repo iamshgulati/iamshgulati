@@ -1,5 +1,6 @@
-import type { MDXComponents } from "mdx/types";
+import React from "react";
 import { Badge, Button, Flex, Grid, Link, Quote, Text } from "@radix-ui/themes";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 import { Icons } from "~/components/icons";
 import { A } from "~/components/mdx/a";
@@ -33,29 +34,10 @@ import {
   TableRow,
 } from "~/components/mdx/table";
 import { Ul } from "~/components/mdx/ul";
+import { getMatter } from "~/lib/mdx";
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
-  const themesComponents = {
-    ...Icons,
-    Link,
-    Quote,
-    Text,
-    Button,
-    Flex,
-    Grid,
-    Badge,
-  };
-
-  const customComponents = {
-    Callout,
-    Table,
-    HStack,
-    VStack,
-    BadgeWithIndicator,
-    CodeBlock,
-  };
-
-  return {
+export async function getMDXComponent({ slug }: { slug: string }) {
+  const defaultComponents = {
     h1: H1,
     h2: H2,
     h3: H3,
@@ -80,8 +62,66 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     th: TableColumnHeaderCell,
     tr: TableRow,
     td: TableCell,
-    ...components,
-    ...themesComponents,
-    ...customComponents,
   };
+
+  const themesComponents = {
+    ...Icons,
+    Link,
+    Quote,
+    Text,
+    Button,
+    Flex,
+    Grid,
+    Badge,
+  };
+
+  const customComponents = {
+    Callout,
+    Table,
+    HStack,
+    VStack,
+    BadgeWithIndicator,
+    CodeBlock,
+  };
+
+  let components: Record<string, React.JSX.Element> = {};
+  try {
+    components = (await import(`../public${slug}/components.tsx`)) as Record<
+      string,
+      React.JSX.Element
+    >;
+  } catch (error) {
+    // @ts-expect-error unknown type
+    if (!error || error.code !== "MODULE_NOT_FOUND") {
+      throw error;
+    }
+  }
+
+  const { content } = await getMatter({ slug });
+
+  return (
+    <MDXRemote
+      source={content}
+      components={{
+        ...defaultComponents,
+        ...themesComponents,
+        ...customComponents,
+        ...components,
+      }}
+      options={{
+        mdxOptions: {
+          useDynamicImport: true,
+          // remarkPlugins: [[remarkMdxEvalCodeBlock, filename]],
+          // rehypePlugins: [
+          //   [
+          //     rehypePrettyCode,
+          //     {
+          //       theme: overnight,
+          //     },
+          //   ],
+          // ],
+        },
+      }}
+    />
+  );
 }

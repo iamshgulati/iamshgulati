@@ -1,25 +1,4 @@
-export type SiteConfig = {
-  title: string;
-  description: string;
-  url: string;
-  locale: string;
-  links: {
-    resume: string;
-    linkedin: string;
-    github: string;
-    twitter: string;
-    bluesky: string;
-    mastodon: string;
-  };
-  handles: {
-    twitter: string;
-  };
-  og: {
-    displayUrl: string;
-  };
-};
-
-export const siteConfig: SiteConfig = {
+export const siteConfig = {
   title: "Shubham Gulati",
   description: "Software Engineer & Certified Cloud Architect.",
   url: "https://shubhamgulati.com",
@@ -38,4 +17,4 @@ export const siteConfig: SiteConfig = {
   og: {
     displayUrl: "www.shubhamgulati.com",
   },
-};
+} as const;
