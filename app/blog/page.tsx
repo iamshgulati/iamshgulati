@@ -50,7 +50,7 @@ export default function BlogPage(): React.JSX.Element {
             description={staticRoutes.blog.description}
           />
         </Box>
-        <Grid columns={{ initial: "1", sm: "2" }} gap="6">
+        <Grid columns={{ initial: "1", md: "2" }} gap="6">
           {dynamicRoutes.blog.pages?.map((page: Frontmatter) => (
             <PagePreviewCard
               key={page.slug}

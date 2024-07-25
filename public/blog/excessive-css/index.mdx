@@ -5,6 +5,8 @@ image: "https://images.unsplash.com/photo-1634634465913-5bb5600942f2?ixlib=rb-4.
 publishedAt: "2023-11-29"
 ---
 
+import { Quote, Text } from "@radix-ui/themes";
+
 I love the idea behind [RadixUI Themes](https://www.radix-ui.com/themes).
 
 However, it does add a lot of unused css to the bundle.
@@ -16,7 +18,7 @@ The only way I could reduce some of it was by cloning `@radix-ui/themes`
 package into my monorepo and manually removing the unused css imports from it's
 css export.
 
-> Doing this cut down the overall css bundle by half. And <Link href="https://pagespeed.web.dev">Pagespeed</Link> also stopped complaining about unused css.
+> Doing this cut down the overall css bundle by half. And [Pagespeed](https://pagespeed.web.dev) also stopped complaining about unused css.
 
 I know, I know. I am not trying to justify my approach with the results.
 It is bad in so many ways. Adds a bunch of maintenance debt which will

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { Box } from "@radix-ui/themes";
 
 import type { Frontmatter } from "~/types/frontmatter";
-import { getMDXComponent } from "~/components/mdx-remote";
 import { PageCoverImage } from "~/components/page-cover-image";
 import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
@@ -87,7 +87,9 @@ export default async function MDXPage({ params }: PageProps) {
     notFound();
   }
 
-  const mdxComponent = await getMDXComponent({ slug: page.slug });
+  const MDXComponent: React.ComponentType = dynamic(
+    () => import(`../../public/${page.slugAsParams}/index.mdx`),
+  );
 
   return (
     <PageWrapper>
@@ -106,7 +108,9 @@ export default async function MDXPage({ params }: PageProps) {
       <Box mb="7">
         <PageCoverImage src={page.image} alt={page.title} />
       </Box>
-      <Suspense fallback={null}>{mdxComponent}</Suspense>
+      <Suspense fallback={null}>
+        <MDXComponent />
+      </Suspense>
     </PageWrapper>
   );
 }

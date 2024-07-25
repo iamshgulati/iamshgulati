@@ -5,15 +5,14 @@ image: "https://images.unsplash.com/photo-1617050318658-a9a3175e34cb?ixlib=rb-4.
 publishedAt: "2023-11-13"
 ---
 
+import { Callout } from "~/components/mdx/callout";
+
 ## API Reference
 
 {<Callout>
-The text below is from the{" "}
+The text below is from the [Tailwind CSS](https://play.tailwindcss.com/uj1vGACRJA?layout=preview)
+docs. I copied it here to test the markdown styles.
 
-  <Link href="https://play.tailwindcss.com/uj1vGACRJA?layout=preview">
-    Tailwind CSS
-  </Link>{" "}
-  docs. I copied it here to test the markdown styles.
 </Callout>}
 
 Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
@@ -179,16 +178,13 @@ I almost forgot to mention links, like [this link to the Tailwind CSS website](h
 
 We even included table styles, check it out:
 
-<Table
-  header={["Wrestler", "Origin", "Finisher"]}
-  rows={[
-    ['Bret "The Hitman" Hart', "Calgary, AB", "Stone Cold Stunner"],
-    ["Stone Cold Steve Austin", "Austin, TX", "Sharpshooter"],
-    ["Randy Savage", "Sarasota, FL", "Elbow Drop"],
-    ["Vader", "Boulder, CO", "Vader Bomb"],
-    ["Razor Ramon", "Chuluota, FL", "Razor's Edge"],
-  ]}
-/>
+| Wrestler                | Origin       | Finisher           |
+| ----------------------- | ------------ | ------------------ |
+| Bret "The Hitman" Hart  | Calgary, AB  | Stone Cold Stunner |
+| Stone Cold Steve Austin | Austin, TX   | Sharpshooter       |
+| Randy Savage            | Sarasota, FL | Elbow Drop         |
+| Vader                   | Boulder, CO  | Vader Bomb         |
+| Razor Ramon             | Chuluota, FL | Razor's Edge       |
 
 We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
 

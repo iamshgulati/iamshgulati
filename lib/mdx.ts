@@ -1,6 +1,5 @@
-import { readFile } from "fs/promises";
+import type { MDXModule } from "mdx/types";
 import { glob } from "glob";
-import matter from "gray-matter";
 
 import type { Frontmatter } from "~/types/frontmatter";
 
@@ -18,10 +17,17 @@ export const getAllFrontmatter = async ({
   // Resolve all frontmatter promises so we can perform filtering and sorting
   let allFrontmatter: Frontmatter[] = await Promise.all(
     mdxFilePaths.map(async (mdxFilePath) => {
-      const mdxFile = await readFile(mdxFilePath, "utf8");
-      const { data }: matter.GrayMatterFile<string> = matter(mdxFile);
+      const modulePath = mdxFilePath
+        .replace(`${ROOT_DIR}`, "")
+        .replace(`${SOURCE_DIR}`, "")
+        .replace("/index.mdx", "");
+
+      const { metadata } = (await import(
+        `../public${modulePath}/index.mdx`
+      )) as MDXModule;
+
       return {
-        ...(data as Frontmatter),
+        ...(metadata as Frontmatter),
         slug: mdxFilePath
           .replace(`${ROOT_DIR}`, "")
           .replace(`${SOURCE_DIR}`, "")
@@ -39,10 +45,17 @@ export const getAllFrontmatter = async ({
   );
 
   // Filter out items where any part of slug starts with '_'
+  // This behavior matches Next.js app dir where adding _ disables the route
   allFrontmatter = allFrontmatter.filter(
     (frontmatter: Frontmatter) =>
       !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
   );
+
+  // Filter out items where publishedAt is undefined
+  // allFrontmatter = allFrontmatter.filter(
+  //   (frontmatter: Frontmatter) =>
+  //     frontmatter?.publishedAt ?? (!frontmatter.publishedAt && !IS_PRODUCTION),
+  // );
 
   // Sort items by publishedAt in descending order
   allFrontmatter = allFrontmatter.sort(
@@ -52,14 +65,4 @@ export const getAllFrontmatter = async ({
   );
 
   return allFrontmatter;
-};
-
-export const getMatter = async ({
-  slug,
-}: {
-  slug: string;
-}): Promise<matter.GrayMatterFile<string>> => {
-  const filename = `./public${slug}/index.mdx`;
-  const mdxFile = await readFile(filename, "utf8");
-  return matter(mdxFile);
 };

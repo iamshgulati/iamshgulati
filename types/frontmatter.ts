@@ -7,14 +7,14 @@ export type Frontmatter = {
 } & {
   title: string;
   description?: string;
-  type?: "page" | "entry";
-  image?: string;
   publishedAt?: string;
   category?: string;
   tags?: string[];
+  image?: string;
+  type?: "page" | "entry";
+  disabled?: boolean;
+  icon?: keyof typeof Icons;
+} & {
   sourceCodeLink?: string;
   projectLink?: string;
-} & {
-  icon?: keyof typeof Icons;
-  disabled?: boolean;
 };

@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-properties */
 import bundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-});
+import mdx from "@next/mdx";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -15,9 +15,6 @@ const nextConfig = {
   //
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  experimental: {
-    mdxRs: true,
-  },
   //
   modularizeImports: {
     "@radix-ui/themes": {
@@ -28,4 +25,27 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+/** @type {import("remark-mdx-frontmatter").RemarkMdxFrontmatterOptions} */
+const remarkMdxFrontmatterOptions = {
+  name: "metadata",
+};
+
+/** @type {import('@next/mdx').NextMDXOptions} */
+const mdxConfig = {
+  options: {
+    remarkPlugins: [
+      remarkGfm,
+      remarkFrontmatter,
+      [remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
+    ],
+    rehypePlugins: [],
+  },
+};
+const withMDX = mdx(mdxConfig);
+
+/** Bundle analyzer configuration */
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withBundleAnalyzer(withMDX(nextConfig));

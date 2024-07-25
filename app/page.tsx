@@ -23,11 +23,9 @@ export default function HomePage(): React.JSX.Element {
           <BlogSection />
         </Container>
       </Section>
-      <Section size={{ initial: "2", md: "4" }}>
-        <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
-          <Separator size="2" />
-        </Container>
-      </Section>
+      <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
+        <Separator size="2" />
+      </Container>
       <Section size={{ initial: "2", md: "4" }}>
         <Container mx={{ initial: "4", xs: "5", sm: "6", md: "9" }}>
           <ProjectsSection />

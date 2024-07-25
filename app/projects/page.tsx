@@ -50,7 +50,7 @@ export default function ProjectsPage(): React.JSX.Element {
             description={staticRoutes.projects.description}
           />
         </Box>
-        <Grid columns={{ initial: "1", sm: "2" }} gap="6">
+        <Grid columns={{ initial: "1", md: "2" }} gap="6">
           {dynamicRoutes.projects.pages?.map((page: Frontmatter) => (
             <PagePreviewCard
               key={page.slug}

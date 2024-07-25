@@ -1,8 +1,11 @@
-import React from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { Button, Flex, Grid, Text } from "@radix-ui/themes";
 
 import { siteConfig } from "~/config/site";
+
+export { Badge, Flex, Text } from "@radix-ui/themes";
+export { BadgeWithIndicator } from "~/components/mdx/badge-with-indicator";
+export { HStack, VStack } from "~/components/mdx/stacks";
 
 export const CeritificationBadgesGrid = ({
   ...props
