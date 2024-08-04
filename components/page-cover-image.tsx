@@ -21,6 +21,7 @@ export const PageCoverImage = ({
           style={{
             display: "block",
             objectFit: "cover",
+            objectPosition: "top left",
             width: "100%",
             height: "100%",
             backgroundColor: "var(--gray-3)",
