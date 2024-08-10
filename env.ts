@@ -3,5 +3,5 @@
 export const env = {
   IS_PRODUCTION: process.env.NODE_ENV === "production",
   NODE_ENV: process.env.NODE_ENV,
-  WWW_APP_URL: process.env.WWW_APP_URL,
+  APP_URL: process.env.APP_URL,
 } as const;
