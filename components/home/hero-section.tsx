@@ -85,9 +85,7 @@ const HeroHeading = ({
     style={
       {
         fontWeight: "600",
-        "--heading-font-family":
-          "var(--font-heading), var(--default-font-family)",
-        "--heading-letter-spacing": "-0.02em",
+        // "--heading-letter-spacing": "-0.02em",
         "--heading-font-size-adjust": "3.3",
         lineHeight:
           "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",

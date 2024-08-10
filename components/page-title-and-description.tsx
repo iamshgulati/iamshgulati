@@ -15,12 +15,9 @@ export const PageTitleAndDescription = ({
       style={
         {
           fontWeight: "700",
-          "--heading-font-family":
-            "var(--font-heading), var(--default-font-family)",
-          "--heading-letter-spacing": "-0.02em",
+          // "--heading-letter-spacing": "-0.02em",
           "--heading-font-size-adjust": "1.5",
-          lineHeight:
-            "calc(var(--line-height) * var(--heading-font-size-adjust) * 0.9)",
+          lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
         } as React.CSSProperties
       }
     >

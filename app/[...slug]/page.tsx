@@ -13,6 +13,7 @@ import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
 import { getBaseUrl } from "~/lib/url";
+import { mdxFonts } from "~/fonts";
 
 type PageProps = {
   params: {
@@ -92,7 +93,7 @@ export default async function MDXPage({ params }: PageProps) {
   );
 
   return (
-    <PageWrapper>
+    <PageWrapper className={mdxFonts}>
       {/* TODO: Pick a better name for "type" */}
       {page.type !== "page" && (
         <Box position="absolute">
