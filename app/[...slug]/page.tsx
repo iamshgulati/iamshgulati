@@ -8,12 +8,10 @@ import type { Frontmatter } from "~/types/frontmatter";
 import { PageCoverImage } from "~/components/page-cover-image";
 import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
-import { PageWrapper } from "~/components/page-wrapper";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
 import { getAllFrontmatter } from "~/lib/mdx";
 import { getBaseUrl } from "~/lib/url";
-import { mdxFonts } from "~/fonts";
 
 type PageProps = {
   params: {
@@ -93,7 +91,7 @@ export default async function MDXPage({ params }: PageProps) {
   );
 
   return (
-    <PageWrapper className={mdxFonts}>
+    <React.Fragment>
       {/* TODO: Pick a better name for "type" */}
       {page.type !== "page" && (
         <Box position="absolute">
@@ -112,6 +110,6 @@ export default async function MDXPage({ params }: PageProps) {
       <Suspense fallback={null}>
         <MDXComponent />
       </Suspense>
-    </PageWrapper>
+    </React.Fragment>
   );
 }

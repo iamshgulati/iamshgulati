@@ -17,7 +17,8 @@ export const PageTitleAndDescription = ({
           fontWeight: "700",
           // "--heading-letter-spacing": "-0.02em",
           "--heading-font-size-adjust": "1.5",
-          lineHeight: "calc(var(--line-height) * var(--heading-font-size-adjust))",
+          lineHeight:
+            "calc(var(--line-height) * var(--heading-font-size-adjust))",
         } as React.CSSProperties
       }
     >

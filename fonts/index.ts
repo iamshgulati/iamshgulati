@@ -49,13 +49,7 @@ const jetBrainsMono = localFont({
   ],
 });
 
-export const baseFonts = [
-  inter.variable,
-].join(" ");
-
-export const mdxFonts = [
-  jetBrainsMono.variable,
-].join(" ");
+export const fonts = [inter.variable, jetBrainsMono.variable].join(" ");
 
 // const plusJakartaSans = localFont({
 //   src: [

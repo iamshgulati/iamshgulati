@@ -1,7 +1,6 @@
 import { env } from "~/env";
 
-export const getBaseUrl = (): string =>
-  env.APP_URL ?? `http://localhost:3000`;
+export const getBaseUrl = (): string => env.APP_URL ?? `http://localhost:3000`;
 
 export const getParams = (
   object: Record<string, string | string[] | undefined>,
