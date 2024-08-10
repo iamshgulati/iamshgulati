@@ -16,6 +16,7 @@ import { env } from "~/env";
 import { ogImageApi } from "~/lib/api";
 import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
+import { fonts } from "~/fonts";
 
 const ogImageUrl: string = ogImageApi({});
 
@@ -53,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-      // className={fonts}
+      className={fonts}
       >
         <Providers>
           <Layout.Root>
