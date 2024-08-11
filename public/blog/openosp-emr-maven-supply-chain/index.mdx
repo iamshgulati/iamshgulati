@@ -1,0 +1,60 @@
+---
+title: "OpenOSP EMR Maven Supply Chain"
+description: 'Awarded "Best of the Program" award for a capstone project that secured the Maven build supply chain for OpenOSP EMR project.'
+image: "/blog/openosp-emr-maven-supply-chain/cartoon-of-three-pandas-playing-in-the-open-cage-vector.jpg"
+publishedAt: "2024-08-11"
+---
+
+I was recently part of a industry research team called "The Phishing Pandas" in the Computer Application Security program at Conestoga College. Our team embarked on an industry project to secure the Maven build supply chain of a large healthcare project. And I want to tell you all about it!
+
+Our client for this project was the team at OpenOSP. OpenOSP EMR is an open-source electronic medical record system based on the OSCAR project, created by Dr. David Chan at the Family Medicine Department at McMaster University. This application is widely used in the Canadian healthcare industry. It is a web application built using the Maven build tool. The goal of this research was to secure the Maven build supply chain and document ideas for future researchers of this project.
+
+## The Problem
+
+A study by Synopsys, a cybersecurity firm, revealed that a whopping 96% of all codebases in the study contained open-source software. Now, you might be wondering, why does this matter? Well, the open-source software is collected using a process called the software supply chain. Think of it as the process of fetching ingredients needed to cook software. But instead of food ingredients, we’re gathering software ingredients. This process can be prone to security risks called supply chain attacks. Imagine if someone tampered with your pizza ingredients before it got to you! To keep our software safe, we need to protect the supply chain from these attacks. By understanding the risks and implementing best practices, we can protect our software from potential threats and keep everything running smoothly.
+
+In the same study, Synopsys also revealed that 84% of the codebases contained at least one open-source vulnerability. OpenOSP EMR is no exception. There are issues in the application that are a result of unmanaged software dependencies, external domains, and other untrusted components. Public healthcare is a basic right for Canadians. This research is impactful as it contributes to the improvement of the Canadian healthcare industry. And with such widespread impact, it is crucial that we develop solutions that help in keeping our critical systems secure.
+
+## Our Plan and Methodology
+
+For our plan and methodology, the idea was to collect data to gain more visibility into the supply chain. We started by analyzing the project structure, dependencies, and build process. We identified potential security vulnerabilities introduced by external repositories used in the project. We used plugins like the OWASP Dependency Checker and AquaSec Trivy as our trusty sidekicks in this investigation. We investigated the tools that can be integrated into the CI/CD workflow for automated security scans. It's like setting up a security camera, but for code!
+
+Every methodology has its limitations, and ours is no exception. The methodology is primarily reactive. It focuses on addressing Maven build process warnings and assumes the components are trustworthy. This approach could potentially overlook vulnerabilities that don’t trigger build warnings or those that are discovered after the components have been deemed safe.
+
+The dynamic nature of supply chain components and their constant updates make it difficult to maintain accurate data. It’s like trying to paint a moving train - by the time you finish one end, the other has already changed! This calls for a solution that can be integrated into the supply chain for continuous monitoring.
+
+## How we resolved the challenges
+
+In our first check-in, we collected data from Maven Build Logs. It was like going on a treasure hunt, but instead of gold, we were after Maven logs! The OWASP Dependency Checker helped us generate an HTML report to scrutinize the dependencies. And CycloneDX helped generate the aggregate Software Bill of Materials containing all the components that are part of the project.
+
+We faced some challenges during the research. The project consisted of unsupported components which are not being maintained by the original author. Many of these components are hard-coded in the local repository within the project source code. Additionally, many of these components lack documentation to clarify their purpose. It was like trying to assemble a jigsaw puzzle without the picture on the box! But don’t worry, we love a good challenge!
+
+For the second check-in, we leveraged A.I. to gather information about dependencies and find well-known alternatives for unsupported components. It was like having a super-smart detective on our team! Once that was done, we used AquaSec Trivy to scan docker images of the application. Trivy didn't just discover vulnerabilities, it also suggested the fixed versions for components. It was a win-win situation.
+
+## Key findings and Recommendations
+
+Let me explain it with a picture.
+
+![Dependency Explained](/blog/openosp-emr-maven-supply-chain/dependency.png)
+
+If you look closely, you will realize that there's a little bit of a problem here. The top part, which represents most of this project, is like a shiny new skyscraper. It has a modern digital infrastructure, which is great. But do you see that trusty little block down there? That block is the weakness of this entire skyscraper. In the case of OpenOSP EMR, that block represents the components that are just a little bit too outdated. These components are hardcoded in the project source code. And the project continues to use them today to build the application. There are other tiny issues, like HTTP instead of HTTPS, but those are not too bad. We can fix them.
+
+Now, it might sound all bad, but, we had a plan! We proposed two approaches to fix this, a reactive approach and a proactive approach. Think of them as our dynamic duo, like Batman and Robin!
+
+### Reactive Approach
+
+Let's talk about the reactive approach first. In the reactive approach, firstly, we recommended fixing the checksum values for existing components that could be trusted. We wrote a custom script called “reactive panda” which will help the project achieve that. Secondly, we recommended transitioning components from the untrusted repositories to their new home in Maven Central. And thirdly, until our components have a new home, we recommend changing the repository connection to HTTPS.
+
+### Proactive Approach
+
+And now, the proactive approach. This was the big one! In this approach, we recommended integrating a few automation tools into the project. The first tool in the list was Dependency Lock Maven Plugin. It will keep a ledger of checksums in the project. Anytime the project is built on a different computer or on CI/CD server, it will validate the integrity of all components. If an attacker tries to inject a malicious component into the build process, it will stop them in their tracks. The second tool in the list was OWASP Dependency Checker. It can automatically scan components for known vulnerabilities right inside the Maven build process. This ensures early detection of vulnerabilities. And the last tool in the list was AquaSec Trivy. It will scan for vulnerabilities during the infrastructure deployment and stop the process if any critical issues are discovered.
+
+### Open-source Contribution
+
+The research team had raised a [pull request](https://bitbucket.org/openoscar/oscar/pull-requests/469) with all the recommended changes that are discussed here. And it brings me so much joy, in sharing this that, the change was approved and merged by the OpenOSP team into the master branch. Our recommendations are now available in the project to benefit the users of this application.
+
+![Pull request](/blog/openosp-emr-maven-supply-chain/pull-request.png)
+
+## Credits
+
+We are thankful for our mentors, Prof. Ig Kolenko and Prof. Brian Campbell, for offering us their full support and for being so patient and considerate with us. We are also grateful to Prof. Michael Yingbull, who represented the Industry Partner and took the time to meet with us and guide us in a challenging environment. Additionally, we appreciate all our professors who helped us become knowledgeable and make a real difference in the healthcare industry of Canada.

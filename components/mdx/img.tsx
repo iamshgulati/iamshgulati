@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "@radix-ui/themes";
 
 /**
  * Image element for Next.js
@@ -13,21 +14,23 @@ export const Img = ({
   ...props
 }: React.ComponentProps<"img">): React.JSX.Element | null =>
   src && alt ? (
-    <Image
-      src={src}
-      alt={alt}
-      width={width ? (width as number) : 0}
-      height={height ? (height as number) : 0}
-      sizes="100vw"
-      loading="lazy"
-      style={{
-          width: "100%",
-          height: "auto",
-          borderRadius: "var(--radius-4)",
-          ...style,
-      }}
-      {...props}
-    />
+    <Box asChild my="7">
+      <Image
+        src={src}
+        alt={alt}
+        width={width ? (width as number) : 0}
+        height={height ? (height as number) : 0}
+        sizes="100vw"
+        loading="lazy"
+        style={{
+            width: "100%",
+            height: "auto",
+            borderRadius: "var(--radius-4)",
+            ...style,
+        }}
+        {...props}
+      />
+    </Box>
   ) : null;
 */
 
@@ -43,18 +46,20 @@ export const Img = ({
   ...props
 }: React.ComponentProps<"img">): React.JSX.Element | null =>
   src && alt ? (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={alt}
-      width={width ? (width as number) : 0}
-      height={height ? (height as number) : 0}
-      style={{
-        width: "100%",
-        height: "auto",
-        borderRadius: "var(--radius-4)",
-        ...style,
-      }}
-      {...props}
-    />
+    <Box asChild my="7">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        width={width ? (width as number) : 0}
+        height={height ? (height as number) : 0}
+        style={{
+          width: "100%",
+          height: "auto",
+          borderRadius: "var(--radius-4)",
+          ...style,
+        }}
+        {...props}
+      />
+    </Box>
   ) : null;

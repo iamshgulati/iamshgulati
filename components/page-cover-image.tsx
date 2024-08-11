@@ -1,8 +1,6 @@
 import React from "react";
 import { AspectRatio, Skeleton } from "@radix-ui/themes";
 
-import { Img } from "./mdx/img";
-
 type PageCoverImageProps = {
   src?: string;
   alt?: string;
@@ -15,7 +13,8 @@ export const PageCoverImage = ({
   src ? (
     <Skeleton loading={true}>
       <AspectRatio asChild ratio={16 / 9}>
-        <Img
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={src}
           alt={alt}
           style={{
@@ -26,6 +25,7 @@ export const PageCoverImage = ({
             height: "100%",
             backgroundColor: "var(--gray-3)",
             boxShadow: "0 0 0 1px var(--gray-3)",
+            borderRadius: "var(--radius-4)",
           }}
         />
       </AspectRatio>
