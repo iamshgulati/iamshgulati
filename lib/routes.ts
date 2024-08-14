@@ -113,11 +113,6 @@ export const staticRoutes: StaticRoutes = {
         icon: "LinkedInLogoIcon",
       },
       {
-        title: "Twitter",
-        slug: siteConfig.links.twitter,
-        icon: "TwitterLogoIcon",
-      },
-      {
         title: "Bluesky",
         slug: siteConfig.links.bluesky,
         icon: "BlueskyLogoIcon",
@@ -126,6 +121,11 @@ export const staticRoutes: StaticRoutes = {
         title: "Mastodon",
         slug: siteConfig.links.mastodon,
         icon: "MastodonLogoIcon",
+      },
+      {
+        title: "Twitter",
+        slug: siteConfig.links.twitter,
+        icon: "TwitterLogoIcon",
       },
     ],
   },
