@@ -9,7 +9,4 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "files.associations": {
-    "*.css": "css"
-  }
 }
