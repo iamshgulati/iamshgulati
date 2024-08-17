@@ -18,47 +18,47 @@ import { P } from "~/components/mdx/p";
 import { PreWithCopyButton } from "~/components/mdx/pre-with-copy-button";
 import { Strong } from "~/components/mdx/strong";
 import {
-  TableBody,
-  TableCell,
-  TableColumnHeaderCell,
-  TableHeader,
-  TableRoot,
-  TableRow,
+	TableBody,
+	TableCell,
+	TableColumnHeaderCell,
+	TableHeader,
+	TableRoot,
+	TableRow,
 } from "~/components/mdx/table";
 import { Ul } from "~/components/mdx/ul";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
-  const themesComponents = {};
+	const themesComponents = {};
 
-  const customComponents = {};
+	const customComponents = {};
 
-  return {
-    h1: H1,
-    h2: H2,
-    h3: H3,
-    h4: H4,
-    h5: H5,
-    h6: H6,
-    p: P,
-    a: A,
-    hr: Hr,
-    ul: Ul,
-    ol: Ol,
-    li: Li,
-    em: Em,
-    strong: Strong,
-    img: Img,
-    blockquote: Blockquote,
-    pre: PreWithCopyButton,
-    code: Code,
-    table: TableRoot,
-    thead: TableHeader,
-    tbody: TableBody,
-    th: TableColumnHeaderCell,
-    tr: TableRow,
-    td: TableCell,
-    ...components,
-    ...themesComponents,
-    ...customComponents,
-  };
+	return {
+		h1: H1,
+		h2: H2,
+		h3: H3,
+		h4: H4,
+		h5: H5,
+		h6: H6,
+		p: P,
+		a: A,
+		hr: Hr,
+		ul: Ul,
+		ol: Ol,
+		li: Li,
+		em: Em,
+		strong: Strong,
+		img: Img,
+		blockquote: Blockquote,
+		pre: PreWithCopyButton,
+		code: Code,
+		table: TableRoot,
+		thead: TableHeader,
+		tbody: TableBody,
+		th: TableColumnHeaderCell,
+		tr: TableRow,
+		td: TableCell,
+		...components,
+		...themesComponents,
+		...customComponents,
+	};
 }

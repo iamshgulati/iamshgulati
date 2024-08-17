@@ -1,17 +1,17 @@
-import React from "react";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 type ScrollState = "at-top" | "scrolling-down" | "scrolling-up";
 
 type ScrollStateProps = {
-  viewportScrollFactorThreshold?: number;
-  scrollDistanceThreshold?: number;
-  scrollTopThreshold?: number;
+	viewportScrollFactorThreshold?: number;
+	scrollDistanceThreshold?: number;
+	scrollTopThreshold?: number;
 };
 
 type ScrollStateOutput = {
-  scrolled: boolean;
-  scrollState: ScrollState;
+	scrolled: boolean;
+	scrollState: ScrollState;
 };
 
 /**
@@ -24,64 +24,58 @@ type ScrollStateOutput = {
  * @returns {scrolState} Returns the current scroll direction: "at-top", "scrolling-up", or "scrolling-down".
  */
 export function useScrollState({
-  viewportScrollFactorThreshold = 1,
-  scrollDistanceThreshold = 0,
-  scrollTopThreshold = 20,
+	viewportScrollFactorThreshold = 1,
+	scrollDistanceThreshold = 0,
+	scrollTopThreshold = 20,
 }: ScrollStateProps): ScrollStateOutput {
-  const [scrolled, setScrolled] = React.useState<boolean>(false);
-  const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
-  const [previousScrollPosition, setPreviousScrollPosition] =
-    React.useState<number>(0);
-  const pathname = usePathname();
+	const [scrolled, setScrolled] = React.useState<boolean>(false);
+	const [scrollState, setScrollState] = React.useState<ScrollState>("at-top");
+	const [previousScrollPosition, setPreviousScrollPosition] = React.useState<number>(0);
+	const pathname = usePathname();
 
-  const onScroll = React.useCallback(() => {
-    // Track the scroll state relative to top of document
-    setScrolled(document.documentElement.scrollTop >= scrollTopThreshold);
+	const onScroll = React.useCallback(() => {
+		// Track the scroll state relative to top of document
+		setScrolled(document.documentElement.scrollTop >= scrollTopThreshold);
 
-    // Track the scroll direction
-    const totalHeight = document.documentElement.scrollHeight;
-    const viewportHeight = window.innerHeight;
+		// Track the scroll direction
+		const totalHeight = document.documentElement.scrollHeight;
+		const viewportHeight = window.innerHeight;
 
-    const viewportScrollFactor = totalHeight / viewportHeight;
+		const viewportScrollFactor = totalHeight / viewportHeight;
 
-    if (viewportScrollFactor >= viewportScrollFactorThreshold) {
-      const currentScrollPosition = window.scrollY;
+		if (viewportScrollFactor >= viewportScrollFactorThreshold) {
+			const currentScrollPosition = window.scrollY;
 
-      const hasScrolledPastThreshold =
-        Math.abs(currentScrollPosition - previousScrollPosition) >
-        scrollDistanceThreshold;
+			const hasScrolledPastThreshold =
+				Math.abs(currentScrollPosition - previousScrollPosition) > scrollDistanceThreshold;
 
-      if (hasScrolledPastThreshold) {
-        const scrollDirection =
-          previousScrollPosition < currentScrollPosition
-            ? "scrolling-down"
-            : "scrolling-up";
-        const newScrollState =
-          currentScrollPosition <= scrollDistanceThreshold
-            ? "at-top"
-            : scrollDirection;
-        setPreviousScrollPosition(currentScrollPosition);
-        setScrollState(newScrollState);
-      }
-    }
-  }, [
-    previousScrollPosition,
-    scrollDistanceThreshold,
-    scrollTopThreshold,
-    viewportScrollFactorThreshold,
-  ]);
+			if (hasScrolledPastThreshold) {
+				const scrollDirection =
+					previousScrollPosition < currentScrollPosition ? "scrolling-down" : "scrolling-up";
+				const newScrollState =
+					currentScrollPosition <= scrollDistanceThreshold ? "at-top" : scrollDirection;
+				setPreviousScrollPosition(currentScrollPosition);
+				setScrollState(newScrollState);
+			}
+		}
+	}, [
+		previousScrollPosition,
+		scrollDistanceThreshold,
+		scrollTopThreshold,
+		viewportScrollFactorThreshold,
+	]);
 
-  React.useEffect(() => {
-    onScroll();
-    document.addEventListener("scroll", onScroll, { passive: true });
-    return () => document.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+	React.useEffect(() => {
+		onScroll();
+		document.addEventListener("scroll", onScroll, { passive: true });
+		return () => document.removeEventListener("scroll", onScroll);
+	}, [onScroll]);
 
-  React.useEffect(() => {
-    setScrollState("at-top");
-    onScroll();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+	// biome-ignore lint/correctness/useExhaustiveDependencies: need to scroll to top on path change
+	React.useEffect(() => {
+		setScrollState("at-top");
+		onScroll();
+	}, [pathname]);
 
-  return { scrolled, scrollState };
+	return { scrolled, scrollState };
 }

@@ -3,5 +3,4 @@
  * @param {...unknown[]} classNames - An array of values or expressions to evaluate for class names.
  * @returns {string} - Returns a string of concatenated valid class names.
  */
-export const cn = (...classNames: unknown[]): string =>
-  classNames.filter(Boolean).join(" ");
+export const cn = (...classNames: unknown[]): string => classNames.filter(Boolean).join(" ");

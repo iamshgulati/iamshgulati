@@ -1,23 +1,21 @@
 "use client";
 
-import React from "react";
 import { Slot } from "@radix-ui/themes";
+import React from "react";
 
 import { useKeyboardShortcuts } from "~/hooks/useKeyboardShortcuts";
 import { useThemeToggle } from "~/hooks/useThemeToggle";
 
-export const ThemeToggleShell = ({
-  ...props
-}: React.PropsWithChildren): React.JSX.Element => {
-  const { handleThemeToggle } = useThemeToggle();
+export const ThemeToggleShell = ({ ...props }: React.PropsWithChildren): React.JSX.Element => {
+	const { handleThemeToggle } = useThemeToggle();
 
-  useKeyboardShortcuts({
-    handleThemeToggle,
-  });
+	useKeyboardShortcuts({
+		handleThemeToggle,
+	});
 
-  return (
-    <React.Fragment>
-      <Slot onClick={() => handleThemeToggle()} {...props} />
-    </React.Fragment>
-  );
+	return (
+		<React.Fragment>
+			<Slot onClick={() => handleThemeToggle()} {...props} />
+		</React.Fragment>
+	);
 };
