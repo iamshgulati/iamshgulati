@@ -1,5 +1,6 @@
 .light {
   code {
+
     &[data-theme*=" "],
     &[data-theme*=" "] span {
       color: var(--shiki-light);
@@ -10,6 +11,7 @@
 
 .dark {
   code {
+
     &[data-theme*=" "],
     &[data-theme*=" "] span {
       color: var(--shiki-dark);
@@ -19,46 +21,29 @@
 }
 
 [data-rehype-pretty-code-figure=""] {
-  --border: inset 0 0 0 1px var(--accent-a1), inset 0 0 0 1px var(--gray-a5);
-  --line-numbers: var(--gray-8);
-  --faded-lines: var(--gray-a8);
-  --removed: var(--red-11);
-  --added: var(--green-11);
-  --highlighted-line-bg: var(--accent-a3);
-  --highlighted-word-1-bg: var(--accent-a3);
-  --highlighted-word-1-bg-active: var(--accent-6);
-  --highlighted-word-1-text: var(--accent-12);
-  --highlighted-word-2-bg: var(--red-3);
-  --highlighted-word-2-bg-active: var(--red-5);
-  --highlighted-word-2-text: var(--red-11);
-  --highlighted-word-3-bg: var(--green-3);
-  --highlighted-word-3-bg-active: var(--green-5);
-  --highlighted-word-3-text: var(--green-11);
+  & {
+    --border: inset 0 0 0 1px var(--accent-a1), inset 0 0 0 1px var(--gray-a5);
+    --background: var(--accent-a2);
+    --text: var(--gray-12);
+    --line-numbers: var(--gray-8);
+    --highlighted-line-bg: var(--accent-a3);
+  }
 
-  --background: var(--accent-a2);
-  --text: var(--gray-12);
-  --syntax-accent: var(--accent-11);
-  --syntax-accent-subtle: var(--accent-12);
-  --syntax-complementary: var(--red-11);
-  --syntax-secondary: var(--accent-11);
-  --highlighted-line-bg: var(--accent-a3);
-  --highlighted-word-1-bg: var(--accent-a3);
-}
+  & {
+    box-sizing: border-box;
+    border-radius: var(--radius-4);
+    margin: var(--space-5) 0;
+    position: relative;
+    background-color: var(--background);
+    color: var(--text);
+    box-shadow: var(--border);
+  }
 
-[data-rehype-pretty-code-figure=""] {
-  box-sizing: border-box;
-  border-radius: var(--radius-4);
-  margin: var(--space-5) 0;
-  position: relative;
-  background-color: var(--background);
-  color: var(--text);
-  box-shadow: var(--border);
-  
   pre {
     padding: var(--space-3) var(--space-4);
   }
 
-  pre > code {
+  pre>code {
     font-size: calc(var(--font-size-2) * var(--code-font-size-adjust));
     font-family: var(--code-font-family);
     line-height: 22px;
@@ -75,6 +60,7 @@
     &[data-line-numbers] {
       [data-line] {
         padding-left: var(--space-5);
+
         &::before {
           content: counter(line);
           counter-increment: line;
@@ -89,15 +75,15 @@
       }
     }
 
-    &[data-line-numbers-max-digits="1"] > [data-line]::before {
+    &[data-line-numbers-max-digits="1"]>[data-line]::before {
       width: 0.6rem;
     }
 
-    &[data-line-numbers-max-digits="2"] > [data-line]::before {
+    &[data-line-numbers-max-digits="2"]>[data-line]::before {
       width: 0.8rem;
     }
 
-    &[data-line-numbers-max-digits="3"] > [data-line]::before {
+    &[data-line-numbers-max-digits="3"]>[data-line]::before {
       width: 1rem;
     }
   }
@@ -123,18 +109,18 @@
   &:has(> [data-rehype-pretty-code-title]) pre {
     padding-top: var(--space-3);
   }
-  
+
   [data-rehype-pretty-code-title] {
     padding-top: var(--space-4);
     padding-left: var(--space-5);
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-medium);
   }
-  
+
   &:has(> [data-rehype-pretty-code-caption]) pre {
     padding-bottom: var(--space-3);
   }
-  
+
   [data-rehype-pretty-code-caption] {
     padding-bottom: var(--space-4);
     padding-left: var(--space-5);

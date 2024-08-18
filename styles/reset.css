@@ -19,25 +19,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-svg {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: visible;
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: stable;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 pre {
   margin: 0;
 }
 
-/*
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
-*/
-
-p {
-  text-wrap: pretty;
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
 }
