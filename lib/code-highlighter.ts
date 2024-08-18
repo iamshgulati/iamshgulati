@@ -1,7 +1,7 @@
-import type { BundledLanguage, Highlighter } from "shikiji";
-import { getHighlighter } from "shikiji";
+import type { BundledLanguage, Highlighter } from "shiki";
+import { getSingletonHighlighter } from "shiki";
 
-const highlighter: Highlighter = await getHighlighter({
+const highlighter: Highlighter = await getSingletonHighlighter({
 	themes: ["github-dark", "github-light"],
 });
 

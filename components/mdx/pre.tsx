@@ -1,8 +1,6 @@
-import { Box } from "@radix-ui/themes";
+import { Box, ScrollArea } from "@radix-ui/themes";
 import React from "react";
 
-import { cn } from "~/lib/classnames";
-import styles from "./pre.module.css";
 
 type PreProps = React.PropsWithChildren<
 	Omit<React.ComponentPropsWithoutRef<typeof Box>, "as"> & React.ComponentPropsWithoutRef<"pre">
@@ -13,12 +11,12 @@ export const Pre = React.forwardRef<HTMLPreElement, PreProps>(function Pre(
 	forwardedRef,
 ): React.JSX.Element {
 	return (
-		<Box asChild {...props}>
-			<pre ref={forwardedRef} className={cn(styles.Pre, className, "shiki")}>
-				{/* <ScrollArea size="1" type="scroll"> */}
-				{children}
-				{/* </ScrollArea> */}
-			</pre>
-		</Box>
+		<ScrollArea>
+			<Box asChild {...props}>
+				<pre ref={forwardedRef} className={className}>
+					{children}
+				</pre>
+			</Box>
+		</ScrollArea>
 	);
 });

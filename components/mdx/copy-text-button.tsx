@@ -36,15 +36,8 @@ export const CopyTextButton = ({
 				copyToClipboard(textToCopy ?? "");
 				setCopied(true);
 			}}
-			mt="3"
-			mr="3"
 			color="gray"
 			variant="soft"
-			style={{
-				position: "absolute",
-				top: "0",
-				right: "0",
-			}}
 			{...props}
 		>
 			{copied ? <CheckIcon /> : <ClipboardIcon />}
