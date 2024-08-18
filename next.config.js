@@ -5,6 +5,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import remarkSmartypants from "remark-smartypants";
+import remarkMdxEvalCodeBlock from "./lib/remarkMdxEvalCodeBlock.js";
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -45,6 +46,7 @@ const mdxConfig = {
 			remarkFrontmatter,
 			[remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
 			remarkSmartypants,
+			remarkMdxEvalCodeBlock,
 		],
 		rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
 	},
