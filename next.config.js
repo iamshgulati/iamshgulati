@@ -4,6 +4,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkSmartypants from "remark-smartypants";
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -43,6 +44,7 @@ const mdxConfig = {
 			remarkGfm,
 			remarkFrontmatter,
 			[remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
+			remarkSmartypants
 		],
 		rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
 	},

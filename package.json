@@ -50,7 +50,9 @@
 		"remark-frontmatter": "^5.0.0",
 		"remark-gfm": "^4.0.0",
 		"remark-mdx-frontmatter": "^5.0.0",
+		"remark-smartypants": "^3.0.2",
 		"shiki": "^1.13.0",
+		"smartypants": "^0.2.2",
 		"typescript": "^5.5.3",
 		"ws": "^8.18.0"
 	},
