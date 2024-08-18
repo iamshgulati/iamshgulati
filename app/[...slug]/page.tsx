@@ -9,7 +9,7 @@ import { PageMetaText } from "~/components/page-meta-text";
 import { PageTitleAndDescription } from "~/components/page-title-and-description";
 import { siteConfig } from "~/config/site";
 import { ogImageApi } from "~/lib/api";
-import { getAllFrontmatter } from "~/lib/mdx";
+import { frontmatters } from "~/lib/mdx";
 import { getBaseUrl } from "~/lib/url";
 import type { Frontmatter } from "~/types/frontmatter";
 
@@ -20,10 +20,10 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata | undefined> {
-	const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
+	const pages: Frontmatter[] = await frontmatters({});
 
-	const page: Frontmatter | undefined = allFrontmatter.find(
-		(page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
+	const page: Frontmatter | undefined = pages.find(
+		(page: Frontmatter) => page.slug === params.slug.join("/"),
 	);
 
 	if (!page) {
@@ -66,18 +66,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata 
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-	const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
-
-	return allFrontmatter.map((page) => ({
-		slug: page.slugAsParams?.split("/") ?? [],
+	const pages: Frontmatter[] = await frontmatters({});
+	return pages.map((page) => ({
+		slug: page.slug?.split("/") ?? [],
 	}));
 }
 
 export default async function MDXPage({ params }: PageProps) {
-	const allFrontmatter: Frontmatter[] = await getAllFrontmatter({});
+	const pages: Frontmatter[] = await frontmatters({});
 
-	const page: Frontmatter | undefined = allFrontmatter.find(
-		(page: Frontmatter) => page.slugAsParams === params.slug.join("/"),
+	const page: Frontmatter | undefined = pages.find(
+		(page: Frontmatter) => page.slug === params.slug.join("/"),
 	);
 
 	if (!page) {
@@ -85,7 +84,7 @@ export default async function MDXPage({ params }: PageProps) {
 	}
 
 	const MDXComponent: React.ComponentType = dynamic(
-		() => import(`../../public/${page.slugAsParams}/index.mdx`),
+		() => import(`../../public/${page.slug}/index.mdx`),
 	);
 
 	return (

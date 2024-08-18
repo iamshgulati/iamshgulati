@@ -33,8 +33,8 @@ const remarkMdxFrontmatterOptions = {
 
 /** @type {import("rehype-pretty-code").Options} */
 const rehypePrettyCodeOptions = {
-  theme: { dark: "github-dark", light: "github-light" },
-  keepBackground: false,
+	theme: { dark: "github-dark", light: "github-light" },
+	keepBackground: false,
 };
 
 /** @type {import('@next/mdx').NextMDXOptions} */
@@ -44,7 +44,7 @@ const mdxConfig = {
 			remarkGfm,
 			remarkFrontmatter,
 			[remarkMdxFrontmatter, remarkMdxFrontmatterOptions],
-			remarkSmartypants
+			remarkSmartypants,
 		],
 		rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
 	},

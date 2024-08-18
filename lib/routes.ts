@@ -1,6 +1,6 @@
 import { siteConfig } from "~/config/site";
 import type { Frontmatter } from "~/types/frontmatter";
-import { getAllFrontmatter } from "./mdx";
+import { frontmatters } from "./mdx";
 
 export type Route = {
 	slug: string;
@@ -159,7 +159,7 @@ export const dynamicRoutes: DynamicRoutes = {
 	blog: {
 		...staticRoutes.blog,
 		pages: [
-			...(await getAllFrontmatter({ contentDir: "/blog" })).map((page: Frontmatter) => {
+			...(await frontmatters({ contentDir: "blog" })).map((page: Frontmatter) => {
 				page.icon = "FileTextIcon";
 				return page;
 			}),
@@ -169,7 +169,7 @@ export const dynamicRoutes: DynamicRoutes = {
 	private: {
 		...staticRoutes.private,
 		pages: [
-			...(await getAllFrontmatter({ contentDir: "/private" })).map((page: Frontmatter) => {
+			...(await frontmatters({ contentDir: "private" })).map((page: Frontmatter) => {
 				page.icon = "FileTextIcon";
 				return page;
 			}),
@@ -179,7 +179,7 @@ export const dynamicRoutes: DynamicRoutes = {
 	projects: {
 		...staticRoutes.projects,
 		pages: [
-			...(await getAllFrontmatter({ contentDir: "/projects" })).map((page: Frontmatter) => {
+			...(await frontmatters({ contentDir: "projects" })).map((page: Frontmatter) => {
 				page.icon = "CubeIcon";
 				return page;
 			}),

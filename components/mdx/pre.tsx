@@ -1,7 +1,6 @@
 import { Box, ScrollArea } from "@radix-ui/themes";
 import React from "react";
 
-
 type PreProps = React.PropsWithChildren<
 	Omit<React.ComponentPropsWithoutRef<typeof Box>, "as"> & React.ComponentPropsWithoutRef<"pre">
 >;
