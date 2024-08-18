@@ -5,7 +5,7 @@ image: "https://images.unsplash.com/photo-1634634465913-5bb5600942f2?ixlib=rb-4.
 publishedAt: "2023-11-29"
 ---
 
-import { Quote, Text } from "@radix-ui/themes";
+import { Quote, Text } from "./components";
 
 I love the idea behind [RadixUI Themes](https://www.radix-ui.com/themes).
 
@@ -25,9 +25,11 @@ It is bad in so many ways. Adds a bunch of maintenance debt which will
 eventually be the reason I stop using the dependency in my next annual
 website design refresh. But, I don't like to obsess too much on just reaching the end goal.
 
+```jsx eval
 <Text as="p" size="4" mt="6" mb="6">
   <Quote>The process of how you reach there is just as important.</Quote>
 </Text>
+```
 
 So, I am still exploring ways to get this done _more elegantly_ without having
 to clone a bunch of code within my monorepo. If you have any ideas, do [reach out](/contact) to discuss. Any help is appreciated.

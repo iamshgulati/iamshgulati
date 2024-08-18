@@ -4,13 +4,21 @@ import { Button, Flex, Grid, Text } from "@radix-ui/themes";
 import { siteConfig } from "~/config/site";
 
 export { Badge, Flex, Text } from "@radix-ui/themes";
+export { Image } from "~/components/image";
 export { BadgeWithIndicator } from "~/components/mdx/badge-with-indicator";
 export { HStack, VStack } from "~/components/mdx/stacks";
 
 export const CeritificationBadgesGrid = ({
 	...props
 }: React.ComponentPropsWithoutRef<typeof Grid>): React.JSX.Element => (
-	<Grid align="center" columns={{ initial: "3", xs: "5" }} gap="5" pt="3" {...props} />
+	<Grid
+		align="center"
+		columns={{ initial: "3", xs: "5" }}
+		rows="repeat(auto, minmax(125px, auto))"
+		gap="5"
+		my="7"
+		{...props}
+	/>
 );
 
 export const ResumeButton = () => (

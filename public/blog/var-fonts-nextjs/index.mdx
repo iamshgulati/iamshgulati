@@ -5,7 +5,7 @@ image: "https://images.unsplash.com/photo-1528697527937-e07340cb04cb?ixlib=rb-4.
 publishedAt: "2023-12-03"
 ---
 
-import { Callout } from "~/components/mdx/callout";
+import { Callout } from "./components";
 
 Next.js has a font module load local and google fonts but their documentation isn't clear on how to load **variable local fonts** properly.
 
@@ -37,12 +37,13 @@ export const fontSans = localFont({
 });
 ```
 
-{<Callout>
+```jsx eval
+<Callout>
 Setting the <code>{`weight: "100 900"`}</code> was important here. This is
 not documented clearly in Next.js documentation, and without it all my
 font weights were being synthesized from single regular weight.
-
-</Callout>}
+</Callout>
+```
 
 From here, the documentation is pretty clear. You just add `fontSans.variable` to `className` on `body` tag, prepend `var(--font-sans)` to your `font-family` and you are set.
 

@@ -6,7 +6,7 @@
 .HeaderRoot {
   height: var(--header-height);
 
-  & > .HeaderInner {
+  &>.HeaderInner {
     position: relative;
     z-index: 1;
     inset: 0;
@@ -23,7 +23,7 @@
    * Keeps the header on top of the page.
    */
   &.sticky {
-    & > .HeaderInner {
+    &>.HeaderInner {
       position: fixed;
       background-color: var(--color-background);
       box-shadow: 0 1px var(--gray-a4);
@@ -41,11 +41,12 @@
      * Uses the state with a scrollDelay.
      */
     &.autoHide {
-      &:not([data-delayed-scroll-state="scrolling-down"]) > .HeaderInner {
+      &:not([data-delayed-scroll-state="scrolling-down"])>.HeaderInner {
         transform: translateY(0);
         transition: transform 200ms ease-out;
       }
-      &[data-delayed-scroll-state="scrolling-down"] > .HeaderInner {
+
+      &[data-delayed-scroll-state="scrolling-down"]>.HeaderInner {
         transform: translateY(-110%);
         transition: transform 400ms ease-out;
       }
@@ -58,12 +59,12 @@
      */
     &.ghost {
       &[data-scroll-state="at-top"] {
-        & > .HeaderInner {
+        &>.HeaderInner {
           background-color: transparent;
           box-shadow: 0 1px transparent;
         }
 
-        & > .HeaderInner::before {
+        &>.HeaderInner::before {
           background-color: transparent;
           transition: background-color 180ms;
           backdrop-filter: none;
@@ -72,7 +73,7 @@
       }
 
       &:not([data-scroll-state="at-top"]) {
-        & > .HeaderInner {
+        &>.HeaderInner {
           background-color: var(--color-background);
           box-shadow: 0 1px var(--gray-a4);
         }
@@ -81,16 +82,14 @@
          * When header has both .ghost and .backdrop then remove background
          * from parent and add background color to child pseudo class.
          */
-        &.backdrop > .HeaderInner {
+        &.backdrop>.HeaderInner {
           background-color: transparent;
         }
 
         /* Adds alpha to background color and use panel translucent as fallback. */
-        &.backdrop > .HeaderInner::before {
-          background-color: var(--color-panel-translucent);
-          @supports (color: rgb(from white r g b)) {
-            background-color: rgb(from var(--color-background) r g b / 0.5);
-          }
+        &.backdrop>.HeaderInner::before {
+          /* background-color: var(--color-panel-translucent); */
+          background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
         }
       }
     }
@@ -99,7 +98,7 @@
      * Adds background color and backdrop filters to pseudo class.
      */
     &.backdrop {
-      & > .HeaderInner::before {
+      &>.HeaderInner::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -115,22 +114,18 @@
       }
 
       /* Adds extended linear-gradient mask image. */
-      &.extendBackdrop > .HeaderInner::before {
+      &.extendBackdrop>.HeaderInner::before {
         --extended-by: 8rem;
         bottom: calc(-1 * var(--extended-by));
         --cutoff: calc(100% - var(--extended-by));
-        mask-image: linear-gradient(
-          to bottom,
-          black 0,
-          black var(--cutoff),
-          transparent var(--cutoff)
-        );
-        -webkit-mask-image: linear-gradient(
-          to bottom,
-          black 0,
-          black var(--cutoff),
-          transparent var(--cutoff)
-        );
+        mask-image: linear-gradient(to bottom,
+            black 0,
+            black var(--cutoff),
+            transparent var(--cutoff));
+        -webkit-mask-image: linear-gradient(to bottom,
+            black 0,
+            black var(--cutoff),
+            transparent var(--cutoff));
       }
 
       /* 
@@ -140,15 +135,13 @@
        */
       &:not(.ghost) {
         &[data-scroll-state] {
-          & > .HeaderInner {
+          &>.HeaderInner {
             background-color: transparent;
           }
 
-          & > .HeaderInner::before {
-            background-color: var(--color-panel-translucent);
-            @supports (color: rgb(from white r g b)) {
-              background-color: rgb(from var(--color-background) r g b / 0.5);
-            }
+          &>.HeaderInner::before {
+            /* background-color: var(--color-panel-translucent); */
+            background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
           }
         }
       }
@@ -239,6 +232,7 @@
     }
 
     &[data-state="active"] {
+
       .HeaderMainNavLinkInner,
       .HeaderMainNavLinkInnerHidden {
         padding-left: var(--space-2);
@@ -250,6 +244,7 @@
       &:hover .HeaderMainNavLinkInner {
         background-color: var(--gray-a3);
       }
+
       &:focus-visible:where(:hover) .HeaderMainNavLinkInner {
         background-color: var(--accent-a3);
       }

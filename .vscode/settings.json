@@ -11,6 +11,9 @@
 	"[css]": {
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
+	"[mdx]": {
+		"editor.defaultFormatter": "unifiedjs.vscode-mdx"
+	},
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit",
