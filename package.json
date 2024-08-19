@@ -14,7 +14,7 @@
 		"lint:fix": "biome lint . --write",
 		"format": "biome check .",
 		"format:fix": "biome check . --write",
-		"serve": "pnpm dlx serve@latest out",
+		"preview": "pnpm dlx serve@latest out",
 		"deploy": "gh-pages --dist out --nojekyll",
 		"watch": "jiti ./scripts/watcher.ts",
 		"clean": "git clean -xdf node_modules dist out .next"
