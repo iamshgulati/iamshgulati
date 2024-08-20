@@ -9,7 +9,7 @@
 		"build": "next build",
 		"start": "next start",
 		"analyze": "ANALYZE=true next build",
-		"typecheck": "tsc --noEmit",
+		"check": "tsc --noEmit",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint . --write",
 		"format": "biome check .",

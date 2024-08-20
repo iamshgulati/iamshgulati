@@ -1,6 +1,5 @@
 import type { Icons } from "~/components/icons";
 
-// TODO: Pick a better name for "type"
 export type Frontmatter = {
 	slug: string;
 	title: string;
@@ -9,7 +8,7 @@ export type Frontmatter = {
 	category?: string;
 	tags?: string[];
 	image?: string;
-	type?: "page" | "entry";
+	type?: "website" | "article";
 	disabled?: boolean;
 	icon?: keyof typeof Icons;
 	sourceCodeLink?: string;

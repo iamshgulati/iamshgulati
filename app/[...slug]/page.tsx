@@ -90,7 +90,7 @@ export default async function MDXPage({ params }: PageProps) {
 	return (
 		<React.Fragment>
 			{/* TODO: Pick a better name for "type" */}
-			{page.type !== "page" && (
+			{page.type !== "website" && (
 				<Box position="absolute">
 					<PageMetaText publishedAt={page.publishedAt} />
 				</Box>
