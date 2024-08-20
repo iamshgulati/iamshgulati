@@ -1,26 +1,26 @@
 @media (min-width: 1024px) {
-  .HeroHeadingContainer {
-    grid-row: 1;
-    grid-column: 1 / 4;
-  }
+	.HeroHeadingContainer {
+		grid-row: 1;
+		grid-column: 1 / 4;
+	}
 
-  .HeroCTADescriptionContainer {
-    grid-row: 2;
-    grid-column: 1 / 2;
-  }
+	.HeroCTADescriptionContainer {
+		grid-row: 2;
+		grid-column: 1 / 2;
+	}
 
-  .HeroPastExperienceContainer {
-    grid-row: 2;
-    grid-column: 2 / 4;
-  }
+	.HeroPastExperienceContainer {
+		grid-row: 2;
+		grid-column: 2 / 4;
+	}
 
-  .HeroCTAButtonsContainer {
-    grid-row: 3;
-    grid-column: 1 / 2;
-  }
+	.HeroCTAButtonsContainer {
+		grid-row: 3;
+		grid-column: 1 / 2;
+	}
 
-  .HeroCurrentlyContainer {
-    grid-row: 3;
-    grid-column: 2 / 4;
-  }
+	.HeroCurrentlyContainer {
+		grid-row: 3;
+		grid-column: 2 / 4;
+	}
 }

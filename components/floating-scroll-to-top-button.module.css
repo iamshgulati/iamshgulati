@@ -1,16 +1,16 @@
 .FloatingScrollToTopButtonContainer {
-  position: fixed;
-  bottom: 40px;
-  right: 24px;
-  z-index: 10;
-  opacity: 0;
-  transform: translateY(110%);
-  transition:
-    opacity 500ms ease,
-    transform 500ms ease;
+	position: fixed;
+	bottom: 40px;
+	right: 24px;
+	z-index: 10;
+	opacity: 0;
+	transform: translateY(110%);
+	transition:
+		opacity 500ms ease,
+		transform 500ms ease;
 
-  &[data-scrolled-state="true"] {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	&[data-scrolled-state="true"] {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

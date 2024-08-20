@@ -4,269 +4,272 @@
  */
 
 .HeaderRoot {
-  height: var(--header-height);
+	height: var(--header-height);
 
-  &>.HeaderInner {
-    position: relative;
-    z-index: 1;
-    inset: 0;
-    height: inherit;
-    user-select: none;
-    -webkit-user-select: none;
-    box-shadow: 0 1px transparent;
-    transition:
-      background-color 180ms,
-      box-shadow 180ms;
-  }
+	& > .HeaderInner {
+		position: relative;
+		z-index: 1;
+		inset: 0;
+		height: inherit;
+		user-select: none;
+		-webkit-user-select: none;
+		box-shadow: 0 1px transparent;
+		transition:
+			background-color 180ms,
+			box-shadow 180ms;
+	}
 
-  /*
+	/*
    * Keeps the header on top of the page.
    */
-  &.sticky {
-    &>.HeaderInner {
-      position: fixed;
-      background-color: var(--color-background);
-      box-shadow: 0 1px var(--gray-a4);
+	&.sticky {
+		& > .HeaderInner {
+			position: fixed;
+			background-color: var(--color-background);
+			box-shadow: 0 1px var(--gray-a4);
 
-      &:not([data-scroll-state="at-top"]) {
-        transition:
-          background-color 30ms,
-          box-shadow 120ms;
-      }
-    }
+			&:not([data-scroll-state="at-top"]) {
+				transition:
+					background-color 30ms,
+					box-shadow 120ms;
+			}
+		}
 
-    /*
+		/*
      * Automatically hides the header when user is scrolling down
      * and shows it when user is not scrolling down.
      * Uses the state with a scrollDelay.
      */
-    &.autoHide {
-      &:not([data-delayed-scroll-state="scrolling-down"])>.HeaderInner {
-        transform: translateY(0);
-        transition: transform 200ms ease-out;
-      }
+		&.autoHide {
+			&:not([data-delayed-scroll-state="scrolling-down"]) > .HeaderInner {
+				transform: translateY(0);
+				transition: transform 200ms ease-out;
+			}
 
-      &[data-delayed-scroll-state="scrolling-down"]>.HeaderInner {
-        transform: translateY(-110%);
-        transition: transform 400ms ease-out;
-      }
-    }
+			&[data-delayed-scroll-state="scrolling-down"] > .HeaderInner {
+				transform: translateY(-110%);
+				transition: transform 400ms ease-out;
+			}
+		}
 
-    /*
+		/*
      * Changes background color and box-shadow to
      * transparent when user is at the top of the page.
      * Uses the state without scrollDelay.
      */
-    &.ghost {
-      &[data-scroll-state="at-top"] {
-        &>.HeaderInner {
-          background-color: transparent;
-          box-shadow: 0 1px transparent;
-        }
+		&.ghost {
+			&[data-scroll-state="at-top"] {
+				& > .HeaderInner {
+					background-color: transparent;
+					box-shadow: 0 1px transparent;
+				}
 
-        &>.HeaderInner::before {
-          background-color: transparent;
-          transition: background-color 180ms;
-          backdrop-filter: none;
-          -webkit-backdrop-filter: none;
-        }
-      }
+				& > .HeaderInner::before {
+					background-color: transparent;
+					transition: background-color 180ms;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+				}
+			}
 
-      &:not([data-scroll-state="at-top"]) {
-        &>.HeaderInner {
-          background-color: var(--color-background);
-          box-shadow: 0 1px var(--gray-a4);
-        }
+			&:not([data-scroll-state="at-top"]) {
+				& > .HeaderInner {
+					background-color: var(--color-background);
+					box-shadow: 0 1px var(--gray-a4);
+				}
 
-        /*
+				/*
          * When header has both .ghost and .backdrop then remove background
          * from parent and add background color to child pseudo class.
          */
-        &.backdrop>.HeaderInner {
-          background-color: transparent;
-        }
+				&.backdrop > .HeaderInner {
+					background-color: transparent;
+				}
 
-        /* Adds alpha to background color and use panel translucent as fallback. */
-        &.backdrop>.HeaderInner::before {
-          /* background-color: var(--color-panel-translucent); */
-          background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
-        }
-      }
-    }
+				/* Adds alpha to background color and use panel translucent as fallback. */
+				&.backdrop > .HeaderInner::before {
+					/* background-color: var(--color-panel-translucent); */
+					background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
+				}
+			}
+		}
 
-    /*
+		/*
      * Adds background color and backdrop filters to pseudo class.
      */
-    &.backdrop {
-      &>.HeaderInner::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        background-color: transparent;
+		&.backdrop {
+			& > .HeaderInner::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				pointer-events: none;
+				background-color: transparent;
 
-        /* Backdrop filters */
-        --blur: 20px;
-        --saturate: 1.8;
-        backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-        -webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
-      }
+				/* Backdrop filters */
+				--blur: 20px;
+				--saturate: 1.8;
+				backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+				-webkit-backdrop-filter: blur(var(--blur)) saturate(var(--saturate));
+			}
 
-      /* Adds extended linear-gradient mask image. */
-      &.extendBackdrop>.HeaderInner::before {
-        --extended-by: 8rem;
-        bottom: calc(-1 * var(--extended-by));
-        --cutoff: calc(100% - var(--extended-by));
-        mask-image: linear-gradient(to bottom,
-            black 0,
-            black var(--cutoff),
-            transparent var(--cutoff));
-        -webkit-mask-image: linear-gradient(to bottom,
-            black 0,
-            black var(--cutoff),
-            transparent var(--cutoff));
-      }
+			/* Adds extended linear-gradient mask image. */
+			&.extendBackdrop > .HeaderInner::before {
+				--extended-by: 8rem;
+				bottom: calc(-1 * var(--extended-by));
+				--cutoff: calc(100% - var(--extended-by));
+				mask-image: linear-gradient(
+					to bottom,
+					black 0,
+					black var(--cutoff),
+					transparent var(--cutoff)
+				);
+				-webkit-mask-image: linear-gradient(
+					to bottom,
+					black 0,
+					black var(--cutoff),
+					transparent var(--cutoff)
+				);
+			}
 
-      /* 
+			/* 
        * Sets the background color when it is not set by .ghost.
        * Adds alpha to background color and use panel translucent as fallback.
        * &[data-scroll-state] is required so that backdrop rules take precedence.
        */
-      &:not(.ghost) {
-        &[data-scroll-state] {
-          &>.HeaderInner {
-            background-color: transparent;
-          }
+			&:not(.ghost) {
+				&[data-scroll-state] {
+					& > .HeaderInner {
+						background-color: transparent;
+					}
 
-          &>.HeaderInner::before {
-            /* background-color: var(--color-panel-translucent); */
-            background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
-          }
-        }
-      }
-    }
-  }
+					& > .HeaderInner::before {
+						/* background-color: var(--color-panel-translucent); */
+						background-color: color-mix(in oklab, var(--color-background), var(--gray-a1) 50%);
+					}
+				}
+			}
+		}
+	}
 
-  /*
+	/*
    * HeaderContainer
    */
-  .HeaderContainer {
-    position: relative;
-    height: inherit;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
+	.HeaderContainer {
+		position: relative;
+		height: inherit;
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+	}
 
-  /*
+	/*
    * HeaderMainNavContainer
    */
-  .HeaderMainNavContainer {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+	.HeaderMainNavContainer {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
-  .HeaderMainNavLink {
-    cursor: var(--cursor-link);
-    box-sizing: border-box;
-    flex-shrink: 0;
-    font-size: var(--font-size-2);
-    line-height: 16px;
-    letter-spacing: var(--letter-spacing-2);
-    position: relative;
-    color: var(--gray-a11);
-    outline: 0;
+	.HeaderMainNavLink {
+		cursor: var(--cursor-link);
+		box-sizing: border-box;
+		flex-shrink: 0;
+		font-size: var(--font-size-2);
+		line-height: 16px;
+		letter-spacing: var(--letter-spacing-2);
+		position: relative;
+		color: var(--gray-a11);
+		outline: 0;
 
-    @media (max-width: 369px) {
-      font-size: 13px;
-    }
+		@media (max-width: 369px) {
+			font-size: 13px;
+		}
 
-    padding-left: var(--space-1);
-    padding-right: var(--space-1);
+		padding-left: var(--space-1);
+		padding-right: var(--space-1);
 
-    @media (hover: hover) {
-      &:hover {
-        color: var(--gray-12);
-      }
-    }
+		@media (hover: hover) {
+			&:hover {
+				color: var(--gray-12);
+			}
+		}
 
-    &:focus-visible {
-      color: var(--gray-12);
-    }
+		&:focus-visible {
+			color: var(--gray-12);
+		}
 
-    &[data-state="active"] {
-      color: var(--color-background);
-      padding-left: var(--space-1);
-      padding-right: var(--space-1);
-    }
+		&[data-state="active"] {
+			color: var(--color-background);
+			padding-left: var(--space-1);
+			padding-right: var(--space-1);
+		}
 
-    .HeaderMainNavLinkInner,
-    .HeaderMainNavLinkInnerHidden {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-1);
-      border-radius: var(--radius-2);
+		.HeaderMainNavLinkInner,
+		.HeaderMainNavLinkInnerHidden {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: var(--space-1);
+			border-radius: var(--radius-2);
 
-      @media (min-width: 370px) {
-        padding-left: var(--space-2);
-        padding-right: var(--space-2);
-      }
-    }
+			@media (min-width: 370px) {
+				padding-left: var(--space-2);
+				padding-right: var(--space-2);
+			}
+		}
 
-    .HeaderMainNavLinkInner {
-      position: absolute;
-      letter-spacing: 0.01em;
-    }
+		.HeaderMainNavLinkInner {
+			position: absolute;
+			letter-spacing: 0.01em;
+		}
 
-    .HeaderMainNavLinkInnerHidden {
-      visibility: hidden;
-      font-weight: bold;
-      letter-spacing: -0.01em;
-    }
+		.HeaderMainNavLinkInnerHidden {
+			visibility: hidden;
+			font-weight: bold;
+			letter-spacing: -0.01em;
+		}
 
-    &[data-state="active"] {
+		&[data-state="active"] {
+			.HeaderMainNavLinkInner,
+			.HeaderMainNavLinkInnerHidden {
+				padding-left: var(--space-2);
+				padding-right: var(--space-2);
+			}
+		}
 
-      .HeaderMainNavLinkInner,
-      .HeaderMainNavLinkInnerHidden {
-        padding-left: var(--space-2);
-        padding-right: var(--space-2);
-      }
-    }
+		@media (hover: hover) {
+			&:hover .HeaderMainNavLinkInner {
+				background-color: var(--gray-a3);
+			}
 
-    @media (hover: hover) {
-      &:hover .HeaderMainNavLinkInner {
-        background-color: var(--gray-a3);
-      }
+			&:focus-visible:where(:hover) .HeaderMainNavLinkInner {
+				background-color: var(--accent-a3);
+			}
+		}
 
-      &:focus-visible:where(:hover) .HeaderMainNavLinkInner {
-        background-color: var(--accent-a3);
-      }
-    }
+		&:focus-visible .HeaderMainNavLinkInner {
+			box-shadow: 0 0 0 2px var(--accent-a8);
+		}
 
-    &:focus-visible .HeaderMainNavLinkInner {
-      box-shadow: 0 0 0 2px var(--accent-a8);
-    }
+		&[data-state="active"] {
+			.HeaderMainNavLinkInner {
+				font-weight: bold;
+				letter-spacing: -0.01em;
+				background-color: var(--gray-12);
+			}
 
-    &[data-state="active"] {
-      .HeaderMainNavLinkInner {
-        font-weight: bold;
-        letter-spacing: -0.01em;
-        background-color: var(--gray-12);
-      }
-
-      &::before {
-        content: "";
-        box-sizing: border-box;
-        position: absolute;
-        inset: 0;
-      }
-    }
-  }
+			&::before {
+				content: "";
+				box-sizing: border-box;
+				position: absolute;
+				inset: 0;
+			}
+		}
+	}
 }

@@ -1,13 +1,13 @@
 .radix-themes {
-  & {
-    --default-font-family: var(--font-sans);
-    --code-font-family: var(--font-mono);
-  }
+	& {
+		--default-font-family: var(--font-sans);
+		--code-font-family: var(--font-mono);
+	}
 
-  & {
-    --font-weight-light: 250;
-    --font-weight-regular: 350;
-    --font-weight-medium: 550;
-    --font-weight-bold: 750;
-  }
+	& {
+		--font-weight-light: 250;
+		--font-weight-regular: 350;
+		--font-weight-medium: 550;
+		--font-weight-bold: 750;
+	}
 }

@@ -4,25 +4,25 @@
 @import "reset.css";
 
 :root {
-  --header-height: 52px;
-  --docs-page-max-width: 858px;
+	--header-height: 52px;
+	--docs-page-max-width: 858px;
 }
 
 :root,
 .light:not(.system) {
-  --light-theme-icon-display: block;
-  --dark-theme-icon-display: none;
-  --system-theme-icon-display: none;
+	--light-theme-icon-display: block;
+	--dark-theme-icon-display: none;
+	--system-theme-icon-display: none;
 }
 
 .dark:not(.system) {
-  --light-theme-icon-display: none;
-  --dark-theme-icon-display: block;
-  --system-theme-icon-display: none;
+	--light-theme-icon-display: none;
+	--dark-theme-icon-display: block;
+	--system-theme-icon-display: none;
 }
 
 .system {
-  --light-theme-icon-display: none;
-  --dark-theme-icon-display: none;
-  --system-theme-icon-display: block;
+	--light-theme-icon-display: none;
+	--dark-theme-icon-display: none;
+	--system-theme-icon-display: block;
 }

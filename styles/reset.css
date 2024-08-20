@@ -1,41 +1,41 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  position: relative;
-  min-width: 0;
-  margin: 0;
+	box-sizing: border-box;
+	position: relative;
+	min-width: 0;
+	margin: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-  min-width: 320px;
-  min-height: 100dvh;
-  color: var(--gray-12);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	min-width: 320px;
+	min-height: 100dvh;
+	color: var(--gray-12);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  text-wrap: stable;
+	text-wrap: stable;
 }
 
 p {
-  text-wrap: pretty;
+	text-wrap: pretty;
 }
 
 pre {
-  margin: 0;
+	margin: 0;
 }
 
 svg {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: visible;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: visible;
 }

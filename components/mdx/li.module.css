@@ -1,6 +1,6 @@
 .ListItem {
-  .ListItem {
-    margin-top: var(--space-1);
-    margin-bottom: 0;
-  }
+	.ListItem {
+		margin-top: var(--space-1);
+		margin-bottom: 0;
+	}
 }
