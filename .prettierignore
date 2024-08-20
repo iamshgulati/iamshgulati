@@ -39,6 +39,9 @@ yarn-error.log*
 # idea files
 .idea
 
+# Files
+pnpm-lock.yaml
+
 # Formatted by Biome
 **/*.json
 **/*.js
