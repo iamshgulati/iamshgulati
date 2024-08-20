@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/workflows/setup
 
       - name: Typecheck
-        run: pnpm run check
+        run: pnpm run typecheck
 
   lint:
     # if: false

@@ -6,17 +6,17 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev & pnpm watch",
+		"watch": "jiti ./scripts/watcher.ts",
 		"build": "next build",
 		"start": "next start",
-		"analyze": "ANALYZE=true next build",
-		"check": "tsc --noEmit",
+		"preview": "pnpm dlx serve@latest out",
+		"deploy": "gh-pages --dist out --nojekyll",
+		"typecheck": "tsc --noEmit",
 		"lint": "biome lint .",
 		"lint:fix": "biome lint . --write",
 		"format": "biome check .",
 		"format:fix": "biome check . --write",
-		"preview": "pnpm dlx serve@latest out",
-		"deploy": "gh-pages --dist out --nojekyll",
-		"watch": "jiti ./scripts/watcher.ts",
+		"analyze": "ANALYZE=true next build",
 		"clean": "git clean -xdf node_modules dist out .next"
 	},
 	"dependencies": {
