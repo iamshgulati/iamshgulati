@@ -13,7 +13,6 @@ import { Layout } from "~/components/layout";
 import { ScreenSizeIndicator } from "~/components/screen-size-indicator";
 import { siteConfig } from "~/config/site";
 import { env } from "~/env";
-import { fonts } from "~/fonts";
 import { ogImageApi } from "~/lib/api";
 import { dynamicRoutes, staticRoutes } from "~/lib/routes";
 import { getBaseUrl } from "~/lib/url";
@@ -53,7 +52,9 @@ export default function RootLayout({
 }: React.PropsWithChildren): React.JSX.Element {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={fonts}>
+			<body
+			// className={fonts}
+			>
 				<Providers>
 					<Layout.Root>
 						<Layout.Header>
