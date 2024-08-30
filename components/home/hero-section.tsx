@@ -17,8 +17,8 @@ export const HeroSection = (): React.JSX.Element => (
 		</Box>
 		<Box className={styles.HeroPastExperienceContainer}>
 			<StyledText>
-				Senior Software Engineer and Certified Cloud Architect. Past – Senior Technology Consultant
-				@ Deloitte Consulting.
+				Software Engineer and Certified Cloud Architect. Past – Senior Consultant @ Deloitte
+				Consulting.
 			</StyledText>
 		</Box>
 		<Box className={styles.HeroCurrentlyContainer}>
