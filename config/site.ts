@@ -29,7 +29,7 @@ export const siteConfig: SiteConfig = {
 		linkedin: "https://www.linkedin.com/in/iamshgulati",
 		github: "https://github.com/iamshgulati",
 		twitter: "https://twitter.com/iamshgulati",
-		bluesky: "https://bsky.app/about/iamshgulati.bsky.social",
+		bluesky: "https://bsky.app/profile/iamshgulati.bsky.social",
 		mastodon: "https://mastodon.social/@iamshgulati",
 	},
 	handles: {
