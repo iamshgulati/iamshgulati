@@ -23,14 +23,18 @@ export const HeroSection = (): React.JSX.Element => (
 		</Box>
 		<Box className={styles.HeroCurrentlyContainer}>
 			<StyledText>
-				I love tinkering with code. And, currently I am{" "}
-				<Text color="gray">
-					<s>
-						learning the craft of designing high-performance cloud architectures and minimalistic
-						front-end interfaces
-					</s>
-				</Text>{" "}
-				<Text>just trying to figure out what do I want to do with my life.</Text>
+				I have been told that I would make a great addition to any software development team.
+			</StyledText>
+			<StyledText mt={{ initial: "3", md: "4" }}>
+				Don't trust me?{" "}
+				<a
+					href={`${siteConfig.links.linkedin}/details/recommendations/`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					Read for yourself
+				</a>
+				.
 			</StyledText>
 		</Box>
 		<Box className={styles.HeroCTADescription}>
@@ -41,7 +45,7 @@ export const HeroSection = (): React.JSX.Element => (
 		</Box>
 		<Flex
 			gap={{ initial: "3", xs: "5" }}
-			mt="2"
+			mt="1"
 			className={styles.HeroCTAButtonsContainer}
 			style={{
 				textAlign: "center",
@@ -87,6 +91,6 @@ const HeroHeading = ({
 	/>
 );
 
-const StyledText = ({ ...props }: React.PropsWithChildren) => (
+const StyledText = ({ ...props }: React.ComponentPropsWithoutRef<typeof Text>) => (
 	<Text as="p" size={{ initial: "3", xs: "4", sm: "5" }} {...props} />
 );
