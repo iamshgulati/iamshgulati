@@ -20,6 +20,7 @@ export const BlogSection = (): React.JSX.Element => (
 					title={page.title}
 					description={page.description}
 					publishedAt={page.publishedAt}
+					pinned={page.pinned}
 				/>
 			))}
 		</Flex>

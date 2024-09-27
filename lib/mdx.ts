@@ -13,7 +13,7 @@ export const frontmatters = async ({
 	const mdxFilePathPattern = `${ROOT_DIR}/public/${contentDir}/**/*.mdx`;
 	const mdxFilePaths = await glob(mdxFilePathPattern);
 
-	const frontmatters: Frontmatter[] = await Promise.all(
+	const allFrontmatters: Frontmatter[] = await Promise.all(
 		mdxFilePaths.map(async (mdxFilePath) => {
 			const slug = mdxFilePath
 				.replace("public", "")
@@ -31,14 +31,19 @@ export const frontmatters = async ({
 		}),
 	);
 
-	const publishedFrontmatters = frontmatters.filter(
-		(frontmatter: Frontmatter) => !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
-	);
+	const filteredAndSortedFrontmatters = allFrontmatters
+		.filter(
+			(frontmatter: Frontmatter) => !frontmatter.slug.split("/").some((s) => s.startsWith("_")),
+		)
+		.sort((a: Frontmatter, b: Frontmatter) => {
+			if (a.pinned && !b.pinned) return -1;
+			if (!a.pinned && b.pinned) return 1;
 
-	const sortedFrontmatters = publishedFrontmatters.sort(
-		(a: Frontmatter, b: Frontmatter) =>
-			Number(new Date(b.publishedAt ?? new Date())) - Number(new Date(a.publishedAt ?? new Date())),
-	);
+			return (
+				Number(new Date(b.publishedAt ?? new Date())) -
+				Number(new Date(a.publishedAt ?? new Date()))
+			);
+		});
 
-	return sortedFrontmatters;
+	return filteredAndSortedFrontmatters;
 };

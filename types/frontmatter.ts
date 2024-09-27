@@ -9,6 +9,7 @@ export type Frontmatter = {
 	tags?: string[];
 	image?: string;
 	type?: "website" | "article";
+	pinned?: boolean;
 	disabled?: boolean;
 	icon?: keyof typeof Icons;
 	sourceCodeLink?: string;

@@ -7,14 +7,15 @@ import { Img } from "./mdx/img";
 import { PageMetaText } from "./page-meta-text";
 
 type PagePreviewCardProps = React.ComponentPropsWithoutRef<typeof Card> &
-	Pick<Frontmatter, "slug" | "title" | "description" | "publishedAt" | "image">;
+	Pick<Frontmatter, "slug" | "title" | "description" | "publishedAt" | "image" | "pinned">;
 
 export const PagePreviewCard = ({
 	slug,
 	title,
-	description,
-	publishedAt,
-	image,
+	description = undefined,
+	publishedAt = undefined,
+	image = undefined,
+	pinned = false,
 	variant = "surface",
 	...props
 }: PagePreviewCardProps): React.JSX.Element => (
@@ -45,12 +46,22 @@ export const PagePreviewCard = ({
 						</Skeleton>
 					</Inset>
 					<Flex justify="between" direction="column" height="100%">
-						<PagePreview title={title} description={description} publishedAt={publishedAt} />
+						<PagePreview
+							title={title}
+							description={description}
+							publishedAt={publishedAt}
+							pinned={pinned}
+						/>
 					</Flex>
 				</Grid>
 			) : (
 				<Flex justify="between" direction="column" height="100%">
-					<PagePreview title={title} description={description} publishedAt={publishedAt} />
+					<PagePreview
+						title={title}
+						description={description}
+						publishedAt={publishedAt}
+						pinned={pinned}
+					/>
 				</Flex>
 			)}
 		</NextLink>
@@ -59,12 +70,13 @@ export const PagePreviewCard = ({
 
 const PagePreview = ({
 	title,
-	description,
-	publishedAt,
-}: Pick<Frontmatter, "title" | "description" | "publishedAt">): React.JSX.Element => (
+	description = undefined,
+	publishedAt = undefined,
+	pinned = false,
+}: Pick<Frontmatter, "title" | "description" | "publishedAt" | "pinned">): React.JSX.Element => (
 	<React.Fragment>
-		<Box position="absolute">
-			<PageMetaText size="2" publishedAt={publishedAt} />
+		<Box position="absolute" width="100%">
+			<PageMetaText size="2" publishedAt={publishedAt} pinned={pinned} />
 		</Box>
 		<Box my="7">
 			<Heading size={{ initial: "5", sm: "6" }} mb="2">

@@ -58,6 +58,7 @@ export default function BlogPage(): React.JSX.Element {
 							title={page.title}
 							description={page.description}
 							publishedAt={page.publishedAt}
+							pinned={page.pinned}
 						/>
 					))}
 				</Grid>
