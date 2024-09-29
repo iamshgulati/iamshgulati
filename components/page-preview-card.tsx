@@ -86,8 +86,13 @@ const PagePreview = ({
 				{description}
 			</Text>
 		</Box>
-		<Link asChild>
-			<Text size="2">Read more →</Text>
+		<Link>
+			<Flex align="center" gap="2">
+				<Text size="2">Read more</Text>
+				<Text size="2" trim="both">
+					→
+				</Text>
+			</Flex>
 		</Link>
 	</React.Fragment>
 );
