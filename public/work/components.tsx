@@ -39,8 +39,8 @@ export const ResumeButton = () => (
 			}}
 		>
 			<a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-				<ArrowTopRightIcon width="18" height="18" aria-hidden />
 				<Text>RESUME</Text>
+				<ArrowTopRightIcon width="18" height="18" aria-hidden />
 			</a>
 		</Button>
 	</Flex>
