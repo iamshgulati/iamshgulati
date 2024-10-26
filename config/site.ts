@@ -21,7 +21,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
 	title: "Shubham Gulati",
-	description: "Software Engineer & Certified Cloud Architect.",
+	description: "Software Engineer & Full-stack Developer.",
 	url: "https://shubhamgulati.com",
 	locale: "en_US",
 	links: {
