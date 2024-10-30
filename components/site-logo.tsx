@@ -19,7 +19,7 @@ export const SiteLogo = ({ ...props }: React.ComponentPropsWithoutRef<Icon>): Re
 	return (
 		<Flex align="center" gap="2">
 			<YinYangIcon width="22" height="22" {...props} />
-			<Text trim="both" style={{ fontSize: "18px", fontWeight: "650", letterSpacing: "0.01em" }}>
+			<Text style={{ fontSize: "18px", fontWeight: "650", letterSpacing: "0.01em" }}>
 				{siteConfig.title}
 			</Text>
 		</Flex>
