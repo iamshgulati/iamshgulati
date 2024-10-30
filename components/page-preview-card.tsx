@@ -86,7 +86,7 @@ const PagePreview = ({
 				{description}
 			</Text>
 		</Box>
-		<Link>
+		<Link asChild>
 			<Flex align="center" gap="2">
 				<Text size="2">Read more</Text>
 				<Text size="2" trim="both">
