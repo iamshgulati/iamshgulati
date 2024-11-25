@@ -1,9 +1,10 @@
-import { ArrowRightIcon, ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, Grid, Heading, Text } from "@radix-ui/themes";
 import type React from "react";
 
 import { siteConfig } from "~/config/site";
 import { NextLink } from "~/lib/link";
+import { Icons } from "../icons";
 import styles from "./hero-section.module.css";
 
 export const HeroSection = (): React.JSX.Element => (
@@ -57,16 +58,16 @@ export const HeroSection = (): React.JSX.Element => (
 					flexGrow: 1,
 				}}
 			>
+				<a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
+					<Icons.LinkedInLogoIcon width="18" height="18" aria-hidden />
+					<Text style={{ textDecorationLine: "none" }}>LINKEDIN</Text>
+				</a>
+			</Button>
+			<Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
 				<NextLink href="/work">
 					<Text>WORK</Text>
 					<ArrowRightIcon width="18" height="18" aria-hidden />
 				</NextLink>
-			</Button>
-			<Button asChild size="3" variant="soft" style={{ flexGrow: 1 }}>
-				<a href={siteConfig.links.resume} target="_blank" rel="noreferrer">
-					<Text style={{ textDecorationLine: "none" }}>RESUME</Text>
-					<ArrowTopRightIcon width="18" height="18" aria-hidden />
-				</a>
 			</Button>
 		</Flex>
 	</Grid>
