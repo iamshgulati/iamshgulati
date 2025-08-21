@@ -13,7 +13,7 @@ export type StaticRoutes = Record<
 	| "mainNavLinks"
 	| "home"
 	| "about"
-	| "contact"
+	// | "contact"
 	| "credits"
 	| "privacy"
 	| "private"
@@ -57,10 +57,10 @@ export const staticRoutes: StaticRoutes = {
 		slug: "/blog",
 	},
 
-	contact: {
-		label: "Contact",
-		slug: "/contact",
-	},
+	// contact: {
+	// 	label: "Contact",
+	// 	slug: "/contact",
+	// },
 
 	credits: {
 		label: "Credits",
